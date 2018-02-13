@@ -223,6 +223,13 @@ namespace WindowsFormsApplication
             deleteForm.Show();
 
         }
+             
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Send_mail send_mail = new Send_mail();
+            send_mail.Show();
+        }
     } 
 }
 

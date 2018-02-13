@@ -126,6 +126,12 @@
     <Compile Include="BLL.cs" />
     <Compile Include="DAL_GET.cs" />
     <Compile Include="DAL_SET.cs" />
+    <Compile Include="Send_mail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Send_mail.Designer.cs">
+      <DependentUpon>Send_mail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Settings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -173,6 +179,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Send_mail.resx">
+      <DependentUpon>Send_mail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SetDataBase.resx">
       <DependentUpon>SetDataBase.cs</DependentUpon>
     </EmbeddedResource>
@@ -266,6 +275,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\LOG2.old.BMP" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\if_mail-letter-offer_2931172.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
