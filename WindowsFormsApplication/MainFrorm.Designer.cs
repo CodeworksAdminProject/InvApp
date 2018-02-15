@@ -44,14 +44,14 @@
             this.button_PC = new System.Windows.Forms.Button();
             this.button_Room = new System.Windows.Forms.Button();
             this.groupBox_DATA = new System.Windows.Forms.GroupBox();
-            this.dataGridViewMT = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.PRINT_LABELS = new System.Windows.Forms.Button();
             this.PRINT_LABEL_ALL = new System.Windows.Forms.Button();
             this.groupBox_Set_Data = new System.Windows.Forms.GroupBox();
             this.button_Repair = new System.Windows.Forms.Button();
-            this.button_Delete = new System.Windows.Forms.Button();
             this.button_New_data = new System.Windows.Forms.Button();
+            this.button_Delete = new System.Windows.Forms.Button();
+            this.button_deleteDataBase = new System.Windows.Forms.Button();
             this.button_Update = new System.Windows.Forms.Button();
             this.roomBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -61,6 +61,7 @@
             this.File_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Settings_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Info_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_sentDef = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button_PartHtmlReport = new System.Windows.Forms.Button();
@@ -69,11 +70,13 @@
             this.groupBox_1С = new System.Windows.Forms.GroupBox();
             this.groupBox_MegaFiltr = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.button_deleteDataBase = new System.Windows.Forms.Button();
-            this.toolStripMenuItem_sentDef = new System.Windows.Forms.ToolStripMenuItem();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.dataGridViewMT = new System.Windows.Forms.DataGridView();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.grubBoxUnloading.SuspendLayout();
             this.groupBox_DATA.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMT)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox_Set_Data.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.roomBindingSource)).BeginInit();
@@ -82,6 +85,14 @@
             this.groupBox2.SuspendLayout();
             this.groupBox_1С.SuspendLayout();
             this.groupBox_MegaFiltr.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMT)).BeginInit();
+            this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // grubBoxUnloading
@@ -242,28 +253,14 @@
             this.groupBox_DATA.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox_DATA.Controls.Add(this.dataGridViewMT);
+            this.groupBox_DATA.Controls.Add(this.splitContainer1);
             this.groupBox_DATA.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBox_DATA.Location = new System.Drawing.Point(8, 220);
             this.groupBox_DATA.Name = "groupBox_DATA";
-            this.groupBox_DATA.Size = new System.Drawing.Size(1173, 349);
+            this.groupBox_DATA.Size = new System.Drawing.Size(1426, 349);
             this.groupBox_DATA.TabIndex = 1;
             this.groupBox_DATA.TabStop = false;
             this.groupBox_DATA.Text = "Данные  по вашему запросу";
-            // 
-            // dataGridViewMT
-            // 
-            this.dataGridViewMT.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewMT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewMT.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewMT.GridColor = System.Drawing.SystemColors.ControlText;
-            this.dataGridViewMT.Location = new System.Drawing.Point(3, 22);
-            this.dataGridViewMT.Name = "dataGridViewMT";
-            this.dataGridViewMT.RowTemplate.DividerHeight = 2;
-            this.dataGridViewMT.RowTemplate.Height = 25;
-            this.dataGridViewMT.Size = new System.Drawing.Size(1167, 324);
-            this.dataGridViewMT.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.dataGridViewMT, "частичные отчеты ");
             // 
             // groupBox3
             // 
@@ -275,7 +272,7 @@
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBox3.Location = new System.Drawing.Point(1091, 33);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(87, 181);
+            this.groupBox3.Size = new System.Drawing.Size(340, 181);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Печать";
@@ -333,19 +330,6 @@
             this.toolTip1.SetToolTip(this.button_Repair, "Отправить в ремонт ");
             this.button_Repair.UseVisualStyleBackColor = true;
             // 
-            // button_Delete
-            // 
-            this.button_Delete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_Delete.BackgroundImage")));
-            this.button_Delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_Delete.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_Delete.Location = new System.Drawing.Point(76, 22);
-            this.button_Delete.Name = "button_Delete";
-            this.button_Delete.Size = new System.Drawing.Size(64, 64);
-            this.button_Delete.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.button_Delete, "Списать ");
-            this.button_Delete.UseVisualStyleBackColor = true;
-            this.button_Delete.Click += new System.EventHandler(this.button_Delete_Click);
-            // 
             // button_New_data
             // 
             this.button_New_data.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_New_data.BackgroundImage")));
@@ -360,6 +344,34 @@
             this.toolTip1.SetToolTip(this.button_New_data, "Добавить новую  позицию");
             this.button_New_data.UseVisualStyleBackColor = true;
             this.button_New_data.Click += new System.EventHandler(this.button_New_data_Click);
+            // 
+            // button_Delete
+            // 
+            this.button_Delete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_Delete.BackgroundImage")));
+            this.button_Delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_Delete.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_Delete.Location = new System.Drawing.Point(76, 22);
+            this.button_Delete.Name = "button_Delete";
+            this.button_Delete.Size = new System.Drawing.Size(64, 64);
+            this.button_Delete.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.button_Delete, "Списать ");
+            this.button_Delete.UseVisualStyleBackColor = true;
+            this.button_Delete.Click += new System.EventHandler(this.button_Delete_Click);
+            // 
+            // button_deleteDataBase
+            // 
+            this.button_deleteDataBase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_deleteDataBase.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_deleteDataBase.BackgroundImage")));
+            this.button_deleteDataBase.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button_deleteDataBase.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_deleteDataBase.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_deleteDataBase.Location = new System.Drawing.Point(76, 92);
+            this.button_deleteDataBase.Name = "button_deleteDataBase";
+            this.button_deleteDataBase.Size = new System.Drawing.Size(64, 64);
+            this.button_deleteDataBase.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.button_deleteDataBase, "Удалить из базы");
+            this.button_deleteDataBase.UseVisualStyleBackColor = true;
+            this.button_deleteDataBase.Click += new System.EventHandler(this.button_Update_Click);
             // 
             // button_Update
             // 
@@ -427,7 +439,7 @@
             this.toolStripMenuItem_sentDef});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1181, 38);
+            this.menuStrip1.Size = new System.Drawing.Size(1434, 38);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -461,6 +473,17 @@
             this.Info_ToolStripMenuItem.Text = "   О программе ";
             this.Info_ToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Info_ToolStripMenuItem.Click += new System.EventHandler(this.Info_ToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem_sentDef
+            // 
+            this.toolStripMenuItem_sentDef.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem_sentDef.BackgroundImage")));
+            this.toolStripMenuItem_sentDef.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.toolStripMenuItem_sentDef.Font = new System.Drawing.Font("Segoe UI", 16F);
+            this.toolStripMenuItem_sentDef.Name = "toolStripMenuItem_sentDef";
+            this.toolStripMenuItem_sentDef.Size = new System.Drawing.Size(201, 34);
+            this.toolStripMenuItem_sentDef.Text = "   Обратная связь";
+            this.toolStripMenuItem_sentDef.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolStripMenuItem_sentDef.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // toolTip1
             // 
@@ -551,37 +574,79 @@
             this.button2.TabIndex = 1;
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button_deleteDataBase
+            // splitContainer1
             // 
-            this.button_deleteDataBase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_deleteDataBase.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_deleteDataBase.BackgroundImage")));
-            this.button_deleteDataBase.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button_deleteDataBase.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_deleteDataBase.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_deleteDataBase.Location = new System.Drawing.Point(76, 92);
-            this.button_deleteDataBase.Name = "button_deleteDataBase";
-            this.button_deleteDataBase.Size = new System.Drawing.Size(64, 64);
-            this.button_deleteDataBase.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.button_deleteDataBase, "Удалить из базы");
-            this.button_deleteDataBase.UseVisualStyleBackColor = true;
-            this.button_deleteDataBase.Click += new System.EventHandler(this.button_Update_Click);
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(3, 22);
+            this.splitContainer1.Name = "splitContainer1";
             // 
-            // toolStripMenuItem_sentDef
+            // splitContainer1.Panel1
             // 
-            this.toolStripMenuItem_sentDef.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem_sentDef.BackgroundImage")));
-            this.toolStripMenuItem_sentDef.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.toolStripMenuItem_sentDef.Font = new System.Drawing.Font("Segoe UI", 16F);
-            this.toolStripMenuItem_sentDef.Name = "toolStripMenuItem_sentDef";
-            this.toolStripMenuItem_sentDef.Size = new System.Drawing.Size(201, 34);
-            this.toolStripMenuItem_sentDef.Text = "   Обратная связь";
-            this.toolStripMenuItem_sentDef.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolStripMenuItem_sentDef.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            this.splitContainer1.Panel1.Controls.Add(this.groupBox4);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.groupBox5);
+            this.splitContainer1.Size = new System.Drawing.Size(1420, 324);
+            this.splitContainer1.SplitterDistance = 927;
+            this.splitContainer1.TabIndex = 0;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.dataGridViewMT);
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox4.Location = new System.Drawing.Point(0, 0);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(927, 324);
+            this.groupBox4.TabIndex = 0;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "groupBox4";
+            // 
+            // dataGridViewMT
+            // 
+            this.dataGridViewMT.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewMT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewMT.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewMT.GridColor = System.Drawing.SystemColors.ControlText;
+            this.dataGridViewMT.Location = new System.Drawing.Point(3, 22);
+            this.dataGridViewMT.Name = "dataGridViewMT";
+            this.dataGridViewMT.RowTemplate.DividerHeight = 2;
+            this.dataGridViewMT.RowTemplate.Height = 25;
+            this.dataGridViewMT.Size = new System.Drawing.Size(921, 299);
+            this.dataGridViewMT.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.dataGridViewMT, "частичные отчеты ");
+            this.dataGridViewMT.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewMT_CellEnter);
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.dataGridView1);
+            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox5.Location = new System.Drawing.Point(0, 0);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(489, 324);
+            this.groupBox5.TabIndex = 0;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "groupBox5";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.GridColor = System.Drawing.SystemColors.ControlText;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 22);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.DividerHeight = 2;
+            this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.Size = new System.Drawing.Size(483, 299);
+            this.dataGridView1.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.dataGridView1, "частичные отчеты ");
             // 
             // MainFrorm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1181, 568);
+            this.ClientSize = new System.Drawing.Size(1434, 568);
             this.Controls.Add(this.groupBox_Set_Data);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -599,7 +664,6 @@
             this.grubBoxUnloading.ResumeLayout(false);
             this.grubBoxUnloading.PerformLayout();
             this.groupBox_DATA.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMT)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox_Set_Data.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.roomBindingSource)).EndInit();
@@ -609,6 +673,14 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox_1С.ResumeLayout(false);
             this.groupBox_MegaFiltr.ResumeLayout(false);
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMT)).EndInit();
+            this.groupBox5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -622,7 +694,6 @@
         private System.Windows.Forms.Button button_PC;
         private System.Windows.Forms.Button button_Room;
         private System.Windows.Forms.GroupBox groupBox_DATA;
-        private System.Windows.Forms.DataGridView dataGridViewMT;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button PRINT_LABEL_ALL;
         private System.Windows.Forms.BindingSource roomBindingSource;
@@ -657,6 +728,11 @@
         private System.Windows.Forms.GroupBox groupBox_MegaFiltr;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_sentDef;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.DataGridView dataGridViewMT;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 

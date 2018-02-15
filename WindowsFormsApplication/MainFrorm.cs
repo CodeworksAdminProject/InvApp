@@ -230,6 +230,18 @@ namespace WindowsFormsApplication
             Send_mail send_mail = new Send_mail();
             send_mail.Show();
         }
+
+        private void dataGridViewMT_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString() = "Системный блок")
+            {
+                dataGridView1.DataSource = dal.getHardWare(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+                if (dataGridView1.DataSource != null)
+                    dataGridView1.Columns["ID"].Visible = false;
+
+            }
+            else { dataGridView1.DataSource = null; }
+        }
     } 
 }
 

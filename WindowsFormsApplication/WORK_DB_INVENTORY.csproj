@@ -24,10 +24,10 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>\\mn-cdw-nas\admin_shara\publish\</UpdateUrl>
-    <ProductName>invCodeworks</ProductName>
+    <ProductName>invTolyatti</ProductName>
     <PublisherName>Zimburavi©</PublisherName>
-    <ApplicationRevision>18</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>0.1.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -72,11 +72,10 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>DAC9B280B5C11DCE9A96BE296AFA4D1632CA186D</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>6F93BDC5D965351A478BF5F2216AED84EFB8859D</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>
-    </ManifestKeyFile>
+    <ManifestKeyFile>WORK_DB_INVENTORY_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -204,6 +203,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="Resources\TSCLIB.lib" />
+    <None Include="WORK_DB_INVENTORY_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -20,7 +20,7 @@
       <Value Profile="(Default)">to_cdw@codeworks.by</Value>
     </Setting>
     <Setting Name="ImgPath" Type="System.String" Scope="User">
-      <Value Profile="(Default)">D:\Распечатка наклеек\LOG2.BMP</Value>
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>
