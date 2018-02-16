@@ -22,7 +22,9 @@ namespace WindowsFormsApplication
             textBox_SqlPort.Text = Properties.Settings.Default.SqlPort;
             textBox_Mail.Text = Properties.Settings.Default.Email;
             textBox_LogatipPath.Text = Properties.Settings.Default.ImgPath;
-            pictureBox_Image.Image = Image.FromFile(Properties.Settings.Default.ImgPath);
+
+            if (Properties.Settings.Default.ImgPath != "")
+                pictureBox_Image.Image = Image.FromFile(Properties.Settings.Default.ImgPath);
             
         }
 

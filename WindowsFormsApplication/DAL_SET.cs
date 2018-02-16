@@ -16,7 +16,7 @@ namespace WindowsFormsApplication
 
 
         String sConectDB = @"server=tcp:" + Properties.Settings.Default.SqlServer + "," +
-            Properties.Settings.Default.SqlPort + "; Database=inv; Integrated Security=true;";
+            Properties.Settings.Default.SqlPort + "; Database=TolyattiDB; Integrated Security=true;";
 
 
         public void SetNewPosition(string TypeAccount, string TypeDevice, string Model,

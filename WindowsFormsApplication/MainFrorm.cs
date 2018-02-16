@@ -233,9 +233,9 @@ namespace WindowsFormsApplication
 
         private void dataGridViewMT_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString() = "Системный блок")
+            if (dataGridViewMT.Rows[e.RowIndex].Cells[7].Value.ToString() == "Системный блок")
             {
-                dataGridView1.DataSource = dal.getHardWare(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+                dataGridView1.DataSource = dal.GetHardWare(dataGridViewMT.Rows[e.RowIndex].Cells[0].Value.ToString());
                 if (dataGridView1.DataSource != null)
                     dataGridView1.Columns["ID"].Visible = false;
 

@@ -16,7 +16,7 @@ namespace WindowsFormsApplication
     class DAL_GET
     {
         String sConectDB = @"server=tcp:" +Properties.Settings.Default.SqlServer+"," + 
-            Properties.Settings.Default.SqlPort +"; Database=inv; Integrated Security=true;";
+            Properties.Settings.Default.SqlPort + "; Database=TolyattiDB; Integrated Security=true;";
 
         public ArrayList GetDataRoom()
         {
@@ -555,12 +555,9 @@ namespace WindowsFormsApplication
         {
             ArrayList DataGrid = new ArrayList();
             SqlConnection connect = new SqlConnection(sConectDB);
-            SqlCommand command = new SqlCommand(@"select maintb.ID, maintb.dateCreated, maintb.NumberINV, NameLAN.NameLAN, NameRes.NameRes, " +
-                @"[Floor].floorNambe, Room.NameRoom, TypeDevice.NameDevice, maintb.SN, MainTB.Model from MainTB " +
-                @"join [Floor] on maintb.Floor_ID = [Floor].ID join room on maintb.Room_ID =  Room.ID " +
-                @"join TypeDevice on maintb.TypeDevice_ID = TypeDevice.ID join NameLAN on maintb.NameLAN_ID = NameLAN.ID " +
-                @"join NameRes on maintb.NameRes_ID =  NameRes.ID " +
-                       @"where Room.NameRoom = '" + ID + @"' AND [WrittenOff] = 'False';", connect);
+            SqlCommand command = new SqlCommand(@"SELECT [dbo].[HardWare].[ID], TypeHardWare.TypeHardWare, HardWare.Model, HardWare.SN " +
+                @"from HardWare  join TypeHardWare on HardWare.TypeHardWare_ID = TypeHardWare.ID " +
+                @"Where HardWare.MainTB_ID = " + ID + @" AND HardWare.WrittenOff = 'False';", connect);
 
             try
             {
