@@ -21,6 +21,7 @@ namespace WindowsFormsApplication
         DAL_GET dal = new DAL_GET();
         BLL bll = new BLL();
         SMTP_CLIENT smttp = new SMTP_CLIENT();
+        public static string index;
 
         public MainFrorm()
         {
@@ -231,16 +232,28 @@ namespace WindowsFormsApplication
             send_mail.Show();
         }
 
-        private void dataGridViewMT_CellEnter(object sender, DataGridViewCellEventArgs e)
+        private void dataGridViewPC_Name_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridViewMT.Rows[e.RowIndex].Cells[7].Value.ToString() == "Системный блок")
+
+        }
+
+        private void dataGridViewPC_Name_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+
+            
+        }
+
+        private void dataGridViewMT_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(dataGridViewMT.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Системный блок")
             {
-                dataGridView1.DataSource = dal.GetHardWare(dataGridViewMT.Rows[e.RowIndex].Cells[0].Value.ToString());
-                if (dataGridView1.DataSource != null)
-                    dataGridView1.Columns["ID"].Visible = false;
+                               
+                MainFrorm.index = dataGridViewMT.Rows[e.RowIndex].Cells[0].Value.ToString();
+
+                HardWare hardWare = new HardWare();
+                hardWare.ShowDialog();
 
             }
-            else { dataGridView1.DataSource = null; }
         }
     } 
 }
