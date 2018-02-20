@@ -24,6 +24,7 @@ namespace WindowsFormsApplication
         {
             ArrayList DataGrid = new ArrayList();
             SqlConnection connect = new SqlConnection(sConectDB);
+            // переработать  20-21
             SqlCommand command = new SqlCommand(@"if (select MainTB.NumberINV from MainTB where MainTB.NumberINV = '" + InvNumber + @"') IS NULL " +
                 @" begin INSERT INTO dbo.MainTB (dateCreated, TypeAC_ID, NumberINV, NameLAN_ID, " +
                 @"NameRes_ID, Floor_ID, Room_ID, TypeDevice_ID, SN, Model, [WrittenOff]) VALUES(GETDATE(), " + 
@@ -78,15 +79,14 @@ namespace WindowsFormsApplication
             
         }
 
-        public void SetChangeData(string ColumnMT, string Parametr, string ID, string SN, string Model)
+        public void SetChangeData(string ColumnMT, string Parametr, string ID)
         {
 
            
             using (SqlConnection connect = new SqlConnection(sConectDB))
             {
                 SqlCommand command = new SqlCommand("Update  dbo.MainTB SET " + ColumnMT + " = " + Parametr + 
-                    "  Where dbo.MainTB.ID ='" + ID + "' and dbo.MainTB.SN = '"+SN+ "' and dbo.MainTB.Model = '"+
-                    Model +"';", connect);
+                    "  Where dbo.MainTB.ID ='" + ID + "';", connect);
 
                 try
                 {
@@ -108,13 +108,37 @@ namespace WindowsFormsApplication
            
         }
 
-        public void Delete(string ID)
+        public void WrittenOff(string ID)
         {
             ArrayList DataGrid = new ArrayList();
             using (SqlConnection connect = new SqlConnection(sConectDB))
             {
                 SqlCommand command = new SqlCommand("Update  dbo.MainTB SET  [WrittenOff] = 1 " +
                     "WHERE dbo.MainTB.ID = '"+ ID +"' ;", connect);
+                try
+                {
+
+                    connect.Open();
+
+                    command.ExecuteNonQuery();
+                }
+
+                catch (SqlException exception)
+                {
+                    MessageBox.Show(exception.ToString());
+                }
+
+                connect.Close();
+            }
+        }
+
+        public void Delete (string ID)
+        {
+            ArrayList DataGrid = new ArrayList();
+            using (SqlConnection connect = new SqlConnection(sConectDB))
+            {
+                SqlCommand command = new SqlCommand("Delete  dbo.MainTB " +
+                    "WHERE dbo.MainTB.ID = '" + ID + "' ;", connect);
                 try
                 {
 

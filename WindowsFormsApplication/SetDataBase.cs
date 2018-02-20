@@ -171,7 +171,7 @@ namespace WindowsFormsApplication
                 if (row.Selected == true)
                 {
                     dalSet.SetChangeData("TypeAC_ID",  bll.Get_ID("TypeAC", "TypeAC", comboBox_TypeAccount.SelectedValue.ToString()).ToString(),
-                        row.Cells[0].Value.ToString(), row.Cells[8].Value.ToString(), row.Cells[9].Value.ToString());
+                        row.Cells[0].Value.ToString());
                 }
             }
 
@@ -191,7 +191,7 @@ namespace WindowsFormsApplication
                 if (row.Selected == true)
                 {
                     dalSet.SetChangeData("NameLAN_ID",  bll.Get_ID("NameLAN", "NameLAN", comboBox_LanName.SelectedValue.ToString()).ToString(),
-                        row.Cells[0].Value.ToString(), row.Cells[8].Value.ToString(), row.Cells[9].Value.ToString());
+                        row.Cells[0].Value.ToString());
                 }
             }
 
@@ -209,7 +209,7 @@ namespace WindowsFormsApplication
                 if (row.Selected == true)
                 {
                     dalSet.SetChangeData("NameRes_ID", bll.Get_ID("NameRes", "NameRes", comboBox_Responsible.SelectedValue.ToString()).ToString(),
-                        row.Cells[0].Value.ToString(), row.Cells[8].Value.ToString(), row.Cells[9].Value.ToString());
+                        row.Cells[0].Value.ToString());
                 }
             }
 
@@ -227,7 +227,7 @@ namespace WindowsFormsApplication
                 if (row.Selected == true)
                 {
                     dalSet.SetChangeData("Floor_ID", bll.Get_ID("Floor", "floorNambe", comboBox_Floor.SelectedValue.ToString()).ToString(),
-                       row.Cells[0].Value.ToString(), row.Cells[8].Value.ToString(), row.Cells[9].Value.ToString());
+                       row.Cells[0].Value.ToString());
                 }
             }
 
@@ -245,7 +245,7 @@ namespace WindowsFormsApplication
                 if (row.Selected == true)
                 {
                     dalSet.SetChangeData("Room_ID",  bll.Get_ID("Room", "NameRoom", comboBox_Room.SelectedValue.ToString()).ToString(),
-                       row.Cells[0].Value.ToString(), row.Cells[8].Value.ToString(), row.Cells[9].Value.ToString());
+                       row.Cells[0].Value.ToString());
                 }
             }
 
@@ -267,7 +267,7 @@ namespace WindowsFormsApplication
                     if (row.Selected == true)
                     {
                         dalSet.SetChangeData("TypeAC_ID",  bll.Get_ID("TypeAC", "TypeAC", textBox_TypeAccount.Text).ToString(),
-                            row.Cells[0].Value.ToString(), row.Cells[8].Value.ToString(), row.Cells[9].Value.ToString());
+                            row.Cells[0].Value.ToString());
                     }
                 }
 
@@ -289,7 +289,7 @@ namespace WindowsFormsApplication
                     if (row.Selected == true)
                     {
                         dalSet.SetChangeData("NameRes_ID", bll.Get_ID("NameRes", "NameRes", textBox_Responsible.Text).ToString(),
-                            row.Cells[0].Value.ToString(), row.Cells[8].Value.ToString(), row.Cells[9].Value.ToString());
+                            row.Cells[0].Value.ToString());
                     }
                 }
 
@@ -310,7 +310,7 @@ namespace WindowsFormsApplication
                     if (row.Selected == true)
                     {
                         dalSet.SetChangeData("Floor_ID", bll.Get_ID("Floor", "floorNambe", textBox_Floor.Text).ToString(),
-                           row.Cells[0].Value.ToString(), row.Cells[8].Value.ToString(), row.Cells[9].Value.ToString());
+                           row.Cells[0].Value.ToString());
                     }
                 }
 
@@ -331,7 +331,7 @@ namespace WindowsFormsApplication
                     if (row.Selected == true)
                     {
                         dalSet.SetChangeData("Room_ID", bll.Get_ID("Room", "NameRoom", textBox_Room.Text).ToString(),
-                            row.Cells[0].Value.ToString(), row.Cells[8].Value.ToString(), row.Cells[9].Value.ToString());
+                            row.Cells[0].Value.ToString());
                     }
                 }
 
@@ -352,7 +352,7 @@ namespace WindowsFormsApplication
                     if (row.Selected == true)
                     {
                         dalSet.SetChangeData("NameLAN_ID", bll.Get_ID("NameLAN", "NameLAN", textBox_LanName.Text).ToString(),
-                            row.Cells[0].Value.ToString(), row.Cells[8].Value.ToString(), row.Cells[9].Value.ToString());
+                            row.Cells[0].Value.ToString());
                     }
                 }
 
@@ -370,12 +370,13 @@ namespace WindowsFormsApplication
         {
             foreach (DataGridViewRow row in dataGridView1.Rows)
                 bll.Compere(row.Cells[1].Value.ToString(), row.Cells[2].Value.ToString(), row.Cells[3].Value.ToString(),
-                    row.Cells[4].Value.ToString(), row.Cells[5].Value.ToString(), row.Cells[6].Value.ToString());
+                   row.Cells[4].Value.ToString(), row.Cells[5].Value.ToString(), row.Cells[6].Value.ToString());
 
             BLL.Data.Clear();
             BLL.DataOld.Clear();
 
         }
+
     }
 }
 

@@ -61,10 +61,11 @@
             this.checkBox_Floor = new System.Windows.Forms.CheckBox();
             this.comboBox_Room = new System.Windows.Forms.ComboBox();
             this.comboBox_Floor = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button_Cancel = new System.Windows.Forms.Button();
+            this.button_OK = new System.Windows.Forms.Button();
             this.groupBox_TypeAccоunt.SuspendLayout();
             this.groupBox_TypeDevice.SuspendLayout();
             this.groupBox_Model.SuspendLayout();
@@ -72,6 +73,7 @@
             this.groupBox_Responsible.SuspendLayout();
             this.groupBox_LanName.SuspendLayout();
             this.Location.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label_date
@@ -405,28 +407,6 @@
             this.comboBox_Floor.Size = new System.Drawing.Size(108, 28);
             this.comboBox_Floor.TabIndex = 3;
             // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(329, 734);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(201, 45);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Внести в базу ";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button3
-            // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button3.Location = new System.Drawing.Point(12, 734);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(174, 45);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Отмена";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
@@ -438,14 +418,43 @@
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // SetNewData
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.button_Cancel);
+            this.panel1.Controls.Add(this.button_OK);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 734);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(540, 57);
+            this.panel1.TabIndex = 4;
+            // 
+            // button_Cancel
+            // 
+            this.button_Cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_Cancel.Location = new System.Drawing.Point(11, 6);
+            this.button_Cancel.Name = "button_Cancel";
+            this.button_Cancel.Size = new System.Drawing.Size(174, 45);
+            this.button_Cancel.TabIndex = 5;
+            this.button_Cancel.Text = "Отмена";
+            this.button_Cancel.UseVisualStyleBackColor = true;
+            // 
+            // button_OK
+            // 
+            this.button_OK.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_OK.Location = new System.Drawing.Point(328, 6);
+            this.button_OK.Name = "button_OK";
+            this.button_OK.Size = new System.Drawing.Size(201, 45);
+            this.button_OK.TabIndex = 6;
+            this.button_OK.Text = "Внести в базу ";
+            this.button_OK.UseVisualStyleBackColor = true;
+            // 
+            // SetNewDataBase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
             this.ClientSize = new System.Drawing.Size(540, 791);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox_NuberSN);
             this.Controls.Add(this.Location);
             this.Controls.Add(this.groupBox_LanName);
@@ -456,7 +465,7 @@
             this.Controls.Add(this.textBox_NumberInv);
             this.Controls.Add(this.label_NumberInv);
             this.Controls.Add(this.label_date);
-            this.Name = "SetNewData";
+            this.Name = "SetNewDataBase";
             this.Text = "SetNewDate";
             this.groupBox_TypeAccоunt.ResumeLayout(false);
             this.groupBox_TypeAccоunt.PerformLayout();
@@ -472,6 +481,7 @@
             this.groupBox_LanName.PerformLayout();
             this.Location.ResumeLayout(false);
             this.Location.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -507,13 +517,14 @@
         private System.Windows.Forms.CheckBox checkBox_Floor;
         private System.Windows.Forms.ComboBox comboBox_Room;
         private System.Windows.Forms.ComboBox comboBox_Floor;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox textBox_Model;
         private System.Windows.Forms.TextBox textBox_TypeDevice;
         private System.Windows.Forms.CheckBox checkBox_TypeDevice;
         private System.Windows.Forms.ComboBox comboBox_TypeDevice;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button_Cancel;
+        private System.Windows.Forms.Button button_OK;
     }
 }

@@ -34,6 +34,7 @@ namespace WindowsFormsApplication
             comboBox_Responsible.DataSource = dal.GetDataResponsible();
             comboBox_Responsible.DisplayMember = "NameRes";
             comboBox_Responsible.ValueMember = "NameRes";
+            dataGridViewPC_Name.DataSource = dal.GetDataLanName();
 
             string dir = @".\dll_AND_picture\";
 
@@ -53,7 +54,36 @@ namespace WindowsFormsApplication
             }
             
         }
-               
+
+        private void stilDataGrid()
+        {
+            if (dataGridViewMT.DataSource != null)
+            {
+                dataGridViewMT.Columns["ID"].Visible = false;
+                dataGridViewMT.Columns["floorNambe"].Visible = false;
+
+
+                dataGridViewMT.EnableHeadersVisualStyles = false;
+                dataGridViewMT.ColumnHeadersDefaultCellStyle.Font = new Font(dataGridViewMT.ColumnHeadersDefaultCellStyle.Font.FontFamily, 11f, FontStyle.Bold  | FontStyle.Italic); //жирный курсив размера 16 FontStyle.Italic
+                //dataGridViewTB.ColumnHeadersDefaultCellStyle.BackColor = Color.Yellow; //цвет текста
+                //dataGridViewTB.ColumnHeadersDefaultCellStyle.ForeColor = Color.Red; //цвет ячейки
+                               
+                dataGridViewMT.Columns["dateCreated"].HeaderCell.Value = "Дата:";
+                // dataGridViewMT.Columns["TypeAC"].HeaderCell.Value = "Вид учета:";
+                dataGridViewMT.Columns["NumberINV"].HeaderCell.Value = "Инвентарный №:";
+                dataGridViewMT.Columns["NameLAN"].HeaderCell.Value = "Имя в сети:";
+                dataGridViewMT.Columns["NameRes"].HeaderCell.Value = "Ответственный:";
+                dataGridViewMT.Columns["NameRoom"].HeaderCell.Value = "Месторасположение:";
+                dataGridViewMT.Columns["SN"].HeaderCell.Value = "Серийный №:";
+                dataGridViewMT.Columns["Model"].HeaderCell.Value = "Модель:";
+                dataGridViewMT.Columns["NameDevice"].HeaderCell.Value = "Тип устройства:";
+
+
+            }
+            
+
+        }
+
         private void PRINT_Click(object sender, EventArgs e)
         {
            
@@ -120,22 +150,21 @@ namespace WindowsFormsApplication
         private void button_Room_Click(object sender, EventArgs e)
         {
             dataGridViewMT.DataSource = dal.GetDataGrid(comboBox_Room.SelectedValue.ToString());
-            if (dataGridViewMT.DataSource != null)
-                dataGridViewMT.Columns["ID"].Visible = false;
+            stilDataGrid();
+            //if (dataGridViewMT.DataSource != null)
+            //    dataGridViewMT.Columns["ID"].Visible = false;
         }
 
         private void button_Responsible_Click(object sender, EventArgs e)
         {
             dataGridViewMT.DataSource = dal.GetDataGrid_Responsoble(comboBox_Responsible.SelectedValue.ToString());
-            if (dataGridViewMT.DataSource != null)
-                dataGridViewMT.Columns["ID"].Visible = false;
+            stilDataGrid();
         }
 
         private void button_PC_Click(object sender, EventArgs e)
         {
             dataGridViewMT.DataSource = dal.GetDataGrid_NamePC(textBox_PC.Text);
-            if (dataGridViewMT.DataSource != null)
-                dataGridViewMT.Columns["ID"].Visible = false;
+            stilDataGrid();
         }
 
         private void button_New_data_Click(object sender, EventArgs e)
@@ -147,8 +176,7 @@ namespace WindowsFormsApplication
         private void button_Number_Click(object sender, EventArgs e)
         {
             dataGridViewMT.DataSource = dal.GetDataGrid_inv(textBox_Number.Text);
-            if (dataGridViewMT.DataSource != null)
-                dataGridViewMT.Columns["ID"].Visible = false;
+            stilDataGrid();
         }
 
         private void button_Update_Click(object sender, EventArgs e)
@@ -178,8 +206,7 @@ namespace WindowsFormsApplication
             if (e.KeyCode == Keys.Enter)
                 {
                     dataGridViewMT.DataSource = dal.GetDataGrid_inv(textBox_Number.Text);
-                    if (dataGridViewMT.DataSource != null)
-                        dataGridViewMT.Columns["ID"].Visible = false;
+                    stilDataGrid();
                 }
             }       
 
@@ -188,8 +215,7 @@ namespace WindowsFormsApplication
             if (e.KeyCode == Keys.Enter)
             {
                 dataGridViewMT.DataSource = dal.GetDataGrid_NamePC(textBox_PC.Text);
-                if (dataGridViewMT.DataSource != null)
-                    dataGridViewMT.Columns["ID"].Visible = false;
+                stilDataGrid();
             }
         }
 
@@ -225,29 +251,23 @@ namespace WindowsFormsApplication
 
         }
              
-
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Send_mail send_mail = new Send_mail();
             send_mail.Show();
         }
 
-        private void dataGridViewPC_Name_CellEnter(object sender, DataGridViewCellEventArgs e)
+        private void dataGridViewPC_Name_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-
-        }
-
-        private void dataGridViewPC_Name_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-
-            
+            dataGridViewMT.DataSource = dal.GetDataGrid_NamePC(dataGridViewPC_Name.Rows[e.RowIndex].Cells[0].Value.ToString());
+            stilDataGrid();
         }
 
         private void dataGridViewMT_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(dataGridViewMT.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Системный блок")
+            if (dataGridViewMT.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Системный блок")
             {
-                               
+
                 MainFrorm.index = dataGridViewMT.Rows[e.RowIndex].Cells[0].Value.ToString();
 
                 HardWare hardWare = new HardWare();

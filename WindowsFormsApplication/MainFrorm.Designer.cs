@@ -72,9 +72,8 @@
             this.groupBox_MegaFiltr = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.groupBox_DATA = new System.Windows.Forms.GroupBox();
+            this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.grubBoxUnloading.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox_Set_Data.SuspendLayout();
@@ -90,8 +89,6 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.groupBox5.SuspendLayout();
             this.groupBox_DATA.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -531,12 +528,12 @@
             this.dataGridViewMT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewMT.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewMT.GridColor = System.Drawing.SystemColors.ControlText;
-            this.dataGridViewMT.Location = new System.Drawing.Point(3, 22);
+            this.dataGridViewMT.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewMT.Name = "dataGridViewMT";
             this.dataGridViewMT.RowTemplate.DividerHeight = 2;
             this.dataGridViewMT.RowTemplate.Height = 25;
-            this.dataGridViewMT.Size = new System.Drawing.Size(1228, 299);
-            this.dataGridViewMT.TabIndex = 2;
+            this.dataGridViewMT.Size = new System.Drawing.Size(1234, 324);
+            this.dataGridViewMT.TabIndex = 3;
             this.toolTip1.SetToolTip(this.dataGridViewMT, "частичные отчеты ");
             this.dataGridViewMT.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewMT_CellContentDoubleClick);
             // 
@@ -546,15 +543,14 @@
             this.dataGridViewPC_Name.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewPC_Name.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewPC_Name.GridColor = System.Drawing.SystemColors.ControlText;
-            this.dataGridViewPC_Name.Location = new System.Drawing.Point(3, 22);
+            this.dataGridViewPC_Name.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewPC_Name.Name = "dataGridViewPC_Name";
             this.dataGridViewPC_Name.RowTemplate.DividerHeight = 2;
             this.dataGridViewPC_Name.RowTemplate.Height = 25;
-            this.dataGridViewPC_Name.Size = new System.Drawing.Size(176, 299);
-            this.dataGridViewPC_Name.TabIndex = 3;
+            this.dataGridViewPC_Name.Size = new System.Drawing.Size(182, 324);
+            this.dataGridViewPC_Name.TabIndex = 4;
             this.toolTip1.SetToolTip(this.dataGridViewPC_Name, "частичные отчеты ");
-            this.dataGridViewPC_Name.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPC_Name_CellEnter);
-            this.dataGridViewPC_Name.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dataGridViewPC_Name_MouseDoubleClick);
+            this.dataGridViewPC_Name.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewPC_Name_CellMouseClick);
             // 
             // groupBox_1С
             // 
@@ -599,36 +595,14 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.groupBox4);
+            this.splitContainer1.Panel1.Controls.Add(this.dataGridViewPC_Name);
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.groupBox5);
+            this.splitContainer1.Panel2.Controls.Add(this.dataGridViewMT);
             this.splitContainer1.Size = new System.Drawing.Size(1420, 324);
             this.splitContainer1.SplitterDistance = 182;
             this.splitContainer1.TabIndex = 0;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.dataGridViewPC_Name);
-            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox4.Location = new System.Drawing.Point(0, 0);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(182, 324);
-            this.groupBox4.TabIndex = 0;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "groupBox4";
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.dataGridViewMT);
-            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox5.Location = new System.Drawing.Point(0, 0);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(1234, 324);
-            this.groupBox5.TabIndex = 0;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "groupBox5";
             // 
             // groupBox_DATA
             // 
@@ -680,8 +654,6 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox5.ResumeLayout(false);
             this.groupBox_DATA.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -730,11 +702,10 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_sentDef;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.GroupBox groupBox_DATA;
         private System.Windows.Forms.DataGridView dataGridViewPC_Name;
         private System.Windows.Forms.DataGridView dataGridViewMT;
+        private System.Windows.Forms.FontDialog fontDialog1;
     }
 }
 

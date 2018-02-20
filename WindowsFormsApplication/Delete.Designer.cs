@@ -33,19 +33,19 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.comboBox_invinNumber = new System.Windows.Forms.ComboBox();
-            this.label_TypeAccount = new System.Windows.Forms.Label();
-            this.label_TypeDevice = new System.Windows.Forms.Label();
-            this.label_NumberSN = new System.Windows.Forms.Label();
-            this.label_Model = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label_TA = new System.Windows.Forms.Label();
-            this.label_TD = new System.Windows.Forms.Label();
-            this.label_NS = new System.Windows.Forms.Label();
-            this.label_M = new System.Windows.Forms.Label();
             this.label_Reason = new System.Windows.Forms.Label();
             this.button_Dell = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label_TypeAccount = new System.Windows.Forms.Label();
+            this.label_TA = new System.Windows.Forms.Label();
+            this.label_TypeDevice = new System.Windows.Forms.Label();
+            this.label_TD = new System.Windows.Forms.Label();
+            this.label_NumberSN = new System.Windows.Forms.Label();
+            this.label_NS = new System.Windows.Forms.Label();
+            this.label_Model = new System.Windows.Forms.Label();
+            this.label_M = new System.Windows.Forms.Label();
+            this.comboBox_invinNumber = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -88,55 +88,26 @@
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // comboBox_invinNumber
+            // label_Reason
             // 
-            this.comboBox_invinNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.comboBox_invinNumber.FormattingEnabled = true;
-            this.comboBox_invinNumber.Location = new System.Drawing.Point(35, 25);
-            this.comboBox_invinNumber.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.comboBox_invinNumber.Name = "comboBox_invinNumber";
-            this.comboBox_invinNumber.Size = new System.Drawing.Size(451, 32);
-            this.comboBox_invinNumber.TabIndex = 5;
+            this.label_Reason.AutoSize = true;
+            this.label_Reason.Location = new System.Drawing.Point(21, 245);
+            this.label_Reason.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label_Reason.Name = "label_Reason";
+            this.label_Reason.Size = new System.Drawing.Size(152, 20);
+            this.label_Reason.TabIndex = 6;
+            this.label_Reason.Text = "Причина удаления";
             // 
-            // label_TypeAccount
+            // button_Dell
             // 
-            this.label_TypeAccount.AutoSize = true;
-            this.label_TypeAccount.Location = new System.Drawing.Point(23, 102);
-            this.label_TypeAccount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label_TypeAccount.Name = "label_TypeAccount";
-            this.label_TypeAccount.Size = new System.Drawing.Size(137, 20);
-            this.label_TypeAccount.TabIndex = 6;
-            this.label_TypeAccount.Text = "Тип учёта (ОС/М)";
-            // 
-            // label_TypeDevice
-            // 
-            this.label_TypeDevice.AutoSize = true;
-            this.label_TypeDevice.Location = new System.Drawing.Point(23, 138);
-            this.label_TypeDevice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label_TypeDevice.Name = "label_TypeDevice";
-            this.label_TypeDevice.Size = new System.Drawing.Size(126, 20);
-            this.label_TypeDevice.TabIndex = 6;
-            this.label_TypeDevice.Text = "Тип устройства";
-            // 
-            // label_NumberSN
-            // 
-            this.label_NumberSN.AutoSize = true;
-            this.label_NumberSN.Location = new System.Drawing.Point(21, 173);
-            this.label_NumberSN.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label_NumberSN.Name = "label_NumberSN";
-            this.label_NumberSN.Size = new System.Drawing.Size(136, 20);
-            this.label_NumberSN.TabIndex = 6;
-            this.label_NumberSN.Text = "Серийный номер";
-            // 
-            // label_Model
-            // 
-            this.label_Model.AutoSize = true;
-            this.label_Model.Location = new System.Drawing.Point(21, 208);
-            this.label_Model.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label_Model.Name = "label_Model";
-            this.label_Model.Size = new System.Drawing.Size(70, 20);
-            this.label_Model.TabIndex = 6;
-            this.label_Model.Text = "Модель";
+            this.button_Dell.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_Dell.Location = new System.Drawing.Point(569, 25);
+            this.button_Dell.Name = "button_Dell";
+            this.button_Dell.Size = new System.Drawing.Size(160, 32);
+            this.button_Dell.TabIndex = 7;
+            this.button_Dell.Text = "Удалить";
+            this.button_Dell.UseVisualStyleBackColor = true;
+            this.button_Dell.Click += new System.EventHandler(this.button_Dell_Click);
             // 
             // groupBox1
             // 
@@ -164,6 +135,16 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEnter);
             // 
+            // label_TypeAccount
+            // 
+            this.label_TypeAccount.AutoSize = true;
+            this.label_TypeAccount.Location = new System.Drawing.Point(23, 102);
+            this.label_TypeAccount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label_TypeAccount.Name = "label_TypeAccount";
+            this.label_TypeAccount.Size = new System.Drawing.Size(137, 20);
+            this.label_TypeAccount.TabIndex = 6;
+            this.label_TypeAccount.Text = "Тип учёта (ОС/М)";
+            // 
             // label_TA
             // 
             this.label_TA.AutoSize = true;
@@ -174,6 +155,16 @@
             this.label_TA.Size = new System.Drawing.Size(173, 23);
             this.label_TA.TabIndex = 6;
             this.label_TA.Text = "Тип учёта (ОС/М)";
+            // 
+            // label_TypeDevice
+            // 
+            this.label_TypeDevice.AutoSize = true;
+            this.label_TypeDevice.Location = new System.Drawing.Point(23, 138);
+            this.label_TypeDevice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label_TypeDevice.Name = "label_TypeDevice";
+            this.label_TypeDevice.Size = new System.Drawing.Size(126, 20);
+            this.label_TypeDevice.TabIndex = 6;
+            this.label_TypeDevice.Text = "Тип устройства";
             // 
             // label_TD
             // 
@@ -186,6 +177,16 @@
             this.label_TD.TabIndex = 6;
             this.label_TD.Text = "Тип устройства";
             // 
+            // label_NumberSN
+            // 
+            this.label_NumberSN.AutoSize = true;
+            this.label_NumberSN.Location = new System.Drawing.Point(21, 173);
+            this.label_NumberSN.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label_NumberSN.Name = "label_NumberSN";
+            this.label_NumberSN.Size = new System.Drawing.Size(136, 20);
+            this.label_NumberSN.TabIndex = 6;
+            this.label_NumberSN.Text = "Серийный номер";
+            // 
             // label_NS
             // 
             this.label_NS.AutoSize = true;
@@ -196,6 +197,16 @@
             this.label_NS.Size = new System.Drawing.Size(164, 23);
             this.label_NS.TabIndex = 6;
             this.label_NS.Text = "Серийный номер";
+            // 
+            // label_Model
+            // 
+            this.label_Model.AutoSize = true;
+            this.label_Model.Location = new System.Drawing.Point(21, 208);
+            this.label_Model.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label_Model.Name = "label_Model";
+            this.label_Model.Size = new System.Drawing.Size(70, 20);
+            this.label_Model.TabIndex = 6;
+            this.label_Model.Text = "Модель";
             // 
             // label_M
             // 
@@ -208,26 +219,15 @@
             this.label_M.TabIndex = 6;
             this.label_M.Text = "Модель";
             // 
-            // label_Reason
+            // comboBox_invinNumber
             // 
-            this.label_Reason.AutoSize = true;
-            this.label_Reason.Location = new System.Drawing.Point(21, 245);
-            this.label_Reason.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label_Reason.Name = "label_Reason";
-            this.label_Reason.Size = new System.Drawing.Size(152, 20);
-            this.label_Reason.TabIndex = 6;
-            this.label_Reason.Text = "Причина удаления";
-            // 
-            // button_Dell
-            // 
-            this.button_Dell.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_Dell.Location = new System.Drawing.Point(569, 25);
-            this.button_Dell.Name = "button_Dell";
-            this.button_Dell.Size = new System.Drawing.Size(160, 32);
-            this.button_Dell.TabIndex = 7;
-            this.button_Dell.Text = "Удалить";
-            this.button_Dell.UseVisualStyleBackColor = true;
-            this.button_Dell.Click += new System.EventHandler(this.button_Dell_Click);
+            this.comboBox_invinNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBox_invinNumber.FormattingEnabled = true;
+            this.comboBox_invinNumber.Location = new System.Drawing.Point(35, 25);
+            this.comboBox_invinNumber.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.comboBox_invinNumber.Name = "comboBox_invinNumber";
+            this.comboBox_invinNumber.Size = new System.Drawing.Size(451, 32);
+            this.comboBox_invinNumber.TabIndex = 5;
             // 
             // Delete
             // 
@@ -267,18 +267,18 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.ComboBox comboBox_invinNumber;
-        private System.Windows.Forms.Label label_TypeAccount;
-        private System.Windows.Forms.Label label_TypeDevice;
-        private System.Windows.Forms.Label label_NumberSN;
-        private System.Windows.Forms.Label label_Model;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label_TA;
-        private System.Windows.Forms.Label label_TD;
-        private System.Windows.Forms.Label label_NS;
-        private System.Windows.Forms.Label label_M;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label_Reason;
         private System.Windows.Forms.Button button_Dell;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label_TypeAccount;
+        private System.Windows.Forms.Label label_TA;
+        private System.Windows.Forms.Label label_TypeDevice;
+        private System.Windows.Forms.Label label_TD;
+        private System.Windows.Forms.Label label_NumberSN;
+        private System.Windows.Forms.Label label_NS;
+        private System.Windows.Forms.Label label_Model;
+        private System.Windows.Forms.Label label_M;
+        private System.Windows.Forms.ComboBox comboBox_invinNumber;
     }
 }
