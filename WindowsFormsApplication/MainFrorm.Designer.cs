@@ -49,6 +49,7 @@
             this.groupBox_Set_Data = new System.Windows.Forms.GroupBox();
             this.button_Repair = new System.Windows.Forms.Button();
             this.button_New_data = new System.Windows.Forms.Button();
+            this.button_WriteOffTable = new System.Windows.Forms.Button();
             this.button_Delete = new System.Windows.Forms.Button();
             this.button_deleteDataBase = new System.Windows.Forms.Button();
             this.button_Update = new System.Windows.Forms.Button();
@@ -289,6 +290,7 @@
             this.groupBox_Set_Data.AutoSize = true;
             this.groupBox_Set_Data.Controls.Add(this.button_Repair);
             this.groupBox_Set_Data.Controls.Add(this.button_New_data);
+            this.groupBox_Set_Data.Controls.Add(this.button_WriteOffTable);
             this.groupBox_Set_Data.Controls.Add(this.button_Delete);
             this.groupBox_Set_Data.Controls.Add(this.button_deleteDataBase);
             this.groupBox_Set_Data.Controls.Add(this.button_Update);
@@ -327,6 +329,19 @@
             this.toolTip1.SetToolTip(this.button_New_data, "Добавить новую  позицию");
             this.button_New_data.UseVisualStyleBackColor = true;
             this.button_New_data.Click += new System.EventHandler(this.button_New_data_Click);
+            // 
+            // button_WriteOffTable
+            // 
+            this.button_WriteOffTable.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_WriteOffTable.BackgroundImage")));
+            this.button_WriteOffTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_WriteOffTable.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_WriteOffTable.Location = new System.Drawing.Point(146, 93);
+            this.button_WriteOffTable.Name = "button_WriteOffTable";
+            this.button_WriteOffTable.Size = new System.Drawing.Size(64, 64);
+            this.button_WriteOffTable.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.button_WriteOffTable, "Таблица  списаных ");
+            this.button_WriteOffTable.UseVisualStyleBackColor = true;
+            this.button_WriteOffTable.Click += new System.EventHandler(this.button_WriteOffTable_Click);
             // 
             // button_Delete
             // 
@@ -706,6 +721,7 @@
         private System.Windows.Forms.DataGridView dataGridViewPC_Name;
         private System.Windows.Forms.DataGridView dataGridViewMT;
         private System.Windows.Forms.FontDialog fontDialog1;
+        private System.Windows.Forms.Button button_WriteOffTable;
     }
 }
 

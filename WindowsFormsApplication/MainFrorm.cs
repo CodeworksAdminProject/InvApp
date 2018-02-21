@@ -22,6 +22,8 @@ namespace WindowsFormsApplication
         BLL bll = new BLL();
         SMTP_CLIENT smttp = new SMTP_CLIENT();
         public static string index;
+        public bool flag = false;
+        public string ReasonWriteOff;
 
         public MainFrorm()
         {
@@ -239,16 +241,25 @@ namespace WindowsFormsApplication
 
         private void button_Delete_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in dataGridViewMT.Rows)
-            {
-                if (row.Selected == true)
-                {
-                    BLL.Data.Add(row.Cells[0].Value.ToString());                    
-                }
-            }
-            Delete deleteForm = new Delete();
-            deleteForm.Show();
+            flag = false;
+            WriteOff set = new WriteOff();
+            set.Owner = this;
+            set.ShowDialog();
 
+
+
+
+            if(flag == true) {
+                foreach (DataGridViewRow row in dataGridViewMT.Rows)
+                {
+                    if (row.Selected == true)
+                    {
+                        BLL.Data.Add(row.Cells[0].Value.ToString());
+                    }
+                }
+                Delete deleteForm = new Delete();
+                deleteForm.Show();
+            }
         }
              
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
@@ -274,6 +285,18 @@ namespace WindowsFormsApplication
                 hardWare.ShowDialog();
 
             }
+
+            else if (dataGridViewMT.Rows[e.RowIndex].Cells[e.ColumnIndex].ColumnIndex == 10  )
+            {
+                String URL = @"http://jira.mara.local/browse/" + dataGridViewMT.Rows[e.RowIndex].Cells[10].Value.ToString();
+                System.Diagnostics.Process.Start(URL);
+            }
+        }
+
+        private void button_WriteOffTable_Click(object sender, EventArgs e)
+        {
+            WriteOffTable writeOff = new WriteOffTable();
+            writeOff.ShowDialog();
         }
     } 
 }

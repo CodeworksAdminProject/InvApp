@@ -46,6 +46,40 @@ namespace WindowsFormsApplication
             return DataFloor;
         }
 
+        internal ArrayList getWrateOffTable()
+        {
+            ArrayList DataGrid = new ArrayList();
+            SqlConnection connect = new SqlConnection(sConectDB);
+            SqlCommand command = new SqlCommand(@"select maintb.ID, maintb.dateCreated, maintb.NumberINV, NameLAN.NameLAN, NameRes.NameRes, " +
+                @"[Floor].floorNambe, Room.NameRoom, TypeDevice.NameDevice, maintb.SN, MainTB.Model, JiraTask, ReasonWriteOff from MainTB " +
+                @"join [Floor] on maintb.Floor_ID = [Floor].ID join room on maintb.Room_ID =  Room.ID " +
+                @"join TypeDevice on maintb.TypeDevice_ID = TypeDevice.ID join NameLAN on maintb.NameLAN_ID = NameLAN.ID " +
+                @"join NameRes on maintb.NameRes_ID =  NameRes.ID " +
+                @"Join JiraTask on maintb.JiraTask_ID = JiraTask.ID " +
+                @"where [WrittenOff] = 'True';", connect);
+
+            try
+            {
+
+                connect.Open();
+                SqlDataReader datareader = command.ExecuteReader();
+
+                if (datareader.HasRows)
+                    foreach (DbDataRecord result in datareader)
+                        DataGrid.Add(result);
+                else
+                    return null;
+            }
+
+            catch (SqlException exception)
+            {
+                MessageBox.Show(exception.ToString());
+            }
+
+            connect.Close();
+            return DataGrid;
+        }
+
         public ArrayList GetDataResponsible()
         {
             ArrayList DataFloor = new ArrayList();
@@ -192,10 +226,11 @@ namespace WindowsFormsApplication
             ArrayList DataGrid = new ArrayList();
             SqlConnection connect = new SqlConnection(sConectDB);
             SqlCommand command = new SqlCommand(@"select maintb.ID, maintb.dateCreated, maintb.NumberINV, NameLAN.NameLAN, NameRes.NameRes, " +
-                @"[Floor].floorNambe, Room.NameRoom, TypeDevice.NameDevice, maintb.SN, MainTB.Model from MainTB " +
+                @"[Floor].floorNambe, Room.NameRoom, TypeDevice.NameDevice, maintb.SN, MainTB.Model, JiraTask from MainTB " +
                 @"join [Floor] on maintb.Floor_ID = [Floor].ID join room on maintb.Room_ID =  Room.ID " +
                 @"join TypeDevice on maintb.TypeDevice_ID = TypeDevice.ID join NameLAN on maintb.NameLAN_ID = NameLAN.ID " +
                 @"join NameRes on maintb.NameRes_ID =  NameRes.ID " +
+                @"Join JiraTask on maintb.JiraTask_ID = JiraTask.ID " +
                        @"where Room.NameRoom = '" + room + @"' AND [WrittenOff] = 'False';", connect);
 
             try
@@ -257,10 +292,11 @@ namespace WindowsFormsApplication
             ArrayList DataGrid = new ArrayList();
             SqlConnection connect = new SqlConnection(sConectDB);
             SqlCommand command = new SqlCommand(@"select maintb.ID, maintb.dateCreated, maintb.NumberINV, NameLAN.NameLAN, NameRes.NameRes, " +
-                @"[Floor].floorNambe, Room.NameRoom, TypeDevice.NameDevice, maintb.SN, MainTB.Model from MainTB " +
+                @"[Floor].floorNambe, Room.NameRoom, TypeDevice.NameDevice, maintb.SN, MainTB.Model, JiraTask from MainTB " +
                 @"join [Floor] on maintb.Floor_ID = [Floor].ID join room on maintb.Room_ID =  Room.ID " +
                 @"join TypeDevice on maintb.TypeDevice_ID = TypeDevice.ID join NameLAN on maintb.NameLAN_ID = NameLAN.ID " +
                 @"join NameRes on maintb.NameRes_ID =  NameRes.ID " +
+                @"Join JiraTask on maintb.JiraTask_ID = JiraTask.ID " +
                        @"Where MainTB.NumberINV like '%" + inv + @"%' AND [WrittenOff] = 'False';", connect);
 
             try
@@ -356,10 +392,11 @@ namespace WindowsFormsApplication
             ArrayList DataGrid = new ArrayList();
             SqlConnection connect = new SqlConnection(sConectDB);
             SqlCommand command = new SqlCommand(@"select maintb.ID, maintb.dateCreated, maintb.NumberINV, NameLAN.NameLAN, NameRes.NameRes, " +
-                @"[Floor].floorNambe, Room.NameRoom, TypeDevice.NameDevice, maintb.SN, MainTB.Model from MainTB " +
+                @"[Floor].floorNambe, Room.NameRoom, TypeDevice.NameDevice, maintb.SN, MainTB.Model, JiraTask from MainTB " +
                 @"join [Floor] on maintb.Floor_ID = [Floor].ID join room on maintb.Room_ID =  Room.ID " +
                 @"join TypeDevice on maintb.TypeDevice_ID = TypeDevice.ID join NameLAN on maintb.NameLAN_ID = NameLAN.ID " +
                 @"join NameRes on maintb.NameRes_ID =  NameRes.ID " +
+                @"Join JiraTask on maintb.JiraTask_ID = JiraTask.ID " +
                 @"Where dbo.NameRes.NameRes =  '" + Responsoble + @"' AND [WrittenOff] = 'False';", connect);
 
             try
@@ -388,11 +425,12 @@ namespace WindowsFormsApplication
         {
             ArrayList DataGrid = new ArrayList();
             SqlConnection connect = new SqlConnection(sConectDB);
-            SqlCommand command = new SqlCommand(@"select  maintb.ID, maintb.dateCreated, maintb.NumberINV, NameLAN.NameLAN, NameRes.NameRes, " +
-                @"[Floor].floorNambe, Room.NameRoom, TypeDevice.NameDevice, maintb.SN, MainTB.Model from MainTB "+
-                @"join [Floor] on maintb.Floor_ID = [Floor].ID join room on maintb.Room_ID =  Room.ID "+
-                @"join TypeDevice on maintb.TypeDevice_ID = TypeDevice.ID join NameLAN on maintb.NameLAN_ID = NameLAN.ID "+
+            SqlCommand command = new SqlCommand(@"select maintb.ID, maintb.dateCreated, maintb.NumberINV, NameLAN.NameLAN, NameRes.NameRes, " +
+                @"[Floor].floorNambe, Room.NameRoom, TypeDevice.NameDevice, maintb.SN, MainTB.Model, JiraTask from MainTB " +
+                @"join [Floor] on maintb.Floor_ID = [Floor].ID join room on maintb.Room_ID =  Room.ID " +
+                @"join TypeDevice on maintb.TypeDevice_ID = TypeDevice.ID join NameLAN on maintb.NameLAN_ID = NameLAN.ID " +
                 @"join NameRes on maintb.NameRes_ID =  NameRes.ID " +
+                @"Join JiraTask on maintb.JiraTask_ID = JiraTask.ID " +
                 @"Where dbo.NameLAN.NameLAN like'%" + NamePC + @"%' AND [WrittenOff] = 'False';", connect);
 
             try

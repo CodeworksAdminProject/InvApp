@@ -99,6 +99,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -131,6 +132,7 @@
     <Compile Include="BLL.cs" />
     <Compile Include="DAL_GET.cs" />
     <Compile Include="DAL_SET.cs" />
+    <Compile Include="LDAPAuthentication.cs" />
     <Compile Include="Send_mail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,6 +167,18 @@
       <DependentUpon>SetNewDataBase.cs</DependentUpon>
     </Compile>
     <Compile Include="SMTP_CLIENT.cs" />
+    <Compile Include="WriteOff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WriteOff.Designer.cs">
+      <DependentUpon>WriteOff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WriteOffTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WriteOffTable.Designer.cs">
+      <DependentUpon>WriteOffTable.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Delete.resx">
       <DependentUpon>Delete.cs</DependentUpon>
     </EmbeddedResource>
@@ -198,6 +212,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WriteOff.resx">
+      <DependentUpon>WriteOff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WriteOffTable.resx">
+      <DependentUpon>WriteOffTable.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="bin\x86\Debug\TSCLIB.lib" />
     <None Include="packages.config" />
