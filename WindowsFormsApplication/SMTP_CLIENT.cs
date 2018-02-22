@@ -18,11 +18,14 @@ namespace WindowsFormsApplication
         public void SentMail(string body, string email)
         {
             Style = "<style>";
-            Style = Style + "TABLE{border-width: 1px;border-style: solid;border-color: black;border-collapse: collapse;}";
-            Style = Style + "TH{border-width: 2px;padding: 0px;border-style: solid;border-color: black;background-color:thistle;}";
-            Style = Style + ".select1{border-width: 2px;padding: 0px;border-style: solid;border-color: black;background-color:palegoldenrod; text-indent: 1em;}";
-            Style = Style + ".select2{border-width: 2px;padding: 0px;border-style: solid;border-color: black;background-color:LightSkyBlue; text-indent: 1em;}";
-            Style = Style + "TD{border-width: 2px;padding: 0px;border-style: solid;border-color: black;background-color:palegoldenrod;}";
+            Style = Style + "TABLE {border-collapse: collapse;}";
+            Style = Style + "TH  {border: 4px solid black; background:#fc0; padding: 4xp;}";
+            Style = Style + ".PC{border: 3px solid black; background:#FFF8DC; padding: 4xp;font-family: Arial, Helvetica, sans-serif;}";
+            Style = Style + ".UPS{border: 3px solid black; background:#DAA520; padding: 4xp;font-family: Arial, Helvetica, sans-serif;}";
+            Style = Style + ".Monitor{border: 3px solid black; background:#E6E6FA; padding: 4xp;font-family: Arial, Helvetica, sans-serif;}";
+            Style = Style + ".IpPhone{border: 3px solid black; background:#FFD700; padding: 4xp;font-family: Arial, Helvetica, sans-serif;}";
+            Style = Style + ".miniPC{border: 3px solid black; background:#FFF8DC; padding: 4xp;font-family: Arial, Helvetica, sans-serif;}";
+            Style = Style + "TD {border: 2px solid black; background:#9ACD32; paddong: 4xp;}";
             Style = Style + "</style>";
 
             Html = "<!DOCTYPE HTML>";

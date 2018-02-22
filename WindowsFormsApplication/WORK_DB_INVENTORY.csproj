@@ -132,6 +132,12 @@
     <Compile Include="BLL.cs" />
     <Compile Include="DAL_GET.cs" />
     <Compile Include="DAL_SET.cs" />
+    <Compile Include="JBD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JBD.Designer.cs">
+      <DependentUpon>JBD.cs</DependentUpon>
+    </Compile>
     <Compile Include="LDAPAuthentication.cs" />
     <Compile Include="Send_mail.cs">
       <SubType>Form</SubType>
@@ -187,6 +193,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Info.resx">
       <DependentUpon>Info.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JBD.resx">
+      <DependentUpon>JBD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainFrorm.resx">
       <DependentUpon>MainFrorm.cs</DependentUpon>

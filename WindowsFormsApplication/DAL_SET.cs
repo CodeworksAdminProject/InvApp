@@ -108,13 +108,14 @@ namespace WindowsFormsApplication
            
         }
 
-        public void WrittenOff(string ID)
+        public void WrittenOff(string ID, string Reason)
         {
             ArrayList DataGrid = new ArrayList();
             using (SqlConnection connect = new SqlConnection(sConectDB))
             {
-                SqlCommand command = new SqlCommand("Update  dbo.MainTB SET  [WrittenOff] = 1 " +
-                    "WHERE dbo.MainTB.ID = '"+ ID +"' ;", connect);
+                SqlCommand command = new SqlCommand("Update  dbo.MainTB SET  [WrittenOff] = 1, " +
+                    "[ReasonWriteOff] = '" +Reason + "' "+ 
+                    "WHERE dbo.MainTB.ID = " + ID +" ;", connect);
                 try
                 {
 
@@ -155,7 +156,38 @@ namespace WindowsFormsApplication
                 connect.Close();
             }
         }
-    }
+
+        internal void AddFDB(string userName, int ID, string reasonWriteOff, string InvNumber, string TypeDevice, string SN, string Model, string ID_main)
+        {
+            SqlConnection connect = new SqlConnection(sConectDB);
+            // переработать  20-21
+            SqlCommand command = new SqlCommand(@" INSERT INTO dbo.JBD (dateCreated, UserName, KindOfActivity_ID, ReasonOrMoved, " +
+                @"TypeDevice, SN, Model, ID_IN_Main_TB) VALUES(GETDATE(), '" +
+                userName + "', " +
+                ID + ", '" +
+                reasonWriteOff + "', '" +
+                TypeDevice + "', '" +
+                SN + "', '" +
+                Model + "'," +
+                ID_main + ");", connect);
+
+            try
+            {
+
+                connect.Open();
+
+                command.ExecuteNonQuery();
+            }
+
+            catch (SqlException exception)
+            {
+                MessageBox.Show(exception.ToString());
+            }
+
+            connect.Close();
+
+        }
+    }   
 }
 
 

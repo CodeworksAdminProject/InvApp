@@ -23,12 +23,16 @@ namespace WindowsFormsApplication
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainFrorm());
 
-            string tabl = null;
+            string tabl1 = null;
             if (BLL.sMailBodyNew != null)
-                tabl = "</tabl>";
+                tabl1 = "</table>";
 
-            if ((BLL.sMailBody != null) || (BLL.sMailBodyNew != null) || (BLL.sMailBodyDelete != null))
-                sentmail.SentMail(BLL.heds + BLL.sMailBody + BLL.sMailBodyDelete + BLL.sMailBodyNew + tabl, Properties.Settings.Default.Email);            
+            string tabl2 = null;
+            if (BLL.sMailBodyNew != null)
+                tabl2 = "</table>";
+
+            if ((BLL.sMailBody != null) || (BLL.sMailBodyNew != null) || (BLL.sMailBodyDelete != null) || (BLL.sHtmlTableWriteOffForReport !=null))
+                sentmail.SentMail(BLL.heds + BLL.sMailBody + BLL.sMailBodyDelete + tabl1+ BLL.sHtmlTableWriteOffForReport + tabl2, Properties.Settings.Default.Email);
         }
     }
 }

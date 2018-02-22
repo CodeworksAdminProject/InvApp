@@ -68,7 +68,7 @@ namespace WindowsFormsApplication
                         bll.Delete(row.Cells[2].Value.ToString(), row.Cells[7].Value.ToString(), row.Cells[8].Value.ToString(),
                             row.Cells[9].Value.ToString(), textBox_Reason.Text);
 
-                        dalSet.WrittenOff(row.Cells[0].Value.ToString());
+                       // dalSet.WrittenOff(row.Cells[0].Value.ToString());
                     }
                     else if (dialogResult == DialogResult.No) { }                                        
                 }

@@ -19,6 +19,8 @@ namespace WindowsFormsApplication
     public partial class MainFrorm : Form
     {        
         DAL_GET dal = new DAL_GET();
+        DAL_SET dal_set = new DAL_SET();
+
         BLL bll = new BLL();
         SMTP_CLIENT smttp = new SMTP_CLIENT();
         public static string index;
@@ -250,15 +252,28 @@ namespace WindowsFormsApplication
 
 
             if(flag == true) {
+                string AddId = null;
+
                 foreach (DataGridViewRow row in dataGridViewMT.Rows)
                 {
                     if (row.Selected == true)
                     {
-                        BLL.Data.Add(row.Cells[0].Value.ToString());
+                        dal_set.WrittenOff(row.Cells[0].Value.ToString(), ReasonWriteOff);
+                        if (AddId != null)
+                            AddId += "," + row.Cells[0].Value.ToString();
+                        else
+                            AddId += row.Cells[0].Value.ToString();
+                        dal_set.AddFDB(Environment.UserName, 1, ReasonWriteOff, row.Cells["NumberINV"].Value.ToString(),
+                            row.Cells["NameDevice"].Value.ToString(), row.Cells["SN"].Value.ToString(),
+                            row.Cells["Model"].Value.ToString(), row.Cells["ID"].Value.ToString());
                     }
                 }
-                Delete deleteForm = new Delete();
-                deleteForm.Show();
+
+                bll.AddWrittenOff(AddId);
+                MessageBox.Show(BLL.sHtmlTableWriteOffForReport);
+                
+                //Delete deleteForm = new Delete();
+                //deleteForm.Show();
             }
         }
              
@@ -297,6 +312,12 @@ namespace WindowsFormsApplication
         {
             WriteOffTable writeOff = new WriteOffTable();
             writeOff.ShowDialog();
+        }
+
+        private void JBDToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            JBD jbd = new JBD();
+            jbd.Show();
         }
     } 
 }

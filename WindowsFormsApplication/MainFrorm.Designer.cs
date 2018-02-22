@@ -59,6 +59,7 @@
             this.button_ExcelOpenFullReport = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.File_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.JBDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Settings_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Info_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_sentDef = new System.Windows.Forms.ToolStripMenuItem();
@@ -445,11 +446,20 @@
             // 
             this.File_ToolStripMenuItem.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("File_ToolStripMenuItem.BackgroundImage")));
             this.File_ToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.File_ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.JBDToolStripMenuItem});
             this.File_ToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 15F);
             this.File_ToolStripMenuItem.Name = "File_ToolStripMenuItem";
             this.File_ToolStripMenuItem.Size = new System.Drawing.Size(87, 34);
             this.File_ToolStripMenuItem.Text = "   Файл";
             this.File_ToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // JBDToolStripMenuItem
+            // 
+            this.JBDToolStripMenuItem.Name = "JBDToolStripMenuItem";
+            this.JBDToolStripMenuItem.Size = new System.Drawing.Size(152, 32);
+            this.JBDToolStripMenuItem.Text = "ЖБД";
+            this.JBDToolStripMenuItem.Click += new System.EventHandler(this.JBDToolStripMenuItem_Click);
             // 
             // Settings_ToolStripMenuItem
             // 
@@ -722,6 +732,7 @@
         private System.Windows.Forms.DataGridView dataGridViewMT;
         private System.Windows.Forms.FontDialog fontDialog1;
         private System.Windows.Forms.Button button_WriteOffTable;
+        private System.Windows.Forms.ToolStripMenuItem JBDToolStripMenuItem;
     }
 }
 

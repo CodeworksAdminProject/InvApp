@@ -28,8 +28,11 @@ namespace WindowsFormsApplication
         public static string heds;
         public static string sMailBodyNew ;
         public static string sMailBodyDelete;
+        public static string sHtmlTableWriteOffForReport = null;
+       
+
         static int n = 1;
-        static int t = 1;
+        static int t = 1;        
 
         public int Get_ID(string Table, string Column, string param)
         {
@@ -392,6 +395,59 @@ namespace WindowsFormsApplication
 
             
             
+        }
+
+        internal void   AddWrittenOff(string addId)
+        {
+            if (BLL.heds == null)
+                BLL.heds = "<h1><p> В  пользователем:  <font  color = 'red' >" + System.Environment.UserName + "</font> были внесены  следующие  изменения: </p></h1>";
+
+            DataTable table = dalGet.getWrateOffTable(addId);
+            StringBuilder string_HTML_Table = new StringBuilder();
+
+            if (sHtmlTableWriteOffForReport == null)
+            {
+                string_HTML_Table.Append("<table border='1'>");
+                string_HTML_Table.Append("<caption>Таблица представленное на списание</caption>");
+                string_HTML_Table.Append("<tr>");
+                string_HTML_Table.Append("<th>Инвин №</th>");
+                string_HTML_Table.Append("<th>Этаж</th>");
+                string_HTML_Table.Append("<th>Комната</th>");
+                string_HTML_Table.Append("<th>Тип устройства</th>");
+                string_HTML_Table.Append("<th>Модель</th>");
+                string_HTML_Table.Append("<th>SN</th>");
+                string_HTML_Table.Append("</tr>");                
+
+            }
+                        
+            foreach (DataRow row in table.Rows)
+            {
+                if (row[3].ToString() == "системный блок")
+                    string_HTML_Table.Append("<tr class='PC'>" );
+                else if (row[3].ToString() == "ИБП")
+                    string_HTML_Table.Append("<tr class='UPS'>" );
+                else if (row[3].ToString() == "монитор")
+                    string_HTML_Table.Append("<<tr class='Monitor'>");
+                else if (row[3].ToString() == "IP телефон")
+                    string_HTML_Table.Append("<tr class='IpPhone'>" );
+                else if (row[3].ToString() == "Мини ПК  ")
+                    string_HTML_Table.Append("<tr class='miniPC'>" );
+                else
+                    string_HTML_Table.Append("<tr>" );
+
+
+                string_HTML_Table.Append("<tr>");
+                string_HTML_Table.Append("<td>" + row[0].ToString() + "</td>");
+                string_HTML_Table.Append("<td>" + row[1].ToString() + "</td>");
+                string_HTML_Table.Append("<td>" + row[2].ToString() + "</td>");
+                string_HTML_Table.Append("<td>" + row[3].ToString() + "</td>");
+                string_HTML_Table.Append("<td>" + row[4].ToString() + "</td>");
+                string_HTML_Table.Append("<td>" + row[5].ToString() + "</td>");
+                string_HTML_Table.Append("</tr>");                
+            }
+
+            sHtmlTableWriteOffForReport = string_HTML_Table.ToString();
+
         }
 
         void releaseObject(object obj)

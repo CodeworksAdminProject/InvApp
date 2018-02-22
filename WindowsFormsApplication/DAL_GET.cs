@@ -46,6 +46,34 @@ namespace WindowsFormsApplication
             return DataFloor;
         }
 
+        internal ArrayList getJDB()
+        {
+            ArrayList Data = new ArrayList();
+            SqlConnection connect = new SqlConnection(sConectDB);
+            SqlCommand command = new SqlCommand("SELECT * FROM dbo.[JBD];", connect);
+
+            try
+            {
+
+                connect.Open();
+                SqlDataReader datareader = command.ExecuteReader();
+
+                if (datareader.HasRows)
+                    foreach (DbDataRecord result in datareader)
+                        Data.Add(result);
+                else
+                    return null;
+            }
+
+            catch (SqlException exception)
+            {
+                MessageBox.Show(exception.ToString());
+            }
+
+            connect.Close();
+            return Data;
+        }
+
         internal ArrayList getWrateOffTable()
         {
             ArrayList DataGrid = new ArrayList();
@@ -78,6 +106,35 @@ namespace WindowsFormsApplication
 
             connect.Close();
             return DataGrid;
+        }
+
+        internal DataTable getWrateOffTable(string ID)
+        {
+            DataTable Data = new DataTable();
+            SqlConnection connect = new SqlConnection(sConectDB);
+            SqlCommand command = new SqlCommand(@"select  maintb.NumberINV, " +
+                @"[Floor].floorNambe, Room.NameRoom, TypeDevice.NameDevice, maintb.SN, MainTB.Model from mainTB " +
+                @"join [Floor] on maintb.Floor_ID = [Floor].ID join room on maintb.Room_ID =  Room.ID " +
+                @"join TypeDevice on maintb.TypeDevice_ID = TypeDevice.ID  " +                
+                @"where maintb.ID  IN ( " + ID + " ) AND  [WrittenOff] = 'True'; ", connect);
+
+            try
+            {
+
+                connect.Open();
+                SqlDataAdapter da = new SqlDataAdapter(command);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                Data= ds.Tables[0];
+            }
+
+            catch (SqlException exception)
+            {
+                MessageBox.Show(exception.ToString());
+            }
+
+            connect.Close();
+            return Data;
         }
 
         public ArrayList GetDataResponsible()
@@ -478,10 +535,10 @@ namespace WindowsFormsApplication
             }
 
             else
-                return null;
 
-            con.Close();
+                con.Close();
 
+            return null;
         }
 
         public int GetID_Tables(string Table, string Column, string Name)
@@ -591,9 +648,7 @@ namespace WindowsFormsApplication
                 connect.Close();
             }
             return DataGrid;
-        }
-
-       
+        }  
 
         public ArrayList GetHardWare(string ID)
         {
