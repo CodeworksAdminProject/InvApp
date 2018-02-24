@@ -28,23 +28,23 @@ namespace WindowsFormsApplication
         {
             InitializeComponent();
 
-            comboBox_Room.DataSource = dal_get.GetDataRoom();
+            comboBox_Room.DataSource = dal_get.Get_Data_From_Table_From_Colunm("Room", "NameRoom");
             comboBox_Room.DisplayMember = "NameRoom";
             comboBox_Room.ValueMember = "NameRoom";
 
-            comboBox_Responsible.DataSource = dal_get.GetDataResponsible();
+            comboBox_Responsible.DataSource = dal_get.Get_Data_From_Table_From_Colunm("NameRes", "NameRes");
             comboBox_Responsible.DisplayMember = "NameRes";
             comboBox_Responsible.ValueMember = "NameRes";
 
-            comboBox_Floor.DataSource = dal_get.GetFloor();
+            comboBox_Floor.DataSource = dal_get.Get_Data_From_Table_From_Colunm("[Floor]", "floorNambe");
             comboBox_Floor.DisplayMember = "floorNambe";
             comboBox_Floor.ValueMember = "floorNambe";
 
-            comboBox_LanName.DataSource = dal_get.GetDataLanName();
+            comboBox_LanName.DataSource = dal_get.Get_Data_From_Table_From_Colunm("NameLAN", "NameLAN");
             comboBox_LanName.DisplayMember = "NameLAN";
             comboBox_LanName.ValueMember = "NameLAN";
 
-            comboBox_TypeDevice.DataSource = dal_get.GetDataTypeDevice();
+            comboBox_TypeDevice.DataSource = dal_get.Get_Data_From_Table_From_Colunm("TypeDevice", "NameDevice");
             comboBox_TypeDevice.DisplayMember = "NameDevice";
             comboBox_TypeDevice.ValueMember = "NameDevice";
 

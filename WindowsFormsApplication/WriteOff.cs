@@ -17,7 +17,7 @@ namespace WindowsFormsApplication
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button_OK_Click(object sender, EventArgs e)
         {
             MainFrorm main = this.Owner as MainFrorm;
 
@@ -36,10 +36,11 @@ namespace WindowsFormsApplication
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button_Cancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
     }
     
 }

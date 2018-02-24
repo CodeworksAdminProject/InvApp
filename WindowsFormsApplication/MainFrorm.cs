@@ -31,14 +31,14 @@ namespace WindowsFormsApplication
         {
             InitializeComponent();
 
-            comboBox_Room.DataSource = dal.GetDataRoom();
+            comboBox_Room.DataSource = dal.Get_Data_From_Table_From_Colunm("Room", "NameRoom");
             comboBox_Room.DisplayMember = "NameRoom";
             comboBox_Room.ValueMember = "NameRoom";
 
-            comboBox_Responsible.DataSource = dal.GetDataResponsible();
+            comboBox_Responsible.DataSource = dal.Get_Data_From_Table_From_Colunm("NameRes", "NameRes"); 
             comboBox_Responsible.DisplayMember = "NameRes";
             comboBox_Responsible.ValueMember = "NameRes";
-            dataGridViewPC_Name.DataSource = dal.GetDataLanName();
+            dataGridViewPC_Name.DataSource = dal.Get_Data_From_Table_From_Colunm("NameLAN", "NameLAN");
 
             string dir = @".\dll_AND_picture\";
 
@@ -246,12 +246,10 @@ namespace WindowsFormsApplication
             flag = false;
             WriteOff set = new WriteOff();
             set.Owner = this;
+            set.button_OK.Text = "Списать";
             set.ShowDialog();
-
-
-
-
-            if(flag == true) {
+            
+            if (flag == true) {
                 string AddId = null;
 
                 foreach (DataGridViewRow row in dataGridViewMT.Rows)
@@ -272,8 +270,6 @@ namespace WindowsFormsApplication
                 bll.AddWrittenOff(AddId);
                 MessageBox.Show(BLL.sHtmlTableWriteOffForReport);
                 
-                //Delete deleteForm = new Delete();
-                //deleteForm.Show();
             }
         }
              

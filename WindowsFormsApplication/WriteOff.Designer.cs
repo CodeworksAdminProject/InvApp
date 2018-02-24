@@ -30,8 +30,8 @@
         {
             this.info = new System.Windows.Forms.Label();
             this.reason = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.button_OK = new System.Windows.Forms.Button();
+            this.button_Cancel = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -55,32 +55,32 @@
             this.reason.Size = new System.Drawing.Size(459, 23);
             this.reason.TabIndex = 2;
             // 
-            // button1
+            // button_OK
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(448, 7);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 32);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Списать";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button_OK.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_OK.Location = new System.Drawing.Point(448, 7);
+            this.button_OK.Name = "button_OK";
+            this.button_OK.Size = new System.Drawing.Size(75, 32);
+            this.button_OK.TabIndex = 3;
+            this.button_OK.Text = "OK";
+            this.button_OK.UseVisualStyleBackColor = true;
+            this.button_OK.Click += new System.EventHandler(this.button_OK_Click);
             // 
-            // button2
+            // button_Cancel
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.Location = new System.Drawing.Point(3, 7);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 32);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Отмена";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button_Cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_Cancel.Location = new System.Drawing.Point(3, 7);
+            this.button_Cancel.Name = "button_Cancel";
+            this.button_Cancel.Size = new System.Drawing.Size(75, 32);
+            this.button_Cancel.TabIndex = 3;
+            this.button_Cancel.Text = "Отмена";
+            this.button_Cancel.UseVisualStyleBackColor = true;
+            this.button_Cancel.Click += new System.EventHandler(this.button_Cancel_Click);
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.button_OK);
+            this.panel1.Controls.Add(this.button_Cancel);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 120);
             this.panel1.Name = "panel1";
@@ -107,8 +107,8 @@
 
         private System.Windows.Forms.Label info;
         private System.Windows.Forms.TextBox reason;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        public System.Windows.Forms.Button button_OK;
+        private System.Windows.Forms.Button button_Cancel;
         private System.Windows.Forms.Panel panel1;
     }
 }
