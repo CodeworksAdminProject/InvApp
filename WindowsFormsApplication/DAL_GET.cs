@@ -101,6 +101,46 @@ namespace WindowsFormsApplication
             return Data;
         }
 
+        internal ArrayList getJDB(string date_start , string date_finish , string KindOfActivity )
+        {
+            ArrayList Data = new ArrayList();
+            SqlConnection connect = new SqlConnection(sConectDB);
+            SqlCommand command = new SqlCommand(@"SELECT 
+                  [dateCreated]
+                  ,[UserName]
+                  ,[ReasonOrMoved]
+                  ,[TypeDevice]
+                  ,[SN]
+                  ,[Model]
+                  ,[InvNumber]
+                  ,[ID_IN_Main_TB]
+	              ,[KindOfActivity].KindOfActivity
+            FROM [TolyattiDB].[dbo].[JBD]  
+            Join KindOfActivity on JBD.KindOfActivity_ID = KindOfActivity.ID
+            WHERE " + date_start + " like '%" + date_finish + "';", connect);
+
+            try
+            {
+
+                connect.Open();
+                SqlDataReader datareader = command.ExecuteReader();
+
+                if (datareader.HasRows)
+                    foreach (DbDataRecord result in datareader)
+                        Data.Add(result);
+                else
+                    return null;
+            }
+
+            catch (SqlException exception)
+            {
+                MessageBox.Show(exception.ToString());
+            }
+
+            connect.Close();
+            return Data;
+        }
+
         // Forms WrateOffTable 
         internal ArrayList getWrateOffTable()
         {
