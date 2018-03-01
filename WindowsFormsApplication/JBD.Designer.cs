@@ -34,9 +34,13 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.button_Filter = new System.Windows.Forms.Button();
             this.button_ALL_JBD = new System.Windows.Forms.Button();
+            this.panel_KindOfActivity = new System.Windows.Forms.Panel();
+            this.comboBox_KindOfActivity = new System.Windows.Forms.ComboBox();
+            this.button_SearchKingOfActivity = new System.Windows.Forms.Button();
+            this.label_KindOfActivity = new System.Windows.Forms.Label();
+            this.panel_TypeDevice_1 = new System.Windows.Forms.Panel();
             this.panel_Search_SN_2 = new System.Windows.Forms.Panel();
             this.panel_Search_Model_3 = new System.Windows.Forms.Panel();
-            this.panel_TypeDevice_1 = new System.Windows.Forms.Panel();
             this.panel_InvNum_4 = new System.Windows.Forms.Panel();
             this.panel_Search_ID_5 = new System.Windows.Forms.Panel();
             this.button_Back_ID = new System.Windows.Forms.Button();
@@ -48,10 +52,6 @@
             this.textBox_InvNum = new System.Windows.Forms.TextBox();
             this.button_InvNum = new System.Windows.Forms.Button();
             this.label_InvNum = new System.Windows.Forms.Label();
-            this.comboBox_TypeDevice = new System.Windows.Forms.ComboBox();
-            this.button_next__TypeDevice = new System.Windows.Forms.Button();
-            this.button_SearchDevice = new System.Windows.Forms.Button();
-            this.label_Search_TypeDevice_1 = new System.Windows.Forms.Label();
             this.button_next_Model = new System.Windows.Forms.Button();
             this.button_back_model = new System.Windows.Forms.Button();
             this.button_Shearch_Model = new System.Windows.Forms.Button();
@@ -62,14 +62,14 @@
             this.button_Search_SN = new System.Windows.Forms.Button();
             this.label_Search_SN = new System.Windows.Forms.Label();
             this.textBox_Search_SN = new System.Windows.Forms.TextBox();
-            this.panel_KindOfActivity = new System.Windows.Forms.Panel();
-            this.comboBox_KindOfActivity = new System.Windows.Forms.ComboBox();
-            this.button_SearchKingOfActivity = new System.Windows.Forms.Button();
-            this.label_KindOfActivity = new System.Windows.Forms.Label();
+            this.comboBox_TypeDevice = new System.Windows.Forms.ComboBox();
+            this.button_next__TypeDevice = new System.Windows.Forms.Button();
+            this.button_SearchDevice = new System.Windows.Forms.Button();
+            this.label_Search_TypeDevice_1 = new System.Windows.Forms.Label();
             this.panel_UserName = new System.Windows.Forms.Panel();
             this.button_SearchuserName = new System.Windows.Forms.Button();
             this.label_Search_UserName = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox_UserName = new System.Windows.Forms.TextBox();
             this.panel_date = new System.Windows.Forms.Panel();
             this.button_SearchDate = new System.Windows.Forms.Button();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
@@ -78,12 +78,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel_KindOfActivity.SuspendLayout();
+            this.panel_TypeDevice_1.SuspendLayout();
             this.panel_Search_SN_2.SuspendLayout();
             this.panel_Search_Model_3.SuspendLayout();
-            this.panel_TypeDevice_1.SuspendLayout();
             this.panel_InvNum_4.SuspendLayout();
             this.panel_Search_ID_5.SuspendLayout();
-            this.panel_KindOfActivity.SuspendLayout();
             this.panel_UserName.SuspendLayout();
             this.panel_date.SuspendLayout();
             this.SuspendLayout();
@@ -163,6 +163,65 @@
             this.button_ALL_JBD.UseVisualStyleBackColor = true;
             this.button_ALL_JBD.Click += new System.EventHandler(this.button_ALL_JBD_Click);
             // 
+            // panel_KindOfActivity
+            // 
+            this.panel_KindOfActivity.Controls.Add(this.comboBox_KindOfActivity);
+            this.panel_KindOfActivity.Controls.Add(this.button_SearchKingOfActivity);
+            this.panel_KindOfActivity.Controls.Add(this.label_KindOfActivity);
+            this.panel_KindOfActivity.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_KindOfActivity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.panel_KindOfActivity.Location = new System.Drawing.Point(429, 3);
+            this.panel_KindOfActivity.Name = "panel_KindOfActivity";
+            this.panel_KindOfActivity.Size = new System.Drawing.Size(207, 127);
+            this.panel_KindOfActivity.TabIndex = 2;
+            // 
+            // comboBox_KindOfActivity
+            // 
+            this.comboBox_KindOfActivity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox_KindOfActivity.FormattingEnabled = true;
+            this.comboBox_KindOfActivity.Location = new System.Drawing.Point(4, 10);
+            this.comboBox_KindOfActivity.Name = "comboBox_KindOfActivity";
+            this.comboBox_KindOfActivity.Size = new System.Drawing.Size(199, 24);
+            this.comboBox_KindOfActivity.TabIndex = 5;
+            // 
+            // button_SearchKingOfActivity
+            // 
+            this.button_SearchKingOfActivity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_SearchKingOfActivity.Location = new System.Drawing.Point(6, 68);
+            this.button_SearchKingOfActivity.Name = "button_SearchKingOfActivity";
+            this.button_SearchKingOfActivity.Size = new System.Drawing.Size(197, 27);
+            this.button_SearchKingOfActivity.TabIndex = 4;
+            this.button_SearchKingOfActivity.Text = "По вид операции";
+            this.button_SearchKingOfActivity.UseVisualStyleBackColor = true;
+            this.button_SearchKingOfActivity.Click += new System.EventHandler(this.button_SearchKingOfActivity_Click);
+            // 
+            // label_KindOfActivity
+            // 
+            this.label_KindOfActivity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label_KindOfActivity.AutoSize = true;
+            this.label_KindOfActivity.Location = new System.Drawing.Point(58, 37);
+            this.label_KindOfActivity.Name = "label_KindOfActivity";
+            this.label_KindOfActivity.Size = new System.Drawing.Size(101, 17);
+            this.label_KindOfActivity.TabIndex = 3;
+            this.label_KindOfActivity.Text = "Вид операции";
+            // 
+            // panel_TypeDevice_1
+            // 
+            this.panel_TypeDevice_1.Controls.Add(this.panel_Search_SN_2);
+            this.panel_TypeDevice_1.Controls.Add(this.comboBox_TypeDevice);
+            this.panel_TypeDevice_1.Controls.Add(this.button_next__TypeDevice);
+            this.panel_TypeDevice_1.Controls.Add(this.button_SearchDevice);
+            this.panel_TypeDevice_1.Controls.Add(this.label_Search_TypeDevice_1);
+            this.panel_TypeDevice_1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_TypeDevice_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.panel_TypeDevice_1.Location = new System.Drawing.Point(642, 3);
+            this.panel_TypeDevice_1.Name = "panel_TypeDevice_1";
+            this.panel_TypeDevice_1.Size = new System.Drawing.Size(207, 127);
+            this.panel_TypeDevice_1.TabIndex = 8;
+            // 
             // panel_Search_SN_2
             // 
             this.panel_Search_SN_2.Controls.Add(this.panel_Search_Model_3);
@@ -194,20 +253,6 @@
             this.panel_Search_Model_3.Size = new System.Drawing.Size(207, 127);
             this.panel_Search_Model_3.TabIndex = 7;
             this.panel_Search_Model_3.Visible = false;
-            // 
-            // panel_TypeDevice_1
-            // 
-            this.panel_TypeDevice_1.Controls.Add(this.panel_Search_SN_2);
-            this.panel_TypeDevice_1.Controls.Add(this.comboBox_TypeDevice);
-            this.panel_TypeDevice_1.Controls.Add(this.button_next__TypeDevice);
-            this.panel_TypeDevice_1.Controls.Add(this.button_SearchDevice);
-            this.panel_TypeDevice_1.Controls.Add(this.label_Search_TypeDevice_1);
-            this.panel_TypeDevice_1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_TypeDevice_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.panel_TypeDevice_1.Location = new System.Drawing.Point(642, 3);
-            this.panel_TypeDevice_1.Name = "panel_TypeDevice_1";
-            this.panel_TypeDevice_1.Size = new System.Drawing.Size(207, 127);
-            this.panel_TypeDevice_1.TabIndex = 8;
             // 
             // panel_InvNum_4
             // 
@@ -325,6 +370,7 @@
             this.button_InvNum.TabIndex = 4;
             this.button_InvNum.Text = "По инвентарному №";
             this.button_InvNum.UseVisualStyleBackColor = true;
+            this.button_InvNum.Click += new System.EventHandler(this.button_InvNum_Click);
             // 
             // label_InvNum
             // 
@@ -336,50 +382,6 @@
             this.label_InvNum.Size = new System.Drawing.Size(114, 17);
             this.label_InvNum.TabIndex = 3;
             this.label_InvNum.Text = "инвентарный №";
-            // 
-            // comboBox_TypeDevice
-            // 
-            this.comboBox_TypeDevice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox_TypeDevice.FormattingEnabled = true;
-            this.comboBox_TypeDevice.Location = new System.Drawing.Point(5, 10);
-            this.comboBox_TypeDevice.Name = "comboBox_TypeDevice";
-            this.comboBox_TypeDevice.Size = new System.Drawing.Size(199, 24);
-            this.comboBox_TypeDevice.TabIndex = 7;
-            // 
-            // button_next__TypeDevice
-            // 
-            this.button_next__TypeDevice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_next__TypeDevice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_next__TypeDevice.Location = new System.Drawing.Point(128, 101);
-            this.button_next__TypeDevice.Name = "button_next__TypeDevice";
-            this.button_next__TypeDevice.Size = new System.Drawing.Size(70, 23);
-            this.button_next__TypeDevice.TabIndex = 6;
-            this.button_next__TypeDevice.Text = "Вперед";
-            this.button_next__TypeDevice.UseVisualStyleBackColor = true;
-            this.button_next__TypeDevice.Click += new System.EventHandler(this.button_next__TypeDevice_Click);
-            // 
-            // button_SearchDevice
-            // 
-            this.button_SearchDevice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_SearchDevice.Location = new System.Drawing.Point(0, 68);
-            this.button_SearchDevice.Name = "button_SearchDevice";
-            this.button_SearchDevice.Size = new System.Drawing.Size(203, 27);
-            this.button_SearchDevice.TabIndex = 4;
-            this.button_SearchDevice.Text = "По виду устройства";
-            this.button_SearchDevice.UseVisualStyleBackColor = true;
-            // 
-            // label_Search_TypeDevice_1
-            // 
-            this.label_Search_TypeDevice_1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label_Search_TypeDevice_1.AutoSize = true;
-            this.label_Search_TypeDevice_1.Location = new System.Drawing.Point(54, 37);
-            this.label_Search_TypeDevice_1.Name = "label_Search_TypeDevice_1";
-            this.label_Search_TypeDevice_1.Size = new System.Drawing.Size(118, 17);
-            this.label_Search_TypeDevice_1.TabIndex = 3;
-            this.label_Search_TypeDevice_1.Text = "Виду устройства";
             // 
             // button_next_Model
             // 
@@ -414,6 +416,7 @@
             this.button_Shearch_Model.TabIndex = 4;
             this.button_Shearch_Model.Text = "По модели";
             this.button_Shearch_Model.UseVisualStyleBackColor = true;
+            this.button_Shearch_Model.Click += new System.EventHandler(this.button_Shearch_Model_Click);
             // 
             // label1
             // 
@@ -468,6 +471,7 @@
             this.button_Search_SN.TabIndex = 4;
             this.button_Search_SN.Text = "По SN";
             this.button_Search_SN.UseVisualStyleBackColor = true;
+            this.button_Search_SN.Click += new System.EventHandler(this.button_Search_SN_Click);
             // 
             // label_Search_SN
             // 
@@ -489,56 +493,56 @@
             this.textBox_Search_SN.Size = new System.Drawing.Size(200, 23);
             this.textBox_Search_SN.TabIndex = 2;
             // 
-            // panel_KindOfActivity
+            // comboBox_TypeDevice
             // 
-            this.panel_KindOfActivity.Controls.Add(this.comboBox_KindOfActivity);
-            this.panel_KindOfActivity.Controls.Add(this.button_SearchKingOfActivity);
-            this.panel_KindOfActivity.Controls.Add(this.label_KindOfActivity);
-            this.panel_KindOfActivity.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_KindOfActivity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.panel_KindOfActivity.Location = new System.Drawing.Point(429, 3);
-            this.panel_KindOfActivity.Name = "panel_KindOfActivity";
-            this.panel_KindOfActivity.Size = new System.Drawing.Size(207, 127);
-            this.panel_KindOfActivity.TabIndex = 2;
-            // 
-            // comboBox_KindOfActivity
-            // 
-            this.comboBox_KindOfActivity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.comboBox_TypeDevice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox_KindOfActivity.FormattingEnabled = true;
-            this.comboBox_KindOfActivity.Location = new System.Drawing.Point(4, 10);
-            this.comboBox_KindOfActivity.Name = "comboBox_KindOfActivity";
-            this.comboBox_KindOfActivity.Size = new System.Drawing.Size(199, 24);
-            this.comboBox_KindOfActivity.TabIndex = 5;
+            this.comboBox_TypeDevice.FormattingEnabled = true;
+            this.comboBox_TypeDevice.Location = new System.Drawing.Point(5, 10);
+            this.comboBox_TypeDevice.Name = "comboBox_TypeDevice";
+            this.comboBox_TypeDevice.Size = new System.Drawing.Size(199, 24);
+            this.comboBox_TypeDevice.TabIndex = 7;
             // 
-            // button_SearchKingOfActivity
+            // button_next__TypeDevice
             // 
-            this.button_SearchKingOfActivity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.button_next__TypeDevice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_next__TypeDevice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_next__TypeDevice.Location = new System.Drawing.Point(128, 101);
+            this.button_next__TypeDevice.Name = "button_next__TypeDevice";
+            this.button_next__TypeDevice.Size = new System.Drawing.Size(70, 23);
+            this.button_next__TypeDevice.TabIndex = 6;
+            this.button_next__TypeDevice.Text = "Вперед";
+            this.button_next__TypeDevice.UseVisualStyleBackColor = true;
+            this.button_next__TypeDevice.Click += new System.EventHandler(this.button_next__TypeDevice_Click);
+            // 
+            // button_SearchDevice
+            // 
+            this.button_SearchDevice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_SearchKingOfActivity.Location = new System.Drawing.Point(6, 68);
-            this.button_SearchKingOfActivity.Name = "button_SearchKingOfActivity";
-            this.button_SearchKingOfActivity.Size = new System.Drawing.Size(197, 27);
-            this.button_SearchKingOfActivity.TabIndex = 4;
-            this.button_SearchKingOfActivity.Text = "По вид операции";
-            this.button_SearchKingOfActivity.UseVisualStyleBackColor = true;
-            this.button_SearchKingOfActivity.Click += new System.EventHandler(this.button_SearchKingOfActivity_Click);
+            this.button_SearchDevice.Location = new System.Drawing.Point(0, 68);
+            this.button_SearchDevice.Name = "button_SearchDevice";
+            this.button_SearchDevice.Size = new System.Drawing.Size(203, 27);
+            this.button_SearchDevice.TabIndex = 4;
+            this.button_SearchDevice.Text = "По виду устройства";
+            this.button_SearchDevice.UseVisualStyleBackColor = true;
+            this.button_SearchDevice.Click += new System.EventHandler(this.button_SearchDevice_Click);
             // 
-            // label_KindOfActivity
+            // label_Search_TypeDevice_1
             // 
-            this.label_KindOfActivity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.label_Search_TypeDevice_1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label_KindOfActivity.AutoSize = true;
-            this.label_KindOfActivity.Location = new System.Drawing.Point(58, 37);
-            this.label_KindOfActivity.Name = "label_KindOfActivity";
-            this.label_KindOfActivity.Size = new System.Drawing.Size(101, 17);
-            this.label_KindOfActivity.TabIndex = 3;
-            this.label_KindOfActivity.Text = "Вид операции";
+            this.label_Search_TypeDevice_1.AutoSize = true;
+            this.label_Search_TypeDevice_1.Location = new System.Drawing.Point(54, 37);
+            this.label_Search_TypeDevice_1.Name = "label_Search_TypeDevice_1";
+            this.label_Search_TypeDevice_1.Size = new System.Drawing.Size(118, 17);
+            this.label_Search_TypeDevice_1.TabIndex = 3;
+            this.label_Search_TypeDevice_1.Text = "Виду устройства";
             // 
             // panel_UserName
             // 
             this.panel_UserName.Controls.Add(this.button_SearchuserName);
             this.panel_UserName.Controls.Add(this.label_Search_UserName);
-            this.panel_UserName.Controls.Add(this.textBox1);
+            this.panel_UserName.Controls.Add(this.textBox_UserName);
             this.panel_UserName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_UserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.panel_UserName.Location = new System.Drawing.Point(216, 3);
@@ -567,14 +571,14 @@
             this.label_Search_UserName.TabIndex = 1;
             this.label_Search_UserName.Text = "Имя  пользователя ";
             // 
-            // textBox1
+            // textBox_UserName
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBox_UserName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(6, 11);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(200, 23);
-            this.textBox1.TabIndex = 0;
+            this.textBox_UserName.Location = new System.Drawing.Point(6, 11);
+            this.textBox_UserName.Name = "textBox_UserName";
+            this.textBox_UserName.Size = new System.Drawing.Size(200, 23);
+            this.textBox_UserName.TabIndex = 0;
             // 
             // panel_date
             // 
@@ -631,18 +635,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.panel_KindOfActivity.ResumeLayout(false);
+            this.panel_KindOfActivity.PerformLayout();
+            this.panel_TypeDevice_1.ResumeLayout(false);
+            this.panel_TypeDevice_1.PerformLayout();
             this.panel_Search_SN_2.ResumeLayout(false);
             this.panel_Search_SN_2.PerformLayout();
             this.panel_Search_Model_3.ResumeLayout(false);
             this.panel_Search_Model_3.PerformLayout();
-            this.panel_TypeDevice_1.ResumeLayout(false);
-            this.panel_TypeDevice_1.PerformLayout();
             this.panel_InvNum_4.ResumeLayout(false);
             this.panel_InvNum_4.PerformLayout();
             this.panel_Search_ID_5.ResumeLayout(false);
             this.panel_Search_ID_5.PerformLayout();
-            this.panel_KindOfActivity.ResumeLayout(false);
-            this.panel_KindOfActivity.PerformLayout();
             this.panel_UserName.ResumeLayout(false);
             this.panel_UserName.PerformLayout();
             this.panel_date.ResumeLayout(false);
@@ -661,7 +665,7 @@
         private System.Windows.Forms.Label label_KindOfActivity;
         private System.Windows.Forms.Button button_SearchuserName;
         private System.Windows.Forms.Label label_Search_UserName;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox_UserName;
         private System.Windows.Forms.Button button_SearchDate;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;

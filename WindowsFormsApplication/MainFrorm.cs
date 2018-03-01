@@ -69,9 +69,10 @@ namespace WindowsFormsApplication
 
                 dataGridViewMT.EnableHeadersVisualStyles = false;
                 dataGridViewMT.ColumnHeadersDefaultCellStyle.Font = new Font(dataGridViewMT.ColumnHeadersDefaultCellStyle.Font.FontFamily, 11f, FontStyle.Bold  | FontStyle.Italic); //жирный курсив размера 16 FontStyle.Italic
+                
                 //dataGridViewTB.ColumnHeadersDefaultCellStyle.BackColor = Color.Yellow; //цвет текста
                 //dataGridViewTB.ColumnHeadersDefaultCellStyle.ForeColor = Color.Red; //цвет ячейки
-                               
+
                 dataGridViewMT.Columns["dateCreated"].HeaderCell.Value = "Дата:";
                 // dataGridViewMT.Columns["TypeAC"].HeaderCell.Value = "Вид учета:";
                 dataGridViewMT.Columns["NumberINV"].HeaderCell.Value = "Инвентарный №:";
@@ -153,7 +154,7 @@ namespace WindowsFormsApplication
 
         private void button_Room_Click(object sender, EventArgs e)
         {
-            dataGridViewMT.DataSource = dal.GetDataGrid(comboBox_Room.SelectedValue.ToString());
+            dataGridViewMT.DataSource = dal.GetDataGrid("[dbo].[Room].[NameRoom]", comboBox_Room.SelectedValue.ToString());
             stilDataGrid();
             //if (dataGridViewMT.DataSource != null)
             //    dataGridViewMT.Columns["ID"].Visible = false;
@@ -161,25 +162,28 @@ namespace WindowsFormsApplication
 
         private void button_Responsible_Click(object sender, EventArgs e)
         {
-            dataGridViewMT.DataSource = dal.GetDataGrid_Responsoble(comboBox_Responsible.SelectedValue.ToString());
+            dataGridViewMT.DataSource = dal.GetDataGrid("[dbo].[NameRes].[NameRes]" , comboBox_Responsible.SelectedValue.ToString());
             stilDataGrid();
         }
 
         private void button_PC_Click(object sender, EventArgs e)
         {
-            dataGridViewMT.DataSource = dal.GetDataGrid_NamePC(textBox_PC.Text);
+            dataGridViewMT.DataSource = dal.GetDataGrid("dbo.NameLAN.NameLAN", textBox_PC.Text);
             stilDataGrid();
         }
 
         private void button_New_data_Click(object sender, EventArgs e)
         {
             SetNewDataBase setNewData = new SetNewDataBase();
+            setNewData.checkBox_MainAcount.Checked = true;
+            setNewData.checkBox_Stockroom.Checked = true;
             setNewData.ShowDialog();
+
         }      
 
         private void button_Number_Click(object sender, EventArgs e)
         {
-            dataGridViewMT.DataSource = dal.GetDataGrid_inv(textBox_Number.Text);
+            dataGridViewMT.DataSource = dal.GetDataGrid("MainTB.NumberINV", textBox_Number.Text);
             stilDataGrid();
         }
 
@@ -314,6 +318,28 @@ namespace WindowsFormsApplication
         {
             JBD jbd = new JBD();
             jbd.Show();
+        }
+
+        private void button_Hardware_StockRoom_Click(object sender, EventArgs e)
+        {
+            dataGridViewMT.DataSource= dal.Get_Hardware_StockRoom();
+        }
+
+        private void button_Hardware_PS_Click(object sender, EventArgs e)
+        {
+            dataGridViewMT.DataSource=dal.Get_Hardware_PS();
+        }
+
+        private void dataGridViewMT_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            string Comstr = "Системный блок";
+            if (dataGridViewMT.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() ==  Comstr)
+            {
+                dataGridViewMT.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Yellow;
+            }
+           
+            //dataGridViewTB.ColumnHeadersDefaultCellStyle.BackColor = Color.Yellow; //цвет текста
+            //dataGridViewTB.ColumnHeadersDefaultCellStyle.ForeColor = Color.Red; //цвет ячейки
         }
     } 
 }

@@ -23,16 +23,6 @@ namespace WindowsFormsApplication.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=mn-adpc01\\SQLEXPRESS;Initial Catalog=inv;Integrated Security=True")]
-        public string invConnectionString {
-            get {
-                return ((string)(this["invConnectionString"]));
-            }
-        }
-        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("mn-mssql01")]
@@ -78,6 +68,18 @@ namespace WindowsFormsApplication.Properties {
             }
             set {
                 this["ImgPath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("TestDB")]
+        public string SqlDataBase {
+            get {
+                return ((string)(this["SqlDataBase"]));
+            }
+            set {
+                this["SqlDataBase"] = value;
             }
         }
     }

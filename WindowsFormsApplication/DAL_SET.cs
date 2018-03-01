@@ -18,16 +18,15 @@ namespace WindowsFormsApplication
         String sConectDB = @"server=tcp:" + Properties.Settings.Default.SqlServer + "," +
             Properties.Settings.Default.SqlPort + "; Database=TolyattiDB; Integrated Security=true;";
 
-
+        // ghjdthrf 
         public void SetNewPosition(string TypeAccount, string TypeDevice, string Model,
-            string SN, string Responsible, string LanName, string Floor, string Room, string InvNumber ) 
+            string SN, string Responsible, string LanName, string Floor, string Room, string InvNumber, string jira ) 
         {
             ArrayList DataGrid = new ArrayList();
             SqlConnection connect = new SqlConnection(sConectDB);
             // переработать  20-21
-            SqlCommand command = new SqlCommand(@"if (select MainTB.NumberINV from MainTB where MainTB.NumberINV = '" + InvNumber + @"') IS NULL " +
-                @" begin INSERT INTO dbo.MainTB (dateCreated, TypeAC_ID, NumberINV, NameLAN_ID, " +
-                @"NameRes_ID, Floor_ID, Room_ID, TypeDevice_ID, SN, Model, [WrittenOff]) VALUES(GETDATE(), " + 
+            SqlCommand command = new SqlCommand(@"INSERT INTO dbo.MainTB (dateCreated, TypeAC_ID, NumberINV, NameLAN_ID, " +
+                @"NameRes_ID, Floor_ID, Room_ID, TypeDevice_ID, SN, Model, [WrittenOff], JiraTask_ID) VALUES(GETDATE(), " + 
                 TypeAccount + ", '" +
                 InvNumber + "', " +  
                 LanName + ", " +
@@ -36,8 +35,7 @@ namespace WindowsFormsApplication
                 Room +", " +
                 TypeDevice + ", '" +
                 SN + "', '" +
-                Model + "', 0)" + 
-                 " end; ", connect);
+                Model + "', 0, jira); ", connect);
 
             try
             {
@@ -54,6 +52,36 @@ namespace WindowsFormsApplication
 
             connect.Close();
            
+        }
+
+        public void SetNewPosition(string TypeDevice, string Model, string SN, string LanName, string InvNumber, string jira)
+        {
+            ArrayList DataGrid = new ArrayList();
+            SqlConnection connect = new SqlConnection(sConectDB);
+            // переработать  20-21
+            SqlCommand command = new SqlCommand(@"INSERT INTO dbo.MainTB (dateCreated, TypeAC_ID, NumberINV, NameLAN_ID, " +
+                @"NameRes_ID, Floor_ID, Room_ID, TypeDevice_ID, SN, Model, [WrittenOff], JiraTask_ID) VALUES(GETDATE(), '" +
+                InvNumber + "', " +
+                LanName + ", " +
+                TypeDevice + ", '" +
+                SN + "', '" +
+                Model + "', 0, jira); ", connect);
+
+            try
+            {
+
+                connect.Open();
+
+                command.ExecuteNonQuery();
+            }
+
+            catch (SqlException exception)
+            {
+                MessageBox.Show(exception.ToString());
+            }
+
+            connect.Close();
+
         }
 
         public void SetNewPosition(string Table, string Column, string Parametr)

@@ -44,11 +44,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox_Image = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox_Contact.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Image)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox2
@@ -56,7 +58,7 @@
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
             this.pictureBox2.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.ErrorImage")));
             this.pictureBox2.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.InitialImage")));
-            this.pictureBox2.Location = new System.Drawing.Point(9, 118);
+            this.pictureBox2.Location = new System.Drawing.Point(9, 98);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(64, 64);
             this.pictureBox2.TabIndex = 0;
@@ -77,17 +79,17 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(91, 70);
+            this.label1.Location = new System.Drawing.Point(79, 51);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(279, 29);
+            this.label1.Size = new System.Drawing.Size(288, 29);
             this.label1.TabIndex = 1;
-            this.label1.Text = "fedorov.i@codeworks.by";
+            this.label1.Text = "Fedorov.i@codeworks.by";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(91, 133);
+            this.label2.Location = new System.Drawing.Point(79, 110);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(119, 29);
             this.label2.TabIndex = 1;
@@ -133,12 +135,13 @@
             // 
             this.groupBox_Contact.Controls.Add(this.label2);
             this.groupBox_Contact.Controls.Add(this.label1);
+            this.groupBox_Contact.Controls.Add(this.pictureBox3);
             this.groupBox_Contact.Controls.Add(this.pictureBox2);
             this.groupBox_Contact.Controls.Add(this.pictureBox1);
             this.groupBox_Contact.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBox_Contact.Location = new System.Drawing.Point(3, 10);
             this.groupBox_Contact.Name = "groupBox_Contact";
-            this.groupBox_Contact.Size = new System.Drawing.Size(481, 188);
+            this.groupBox_Contact.Size = new System.Drawing.Size(481, 262);
             this.groupBox_Contact.TabIndex = 4;
             this.groupBox_Contact.TabStop = false;
             this.groupBox_Contact.Text = "Контакты:";
@@ -153,9 +156,9 @@
             this.groupBox2.Controls.Add(this.button_AddFile);
             this.groupBox2.Controls.Add(this.richTextBox1);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox2.Location = new System.Drawing.Point(3, 223);
+            this.groupBox2.Location = new System.Drawing.Point(3, 278);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(481, 405);
+            this.groupBox2.Size = new System.Drawing.Size(481, 403);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Отправить письмо прямо сейчас ";
@@ -187,17 +190,31 @@
             // 
             // pictureBox_Image
             // 
+            this.pictureBox_Image.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox_Image.Location = new System.Drawing.Point(82, 267);
             this.pictureBox_Image.Name = "pictureBox_Image";
             this.pictureBox_Image.Size = new System.Drawing.Size(393, 64);
             this.pictureBox_Image.TabIndex = 4;
             this.pictureBox_Image.TabStop = false;
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
+            this.pictureBox3.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.ErrorImage")));
+            this.pictureBox3.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.InitialImage")));
+            this.pictureBox3.Location = new System.Drawing.Point(9, 168);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(64, 64);
+            this.pictureBox3.TabIndex = 0;
+            this.pictureBox3.TabStop = false;
+            // 
             // Send_mail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(490, 630);
+            this.ClientSize = new System.Drawing.Size(490, 684);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox_Contact);
             this.Name = "Send_mail";
@@ -209,6 +226,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Image)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -229,5 +247,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }

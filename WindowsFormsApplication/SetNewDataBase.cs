@@ -48,8 +48,16 @@ namespace WindowsFormsApplication
             comboBox_TypeDevice.DisplayMember = "NameDevice";
             comboBox_TypeDevice.ValueMember = "NameDevice";
 
+            comboBox_Hardware_TypeDevice.DataSource = dal_get.Get_Data_From_Table_From_Colunm("TypeHardWare", "TypeHardWare");
+            comboBox_Hardware_TypeDevice.DisplayMember = "TypeHardWare";
+            comboBox_Hardware_TypeDevice.ValueMember = "TypeHardWare";
 
-           
+            comboBox_Hardware_LanName.DataSource = dal_get.Get_Data_From_Table_From_Colunm("NameLAN", "NameLAN");
+            comboBox_Hardware_LanName.DisplayMember = "NameLAN";
+            comboBox_Hardware_LanName.ValueMember = "NameLAN";
+            
+            groupBox_Hardware_LanName.Enabled = false;           
+            
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -163,67 +171,253 @@ namespace WindowsFormsApplication
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button_Cancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button_OK_Click(object sender, EventArgs e)
         {
-            string typedevise;
-            if (textBox_TypeDevice.Enabled == true)
-                typedevise = textBox_TypeDevice.Text;
-            else { typedevise = comboBox_TypeDevice.SelectedValue.ToString(); }
+            string messega;
+            DialogResult dialogResult;
 
-            string Responsible;
-            if (textBox_Responsible.Enabled)
-                Responsible = textBox_Responsible.Text;
-            else { Responsible = comboBox_Responsible.SelectedValue.ToString(); }
-
-            string LanName;
-            if (textBox_LanName.Enabled == true)
-                LanName = textBox_LanName.Text;
-            else { LanName = comboBox_LanName.SelectedValue.ToString();}
-
-            string Floor;
-            if (textBox_Floor.Enabled == true)
-                Floor = textBox_Floor.Text;
-            else { Floor = comboBox_Floor.SelectedValue.ToString(); }
-
-            string Room;
-            if (textBox_Room.Enabled == true)
-                Room = textBox_Room.Text;
-            else { Room = comboBox_Room.SelectedValue.ToString();}
-
-            DialogResult dialogResult = MessageBox.Show(("Инвентарный номер:\t" + textBox_NumberInv.Text +
-                           "\nНазвание в сети:\t\t" + LanName +
-                           "\nОтветственный\t\t" + Responsible +
-                           "\nМестоположение:\t\t" + Floor + " этаж, " + Room + " комната" +
-                           "\nТип устройства:\t\t" + typedevise +
-                           "\nСерийный номер:\t\t" + textBox_NumberSN.Text +
-                           "\nМодель:\t\t\t" + textBox_Model.Text), "Подтверждение отправки", MessageBoxButtons.OKCancel);
-
-            if (dialogResult == DialogResult.OK)
+            if (checkBox_MainAcount.Checked == true)
             {
-                dalSet.SetNewPosition("NULL", bll.Get_ID("TypeDevice", "NameDevice", typedevise).ToString(), textBox_Model.Text,
-                textBox_NumberSN.Text, bll.Get_ID("NameRes", "NameRes", Responsible).ToString(),
-                bll.Get_ID("NameLAN", "NameLAN", LanName).ToString(), bll.Get_ID("Floor", "floorNambe", Floor).ToString(),
-                bll.Get_ID("Room", "NameRoom", Room).ToString(), textBox_NumberInv.Text);
+                string typedevise;
+                if (textBox_TypeDevice.Enabled == true)
+                    typedevise = textBox_TypeDevice.Text;
+                else { typedevise = comboBox_TypeDevice.SelectedValue.ToString(); }
 
-                bll.BodyMailNew(textBox_NumberInv.Text, LanName, Responsible, Floor, Room, typedevise, textBox_NumberSN.Text, textBox_Model.Text);
-                MessageBox.Show("Улетело в базу !! ");
+                string Responsible;
+                if (textBox_Responsible.Enabled)
+                    Responsible = textBox_Responsible.Text;
+                else { Responsible = comboBox_Responsible.SelectedValue.ToString(); }
+
+                string LanName;
+                if (textBox_LanName.Enabled == true)
+                    LanName = textBox_LanName.Text;
+                else { LanName = comboBox_LanName.SelectedValue.ToString(); }
+
+                string Floor;
+                if (textBox_Floor.Enabled == true)
+                    Floor = textBox_Floor.Text;
+                else { Floor = comboBox_Floor.SelectedValue.ToString(); }
+
+                string Room;
+                if (textBox_Room.Enabled == true)
+                    Room = textBox_Room.Text;
+                else { Room = comboBox_Room.SelectedValue.ToString(); }
+
+                string Jira;
+                if (textBox_jira.Enabled == true)
+                    Jira = textBox_jira.Text;
+                else { Jira = comboBox_Jira.SelectedValue.ToString(); }
+
+                dialogResult = MessageBox.Show(("Инвентарный номер:\t" + textBox_NumberInv.Text +
+                               "\nНазвание в сети:\t\t" + LanName +
+                               "\nОтветственный\t\t" + Responsible +
+                               "\nМестоположение:\t\t" + Floor + " этаж, " + Room + " комната" +
+                               "\nТип устройства:\t\t" + typedevise +
+                               "\nСерийный номер:\t\t" + textBox_NumberSN.Text +
+                               "\nМодель:\t\t\t" + textBox_Model.Text +
+                               "\nЗадача в JIRA:\t\t\t" + Jira), "Подтверждение отправки", MessageBoxButtons.OKCancel);
+
+                if (dialogResult == DialogResult.OK)
+                {
+                    dalSet.SetNewPosition("NULL", bll.Get_ID("TypeDevice", "NameDevice", typedevise).ToString(),
+                        textBox_Model.Text,
+                        textBox_NumberSN.Text, bll.Get_ID("NameRes",
+                        "NameRes", Responsible).ToString(),
+                        bll.Get_ID("NameLAN", "NameLAN",
+                        LanName).ToString(), bll.Get_ID("Floor",
+                        "floorNambe", Floor).ToString(),
+                        bll.Get_ID("Room", "NameRoom",
+                        Room).ToString(), textBox_NumberInv.Text,
+                        bll.Get_ID("JiraTask", "JiraTask", Jira).ToString());
+
+                    bll.BodyMailNew(textBox_NumberInv.Text, LanName, Responsible, Floor, Room, typedevise, textBox_NumberSN.Text, textBox_Model.Text);
+                    
+                }
+                else if (dialogResult == DialogResult.No)
+                { }
             }
-            else if (dialogResult == DialogResult.No)
+            else 
             {
+                string typedevise;
+                if (textBox_Hardware_TypeDevice.Enabled == true)
+                    typedevise = textBox_Hardware_TypeDevice.Text;
+                else { typedevise = comboBox_Hardware_TypeDevice.SelectedValue.ToString(); }
+
+                string LanName;
+                if (textBox_Hardware_LanName.Enabled == true)
+                    LanName = textBox_Hardware_LanName.Text;
+                else { LanName = comboBox_Hardware_LanName.SelectedValue.ToString(); }
+
+                string Jira;
+                if (textBox_Hardware_jira.Enabled == true)
+                    Jira = textBox_Hardware_jira.Text;
+                else { Jira = comboBox_Hardware_jira.SelectedValue.ToString(); }
+
+                if (checkBox_SetHardware.Checked == true)
+                {
+                    messega = @"Инвентарный номер:\t" + textBox_NumberInv.Text +
+                               "\nНазвание в сети:\t\t" + LanName +
+                               "\nТип устройства:\t\t" + typedevise +
+                               "\nСерийный номер:\t\t" + textBox_Hardware_SN +
+                               "\nМодель:\t\t\t" + textBox_Hardware_Model.Text +
+                               "\nЗадача в JIRA:\t\t\t" + Jira;
+
+                    dialogResult = MessageBox.Show(messega, "Подтверждение отправки", MessageBoxButtons.OKCancel);
+
+                    if (dialogResult == DialogResult.OK)
+                    {
+                        //  
+                        dalSet.SetNewPosition(bll.Get_ID("TypeDevice", "NameDevice", typedevise).ToString(),
+                            textBox_Model.Text,
+                            textBox_NumberSN.Text, 
+                            bll.Get_ID("NameLAN", "NameLAN", LanName).ToString(),
+                            textBox_NumberInv.Text,
+                            bll.Get_ID("JiraTask", "JiraTask", Jira).ToString());
+
+                       // bll.BodyMailNew(textBox_NumberInv.Text, LanName, typedevise, textBox_NumberSN.Text, textBox_Model.Text);
+                       
+                    }
+                    else if (dialogResult == DialogResult.No)
+                    { }
+
+                }
+                else
+                { 
+                    
+                }
+
 
             }
-         
+        }
+
+        private void checkBox_Hardware_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox_Hardware.Checked == true)
+            {
+                if (checkBox_MainAcount.Checked ==true)
+                    checkBox_MainAcount.Checked = false;
+                panel_Hardware.Visible = true;
+                panel_MainAcount.Visible = false;
+            }
+            else 
+            {
+                if (checkBox_MainAcount.Checked == false)
+                    checkBox_MainAcount.Checked = true;
+                panel_Hardware.Visible = false;
+                panel_MainAcount.Visible = true;
+            }
+        }
+
+        private void checkBox_MainAcount_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox_MainAcount.Checked == true)
+            {
+                if(checkBox_Hardware.Checked == true)
+                    checkBox_Hardware.Checked = false;
+                panel_Hardware.Visible = false;
+                panel_MainAcount.Visible = true;
+            }
+            else
+            {
+                if (checkBox_Hardware.Checked == false)
+                    checkBox_Hardware.Checked = true;
+                panel_Hardware.Visible = true;
+                panel_MainAcount.Visible = false;
+            }
+        }
+
+        private void checkBox_Hardware_TypeDevice_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.checkBox_Hardware_TypeDevice.Checked == true)
+            {
+                textBox_Hardware_TypeDevice.Enabled = true;
+                comboBox_Hardware_TypeDevice.Enabled = false;
+            }
+
+            else
+            {
+                textBox_Hardware_TypeDevice.Enabled = false;
+                comboBox_Hardware_TypeDevice.Enabled = true;
+            }
+        }
+
+        private void checkBox_Hardware_LanName_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.checkBox_Hardware_LanName.Checked == true)
+            {
+                textBox_Hardware_LanName.Enabled = true;
+                comboBox_Hardware_LanName.Enabled = false;
+            }
+
+            else
+            {
+                textBox_Hardware_LanName.Enabled = false;
+                comboBox_Hardware_LanName.Enabled = true;
+            }
+        }
+
+        private void checkBox_SetHardware_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox_SetHardware.Checked == true)
+            {
+                groupBox_Hardware_LanName.Enabled = true;                
+                groupBox_Hardware_Sum.Enabled = false;
+                checkBox_Stockroom.Checked = false;
+                groupBox_Hardware_jira.Enabled = false;
+
+            }
+            else
+            {
+                groupBox_Hardware_LanName.Enabled = false;                
+                groupBox_Hardware_Sum.Enabled = true;
+                checkBox_Stockroom.Checked = true;
+                groupBox_Hardware_jira.Enabled =true;
+            }
 
         }
 
-        private void button_OK_Click(object sender, EventArgs e)
+        private void checkBox_Jira_CheckedChanged(object sender, EventArgs e)
         {
+            if (this.checkBox_Jira.Checked == true)
+            {
+                textBox_jira.Enabled = true;
+                comboBox_Jira.Enabled = false;
+            }
 
+            else
+            {
+                textBox_jira.Enabled = false;
+                comboBox_Jira.Enabled = true;
+            }
+        }
+
+        private void checkBox_Hardware_jira_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.checkBox_Hardware_jira.Checked == true)
+            {
+                textBox_Hardware_jira.Enabled = true;
+                comboBox_Hardware_jira.Enabled = false;
+            }
+
+            else
+            {
+                textBox_Hardware_jira.Enabled = false;
+                comboBox_Hardware_jira.Enabled = true;
+            }
+        }
+
+        private void checkBox_Stockroom_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox_Stockroom.Checked == true)
+            {
+                checkBox_SetHardware.Checked = false;
+            }
+            else { checkBox_SetHardware.Checked = true; }
         }
     }
 }

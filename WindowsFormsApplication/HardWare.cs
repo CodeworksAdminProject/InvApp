@@ -32,5 +32,17 @@ namespace WindowsFormsApplication
         {
 
         }
+
+        private void button_New_data_Click(object sender, EventArgs e)
+        {
+            SetNewDataBase setNewData = new SetNewDataBase();
+            setNewData.checkBox_MainAcount.Checked = false;
+            setNewData.checkBox_Stockroom.Checked = false;
+            setNewData.checkBox_MainAcount.Enabled = false;
+            setNewData.checkBox_Stockroom.Enabled = false;
+            setNewData.checkBox_Hardware.Checked = true;
+            setNewData.checkBox_SetHardware.Checked = true;
+           setNewData.ShowDialog();
+        }
     }
 }

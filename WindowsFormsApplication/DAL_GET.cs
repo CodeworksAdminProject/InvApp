@@ -15,13 +15,15 @@ namespace WindowsFormsApplication
 {
     class DAL_GET
     {
-        String sConectDB = @"server=tcp:" +Properties.Settings.Default.SqlServer+"," + 
-            Properties.Settings.Default.SqlPort + "; Database=TolyattiDB; Integrated Security=true;";
+        //String sConectDB = @"server=tcp:" +Properties.Settings.Default.SqlServer+"," + 
+        //    Properties.Settings.Default.SqlPort + "; Database=TolyattiDB; Integrated Security=true;";
 
-
+        String sConectDB = @"server=tcp:" + Properties.Settings.Default.SqlServer + "," +
+            Properties.Settings.Default.SqlPort + "; Database="+Properties.Settings.Default.SqlDataBase+"; Integrated Security=true;";
+       
         //======================================Array List ======================================================== 
-        
-        // get JDB
+
+        // get JBD
         internal ArrayList getJDB()
         {
             ArrayList Data = new ArrayList();
@@ -36,7 +38,7 @@ namespace WindowsFormsApplication
                   ,[InvNumber]
                   ,[ID_IN_Main_TB]
                   ,[KindOfActivity].KindOfActivity
-            FROM[TolyattiDB].[dbo].[JBD]
+            FROM [dbo].[JBD]
             Join KindOfActivity on JBD.KindOfActivity_ID = KindOfActivity.ID", connect);
 
             try
@@ -61,7 +63,8 @@ namespace WindowsFormsApplication
             return Data;
         }
 
-        internal ArrayList getJDB(string colunm, string value )
+        // JBD
+        internal ArrayList getJDB(string value )
         {
             ArrayList Data = new ArrayList();
             SqlConnection connect = new SqlConnection(sConectDB);
@@ -75,9 +78,9 @@ namespace WindowsFormsApplication
                   ,[InvNumber]
                   ,[ID_IN_Main_TB]
 	              ,[KindOfActivity].KindOfActivity
-            FROM [TolyattiDB].[dbo].[JBD]  
+            FROM [dbo].[JBD]  
             Join KindOfActivity on JBD.KindOfActivity_ID = KindOfActivity.ID
-            WHERE " +colunm+ " like '%" +value+"';", connect);
+            WHERE "+value+";", connect);
 
             try
             {
@@ -100,24 +103,35 @@ namespace WindowsFormsApplication
             connect.Close();
             return Data;
         }
-
-        internal ArrayList getJDB(string date_start , string date_finish , string KindOfActivity )
+        
+        // JBD
+        internal ArrayList getJDB(string date , string Username, string KindOfActivity, string TypeDevice,
+            string SN, string Model, string InvNumbe, string ID_main )
         {
             ArrayList Data = new ArrayList();
             SqlConnection connect = new SqlConnection(sConectDB);
             SqlCommand command = new SqlCommand(@"SELECT 
                   [dateCreated]
                   ,[UserName]
+                  ,[KindOfActivity].KindOfActivity
                   ,[ReasonOrMoved]
                   ,[TypeDevice]
                   ,[SN]
                   ,[Model]
                   ,[InvNumber]
-                  ,[ID_IN_Main_TB]
-	              ,[KindOfActivity].KindOfActivity
-            FROM [TolyattiDB].[dbo].[JBD]  
+                  ,[ID_IN_Main_TB]	              
+            FROM [dbo].[JBD]  
             Join KindOfActivity on JBD.KindOfActivity_ID = KindOfActivity.ID
-            WHERE " + date_start + " like '%" + date_finish + "';", connect);
+            WHERE " + 
+            date + " AND " +
+            Username + " AND " +
+            KindOfActivity + " AND " +
+            TypeDevice + " AND " +
+            SN + " AND " +
+            Model + " AND " +
+            InvNumbe + " AND " +
+            ID_main +
+            ";", connect);
 
             try
             {
@@ -317,6 +331,76 @@ namespace WindowsFormsApplication
             return DataGrid;
         }
 
+        // hardware  main page 
+        internal ArrayList Get_Hardware_StockRoom()
+        {
+            ArrayList DataGrid = new ArrayList();
+            SqlConnection connect = new SqlConnection(sConectDB);
+            SqlCommand command = new SqlCommand(@"SELECT [dateCreated]
+                      ,[TypeHardWare]
+                      ,[Model]
+                      ,[SN]
+                      ,[quantity]
+                  FROM [dbo].[HardwareStockRoom]
+                  Join [TypeHardWare] on TypeHardWare_ID = [TypeHardWare].[ID];", connect);
+
+            try
+            {
+
+                connect.Open();
+                SqlDataReader datareader = command.ExecuteReader();
+
+                if (datareader.HasRows)
+                    foreach (DbDataRecord result in datareader)
+                        DataGrid.Add(result);
+                else
+                    return null;
+            }
+
+            catch (SqlException exception)
+            {
+                MessageBox.Show(exception.ToString());
+            }
+
+            connect.Close();
+            return DataGrid;
+        }
+
+        internal ArrayList Get_Hardware_PS()
+        {
+            ArrayList DataGrid = new ArrayList();
+            SqlConnection connect = new SqlConnection(sConectDB);
+            SqlCommand command = new SqlCommand(@"SELECT 
+	          NameLAN.NameLAN
+              ,[TypeHardWare]
+              ,[Model]
+              ,[SN]
+              ,[WrittenOff]
+               FROM [dbo].[HardWare],NameLAN, TypeHardWare
+                Where NameLAN = (SELECT NameLAN  FROM [dbo].[MainTB] join NameLAN on NameLAN_ID = NameLAN.ID   Where [MainTB].ID = MainTB_ID) 
+                AND TypeHardWare_ID = TypeHardWare.ID;", connect);
+
+            try
+            {
+
+                connect.Open();
+                SqlDataReader datareader = command.ExecuteReader();
+
+                if (datareader.HasRows)
+                    foreach (DbDataRecord result in datareader)
+                        DataGrid.Add(result);
+                else
+                    return null;
+            }
+
+            catch (SqlException exception)
+            {
+                MessageBox.Show(exception.ToString());
+            }
+
+            connect.Close();
+            return DataGrid;
+        }
 
 
         //======================================Data table ======================================================== 
@@ -379,7 +463,7 @@ namespace WindowsFormsApplication
                 connect.Close();
             }
             return DataFloor;
-        }
+        }           
 
         // EXCEL BBL
         internal DataTable GetLanNameTabel(string LanName)
@@ -485,17 +569,17 @@ namespace WindowsFormsApplication
         //======================================Переделать ======================================================== 
 
         //-
-        public ArrayList GetDataGrid(string room)
+        public ArrayList GetDataGrid(string table, string value)
         {
             ArrayList DataGrid = new ArrayList();
             SqlConnection connect = new SqlConnection(sConectDB);
-            SqlCommand command = new SqlCommand(@"select maintb.ID, maintb.dateCreated, maintb.NumberINV, NameLAN.NameLAN, NameRes.NameRes, " +
-                @"[Floor].floorNambe, Room.NameRoom, TypeDevice.NameDevice, maintb.SN, MainTB.Model, JiraTask from MainTB " +
-                @"join [Floor] on maintb.Floor_ID = [Floor].ID join room on maintb.Room_ID =  Room.ID " +
-                @"join TypeDevice on maintb.TypeDevice_ID = TypeDevice.ID join NameLAN on maintb.NameLAN_ID = NameLAN.ID " +
-                @"join NameRes on maintb.NameRes_ID =  NameRes.ID " +
-                @"Join JiraTask on maintb.JiraTask_ID = JiraTask.ID " +
-                       @"where Room.NameRoom = '" + room + @"' AND [WrittenOff] = 'False';", connect);
+            SqlCommand command = new SqlCommand(@"select maintb.ID, maintb.dateCreated, maintb.NumberINV, NameLAN.NameLAN, NameRes.NameRes, 
+                [Floor].floorNambe, Room.NameRoom, TypeDevice.NameDevice, maintb.SN, MainTB.Model, JiraTask from MainTB 
+                join [Floor] on maintb.Floor_ID = [Floor].ID join room on maintb.Room_ID =  Room.ID 
+                join TypeDevice on maintb.TypeDevice_ID = TypeDevice.ID join NameLAN on maintb.NameLAN_ID = NameLAN.ID 
+                join NameRes on maintb.NameRes_ID =  NameRes.ID 
+                Join JiraTask on maintb.JiraTask_ID = JiraTask.ID
+                Where " +table+ " like'%" + value+ "%' AND[WrittenOff] = 'False' order by NameRes,NameLAN, TypeDevice_ID;", connect);
 
             try
             {

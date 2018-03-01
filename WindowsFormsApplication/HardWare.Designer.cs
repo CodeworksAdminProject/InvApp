@@ -56,7 +56,7 @@
             // 
             // dataGridView_HardWare
             // 
-            this.dataGridView_HardWare.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCellsExceptHeader;
+            this.dataGridView_HardWare.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView_HardWare.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_HardWare.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView_HardWare.Location = new System.Drawing.Point(0, 0);
@@ -76,6 +76,7 @@
             this.button_New_data.Size = new System.Drawing.Size(64, 64);
             this.button_New_data.TabIndex = 2;
             this.button_New_data.UseVisualStyleBackColor = true;
+            this.button_New_data.Click += new System.EventHandler(this.button_New_data_Click);
             // 
             // button_Update
             // 

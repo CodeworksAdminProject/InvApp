@@ -22,6 +22,7 @@ namespace WindowsFormsApplication
             textBox_SqlPort.Text = Properties.Settings.Default.SqlPort;
             textBox_Mail.Text = Properties.Settings.Default.Email;
             textBox_LogatipPath.Text = Properties.Settings.Default.ImgPath;
+            textBox_NameDB.Text = Properties.Settings.Default.SqlDataBase;
 
             if (Properties.Settings.Default.ImgPath != "")
                 pictureBox_Image.Image = Image.FromFile(Properties.Settings.Default.ImgPath);
@@ -58,6 +59,7 @@ namespace WindowsFormsApplication
             Properties.Settings.Default.SqlPort = textBox_SqlPort.Text;
             Properties.Settings.Default.Email =textBox_Mail.Text ;
             Properties.Settings.Default.ImgPath= textBox_LogatipPath.Text;
+            Properties.Settings.Default.SqlDataBase = textBox_NameDB.Text;
             Properties.Settings.Default.Save();
             MessageBox.Show("Настройки сохранены");
         }

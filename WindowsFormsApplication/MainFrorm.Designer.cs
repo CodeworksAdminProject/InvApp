@@ -76,6 +76,9 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox_DATA = new System.Windows.Forms.GroupBox();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
+            this.groupBox_Hardware = new System.Windows.Forms.GroupBox();
+            this.button_Hardware_StockRoom = new System.Windows.Forms.Button();
+            this.button_Hardware_PS = new System.Windows.Forms.Button();
             this.grubBoxUnloading.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox_Set_Data.SuspendLayout();
@@ -92,6 +95,7 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.groupBox_DATA.SuspendLayout();
+            this.groupBox_Hardware.SuspendLayout();
             this.SuspendLayout();
             // 
             // grubBoxUnloading
@@ -257,7 +261,7 @@
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBox3.Location = new System.Drawing.Point(1091, 33);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(340, 181);
+            this.groupBox3.Size = new System.Drawing.Size(100, 181);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Печать";
@@ -457,7 +461,7 @@
             // JBDToolStripMenuItem
             // 
             this.JBDToolStripMenuItem.Name = "JBDToolStripMenuItem";
-            this.JBDToolStripMenuItem.Size = new System.Drawing.Size(152, 32);
+            this.JBDToolStripMenuItem.Size = new System.Drawing.Size(126, 32);
             this.JBDToolStripMenuItem.Text = "ЖБД";
             this.JBDToolStripMenuItem.Click += new System.EventHandler(this.JBDToolStripMenuItem_Click);
             // 
@@ -561,6 +565,7 @@
             this.dataGridViewMT.TabIndex = 3;
             this.toolTip1.SetToolTip(this.dataGridViewMT, "частичные отчеты ");
             this.dataGridViewMT.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewMT_CellContentDoubleClick);
+            this.dataGridViewMT.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewMT_CellFormatting);
             // 
             // dataGridViewPC_Name
             // 
@@ -643,11 +648,51 @@
             this.groupBox_DATA.TabStop = false;
             this.groupBox_DATA.Text = "Данные  по вашему запросу";
             // 
+            // groupBox_Hardware
+            // 
+            this.groupBox_Hardware.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox_Hardware.AutoSize = true;
+            this.groupBox_Hardware.Controls.Add(this.button_Hardware_PS);
+            this.groupBox_Hardware.Controls.Add(this.button_Hardware_StockRoom);
+            this.groupBox_Hardware.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.groupBox_Hardware.Location = new System.Drawing.Point(1197, 33);
+            this.groupBox_Hardware.Name = "groupBox_Hardware";
+            this.groupBox_Hardware.Size = new System.Drawing.Size(234, 181);
+            this.groupBox_Hardware.TabIndex = 3;
+            this.groupBox_Hardware.TabStop = false;
+            this.groupBox_Hardware.Text = "Железо и расходники ";
+            // 
+            // button_Hardware_StockRoom
+            // 
+            this.button_Hardware_StockRoom.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_Hardware_StockRoom.BackgroundImage")));
+            this.button_Hardware_StockRoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_Hardware_StockRoom.Location = new System.Drawing.Point(6, 17);
+            this.button_Hardware_StockRoom.Name = "button_Hardware_StockRoom";
+            this.button_Hardware_StockRoom.Size = new System.Drawing.Size(64, 64);
+            this.button_Hardware_StockRoom.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.button_Hardware_StockRoom, "Железо и расходники на складе ");
+            this.button_Hardware_StockRoom.UseVisualStyleBackColor = true;
+            this.button_Hardware_StockRoom.Click += new System.EventHandler(this.button_Hardware_StockRoom_Click);
+            // 
+            // button_Hardware_PS
+            // 
+            this.button_Hardware_PS.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_Hardware_PS.BackgroundImage")));
+            this.button_Hardware_PS.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_Hardware_PS.Location = new System.Drawing.Point(6, 93);
+            this.button_Hardware_PS.Name = "button_Hardware_PS";
+            this.button_Hardware_PS.Size = new System.Drawing.Size(64, 64);
+            this.button_Hardware_PS.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.button_Hardware_PS, "Железо и расходники  на  ПК ");
+            this.button_Hardware_PS.UseVisualStyleBackColor = true;
+            this.button_Hardware_PS.Click += new System.EventHandler(this.button_Hardware_PS_Click);
+            // 
             // MainFrorm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1434, 568);
+            this.Controls.Add(this.groupBox_Hardware);
             this.Controls.Add(this.groupBox_Set_Data);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -680,6 +725,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.groupBox_DATA.ResumeLayout(false);
+            this.groupBox_Hardware.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -733,6 +779,9 @@
         private System.Windows.Forms.FontDialog fontDialog1;
         private System.Windows.Forms.Button button_WriteOffTable;
         private System.Windows.Forms.ToolStripMenuItem JBDToolStripMenuItem;
+        private System.Windows.Forms.GroupBox groupBox_Hardware;
+        private System.Windows.Forms.Button button_Hardware_PS;
+        private System.Windows.Forms.Button button_Hardware_StockRoom;
     }
 }
 
