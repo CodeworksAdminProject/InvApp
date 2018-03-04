@@ -31,13 +31,13 @@ namespace WindowsFormsApplication
             SqlCommand command = new SqlCommand(@"SELECT 
                    [dateCreated]
                   ,[UserName]
+                  ,[KindOfActivity].KindOfActivity
                   ,[ReasonOrMoved]
                   ,[TypeDevice]
                   ,[SN]
                   ,[Model]
                   ,[InvNumber]
-                  ,[ID_IN_Main_TB]
-                  ,[KindOfActivity].KindOfActivity
+                  ,[ID_IN_Main_TB]                  
             FROM [dbo].[JBD]
             Join KindOfActivity on JBD.KindOfActivity_ID = KindOfActivity.ID", connect);
 
@@ -71,16 +71,16 @@ namespace WindowsFormsApplication
             SqlCommand command = new SqlCommand(@"SELECT 
                   [dateCreated]
                   ,[UserName]
+                  ,[KindOfActivity].KindOfActivity
                   ,[ReasonOrMoved]
                   ,[TypeDevice]
                   ,[SN]
                   ,[Model]
                   ,[InvNumber]
-                  ,[ID_IN_Main_TB]
-	              ,[KindOfActivity].KindOfActivity
+                  ,[ID_IN_Main_TB]	              
             FROM [dbo].[JBD]  
             Join KindOfActivity on JBD.KindOfActivity_ID = KindOfActivity.ID
-            WHERE "+value+";", connect);
+            WHERE " + value+";", connect);
 
             try
             {
@@ -410,11 +410,11 @@ namespace WindowsFormsApplication
         {
             DataTable Data = new DataTable();
             SqlConnection connect = new SqlConnection(sConectDB);
-            SqlCommand command = new SqlCommand(@"select  maintb.NumberINV, " +
-                @"[Floor].floorNambe, Room.NameRoom, TypeDevice.NameDevice, maintb.SN, MainTB.Model from mainTB " +
-                @"join [Floor] on maintb.Floor_ID = [Floor].ID join room on maintb.Room_ID =  Room.ID " +
-                @"join TypeDevice on maintb.TypeDevice_ID = TypeDevice.ID  " +                
-                @"where maintb.ID  IN ( " + ID + " ) AND  [WrittenOff] = 'True'; ", connect);
+            SqlCommand command = new SqlCommand(@"select maintb.ID, maintb.NumberINV, 
+                [Floor].floorNambe, Room.NameRoom, TypeDevice.NameDevice, maintb.SN, MainTB.Model from mainTB 
+                join [Floor] on maintb.Floor_ID = [Floor].ID join room on maintb.Room_ID =  Room.ID 
+                join TypeDevice on maintb.TypeDevice_ID = TypeDevice.ID                  
+                where maintb.ID  IN ( " + ID + " ); ", connect);
 
             try
             {
@@ -758,7 +758,6 @@ namespace WindowsFormsApplication
                 while (dr.Read())
                 {
                     itemDB[0] = dr.GetInt32(0);
-
                 }
                 Resulty = itemDB[0];
                 return Resulty;
@@ -766,6 +765,7 @@ namespace WindowsFormsApplication
 
             else
                 return 0;
+
 
             con.Close();
 

@@ -19,13 +19,14 @@ namespace WindowsFormsApplication
         {
             Style = "<style>";
             Style = Style + "TABLE {border-collapse: collapse;}";
-            Style = Style + "TH  {border: 4px solid black; background:#fc0; padding: 4xp;}";
+            Style = Style + "TH  {border: 2px solid black; background:#fc0; padding: 4xp;}";
             Style = Style + ".PC{border: 3px solid black; background:#FFF8DC; padding: 4xp;font-family: Arial, Helvetica, sans-serif;}";
             Style = Style + ".UPS{border: 3px solid black; background:#DAA520; padding: 4xp;font-family: Arial, Helvetica, sans-serif;}";
             Style = Style + ".Monitor{border: 3px solid black; background:#E6E6FA; padding: 4xp;font-family: Arial, Helvetica, sans-serif;}";
             Style = Style + ".IpPhone{border: 3px solid black; background:#FFD700; padding: 4xp;font-family: Arial, Helvetica, sans-serif;}";
             Style = Style + ".miniPC{border: 3px solid black; background:#FFF8DC; padding: 4xp;font-family: Arial, Helvetica, sans-serif;}";
-            Style = Style + "TD {border: 2px solid black; background:#9ACD32; paddong: 4xp;}";
+            Style = Style + "TR {border: 2px solid black; background:#FFFFFF; paddong: 4xp;}";
+            Style = Style + "TD {border: 1px solid black; background:#FFFFFF; paddong: 4xp;}";
             Style = Style + "</style>";
 
             Html = "<!DOCTYPE HTML>";

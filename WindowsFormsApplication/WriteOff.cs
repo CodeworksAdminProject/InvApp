@@ -12,14 +12,16 @@ namespace WindowsFormsApplication
 {
     public partial class WriteOff : Form
     {
+
+
         public WriteOff()
         {
             InitializeComponent();
+
         }
 
         private void button_OK_Click(object sender, EventArgs e)
         {
-            MainFrorm main = this.Owner as MainFrorm;
 
             if (this.reason.Text == "" || this.reason.Text.Length > 50)
             {
@@ -27,12 +29,9 @@ namespace WindowsFormsApplication
             }
             else
             {
-                if (main != null)
-                {
-                    main.flag = true;
-                    main.ReasonWriteOff = this.reason.Text;
-                    this.Close();
-                }
+                BLL.flag = true;
+                BLL.ReasonWriteOff = this.reason.Text;
+                this.Close();
             }
         }
 
@@ -40,7 +39,7 @@ namespace WindowsFormsApplication
         {
             this.Close();
         }
-
     }
-    
 }
+
+  

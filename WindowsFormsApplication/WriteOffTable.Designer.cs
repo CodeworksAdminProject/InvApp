@@ -30,10 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WriteOffTable));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.dataGridView_WriteOffTable = new System.Windows.Forms.DataGridView();
             this.button_New_data = new System.Windows.Forms.Button();
             this.button_deleteDataBase = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.dataGridView_WriteOffTable = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_WriteOffTable)).BeginInit();
@@ -48,26 +48,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(899, 75);
             this.panel1.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.Controls.Add(this.dataGridView_WriteOffTable);
-            this.panel2.Location = new System.Drawing.Point(0, 81);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(899, 492);
-            this.panel2.TabIndex = 1;
-            // 
-            // dataGridView_WriteOffTable
-            // 
-            this.dataGridView_WriteOffTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView_WriteOffTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_WriteOffTable.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView_WriteOffTable.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView_WriteOffTable.Name = "dataGridView_WriteOffTable";
-            this.dataGridView_WriteOffTable.Size = new System.Drawing.Size(899, 492);
-            this.dataGridView_WriteOffTable.TabIndex = 0;
             // 
             // button_New_data
             // 
@@ -95,6 +75,27 @@
             this.button_deleteDataBase.Size = new System.Drawing.Size(64, 64);
             this.button_deleteDataBase.TabIndex = 3;
             this.button_deleteDataBase.UseVisualStyleBackColor = true;
+            this.button_deleteDataBase.Click += new System.EventHandler(this.button_deleteDataBase_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Controls.Add(this.dataGridView_WriteOffTable);
+            this.panel2.Location = new System.Drawing.Point(0, 81);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(899, 492);
+            this.panel2.TabIndex = 1;
+            // 
+            // dataGridView_WriteOffTable
+            // 
+            this.dataGridView_WriteOffTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView_WriteOffTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_WriteOffTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView_WriteOffTable.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView_WriteOffTable.Name = "dataGridView_WriteOffTable";
+            this.dataGridView_WriteOffTable.Size = new System.Drawing.Size(899, 492);
+            this.dataGridView_WriteOffTable.TabIndex = 0;
             // 
             // WriteOffTable
             // 

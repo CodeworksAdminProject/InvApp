@@ -15,8 +15,12 @@ namespace WindowsFormsApplication
     {
 
 
+        //String sConectDB = @"server=tcp:" + Properties.Settings.Default.SqlServer + "," +
+        //    Properties.Settings.Default.SqlPort + "; Database=TolyattiDB; Integrated Security=true;";
+
         String sConectDB = @"server=tcp:" + Properties.Settings.Default.SqlServer + "," +
-            Properties.Settings.Default.SqlPort + "; Database=TolyattiDB; Integrated Security=true;";
+            Properties.Settings.Default.SqlPort + "; Database=" + Properties.Settings.Default.SqlDataBase + "; Integrated Security=true;";
+
 
         // ghjdthrf 
         public void SetNewPosition(string TypeAccount, string TypeDevice, string Model,
@@ -35,7 +39,7 @@ namespace WindowsFormsApplication
                 Room +", " +
                 TypeDevice + ", '" +
                 SN + "', '" +
-                Model + "', 0, jira); ", connect);
+                Model + "', 0, " + jira + "); ", connect);
 
             try
             {
@@ -65,7 +69,7 @@ namespace WindowsFormsApplication
                 LanName + ", " +
                 TypeDevice + ", '" +
                 SN + "', '" +
-                Model + "', 0, jira); ", connect);
+                Model + "', 0, "+jira+"); ", connect);
 
             try
             {
@@ -88,7 +92,7 @@ namespace WindowsFormsApplication
         {
             ArrayList DataGrid = new ArrayList();
             SqlConnection connect = new SqlConnection(sConectDB);
-            SqlCommand command = new SqlCommand("INSERT INTO dbo." + Table + " ( " + Column+") VALUES('"+Parametr+ "');", connect);
+            SqlCommand command = new SqlCommand(@"INSERT INTO dbo." + Table + @" ( "+ Column+ @") VALUES('"+Parametr+ @"');", connect);
 
             try
             {
@@ -136,13 +140,13 @@ namespace WindowsFormsApplication
            
         }
 
-        public void WrittenOff(string ID, string Reason)
+        public void WrittenOff(string ID, string Reason, string value )
         {
             ArrayList DataGrid = new ArrayList();
             using (SqlConnection connect = new SqlConnection(sConectDB))
             {
-                SqlCommand command = new SqlCommand("Update  dbo.MainTB SET  [WrittenOff] = 1, " +
-                    "[ReasonWriteOff] = '" +Reason + "' "+ 
+                SqlCommand command = new SqlCommand("Update  dbo.MainTB SET  [WrittenOff] = " + value +
+                    ", [ReasonWriteOff] = '" +Reason + "' "+ 
                     "WHERE dbo.MainTB.ID = " + ID +" ;", connect);
                 try
                 {
@@ -161,13 +165,13 @@ namespace WindowsFormsApplication
             }
         }
 
-        public void Delete (string ID)
+        public void Delete (string table, string ID)
         {
             ArrayList DataGrid = new ArrayList();
             using (SqlConnection connect = new SqlConnection(sConectDB))
             {
-                SqlCommand command = new SqlCommand("Delete  dbo.MainTB " +
-                    "WHERE dbo.MainTB.ID = '" + ID + "' ;", connect);
+                SqlCommand command = new SqlCommand("Delete  dbo."+ table +  
+                    " WHERE dbo."+ table + ".ID = " + ID + " ;", connect);
                 try
                 {
 

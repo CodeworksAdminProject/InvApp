@@ -24,8 +24,6 @@ namespace WindowsFormsApplication
         BLL bll = new BLL();
         SMTP_CLIENT smttp = new SMTP_CLIENT();
         public static string index;
-        public bool flag = false;
-        public string ReasonWriteOff;
 
         public MainFrorm()
         {
@@ -189,19 +187,34 @@ namespace WindowsFormsApplication
 
         private void button_Update_Click(object sender, EventArgs e)
         {
-           
-            foreach (DataGridViewRow row in dataGridViewMT.Rows)
+
+            WriteOff set = new WriteOff();
+            set.Owner = this;
+            set.button_OK.Text = "Улалить";
+            set.ShowDialog();
+
+            if (BLL.flag == true)
             {
-                if (row.Selected == true)
+                string AddId = null;
+
+                foreach (DataGridViewRow row in dataGridViewMT.Rows)
                 {
-                    BLL.Data.Add(row.Cells[0].Value.ToString());
-                    bll.AddDataNew(row.Cells[0].Value.ToString(), row.Cells[3].Value.ToString(), row.Cells[4].Value.ToString(), row.Cells[5].Value.ToString(), row.Cells[6].Value.ToString());                    
+                    if (row.Selected == true)
+                    {
+                        BLL.sHtmlTableDeleteReport = BLL.sHtmlTableDeleteReport + bll.WrittenOff_And_Delete(row.Cells["ID"].Value.ToString(), BLL.sHtmlTableDeleteReport, "Delete");
+
+                        AddId += row.Cells[0].Value.ToString();
+                        dal_set.AddFDB(Environment.UserName, 3, BLL.ReasonWriteOff, row.Cells["NumberINV"].Value.ToString(),
+                            row.Cells["NameDevice"].Value.ToString(), row.Cells["SN"].Value.ToString(),
+                            row.Cells["Model"].Value.ToString(), row.Cells["ID"].Value.ToString());
+
+                        dal_set.Delete("MainTB", row.Cells[0].Value.ToString());
+                    }
                 }
+                
+                BLL.ReasonWriteOff = null;
+                BLL.flag = false;
             }
-            
-            setDataBase setNewData = new setDataBase();
-            //setNewData.Owner = this;
-            setNewData.ShowDialog();
         }
 
         private void MainFrorm_FormClosed(object sender, FormClosedEventArgs e)
@@ -247,33 +260,34 @@ namespace WindowsFormsApplication
 
         private void button_Delete_Click(object sender, EventArgs e)
         {
-            flag = false;
+           
             WriteOff set = new WriteOff();
             set.Owner = this;
             set.button_OK.Text = "Списать";
             set.ShowDialog();
             
-            if (flag == true) {
+            if (BLL.flag == true)
+            {
                 string AddId = null;
 
                 foreach (DataGridViewRow row in dataGridViewMT.Rows)
                 {
                     if (row.Selected == true)
                     {
-                        dal_set.WrittenOff(row.Cells[0].Value.ToString(), ReasonWriteOff);
+                        dal_set.WrittenOff(row.Cells[0].Value.ToString(), BLL.ReasonWriteOff, "1");
                         if (AddId != null)
                             AddId += "," + row.Cells[0].Value.ToString();
                         else
                             AddId += row.Cells[0].Value.ToString();
-                        dal_set.AddFDB(Environment.UserName, 1, ReasonWriteOff, row.Cells["NumberINV"].Value.ToString(),
+                        dal_set.AddFDB(Environment.UserName, 1, BLL.ReasonWriteOff, row.Cells["NumberINV"].Value.ToString(),
                             row.Cells["NameDevice"].Value.ToString(), row.Cells["SN"].Value.ToString(),
                             row.Cells["Model"].Value.ToString(), row.Cells["ID"].Value.ToString());
                     }
                 }
 
-                bll.AddWrittenOff(AddId);
-                MessageBox.Show(BLL.sHtmlTableWriteOffForReport);
-                
+                BLL.sHtmlTableAddWriteOffForReport = BLL.sHtmlTableAddWriteOffForReport + bll.WrittenOff_And_Delete(AddId, BLL.sHtmlTableAddWriteOffForReport, "Add");                
+                BLL.ReasonWriteOff = null;
+                BLL.flag = false;
             }
         }
              
@@ -332,12 +346,37 @@ namespace WindowsFormsApplication
 
         private void dataGridViewMT_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            string Comstr = "Системный блок";
-            if (dataGridViewMT.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() ==  Comstr)
+            string PC = "системный блок";
+            string Monitor = "монитор";
+            string UPS = "ибп";
+            string Ipphone = "IP телефон";
+            string mibiPC = "мини пк";
+
+            if  ( dataGridViewMT.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString().ToUpper() == PC.ToUpper())
             {
-                dataGridViewMT.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Yellow;
+                dataGridViewMT.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Goldenrod;
             }
-           
+                       
+            else if (dataGridViewMT.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString().ToUpper() == Monitor.ToUpper())
+            {
+                dataGridViewMT.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Cornsilk;
+            }
+            
+            else if (dataGridViewMT.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString().ToUpper() == UPS.ToUpper())
+            {
+                dataGridViewMT.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Lavender;
+            }
+
+            else if (dataGridViewMT.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString().ToUpper() == Ipphone.ToUpper())
+            {
+                dataGridViewMT.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Gold;
+            }
+
+            else if (dataGridViewMT.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString().ToUpper() == mibiPC.ToUpper())
+            {
+                dataGridViewMT.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.YellowGreen;
+            }
+
             //dataGridViewTB.ColumnHeadersDefaultCellStyle.BackColor = Color.Yellow; //цвет текста
             //dataGridViewTB.ColumnHeadersDefaultCellStyle.ForeColor = Color.Red; //цвет ячейки
         }

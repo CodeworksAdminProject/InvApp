@@ -28,11 +28,22 @@ namespace WindowsFormsApplication
                 tabl1 = "</table>";
 
             string tabl2 = null;
-            if (BLL.sMailBodyNew != null)
+            if (BLL.sHtmlTableAddWriteOffForReport != null)
                 tabl2 = "</table>";
 
-            if ((BLL.sMailBody != null) || (BLL.sMailBodyNew != null) || (BLL.sMailBodyDelete != null) || (BLL.sHtmlTableWriteOffForReport !=null))
-                sentmail.SentMail(BLL.heds + BLL.sMailBody + BLL.sMailBodyDelete + tabl1+ BLL.sHtmlTableWriteOffForReport + tabl2, Properties.Settings.Default.Email);
+            string tabl3 = null;
+            if (BLL.sHtmlTableTakeAwayWriteOffForReport != null)
+                tabl3 = "</table>";
+
+            string tabl4 = null;
+            if (BLL.sHtmlTableDeleteReport != null)
+                tabl4 = "</table>";
+
+            
+            if ((BLL.sMailBody != null) || (BLL.sMailBodyNew != null) || (BLL.sMailBodyDelete != null) || 
+                (BLL.sHtmlTableAddWriteOffForReport != null) || (BLL.sHtmlTableTakeAwayWriteOffForReport != null) || (BLL.sMailBodyDelete != null))
+                sentmail.SentMail(BLL.heds + BLL.sMailBody + BLL.sMailBodyNew + tabl1+ BLL.sHtmlTableAddWriteOffForReport + 
+                    tabl2 + BLL.sHtmlTableTakeAwayWriteOffForReport + tabl3 + BLL.sHtmlTableDeleteReport + tabl4, Properties.Settings.Default.Email);
         }
     }
 }

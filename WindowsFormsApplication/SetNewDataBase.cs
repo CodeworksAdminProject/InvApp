@@ -55,7 +55,15 @@ namespace WindowsFormsApplication
             comboBox_Hardware_LanName.DataSource = dal_get.Get_Data_From_Table_From_Colunm("NameLAN", "NameLAN");
             comboBox_Hardware_LanName.DisplayMember = "NameLAN";
             comboBox_Hardware_LanName.ValueMember = "NameLAN";
-            
+
+            comboBox_Hardware_jira.DataSource = dal_get.Get_Data_From_Table_From_Colunm("[JiraTask]", "[JiraTask]");
+            comboBox_Hardware_jira.DisplayMember = "JiraTask";
+            comboBox_Hardware_jira.ValueMember = "JiraTask";
+
+            comboBox_Jira.DataSource = dal_get.Get_Data_From_Table_From_Colunm("[JiraTask]", "[JiraTask]");
+            comboBox_Jira.DisplayMember = "JiraTask";
+            comboBox_Jira.ValueMember = "JiraTask";
+
             groupBox_Hardware_LanName.Enabled = false;           
             
         }
@@ -220,7 +228,7 @@ namespace WindowsFormsApplication
                                "\nТип устройства:\t\t" + typedevise +
                                "\nСерийный номер:\t\t" + textBox_NumberSN.Text +
                                "\nМодель:\t\t\t" + textBox_Model.Text +
-                               "\nЗадача в JIRA:\t\t\t" + Jira), "Подтверждение отправки", MessageBoxButtons.OKCancel);
+                               "\nЗадача в JIRA:\t\t\t" + Jira), "Подтверждение отправки", MessageBoxButtons.OKCancel);               
 
                 if (dialogResult == DialogResult.OK)
                 {
@@ -234,6 +242,7 @@ namespace WindowsFormsApplication
                         bll.Get_ID("Room", "NameRoom",
                         Room).ToString(), textBox_NumberInv.Text,
                         bll.Get_ID("JiraTask", "JiraTask", Jira).ToString());
+                    
 
                     bll.BodyMailNew(textBox_NumberInv.Text, LanName, Responsible, Floor, Room, typedevise, textBox_NumberSN.Text, textBox_Model.Text);
                     

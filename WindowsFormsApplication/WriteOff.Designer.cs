@@ -58,11 +58,11 @@
             // button_OK
             // 
             this.button_OK.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_OK.Location = new System.Drawing.Point(448, 7);
+            this.button_OK.Location = new System.Drawing.Point(402, 7);
             this.button_OK.Name = "button_OK";
-            this.button_OK.Size = new System.Drawing.Size(75, 32);
+            this.button_OK.Size = new System.Drawing.Size(130, 32);
             this.button_OK.TabIndex = 3;
-            this.button_OK.Text = "OK";
+            this.button_OK.Text = "Снять отметку";
             this.button_OK.UseVisualStyleBackColor = true;
             this.button_OK.Click += new System.EventHandler(this.button_OK_Click);
             // 
@@ -71,7 +71,7 @@
             this.button_Cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button_Cancel.Location = new System.Drawing.Point(3, 7);
             this.button_Cancel.Name = "button_Cancel";
-            this.button_Cancel.Size = new System.Drawing.Size(75, 32);
+            this.button_Cancel.Size = new System.Drawing.Size(130, 32);
             this.button_Cancel.TabIndex = 3;
             this.button_Cancel.Text = "Отмена";
             this.button_Cancel.UseVisualStyleBackColor = true;
