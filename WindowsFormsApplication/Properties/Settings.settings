@@ -17,5 +17,11 @@
     <Setting Name="SqlDataBase" Type="System.String" Scope="User">
       <Value Profile="(Default)">TestDB</Value>
     </Setting>
+    <Setting Name="int_navigation" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="inr_barcod" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

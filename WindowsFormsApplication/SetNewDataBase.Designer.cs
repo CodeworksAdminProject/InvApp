@@ -719,6 +719,7 @@
             this.textBox_Hardware_Sum.Name = "textBox_Hardware_Sum";
             this.textBox_Hardware_Sum.Size = new System.Drawing.Size(212, 26);
             this.textBox_Hardware_Sum.TabIndex = 2;
+            this.textBox_Hardware_Sum.Text = "1";
             this.textBox_Hardware_Sum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_NumberInv_KeyPress);
             // 
             // checkBox_SetHardware

@@ -166,94 +166,30 @@ namespace WindowsFormsApplication
 
         private void comboBox_TypeAccount_SelectedIndexChanged(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in dataGridView1.Rows)
-            {
-                if (row.Selected == true)
-                {
-                    dalSet.SetChangeData("TypeAC_ID",  bll.Get_ID("TypeAC", "TypeAC", comboBox_TypeAccount.SelectedValue.ToString()).ToString(),
-                        row.Cells[0].Value.ToString());
-                }
-            }
-
-            DataINV = dal_get.GetForSetForms();
-            comboBox_invinNumber.DataSource = DataINV;
-            comboBox_invinNumber.DisplayMember = "NumberINV";
-            comboBox_invinNumber.ValueMember = "NumberINV";
-            dataGridView1.DataSource = DataINV;
+            update("TypeAC_ID", "TypeAC", "TypeAC");           
 
         }
 
         private void comboBox_LanName_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            foreach (DataGridViewRow row in dataGridView1.Rows)
-            {
-                if (row.Selected == true)
-                {
-                    dalSet.SetChangeData("NameLAN_ID",  bll.Get_ID("NameLAN", "NameLAN", comboBox_LanName.SelectedValue.ToString()).ToString(),
-                        row.Cells[0].Value.ToString());
-                }
-            }
-
-            DataINV = dal_get.GetForSetForms();
-            comboBox_invinNumber.DataSource = DataINV;
-            comboBox_invinNumber.DisplayMember = "NumberINV";
-            comboBox_invinNumber.ValueMember = "NumberINV";
-            dataGridView1.DataSource = DataINV;
+            update("NameLAN_ID", "NameLAN", "NameLAN");  
         }
         
         private void comboBox_Responsible_SelectedIndexChanged(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in dataGridView1.Rows)
-            {
-                if (row.Selected == true)
-                {
-                    dalSet.SetChangeData("NameRes_ID", bll.Get_ID("NameRes", "NameRes", comboBox_Responsible.SelectedValue.ToString()).ToString(),
-                        row.Cells[0].Value.ToString());
-                }
-            }
-
-            DataINV = dal_get.GetForSetForms();
-            comboBox_invinNumber.DataSource = DataINV;
-            comboBox_invinNumber.DisplayMember = "NumberINV";
-            comboBox_invinNumber.ValueMember = "NumberINV";
-            dataGridView1.DataSource = DataINV;
+            
+                update("NameRes_ID", "NameRes", "NameRes");
+ 
         }
                 
         private void comboBox_Floor_SelectedIndexChanged(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in dataGridView1.Rows)
-            {
-                if (row.Selected == true)
-                {
-                    dalSet.SetChangeData("Floor_ID", bll.Get_ID("Floor", "floorNambe", comboBox_Floor.SelectedValue.ToString()).ToString(),
-                       row.Cells[0].Value.ToString());
-                }
-            }
-
-            DataINV = dal_get.GetForSetForms();
-            comboBox_invinNumber.DataSource = DataINV;
-            comboBox_invinNumber.DisplayMember = "NumberINV";
-            comboBox_invinNumber.ValueMember = "NumberINV";
-            dataGridView1.DataSource = DataINV;
+            update("Floor_ID", "Floor", "floorNambe");
         }
 
         private void comboBox_Room_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            foreach (DataGridViewRow row in dataGridView1.Rows)
-            {
-                if (row.Selected == true)
-                {
-                    dalSet.SetChangeData("Room_ID",  bll.Get_ID("Room", "NameRoom", comboBox_Room.SelectedValue.ToString()).ToString(),
-                       row.Cells[0].Value.ToString());
-                }
-            }
-
-            DataINV = dal_get.GetForSetForms();
-            comboBox_invinNumber.DataSource = DataINV;
-            comboBox_invinNumber.DisplayMember = "NumberINV";
-            comboBox_invinNumber.ValueMember = "NumberINV";
-            dataGridView1.DataSource = DataINV;
+        {   
+                update("Room_ID", "Room", "NameRoom");
         }
 
 
@@ -261,22 +197,7 @@ namespace WindowsFormsApplication
         {
             if (e.KeyCode == Keys.Enter)
             {
-
-                foreach (DataGridViewRow row in dataGridView1.Rows)
-                {
-                    if (row.Selected == true)
-                    {
-                        dalSet.SetChangeData("TypeAC_ID",  bll.Get_ID("TypeAC", "TypeAC", textBox_TypeAccount.Text).ToString(),
-                            row.Cells[0].Value.ToString());
-                    }
-                }
-
-                DataINV = dal_get.GetForSetForms();
-                comboBox_invinNumber.DataSource = DataINV;
-                comboBox_invinNumber.DisplayMember = "NumberINV";
-                comboBox_invinNumber.ValueMember = "NumberINV";
-                dataGridView1.DataSource = DataINV;
-
+                update("TypeAC_ID", "TypeAC", "TypeAC");                
             }
         }
 
@@ -284,20 +205,7 @@ namespace WindowsFormsApplication
         {
             if (e.KeyCode == Keys.Enter)
             {
-                foreach (DataGridViewRow row in dataGridView1.Rows)
-                {
-                    if (row.Selected == true)
-                    {
-                        dalSet.SetChangeData("NameRes_ID", bll.Get_ID("NameRes", "NameRes", textBox_Responsible.Text).ToString(),
-                            row.Cells[0].Value.ToString());
-                    }
-                }
-
-                DataINV = dal_get.GetForSetForms();
-                comboBox_invinNumber.DataSource = DataINV;
-                comboBox_invinNumber.DisplayMember = "NumberINV";
-                comboBox_invinNumber.ValueMember = "NumberINV";
-                dataGridView1.DataSource = DataINV;
+                update("NameRes_ID", "NameRes", "NameRes");
             }
         }
 
@@ -305,20 +213,7 @@ namespace WindowsFormsApplication
         {
             if (e.KeyCode == Keys.Enter)
             {
-                foreach (DataGridViewRow row in dataGridView1.Rows)
-                {
-                    if (row.Selected == true)
-                    {
-                        dalSet.SetChangeData("Floor_ID", bll.Get_ID("Floor", "floorNambe", textBox_Floor.Text).ToString(),
-                           row.Cells[0].Value.ToString());
-                    }
-                }
-
-                DataINV = dal_get.GetForSetForms();
-                comboBox_invinNumber.DataSource = DataINV;
-                comboBox_invinNumber.DisplayMember = "NumberINV";
-                comboBox_invinNumber.ValueMember = "NumberINV";
-                dataGridView1.DataSource = DataINV;
+                update("Floor_ID", "Floor", "floorNambe");
             }
         }
 
@@ -326,20 +221,7 @@ namespace WindowsFormsApplication
         {
             if (e.KeyCode == Keys.Enter)
             {
-                foreach (DataGridViewRow row in dataGridView1.Rows)
-                {
-                    if (row.Selected == true)
-                    {
-                        dalSet.SetChangeData("Room_ID", bll.Get_ID("Room", "NameRoom", textBox_Room.Text).ToString(),
-                            row.Cells[0].Value.ToString());
-                    }
-                }
-
-                DataINV = dal_get.GetForSetForms();
-                comboBox_invinNumber.DataSource = DataINV;
-                comboBox_invinNumber.DisplayMember = "NumberINV";
-                comboBox_invinNumber.ValueMember = "NumberINV";
-                dataGridView1.DataSource = DataINV;
+                update("Room_ID", "Room", "NameRoom");
             }
         }
 
@@ -347,20 +229,7 @@ namespace WindowsFormsApplication
         {
             if (e.KeyCode == Keys.Enter)
             {
-                foreach (DataGridViewRow row in dataGridView1.Rows)
-                {
-                    if (row.Selected == true)
-                    {
-                        dalSet.SetChangeData("NameLAN_ID", bll.Get_ID("NameLAN", "NameLAN", textBox_LanName.Text).ToString(),
-                            row.Cells[0].Value.ToString());
-                    }
-                }
-
-                DataINV = dal_get.GetForSetForms();
-                comboBox_invinNumber.DataSource = DataINV;
-                comboBox_invinNumber.DisplayMember = "NumberINV";
-                comboBox_invinNumber.ValueMember = "NumberINV";
-                dataGridView1.DataSource = DataINV;
+                update("NameLAN_ID", "NameLAN", "NameLAN");
             }
             
         }
@@ -375,6 +244,25 @@ namespace WindowsFormsApplication
             BLL.Data.Clear();
             BLL.DataOld.Clear();
 
+        }
+
+        private void update(string maintb_id_name, string table_name, string value  )
+        {
+            foreach(DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.Selected == true || row.Cells[0].Selected == true || row.Cells[1].Selected == true || row.Cells[2].Selected == true || row.Cells[3].Selected == true
+                    || row.Cells[4].Selected == true || row.Cells[5].Selected == true || row.Cells[6].Selected == true || row.Cells[7].Selected == true || row.Cells[8].Selected == true || row.Cells[9].Selected == true) 
+                {
+                    dalSet.SetChangeData(maintb_id_name, bll.Get_ID(table_name, value, comboBox_LanName.SelectedValue.ToString()).ToString(),
+                        row.Cells[0].Value.ToString());
+                }
+            }
+
+            DataINV = dal_get.GetForSetForms();
+            comboBox_invinNumber.DataSource = DataINV;
+            comboBox_invinNumber.DisplayMember = "NumberINV";
+            comboBox_invinNumber.ValueMember = "NumberINV";
+            dataGridView1.DataSource = DataINV;
         }
 
     }

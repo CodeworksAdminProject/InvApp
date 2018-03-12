@@ -70,6 +70,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridViewMT = new System.Windows.Forms.DataGridView();
             this.dataGridViewPC_Name = new System.Windows.Forms.DataGridView();
+            this.button_Hardware_StockRoom = new System.Windows.Forms.Button();
+            this.button_Hardware_PS = new System.Windows.Forms.Button();
             this.groupBox_1С = new System.Windows.Forms.GroupBox();
             this.groupBox_MegaFiltr = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
@@ -77,8 +79,6 @@
             this.groupBox_DATA = new System.Windows.Forms.GroupBox();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.groupBox_Hardware = new System.Windows.Forms.GroupBox();
-            this.button_Hardware_StockRoom = new System.Windows.Forms.Button();
-            this.button_Hardware_PS = new System.Windows.Forms.Button();
             this.grubBoxUnloading.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox_Set_Data.SuspendLayout();
@@ -319,6 +319,7 @@
             this.button_Repair.TabIndex = 1;
             this.toolTip1.SetToolTip(this.button_Repair, "Отправить в ремонт ");
             this.button_Repair.UseVisualStyleBackColor = true;
+            this.button_Repair.Click += new System.EventHandler(this.button_Repair_Click);
             // 
             // button_New_data
             // 
@@ -582,6 +583,30 @@
             this.toolTip1.SetToolTip(this.dataGridViewPC_Name, "частичные отчеты ");
             this.dataGridViewPC_Name.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewPC_Name_CellMouseClick);
             // 
+            // button_Hardware_StockRoom
+            // 
+            this.button_Hardware_StockRoom.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_Hardware_StockRoom.BackgroundImage")));
+            this.button_Hardware_StockRoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_Hardware_StockRoom.Location = new System.Drawing.Point(6, 17);
+            this.button_Hardware_StockRoom.Name = "button_Hardware_StockRoom";
+            this.button_Hardware_StockRoom.Size = new System.Drawing.Size(64, 64);
+            this.button_Hardware_StockRoom.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.button_Hardware_StockRoom, "Железо и расходники на складе ");
+            this.button_Hardware_StockRoom.UseVisualStyleBackColor = true;
+            this.button_Hardware_StockRoom.Click += new System.EventHandler(this.button_Hardware_StockRoom_Click);
+            // 
+            // button_Hardware_PS
+            // 
+            this.button_Hardware_PS.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_Hardware_PS.BackgroundImage")));
+            this.button_Hardware_PS.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_Hardware_PS.Location = new System.Drawing.Point(6, 93);
+            this.button_Hardware_PS.Name = "button_Hardware_PS";
+            this.button_Hardware_PS.Size = new System.Drawing.Size(64, 64);
+            this.button_Hardware_PS.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.button_Hardware_PS, "Железо и расходники  на  ПК ");
+            this.button_Hardware_PS.UseVisualStyleBackColor = true;
+            this.button_Hardware_PS.Click += new System.EventHandler(this.button_Hardware_PS_Click);
+            // 
             // groupBox_1С
             // 
             this.groupBox_1С.AutoSize = true;
@@ -662,30 +687,6 @@
             this.groupBox_Hardware.TabIndex = 3;
             this.groupBox_Hardware.TabStop = false;
             this.groupBox_Hardware.Text = "Железо и расходники ";
-            // 
-            // button_Hardware_StockRoom
-            // 
-            this.button_Hardware_StockRoom.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_Hardware_StockRoom.BackgroundImage")));
-            this.button_Hardware_StockRoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_Hardware_StockRoom.Location = new System.Drawing.Point(6, 17);
-            this.button_Hardware_StockRoom.Name = "button_Hardware_StockRoom";
-            this.button_Hardware_StockRoom.Size = new System.Drawing.Size(64, 64);
-            this.button_Hardware_StockRoom.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.button_Hardware_StockRoom, "Железо и расходники на складе ");
-            this.button_Hardware_StockRoom.UseVisualStyleBackColor = true;
-            this.button_Hardware_StockRoom.Click += new System.EventHandler(this.button_Hardware_StockRoom_Click);
-            // 
-            // button_Hardware_PS
-            // 
-            this.button_Hardware_PS.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_Hardware_PS.BackgroundImage")));
-            this.button_Hardware_PS.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_Hardware_PS.Location = new System.Drawing.Point(6, 93);
-            this.button_Hardware_PS.Name = "button_Hardware_PS";
-            this.button_Hardware_PS.Size = new System.Drawing.Size(64, 64);
-            this.button_Hardware_PS.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.button_Hardware_PS, "Железо и расходники  на  ПК ");
-            this.button_Hardware_PS.UseVisualStyleBackColor = true;
-            this.button_Hardware_PS.Click += new System.EventHandler(this.button_Hardware_PS_Click);
             // 
             // MainFrorm
             // 

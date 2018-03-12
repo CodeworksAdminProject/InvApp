@@ -31,6 +31,8 @@ namespace WindowsFormsApplication
         public static string sHtmlTableAddWriteOffForReport = null;
         public static string sHtmlTableTakeAwayWriteOffForReport = null;
         public static string sHtmlTableDeleteReport = null;
+        public static string sHtmlTableHardware_PS = null;
+        public static string sHtmlTableHardware_Stockroom = null;
 
         public static string ReasonWriteOff = null;
         public static bool flag = false;
@@ -403,6 +405,74 @@ namespace WindowsFormsApplication
 
             
             
+        }
+
+        internal void new_Hardware_Into_PC(string invNumber, string typedevise, string SN, string Model, string Jira, string PC_name )
+
+
+        {
+            if (BLL.heds == null)
+                BLL.heds = "<h1><p> В  пользователем:  <font  color = 'red' >" + System.Environment.UserName + " </font> были внесены  следующие  изменения: </p></h1>";
+
+                if (sHtmlTableHardware_PS == null)
+                {
+                    sHtmlTableHardware_PS = @"< table border = '1' > 
+                <caption><font size='5'>Добавлено новое на компьютер(ы) железо или расходники :</font></caption>
+                <tr> 
+                <th>Номер операции </th>
+                <th>Инвентарный номер</th>
+                <th>Имя компьютера</th>
+                <th>Тип устройства</th>
+                <th>Серийный номер</th>
+                <th>Модель</th>
+                </tr>";
+                }
+            
+
+            sHtmlTableHardware_PS = sHtmlTableHardware_PS +
+                       "<tr>" +
+                       "<td>" + Number + "</td>" +
+                       "<td>" + invNumber + "</td>" +
+                        "<td>" + PC_name + "</td>" +
+                        "<td>" + typedevise + "</td>" +
+                        "<td>" + Model + "</td>" +
+                        "<td>" + SN + "</td>" +
+                        "</tr>";
+            
+        }
+
+        internal void new_Hardware_Into_StockRoom(string invNumber, string typedevise, string SN, string Model, string Jira, string Sum)
+
+
+        {
+            if (BLL.heds == null)
+                BLL.heds = "<h1><p> В  пользователем:  <font  color = 'red' >" + System.Environment.UserName + " </font> были внесены  следующие  изменения: </p></h1>";
+
+            if (sHtmlTableHardware_Stockroom == null)
+            {
+                sHtmlTableHardware_Stockroom = @"< table border = '1' > 
+                <caption><font size='5'>Добавлено новое на компьютер(ы) железо или расходники :</font></caption>
+                <tr> 
+                <th>Номер операции </th>
+                <th>Инвентарный номер</th>
+                <th>Тип устройства</th>
+                <th>Серийный номер</th>
+                <th>Модель</th>
+                <th>Количество в шт </th>
+                </tr>";
+            }
+
+
+            sHtmlTableHardware_Stockroom = sHtmlTableHardware_Stockroom +
+                "<tr>" +
+                "<td>" + Number + "</td>" +
+                "<td>" + invNumber + "</td>" +
+                "<td>" + typedevise + "</td>" +
+                "<td>" + Model + "</td>" +
+                "<td>" + SN + "</td>" +
+                "<td>" + Sum + "</td>" +
+                "</tr>";
+
         }
 
         internal string WrittenOff_And_Delete(string addId, string sHtmlTable, string flag )

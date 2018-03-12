@@ -366,6 +366,7 @@ namespace WindowsFormsApplication
             return DataGrid;
         }
 
+        // hardware  main page  into  stockroom
         internal ArrayList Get_Hardware_PS()
         {
             ArrayList DataGrid = new ArrayList();
@@ -401,6 +402,8 @@ namespace WindowsFormsApplication
             connect.Close();
             return DataGrid;
         }
+
+      
 
 
         //======================================Data table ======================================================== 
@@ -604,7 +607,7 @@ namespace WindowsFormsApplication
         }
 
        //-
-        public ArrayList GetDataGrid_inv(string inv)
+        public ArrayList GetDataGrid_TypeDevice(string TypeDevice)
         {
             ArrayList DataGrid = new ArrayList();
             SqlConnection connect = new SqlConnection(sConectDB);
@@ -614,7 +617,7 @@ namespace WindowsFormsApplication
                 @"join TypeDevice on maintb.TypeDevice_ID = TypeDevice.ID join NameLAN on maintb.NameLAN_ID = NameLAN.ID " +
                 @"join NameRes on maintb.NameRes_ID =  NameRes.ID " +
                 @"Join JiraTask on maintb.JiraTask_ID = JiraTask.ID " +
-                       @"Where MainTB.NumberINV like '%" + inv + @"%' AND [WrittenOff] = 'False';", connect);
+                @"Where dbo.TypeDevice.NameDevice =  '" + TypeDevice + @"' AND [WrittenOff] = 'False' order by NameRes,NameLAN, TypeDevice_ID;", connect);
 
             try
             {
@@ -649,7 +652,7 @@ namespace WindowsFormsApplication
                 @"join TypeDevice on maintb.TypeDevice_ID = TypeDevice.ID join NameLAN on maintb.NameLAN_ID = NameLAN.ID " +
                 @"join NameRes on maintb.NameRes_ID =  NameRes.ID " +
                 @"Join JiraTask on maintb.JiraTask_ID = JiraTask.ID " +
-                @"Where dbo.NameRes.NameRes =  '" + Responsoble + @"' AND [WrittenOff] = 'False';", connect);
+                @"Where dbo.NameRes.NameRes =  '" + Responsoble + @"' AND [WrittenOff] = 'False' order by NameRes,NameLAN, TypeDevice_ID;", connect);
 
             try
             {
@@ -684,7 +687,7 @@ namespace WindowsFormsApplication
                 @"join TypeDevice on maintb.TypeDevice_ID = TypeDevice.ID join NameLAN on maintb.NameLAN_ID = NameLAN.ID " +
                 @"join NameRes on maintb.NameRes_ID =  NameRes.ID " +
                 @"Join JiraTask on maintb.JiraTask_ID = JiraTask.ID " +
-                @"Where dbo.NameLAN.NameLAN like'%" + NamePC + @"%' AND [WrittenOff] = 'False';", connect);
+                @"Where dbo.NameLAN.NameLAN ='" + NamePC + @"' AND [WrittenOff] = 'False' order by NameRes,NameLAN, TypeDevice_ID;", connect);
 
             try
             {
@@ -734,11 +737,55 @@ namespace WindowsFormsApplication
                 return Resulty;
             }
 
-            else
+            else { }
 
                 con.Close();
 
             return null;
+        }
+
+        // get max id 
+        internal string get_max_ID(string table_name)
+        {
+            string ID_max;
+            int[] itemDB = new int[1];
+
+            using (SqlConnection connect = new SqlConnection(sConectDB))
+            {
+                SqlCommand command = new SqlCommand(@"SELECT MAX (ID) FROM " + table_name + ";", connect);
+                try
+                {
+
+                    connect.Open();
+
+                    SqlDataReader datareader = command.ExecuteReader();
+
+                    if (datareader.HasRows)
+                    {
+                        while (datareader.Read())
+                        {
+                            itemDB[0] = datareader.GetInt32(0);
+
+                        }
+                        ID_max = itemDB[0].ToString();
+                        return ID_max;
+                    }
+
+                    else
+                        return null; 
+
+                    
+                }
+
+                catch (SqlException exception)
+                {
+                    MessageBox.Show(exception.ToString());
+                }
+
+                connect.Close();
+
+                return null;
+            }
         }
 
         //- Get ID 
@@ -763,12 +810,11 @@ namespace WindowsFormsApplication
                 return Resulty;
             }
 
-            else
-                return 0;
-
+            else {}
 
             con.Close();
 
+            return 0;
         }
 
  

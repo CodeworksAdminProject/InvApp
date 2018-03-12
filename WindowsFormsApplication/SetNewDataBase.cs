@@ -28,6 +28,13 @@ namespace WindowsFormsApplication
         {
             InitializeComponent();
 
+            groupBox_Hardware_LanName.Enabled = false;
+             
+            update();
+        }
+
+        private void update()
+        {
             comboBox_Room.DataSource = dal_get.Get_Data_From_Table_From_Colunm("Room", "NameRoom");
             comboBox_Room.DisplayMember = "NameRoom";
             comboBox_Room.ValueMember = "NameRoom";
@@ -64,8 +71,28 @@ namespace WindowsFormsApplication
             comboBox_Jira.DisplayMember = "JiraTask";
             comboBox_Jira.ValueMember = "JiraTask";
 
-            groupBox_Hardware_LanName.Enabled = false;           
-            
+            set_checkBox_and_set_Combobox(checkBox_Account, textBox_TypeAccount, comboBox_TypeAccount);
+            set_checkBox_and_set_Combobox(checkBox_Responsible, textBox_Responsible, comboBox_Responsible);
+            set_checkBox_and_set_Combobox(checkBox_LanName, textBox_LanName, comboBox_LanName);
+            set_checkBox_and_set_Combobox(checkBox_Floor, textBox_Floor, comboBox_Floor);
+            set_checkBox_and_set_Combobox(checkBox_Room, textBox_Room, comboBox_Room);
+            set_checkBox_and_set_Combobox(checkBox_TypeDevice, textBox_TypeDevice, comboBox_TypeDevice);
+            set_checkBox_and_set_Combobox(checkBox_Hardware_TypeDevice, textBox_Hardware_TypeDevice, comboBox_Hardware_TypeDevice);
+            set_checkBox_and_set_Combobox(checkBox_Hardware_LanName, textBox_Hardware_LanName, comboBox_Hardware_TypeDevice);
+            set_checkBox_and_set_Combobox(checkBox_Jira, textBox_jira, comboBox_Jira);
+            set_checkBox_and_set_Combobox(checkBox_Hardware_jira,textBox_Hardware_jira,comboBox_Hardware_jira);
+
+
+        }
+
+        private void set_checkBox_and_set_Combobox(CheckBox checkBox, TextBox textBox, ComboBox comboBox)
+        {
+            checkBox.Checked = false;
+            if (textBox.Text != "")
+            {
+                comboBox.SelectedValue = textBox.Text;
+                textBox.Text = "";
+            }
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -245,6 +272,11 @@ namespace WindowsFormsApplication
                     
 
                     bll.BodyMailNew(textBox_NumberInv.Text, LanName, Responsible, Floor, Room, typedevise, textBox_NumberSN.Text, textBox_Model.Text);
+
+                    dalSet.AddFDB(Environment.UserName, 4, "Устройства комната:"+Room + " приписан к PC " + LanName, textBox_NumberInv.Text,
+                           typedevise, textBox_Hardware_SN.Text, textBox_Hardware_Model.Text, dal_get.get_max_ID("[dbo].[MainTB]"));
+
+                    update();
                     
                 }
                 else if (dialogResult == DialogResult.No)
@@ -272,11 +304,11 @@ namespace WindowsFormsApplication
                     messega = @"Инвентарный номер:\t" + textBox_NumberInv.Text +
                                "\nНазвание в сети:\t\t" + LanName +
                                "\nТип устройства:\t\t" + typedevise +
-                               "\nСерийный номер:\t\t" + textBox_Hardware_SN +
+                               "\nСерийный номер:\t\t" + textBox_Hardware_SN.Text +
                                "\nМодель:\t\t\t" + textBox_Hardware_Model.Text +
                                "\nЗадача в JIRA:\t\t\t" + Jira;
 
-                    dialogResult = MessageBox.Show(messega, "Подтверждение отправки", MessageBoxButtons.OKCancel);
+                    dialogResult = MessageBox.Show(messega, "Подтверждение отправки", MessageBoxButtons.OKCancel);                   
 
                     if (dialogResult == DialogResult.OK)
                     {
@@ -288,21 +320,53 @@ namespace WindowsFormsApplication
                             textBox_NumberInv.Text,
                             bll.Get_ID("JiraTask", "JiraTask", Jira).ToString());
 
-                       // bll.BodyMailNew(textBox_NumberInv.Text, LanName, typedevise, textBox_NumberSN.Text, textBox_Model.Text);
-                       
+                        bll.new_Hardware_Into_PC(textBox_NumberInv.Text, typedevise, textBox_Hardware_SN.Text,
+                        textBox_Hardware_Model.Text, Jira, LanName);
+
+                        dalSet.AddFDB(Environment.UserName, 4, "Расходники или железо, для PC: " + LanName, textBox_NumberInv.Text,
+                           typedevise, textBox_Hardware_SN.Text, textBox_Hardware_Model.Text, dal_get.get_max_ID("[dbo].[HardWare]"));
+
                     }
                     else if (dialogResult == DialogResult.No)
                     { }
-
                 }
                 else
-                { 
-                    
+                {
+                    messega = @"Инвентарный номер:\t" + textBox_NumberInv.Text +
+                                "\nТип устройства:\t\t" + typedevise +
+                                "\nСерийный номер:\t\t" + textBox_Hardware_SN.Text +
+                                "\nМодель:\t\t" + textBox_Hardware_Model.Text +
+                                "\nЗадача в JIRA:\t\t\t" + Jira +
+                                "\nКоличество :\t\t" + textBox_Hardware_Sum.Text;
+                                
+
+                    dialogResult = MessageBox.Show(messega, "Подтверждение отправки", MessageBoxButtons.OKCancel);
+
+
+                    if (dialogResult == DialogResult.OK)
+                    {
+                        //  
+                        dalSet.SetNewPosition(bll.Get_ID("TypeDevice", "NameDevice", typedevise).ToString(),
+                            textBox_Model.Text,
+                            textBox_NumberSN.Text,
+                            Convert.ToInt16(textBox_Hardware_Sum.Text),
+                            textBox_NumberInv.Text,
+                            bll.Get_ID("JiraTask", "JiraTask", Jira).ToString());
+
+                        bll.new_Hardware_Into_StockRoom(textBox_NumberInv.Text, typedevise, textBox_Hardware_SN.Text,
+                        textBox_Hardware_Model.Text, Jira, textBox_Hardware_Sum.Text);
+
+                        dalSet.AddFDB(Environment.UserName, 4, "Расходники или железо, на склад, " + textBox_Hardware_Sum.Text +" шт.", textBox_NumberInv.Text,
+                           typedevise, textBox_Hardware_SN.Text, textBox_Hardware_Model.Text, dal_get.get_max_ID("[dbo].[HardwareStockRoom]"));
+
+                    }
+                    else if (dialogResult == DialogResult.No)
+                    { }
                 }
 
 
             }
-        }
+        }        
 
         private void checkBox_Hardware_CheckedChanged(object sender, EventArgs e)
         {

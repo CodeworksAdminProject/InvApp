@@ -17,13 +17,14 @@ using System.Collections;
 namespace WindowsFormsApplication
 {
     public partial class MainFrorm : Form
-    {        
+    {
         DAL_GET dal = new DAL_GET();
         DAL_SET dal_set = new DAL_SET();
 
         BLL bll = new BLL();
         SMTP_CLIENT smttp = new SMTP_CLIENT();
         public static string index;
+        int indexControl = 0;
 
         public MainFrorm()
         {
@@ -33,10 +34,11 @@ namespace WindowsFormsApplication
             comboBox_Room.DisplayMember = "NameRoom";
             comboBox_Room.ValueMember = "NameRoom";
 
-            comboBox_Responsible.DataSource = dal.Get_Data_From_Table_From_Colunm("NameRes", "NameRes"); 
+            comboBox_Responsible.DataSource = dal.Get_Data_From_Table_From_Colunm("NameRes", "NameRes");
             comboBox_Responsible.DisplayMember = "NameRes";
             comboBox_Responsible.ValueMember = "NameRes";
-            dataGridViewPC_Name.DataSource = dal.Get_Data_From_Table_From_Colunm("NameLAN", "NameLAN");
+
+            set_navigation(Properties.Settings.Default.int_navigation);
 
             string dir = @".\dll_AND_picture\";
 
@@ -47,14 +49,29 @@ namespace WindowsFormsApplication
 
                 byte[] resf1;
                 byte[] resf2;
-                               
+
                 resf1 = Properties.Resources.TSCLIB;
                 resf2 = Properties.Resources.TSCLIB1;
-                
+
                 System.IO.File.WriteAllBytes(@".\dll_AND_picture\TSCLIB.dll", resf1);
-                System.IO.File.WriteAllBytes(@".\dll_AND_picture\TSCLIB.lib", resf2);             
+                System.IO.File.WriteAllBytes(@".\dll_AND_picture\TSCLIB.lib", resf2);
             }
+
+        }
+
+        private void set_navigation(int flag)
+        {
+            string value;
+            string tablename;
+
+            if (flag == 0) {  value = "NameLAN"; tablename = "NameLAN"; }
+
+            else if (flag == 1) { value = "NameRes"; tablename = "NameRes"; }
             
+            else { value = "NameDevice"; tablename = "TypeDevice"; }
+
+
+           dataGridViewPC_Name.DataSource = dal.Get_Data_From_Table_From_Colunm(tablename, value);
         }
 
         private void stilDataGrid()
@@ -128,11 +145,16 @@ namespace WindowsFormsApplication
             TSCLIB_DLL.sendcommand("BARCODE 96, 525, \"128\", 96, 0,270,3,2,\"" + invNumber + "\"");
             TSCLIB_DLL.windowsfont( 28, 525, 64, 90, 0, 0, "ARIAL", invNumber );
             TSCLIB_DLL.windowsfont( 196, 525, 32, 90, 1, 0, "ARIAL", numbeSN);
-            TSCLIB_DLL.windowsfont( 232, 525, 32, 90, 1, 0, "ARIAL", NamePC);            
-            TSCLIB_DLL.downloadpcx(Properties.Settings.Default.ImgPath, "LOG2.BMP");
-            TSCLIB_DLL.sendcommand("PUTBMP 44,25,\"LOG2.BMP\"");
-            //TSCLIB_DLL.sendcommand("CUT");
+            TSCLIB_DLL.windowsfont( 232, 525, 32, 90, 1, 0, "ARIAL", NamePC);
 
+            if (Properties.Settings.Default.ImgPath != "")
+            {
+                TSCLIB_DLL.downloadpcx(Properties.Settings.Default.ImgPath, "LOG2.BMP");
+                TSCLIB_DLL.sendcommand("PUTBMP 44,25,\"LOG2.BMP\"");
+            }
+            
+            //TSCLIB_DLL.sendcommand("CUT");
+            //
             //Open specified printer driver
             //   TSCLIB_DLL.setup("37", "70", "4", "12", "0", "1", "1");                              //Setup the media size and sensor type info
             // TSCLIB_DLL.clearbuffer();                                                             //Clear image buffer
@@ -154,20 +176,21 @@ namespace WindowsFormsApplication
         {
             dataGridViewMT.DataSource = dal.GetDataGrid("[dbo].[Room].[NameRoom]", comboBox_Room.SelectedValue.ToString());
             stilDataGrid();
-            //if (dataGridViewMT.DataSource != null)
-            //    dataGridViewMT.Columns["ID"].Visible = false;
+            indexControl = 3;
         }
 
         private void button_Responsible_Click(object sender, EventArgs e)
         {
             dataGridViewMT.DataSource = dal.GetDataGrid("[dbo].[NameRes].[NameRes]" , comboBox_Responsible.SelectedValue.ToString());
             stilDataGrid();
+            indexControl = 4;
         }
 
         private void button_PC_Click(object sender, EventArgs e)
         {
             dataGridViewMT.DataSource = dal.GetDataGrid("dbo.NameLAN.NameLAN", textBox_PC.Text);
             stilDataGrid();
+            indexControl = 2;
         }
 
         private void button_New_data_Click(object sender, EventArgs e)
@@ -176,6 +199,7 @@ namespace WindowsFormsApplication
             setNewData.checkBox_MainAcount.Checked = true;
             setNewData.checkBox_Stockroom.Checked = true;
             setNewData.ShowDialog();
+            Update_Grid();
 
         }      
 
@@ -183,38 +207,24 @@ namespace WindowsFormsApplication
         {
             dataGridViewMT.DataSource = dal.GetDataGrid("MainTB.NumberINV", textBox_Number.Text);
             stilDataGrid();
+            indexControl = 1;
         }
 
         private void button_Update_Click(object sender, EventArgs e)
         {
 
-            WriteOff set = new WriteOff();
-            set.Owner = this;
-            set.button_OK.Text = "Улалить";
-            set.ShowDialog();
-
-            if (BLL.flag == true)
+            foreach (DataGridViewRow row in dataGridViewMT.Rows)
             {
-                string AddId = null;
-
-                foreach (DataGridViewRow row in dataGridViewMT.Rows)
+                if (row.Selected == true)
                 {
-                    if (row.Selected == true)
-                    {
-                        BLL.sHtmlTableDeleteReport = BLL.sHtmlTableDeleteReport + bll.WrittenOff_And_Delete(row.Cells["ID"].Value.ToString(), BLL.sHtmlTableDeleteReport, "Delete");
-
-                        AddId += row.Cells[0].Value.ToString();
-                        dal_set.AddFDB(Environment.UserName, 3, BLL.ReasonWriteOff, row.Cells["NumberINV"].Value.ToString(),
-                            row.Cells["NameDevice"].Value.ToString(), row.Cells["SN"].Value.ToString(),
-                            row.Cells["Model"].Value.ToString(), row.Cells["ID"].Value.ToString());
-
-                        dal_set.Delete("MainTB", row.Cells[0].Value.ToString());
-                    }
+                    BLL.Data.Add(row.Cells[0].Value.ToString());
+                    bll.AddDataNew(row.Cells[0].Value.ToString(), row.Cells[3].Value.ToString(), row.Cells[4].Value.ToString(), row.Cells[5].Value.ToString(), row.Cells[6].Value.ToString());
                 }
-                
-                BLL.ReasonWriteOff = null;
-                BLL.flag = false;
             }
+
+            setDataBase setNewData = new setDataBase();
+            //setNewData.Owner = this;
+            setNewData.ShowDialog();
         }
 
         private void MainFrorm_FormClosed(object sender, FormClosedEventArgs e)
@@ -226,18 +236,20 @@ namespace WindowsFormsApplication
         {
             if (e.KeyCode == Keys.Enter)
                 {
-                    dataGridViewMT.DataSource = dal.GetDataGrid_inv(textBox_Number.Text);
-                    stilDataGrid();
+                dataGridViewMT.DataSource = dal.GetDataGrid("MainTB.NumberINV", textBox_Number.Text);
+                stilDataGrid();
                 }
-            }       
+            indexControl = 1;
+        }       
 
         private void textBox_PC_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                dataGridViewMT.DataSource = dal.GetDataGrid_NamePC(textBox_PC.Text);
+                dataGridViewMT.DataSource = dal.GetDataGrid("dbo.NameLAN.NameLAN", textBox_PC.Text);
                 stilDataGrid();
             }
+            indexControl = 2;
         }
 
         private void button_ExcelOpen_Click(object sender, EventArgs e)
@@ -250,6 +262,7 @@ namespace WindowsFormsApplication
             Settings settings = new Settings();
             //setNewData.Owner = this;
             settings.ShowDialog();
+            set_navigation(Properties.Settings.Default.int_navigation);
         }
 
         private void Info_ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -288,6 +301,7 @@ namespace WindowsFormsApplication
                 BLL.sHtmlTableAddWriteOffForReport = BLL.sHtmlTableAddWriteOffForReport + bll.WrittenOff_And_Delete(AddId, BLL.sHtmlTableAddWriteOffForReport, "Add");                
                 BLL.ReasonWriteOff = null;
                 BLL.flag = false;
+                Update_Grid();
             }
         }
              
@@ -299,8 +313,16 @@ namespace WindowsFormsApplication
 
         private void dataGridViewPC_Name_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            dataGridViewMT.DataSource = dal.GetDataGrid_NamePC(dataGridViewPC_Name.Rows[e.RowIndex].Cells[0].Value.ToString());
+            if (Properties.Settings.Default.int_navigation == 0)
+                dataGridViewMT.DataSource = dal.GetDataGrid_NamePC(dataGridViewPC_Name.Rows[e.RowIndex].Cells[0].Value.ToString());
+
+            else if (Properties.Settings.Default.int_navigation == 1)                
+                 dataGridViewMT.DataSource = dal.GetDataGrid_Responsoble(dataGridViewPC_Name.Rows[e.RowIndex].Cells[0].Value.ToString());
+            else 
+                dataGridViewMT.DataSource = dal.GetDataGrid_TypeDevice(dataGridViewPC_Name.Rows[e.RowIndex].Cells[0].Value.ToString());
+
             stilDataGrid();
+            indexControl = 5;
         }
 
         private void dataGridViewMT_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -326,6 +348,7 @@ namespace WindowsFormsApplication
         {
             WriteOffTable writeOff = new WriteOffTable();
             writeOff.ShowDialog();
+            Update_Grid();
         }
 
         private void JBDToolStripMenuItem_Click(object sender, EventArgs e)
@@ -379,6 +402,51 @@ namespace WindowsFormsApplication
 
             //dataGridViewTB.ColumnHeadersDefaultCellStyle.BackColor = Color.Yellow; //цвет текста
             //dataGridViewTB.ColumnHeadersDefaultCellStyle.ForeColor = Color.Red; //цвет ячейки
+        }
+
+        public  void Update_Grid()
+        {
+            if (indexControl  == 1)
+            {
+                dataGridViewMT.DataSource = dal.GetDataGrid("MainTB.NumberINV", textBox_Number.Text);
+                stilDataGrid();
+            }
+            else if (indexControl == 2)
+            {
+                dataGridViewMT.DataSource = dal.GetDataGrid("dbo.NameLAN.NameLAN", textBox_PC.Text);
+                stilDataGrid();
+            }
+            else if (indexControl == 3)
+            {
+                dataGridViewMT.DataSource = dal.GetDataGrid("[dbo].[Room].[NameRoom]", comboBox_Room.SelectedValue.ToString());
+                stilDataGrid();
+            }
+            else if (indexControl == 4)
+            {
+                dataGridViewMT.DataSource = dal.GetDataGrid("[dbo].[NameRes].[NameRes]", comboBox_Responsible.SelectedValue.ToString());
+                stilDataGrid();
+            }
+            else if (indexControl == 5)
+            {
+                foreach (DataGridViewRow row in dataGridViewPC_Name.Rows)
+                {
+                    if (row.Selected == true || row.Cells[0].Selected == true)
+                    {
+                        dataGridViewMT.DataSource = dal.GetDataGrid_NamePC(row.Cells[0].Value.ToString());
+                        stilDataGrid();
+                    }
+                }
+            }
+            else
+            {
+                dataGridViewMT.DataSource = dal.GetDataGrid("MainTB.NumberINV", "");
+                stilDataGrid();
+            }
+        }
+
+        private void button_Repair_Click(object sender, EventArgs e)
+        {
+
         }
     } 
 }

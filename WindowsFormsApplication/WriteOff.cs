@@ -32,7 +32,7 @@ namespace WindowsFormsApplication
                 BLL.flag = true;
                 BLL.ReasonWriteOff = this.reason.Text;
                 this.Close();
-            }
+            }            
         }
 
         private void button_Cancel_Click(object sender, EventArgs e)

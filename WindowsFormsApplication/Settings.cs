@@ -23,6 +23,8 @@ namespace WindowsFormsApplication
             textBox_Mail.Text = Properties.Settings.Default.Email;
             textBox_LogatipPath.Text = Properties.Settings.Default.ImgPath;
             textBox_NameDB.Text = Properties.Settings.Default.SqlDataBase;
+            comboBox_navigation.SelectedIndex = Properties.Settings.Default.int_navigation;
+            comboBox__print_BarKod.SelectedIndex = Properties.Settings.Default.inr_barcod;
 
             if (Properties.Settings.Default.ImgPath != "")
                 pictureBox_Image.Image = Image.FromFile(Properties.Settings.Default.ImgPath);
@@ -62,6 +64,9 @@ namespace WindowsFormsApplication
             Properties.Settings.Default.SqlDataBase = textBox_NameDB.Text;
             Properties.Settings.Default.Save();
             MessageBox.Show("Настройки сохранены");
+            Properties.Settings.Default.int_navigation = comboBox_navigation.SelectedIndex;
+            Properties.Settings.Default.inr_barcod = comboBox__print_BarKod.SelectedIndex;
+
         }
     }
 }

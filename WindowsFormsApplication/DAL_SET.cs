@@ -24,19 +24,19 @@ namespace WindowsFormsApplication
 
         // ghjdthrf 
         public void SetNewPosition(string TypeAccount, string TypeDevice, string Model,
-            string SN, string Responsible, string LanName, string Floor, string Room, string InvNumber, string jira ) 
+            string SN, string Responsible, string LanName, string Floor, string Room, string InvNumber, string jira)
         {
             ArrayList DataGrid = new ArrayList();
             SqlConnection connect = new SqlConnection(sConectDB);
             // переработать  20-21
             SqlCommand command = new SqlCommand(@"INSERT INTO dbo.MainTB (dateCreated, TypeAC_ID, NumberINV, NameLAN_ID, " +
-                @"NameRes_ID, Floor_ID, Room_ID, TypeDevice_ID, SN, Model, [WrittenOff], JiraTask_ID) VALUES(GETDATE(), " + 
+                @"NameRes_ID, Floor_ID, Room_ID, TypeDevice_ID, SN, Model, [WrittenOff], JiraTask_ID) VALUES(GETDATE(), " +
                 TypeAccount + ", '" +
-                InvNumber + "', " +  
+                InvNumber + "', " +
                 LanName + ", " +
                 Responsible + ", " +
-                Floor + ", " + 
-                Room +", " +
+                Floor + ", " +
+                Room + ", " +
                 TypeDevice + ", '" +
                 SN + "', '" +
                 Model + "', 0, " + jira + "); ", connect);
@@ -45,7 +45,7 @@ namespace WindowsFormsApplication
             {
 
                 connect.Open();
-            
+
                 command.ExecuteNonQuery();
             }
 
@@ -55,21 +55,26 @@ namespace WindowsFormsApplication
             }
 
             connect.Close();
-           
+
         }
 
+        // переработать  20-21
         public void SetNewPosition(string TypeDevice, string Model, string SN, string LanName, string InvNumber, string jira)
         {
             ArrayList DataGrid = new ArrayList();
             SqlConnection connect = new SqlConnection(sConectDB);
             // переработать  20-21
-            SqlCommand command = new SqlCommand(@"INSERT INTO dbo.MainTB (dateCreated, TypeAC_ID, NumberINV, NameLAN_ID, " +
-                @"NameRes_ID, Floor_ID, Room_ID, TypeDevice_ID, SN, Model, [WrittenOff], JiraTask_ID) VALUES(GETDATE(), '" +
-                InvNumber + "', " +
-                LanName + ", " +
-                TypeDevice + ", '" +
-                SN + "', '" +
-                Model + "', 0, "+jira+"); ", connect);
+            SqlCommand command = new SqlCommand(@" INSERT INTO[dbo].[HardWare]
+                ([MainTB_ID], [TypeHardWare_ID],[Model],[SN],[WrittenOff])
+                values((
+                SELECT TOP(1000)[MainTB].[ID]
+                FROM[TestDB].[dbo].[MainTB]
+                join NameLAN on maintb.NameLAN_ID = NameLAN.ID
+                join TypeDevice on maintb.TypeDevice_ID = TypeDevice.ID
+                where dbo.NameLAN.NameLAN = '"+ LanName + @"' AND TypeDevice.NameDevice = 'Системный блок'), "+
+                TypeDevice+", '"+
+                Model+"', '" +
+                SN+"', 0);" , connect);
 
             try
             {
@@ -86,6 +91,39 @@ namespace WindowsFormsApplication
 
             connect.Close();
 
+        }
+
+        public void SetNewPosition(string TypeDevice, string Model, string SN, int SUM, string InvNumber, string jira)
+        {
+            ArrayList DataGrid = new ArrayList();
+
+            using (SqlConnection connect = new SqlConnection(sConectDB))
+            {
+                // переработать  20-21
+
+                SqlCommand command = new SqlCommand(@"INSERT INTO dbo.MainTB (dateCreated, TypeAC_ID, NumberINV, NameLAN_ID, " +
+                    @"NameRes_ID, Floor_ID, Room_ID, TypeDevice_ID, SN, Model, [WrittenOff], JiraTask_ID) VALUES(GETDATE(), '" +
+                    InvNumber + "', " +
+                    SUM.ToString() + ", " +
+                    TypeDevice + ", '" +
+                    SN + "', '" +
+                    Model + "', 0, " + jira + "); ", connect);
+
+                try
+                {
+
+                    connect.Open();
+
+                    command.ExecuteNonQuery();
+                }
+
+                catch (SqlException exception)
+                {
+                    MessageBox.Show(exception.ToString());
+                }
+
+                connect.Close();
+            }
         }
 
         public void SetNewPosition(string Table, string Column, string Parametr)

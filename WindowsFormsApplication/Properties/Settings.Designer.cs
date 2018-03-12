@@ -82,5 +82,29 @@ namespace WindowsFormsApplication.Properties {
                 this["SqlDataBase"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int int_navigation {
+            get {
+                return ((int)(this["int_navigation"]));
+            }
+            set {
+                this["int_navigation"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int inr_barcod {
+            get {
+                return ((int)(this["inr_barcod"]));
+            }
+            set {
+                this["inr_barcod"] = value;
+            }
+        }
     }
 }

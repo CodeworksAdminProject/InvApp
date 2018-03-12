@@ -44,6 +44,10 @@ namespace WindowsFormsApplication
             setNewData.checkBox_Stockroom.Enabled = false;
             setNewData.checkBox_Hardware.Checked = true;
             setNewData.checkBox_SetHardware.Checked = true;
+            setNewData.checkBox_Hardware.Enabled = false;
+            setNewData.checkBox_SetHardware.Enabled = false;
+
+
            setNewData.ShowDialog();
         }
     }
