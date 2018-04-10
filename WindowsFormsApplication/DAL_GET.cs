@@ -219,6 +219,42 @@ namespace WindowsFormsApplication
             return DataFloor;
         }
 
+        // get name  pc for  combobox_hardware_namepc
+        public ArrayList Get_PC_name_Hardware()
+        {
+            ArrayList PS_name = new ArrayList();
+
+            using (SqlConnection connect = new SqlConnection(sConectDB))
+            {
+                SqlCommand command = new SqlCommand(@"select DISTINCT NameLAN from NameLAN, MainTB WHERE	mainTB.NameLAN_ID = NameLan.ID 
+                and mainTB.TypeDevice_ID = (select id from TypeDevice where TypeDevice.NameDevice  like'%истемный блок')
+                and NameLAN != ''
+                and MainTB.WrittenOff = 'false';", connect);
+
+                try
+                {
+
+                    connect.Open();
+                    SqlDataReader datareader = command.ExecuteReader();
+
+                    if (datareader.HasRows)
+                        foreach (DbDataRecord result in datareader)
+                            PS_name.Add(result);
+                    else
+                        return null;
+                }
+
+                catch (SqlException exception)
+                {
+                    MessageBox.Show(exception.ToString());
+                }
+
+                connect.Close();
+            }
+            return PS_name;
+        }
+
+
         // Forms setdata
         public ArrayList GetForSetForms()
         {
@@ -337,10 +373,12 @@ namespace WindowsFormsApplication
             ArrayList DataGrid = new ArrayList();
             SqlConnection connect = new SqlConnection(sConectDB);
             SqlCommand command = new SqlCommand(@"SELECT [dateCreated]
+                      ,[NumberINV]                      
                       ,[TypeHardWare]
                       ,[Model]
                       ,[SN]
                       ,[quantity]
+                      ,[JiraTask_ID]
                   FROM [dbo].[HardwareStockRoom]
                   Join [TypeHardWare] on TypeHardWare_ID = [TypeHardWare].[ID];", connect);
 
@@ -606,7 +644,57 @@ namespace WindowsFormsApplication
             return DataGrid;
         }
 
-       //-
+        public ArrayList GetDataGrid_ALL()
+        {
+            ArrayList DataGrid = new ArrayList();
+            SqlConnection connect = new SqlConnection(sConectDB);
+            SqlCommand command = new SqlCommand(@"select
+                maintb.ID, 
+                maintb.dateCreated, 
+                maintb.NumberINV, 
+                TypeAC.TypeAC,
+                NameLAN.NameLAN, 
+                NameRes.NameRes, 
+                [Floor].floorNambe, 
+                Room.NameRoom,
+                TypeDevice.NameDevice, 
+                maintb.SN,
+                MainTB.Model,
+                JiraTask, 
+                WrittenOff,
+                ReasonWriteOff
+                from MainTB
+                join TypeAC on maintb.TypeAC_ID = TypeAC.ID 
+                join [Floor] on maintb.Floor_ID = [Floor].ID 
+                join room on maintb.Room_ID =  Room.ID 
+                join TypeDevice on maintb.TypeDevice_ID = TypeDevice.ID 
+                join NameLAN on maintb.NameLAN_ID = NameLAN.ID 
+                join NameRes on maintb.NameRes_ID =  NameRes.ID 
+                Join JiraTask on maintb.JiraTask_ID = JiraTask.ID 
+                order by NameRes,NameLAN, TypeDevice_ID;", connect);
+
+            try
+            {
+
+                connect.Open();
+                SqlDataReader datareader = command.ExecuteReader();
+
+                if (datareader.HasRows)
+                    foreach (DbDataRecord result in datareader)
+                        DataGrid.Add(result);
+                else
+                    return null;
+            }
+
+            catch (SqlException exception)
+            {
+                MessageBox.Show(exception.ToString());
+            }
+
+            connect.Close();
+            return DataGrid;
+        }
+        //-
         public ArrayList GetDataGrid_TypeDevice(string TypeDevice)
         {
             ArrayList DataGrid = new ArrayList();

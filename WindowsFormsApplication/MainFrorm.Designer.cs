@@ -74,7 +74,7 @@
             this.button_Hardware_PS = new System.Windows.Forms.Button();
             this.groupBox_1С = new System.Windows.Forms.GroupBox();
             this.groupBox_MegaFiltr = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.button_Search = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox_DATA = new System.Windows.Forms.GroupBox();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
@@ -622,7 +622,7 @@
             // groupBox_MegaFiltr
             // 
             this.groupBox_MegaFiltr.AutoSize = true;
-            this.groupBox_MegaFiltr.Controls.Add(this.button2);
+            this.groupBox_MegaFiltr.Controls.Add(this.button_Search);
             this.groupBox_MegaFiltr.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBox_MegaFiltr.Location = new System.Drawing.Point(1003, 33);
             this.groupBox_MegaFiltr.Name = "groupBox_MegaFiltr";
@@ -631,16 +631,17 @@
             this.groupBox_MegaFiltr.TabStop = false;
             this.groupBox_MegaFiltr.Text = "Расширенный поиск ";
             // 
-            // button2
+            // button_Search
             // 
-            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button2.Location = new System.Drawing.Point(6, 60);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(64, 64);
-            this.button2.TabIndex = 1;
-            this.button2.UseVisualStyleBackColor = true;
+            this.button_Search.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_Search.BackgroundImage")));
+            this.button_Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_Search.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_Search.Location = new System.Drawing.Point(6, 60);
+            this.button_Search.Name = "button_Search";
+            this.button_Search.Size = new System.Drawing.Size(64, 64);
+            this.button_Search.TabIndex = 1;
+            this.button_Search.UseVisualStyleBackColor = true;
+            this.button_Search.Click += new System.EventHandler(this.button_Search_Click);
             // 
             // splitContainer1
             // 
@@ -755,10 +756,7 @@
         private System.Windows.Forms.Button button_Update;
         private System.Windows.Forms.Button button_Repair;
         private System.Windows.Forms.Button button_Delete;
-        private System.Windows.Forms.Button button_New_data;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button_HTMLOpenFullReport;
-        private System.Windows.Forms.Button button_ExcelOpenFullReport;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem File_ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem Settings_ToolStripMenuItem;
@@ -767,11 +765,10 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button button_PartExcelReport;
         private System.Windows.Forms.Button button_PartHtmlReport;
-        private System.Windows.Forms.Button button_deleteDataBase;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox_1С;
         private System.Windows.Forms.GroupBox groupBox_MegaFiltr;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button_Search;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_sentDef;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.GroupBox groupBox_DATA;
@@ -783,6 +780,10 @@
         private System.Windows.Forms.GroupBox groupBox_Hardware;
         private System.Windows.Forms.Button button_Hardware_PS;
         private System.Windows.Forms.Button button_Hardware_StockRoom;
+        private System.Windows.Forms.Button button_New_data;
+        private System.Windows.Forms.Button button_deleteDataBase;
+        private System.Windows.Forms.Button button_HTMLOpenFullReport;
+        private System.Windows.Forms.Button button_ExcelOpenFullReport;
     }
 }
 

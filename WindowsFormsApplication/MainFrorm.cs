@@ -89,7 +89,7 @@ namespace WindowsFormsApplication
                 //dataGridViewTB.ColumnHeadersDefaultCellStyle.ForeColor = Color.Red; //цвет ячейки
 
                 dataGridViewMT.Columns["dateCreated"].HeaderCell.Value = "Дата:";
-                // dataGridViewMT.Columns["TypeAC"].HeaderCell.Value = "Вид учета:";
+               // dataGridViewMT.Columns["TypeAC"].HeaderCell.Value = "Вид учета:";
                 dataGridViewMT.Columns["NumberINV"].HeaderCell.Value = "Инвентарный №:";
                 dataGridViewMT.Columns["NameLAN"].HeaderCell.Value = "Имя в сети:";
                 dataGridViewMT.Columns["NameRes"].HeaderCell.Value = "Ответственный:";
@@ -313,16 +313,19 @@ namespace WindowsFormsApplication
 
         private void dataGridViewPC_Name_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (Properties.Settings.Default.int_navigation == 0)
-                dataGridViewMT.DataSource = dal.GetDataGrid_NamePC(dataGridViewPC_Name.Rows[e.RowIndex].Cells[0].Value.ToString());
+            if (e.RowIndex >= 0)
+            {
+                if (Properties.Settings.Default.int_navigation == 0)
+                    dataGridViewMT.DataSource = dal.GetDataGrid_NamePC(dataGridViewPC_Name.Rows[e.RowIndex].Cells[0].Value.ToString());
 
-            else if (Properties.Settings.Default.int_navigation == 1)                
-                 dataGridViewMT.DataSource = dal.GetDataGrid_Responsoble(dataGridViewPC_Name.Rows[e.RowIndex].Cells[0].Value.ToString());
-            else 
-                dataGridViewMT.DataSource = dal.GetDataGrid_TypeDevice(dataGridViewPC_Name.Rows[e.RowIndex].Cells[0].Value.ToString());
+                else if (Properties.Settings.Default.int_navigation == 1)
+                    dataGridViewMT.DataSource = dal.GetDataGrid_Responsoble(dataGridViewPC_Name.Rows[e.RowIndex].Cells[0].Value.ToString());
+                else
+                    dataGridViewMT.DataSource = dal.GetDataGrid_TypeDevice(dataGridViewPC_Name.Rows[e.RowIndex].Cells[0].Value.ToString());
 
-            stilDataGrid();
-            indexControl = 5;
+                stilDataGrid();
+                indexControl = 5;
+            }
         }
 
         private void dataGridViewMT_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -447,6 +450,13 @@ namespace WindowsFormsApplication
         private void button_Repair_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button_Search_Click(object sender, EventArgs e)
+        {
+            Search search = new Search();
+            search.ShowDialog();
+            Update_Grid();
         }
     } 
 }

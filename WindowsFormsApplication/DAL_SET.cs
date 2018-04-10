@@ -65,16 +65,15 @@ namespace WindowsFormsApplication
             SqlConnection connect = new SqlConnection(sConectDB);
             // переработать  20-21
             SqlCommand command = new SqlCommand(@" INSERT INTO[dbo].[HardWare]
-                ([MainTB_ID], [TypeHardWare_ID],[Model],[SN],[WrittenOff])
-                values((
-                SELECT TOP(1000)[MainTB].[ID]
+                ([dateCreated], [MainTB_ID], [TypeHardWare_ID],[Model],[SN],[WrittenOff], [NumberINV], [JiraTask_ID])
+                values(GETDATE(), (SELECT [MainTB].[ID]
                 FROM[TestDB].[dbo].[MainTB]
                 join NameLAN on maintb.NameLAN_ID = NameLAN.ID
                 join TypeDevice on maintb.TypeDevice_ID = TypeDevice.ID
-                where dbo.NameLAN.NameLAN = '"+ LanName + @"' AND TypeDevice.NameDevice = 'Системный блок'), "+
+                where dbo.NameLAN.NameLAN = '" + LanName + @"' AND TypeDevice.NameDevice like '%истемный блок'  AND WrittenOff = 'false' ), " +
                 TypeDevice+", '"+
                 Model+"', '" +
-                SN+"', 0);" , connect);
+                SN+"', 0, '"+InvNumber+"', "+jira+");" , connect);
 
             try
             {
@@ -101,13 +100,28 @@ namespace WindowsFormsApplication
             {
                 // переработать  20-21
 
-                SqlCommand command = new SqlCommand(@"INSERT INTO dbo.MainTB (dateCreated, TypeAC_ID, NumberINV, NameLAN_ID, " +
-                    @"NameRes_ID, Floor_ID, Room_ID, TypeDevice_ID, SN, Model, [WrittenOff], JiraTask_ID) VALUES(GETDATE(), '" +
-                    InvNumber + "', " +
-                    SUM.ToString() + ", " +
-                    TypeDevice + ", '" +
-                    SN + "', '" +
-                    Model + "', 0, " + jira + "); ", connect);
+                SqlCommand command = new SqlCommand(@"
+                    declare @id int = (
+                    SELECT  [ID]
+                    FROM [dbo].[HardwareStockRoom]
+                    WHERE NumberINV = '" + InvNumber + @"'
+                    and TypeHardWare_ID = "+ TypeDevice + @"
+                    and Model = '" + Model + @"'
+                    and SN = '"+ SN + @"'
+                    and JiraTask_ID = " + jira + @" );
+                    if ( @id  Is not NULL)
+                    Begin		
+                        update  [dbo].[HardwareStockRoom] Set quantity =quantity + "+ SUM.ToString()+ @" Where ID = @id
+                        end
+                    else 
+                        begin
+                        INSERT INTO [dbo].[HardwareStockRoom] ([dateCreated],[NumberINV],[TypeHardWare_ID],[quantity]
+                        ,[SN],[Model],[WrittenOff],[JiraTask_ID]) VALUES(GETDATE(), '" +
+                        InvNumber + "', " +
+                        TypeDevice + ", " +
+                        SUM.ToString() + ", '" +
+                        SN + "', '" +
+                        Model + "', 0, " + jira + ") ; end", connect);
 
                 try
                 {

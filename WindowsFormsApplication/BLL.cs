@@ -125,7 +125,7 @@ namespace WindowsFormsApplication
             BLL.t++;
         }
 
-        public void BodyMailNew(string Inv, string NameLan, string NameRes, string Floor, string Room, string NameDevice, string SN, string Model)
+        public void BodyMailNew(string Inv, string NameLan, string NameRes, string Floor, string Room, string NameDevice, string SN, string Model, string jira)
         {
 
             if (BLL.heds == null)
@@ -146,6 +146,7 @@ namespace WindowsFormsApplication
                      "<th>Тип устройства</th>" +
                      "<th>Серийный номер</th>" +
                      "<th>Модель</th>" +
+                     "<th>Задача  в Jira</th>" +
                      "</tr>";
             }
 
@@ -161,6 +162,7 @@ namespace WindowsFormsApplication
                         "<td>"+ NameDevice + "</td>" +
                         "<td>"+SN+"</td>" +
                         "<td>"+ Model+"</td>" +
+                        "<td>" + "<a href='http://jira.mara.local/browse/" +jira +"'>"+jira+" </a></td>" +
                         "</tr>";
 
 
@@ -416,7 +418,7 @@ namespace WindowsFormsApplication
 
                 if (sHtmlTableHardware_PS == null)
                 {
-                    sHtmlTableHardware_PS = @"< table border = '1' > 
+                    sHtmlTableHardware_PS = @"<table border='1' > 
                 <caption><font size='5'>Добавлено новое на компьютер(ы) железо или расходники :</font></caption>
                 <tr> 
                 <th>Номер операции </th>
@@ -425,6 +427,7 @@ namespace WindowsFormsApplication
                 <th>Тип устройства</th>
                 <th>Серийный номер</th>
                 <th>Модель</th>
+                <th> Задача  в Jira</th> 
                 </tr>";
                 }
             
@@ -437,6 +440,7 @@ namespace WindowsFormsApplication
                         "<td>" + typedevise + "</td>" +
                         "<td>" + Model + "</td>" +
                         "<td>" + SN + "</td>" +
+                        "<td>" + "<a href='http://jira.mara.local/browse/" + Jira + "'>" + Jira + " </a></td>" +
                         "</tr>";
             
         }
@@ -450,7 +454,7 @@ namespace WindowsFormsApplication
 
             if (sHtmlTableHardware_Stockroom == null)
             {
-                sHtmlTableHardware_Stockroom = @"< table border = '1' > 
+                sHtmlTableHardware_Stockroom = @"<table border='1' > 
                 <caption><font size='5'>Добавлено новое на компьютер(ы) железо или расходники :</font></caption>
                 <tr> 
                 <th>Номер операции </th>
@@ -459,6 +463,7 @@ namespace WindowsFormsApplication
                 <th>Серийный номер</th>
                 <th>Модель</th>
                 <th>Количество в шт </th>
+                <th> Задача  в Jira</th>
                 </tr>";
             }
 
@@ -471,6 +476,7 @@ namespace WindowsFormsApplication
                 "<td>" + Model + "</td>" +
                 "<td>" + SN + "</td>" +
                 "<td>" + Sum + "</td>" +
+                "<td>" + "<a href ='http://jira.mara.local/browse/" + Jira + "'>" + Jira + " </a></td>" +
                 "</tr>";
 
         }

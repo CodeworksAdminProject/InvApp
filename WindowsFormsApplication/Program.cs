@@ -39,11 +39,21 @@ namespace WindowsFormsApplication
             if (BLL.sHtmlTableDeleteReport != null)
                 tabl4 = "</table>";
 
-            
+            string tabl5 = null;
+            if (BLL.sHtmlTableHardware_PS != null)
+                tabl5 = "</table>";
+
+            string tabl6 = null;
+            if (BLL.sHtmlTableHardware_Stockroom != null)
+                tabl6 = "</table>";
+
             if ((BLL.sMailBody != null) || (BLL.sMailBodyNew != null) || (BLL.sMailBodyDelete != null) || 
-                (BLL.sHtmlTableAddWriteOffForReport != null) || (BLL.sHtmlTableTakeAwayWriteOffForReport != null) || (BLL.sMailBodyDelete != null))
+                (BLL.sHtmlTableAddWriteOffForReport != null) || (BLL.sHtmlTableTakeAwayWriteOffForReport != null) || (BLL.sMailBodyDelete != null) ||
+                (BLL.sHtmlTableHardware_PS != null) || (BLL.sHtmlTableHardware_Stockroom != null))
+
                 sentmail.SentMail(BLL.heds + BLL.sMailBody + BLL.sMailBodyNew + tabl1+ BLL.sHtmlTableAddWriteOffForReport + 
-                    tabl2 + BLL.sHtmlTableTakeAwayWriteOffForReport + tabl3 + BLL.sHtmlTableDeleteReport + tabl4, Properties.Settings.Default.Email);
+                    tabl2 + BLL.sHtmlTableTakeAwayWriteOffForReport + tabl3 + BLL.sHtmlTableDeleteReport + tabl4 +
+                    BLL.sHtmlTableHardware_Stockroom + tabl6 + BLL.sHtmlTableHardware_PS+tabl5, Properties.Settings.Default.Email);
         }
     }
 }
