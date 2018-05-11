@@ -96,7 +96,7 @@ namespace WindowsFormsApplication
                 button_MainTB.BackColor = button_Hardware_Stockroom.BackColor = Color.White;
 
             }
-            else if (flag_button == "StockRoom")
+            else if (flag_button == "HardwareStockRoom")
             {
                 button_MainTB.ForeColor = button_hardwarePC.ForeColor = Color.MidnightBlue;
                 button_MainTB.BackColor = button_hardwarePC.BackColor = Color.White;
@@ -124,7 +124,7 @@ namespace WindowsFormsApplication
                 button_MainTB.BackColor = button_Hardware_Stockroom.BackColor = Color.White;
 
             }
-            else if (flag_button == "StockRoom")
+            else if (flag_button == "HardwareStockRoom")
             {
                 button_MainTB.ForeColor = button_hardwarePC.ForeColor = Color.MidnightBlue;
                 button_MainTB.BackColor = button_hardwarePC.BackColor = Color.White;
@@ -137,7 +137,7 @@ namespace WindowsFormsApplication
 
         private void button_Hardware_Stockroom_Click(object sender, EventArgs e)
         {
-            flag_button = "StockRoom";
+            flag_button = "HardwareStockRoom";
             ValumeComboBox();
             groupBox_TypeAC.Enabled = false;
             groupBox_namePC.Enabled = false;
@@ -217,7 +217,7 @@ namespace WindowsFormsApplication
                 dalSearch.ID_HW = textBox_ID.Text;
                 dalSearch.ID_SR = null;
             }
-            else if (flag_button == "StockRoom")
+            else if (flag_button == "HardwareStockRoom")
             {
                 dalSearch.TypeDevice = "Для всех";
                 dalSearch.TypeHardware = comboBox_TypeDevice.SelectedValue.ToString();

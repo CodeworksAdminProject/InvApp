@@ -25,7 +25,7 @@ namespace WindowsFormsApplication
         {
             InitializeComponent();
                       
-            DataINV = dal_get.GetForSetForms();
+          //  DataINV = dal_get.GetForSetForms();
 
             comboBox_invinNumber.DataSource = DataINV;
             comboBox_invinNumber.DisplayMember = "NumberINV";
@@ -74,7 +74,7 @@ namespace WindowsFormsApplication
                 }
             }
 
-            DataINV = dal_get.GetForSetForms();
+          //  DataINV = dal_get.GetForSetForms();
             comboBox_invinNumber.DataSource = DataINV;
             comboBox_invinNumber.DisplayMember = "NumberINV";
             comboBox_invinNumber.ValueMember = "NumberINV";

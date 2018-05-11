@@ -39,20 +39,17 @@
             this.comboBox_Responsible = new System.Windows.Forms.ComboBox();
             this.textBox_PC = new System.Windows.Forms.TextBox();
             this.comboBox_Room = new System.Windows.Forms.ComboBox();
-            this.button_Number = new System.Windows.Forms.Button();
-            this.button_Responsible = new System.Windows.Forms.Button();
-            this.button_PC = new System.Windows.Forms.Button();
-            this.button_Room = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.PRINT_LABELS = new System.Windows.Forms.Button();
             this.PRINT_LABEL_ALL = new System.Windows.Forms.Button();
             this.groupBox_Set_Data = new System.Windows.Forms.GroupBox();
-            this.button_Repair = new System.Windows.Forms.Button();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.button_New_data = new System.Windows.Forms.Button();
-            this.button_WriteOffTable = new System.Windows.Forms.Button();
             this.button_Delete = new System.Windows.Forms.Button();
-            this.button_deleteDataBase = new System.Windows.Forms.Button();
             this.button_Update = new System.Windows.Forms.Button();
+            this.button_Repair = new System.Windows.Forms.Button();
+            this.button_deleteDataBase = new System.Windows.Forms.Button();
+            this.button_WriteOffTable = new System.Windows.Forms.Button();
             this.roomBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button_HTMLOpenFullReport = new System.Windows.Forms.Button();
@@ -79,9 +76,15 @@
             this.groupBox_DATA = new System.Windows.Forms.GroupBox();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.groupBox_Hardware = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.groupBox_sum = new System.Windows.Forms.GroupBox();
+            this.label_sum = new System.Windows.Forms.Label();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.grubBoxUnloading.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox_Set_Data.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.roomBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -96,6 +99,9 @@
             this.splitContainer1.SuspendLayout();
             this.groupBox_DATA.SuspendLayout();
             this.groupBox_Hardware.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.groupBox_sum.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // grubBoxUnloading
@@ -109,24 +115,22 @@
             this.grubBoxUnloading.Controls.Add(this.comboBox_Responsible);
             this.grubBoxUnloading.Controls.Add(this.textBox_PC);
             this.grubBoxUnloading.Controls.Add(this.comboBox_Room);
-            this.grubBoxUnloading.Controls.Add(this.button_Number);
-            this.grubBoxUnloading.Controls.Add(this.button_Responsible);
-            this.grubBoxUnloading.Controls.Add(this.button_PC);
-            this.grubBoxUnloading.Controls.Add(this.button_Room);
+            this.grubBoxUnloading.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grubBoxUnloading.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.grubBoxUnloading.Location = new System.Drawing.Point(8, 33);
+            this.grubBoxUnloading.Location = new System.Drawing.Point(3, 3);
             this.grubBoxUnloading.Name = "grubBoxUnloading";
-            this.grubBoxUnloading.Size = new System.Drawing.Size(490, 181);
+            this.grubBoxUnloading.Size = new System.Drawing.Size(375, 180);
             this.grubBoxUnloading.TabIndex = 0;
             this.grubBoxUnloading.TabStop = false;
             this.grubBoxUnloading.Text = "Виды  выгрузок  (быстрый поиск )";
+            this.grubBoxUnloading.Enter += new System.EventHandler(this.grubBoxUnloading_Enter);
             // 
             // label_Number
             // 
             this.label_Number.AutoSize = true;
             this.label_Number.BackColor = System.Drawing.SystemColors.Control;
             this.label_Number.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_Number.Location = new System.Drawing.Point(258, 92);
+            this.label_Number.Location = new System.Drawing.Point(199, 95);
             this.label_Number.Name = "label_Number";
             this.label_Number.Size = new System.Drawing.Size(165, 20);
             this.label_Number.TabIndex = 4;
@@ -137,7 +141,7 @@
             this.label_PC.AutoSize = true;
             this.label_PC.BackColor = System.Drawing.SystemColors.Control;
             this.label_PC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_PC.Location = new System.Drawing.Point(286, 28);
+            this.label_PC.Location = new System.Drawing.Point(232, 30);
             this.label_PC.Name = "label_PC";
             this.label_PC.Size = new System.Drawing.Size(107, 20);
             this.label_PC.TabIndex = 4;
@@ -167,101 +171,54 @@
             // 
             // textBox_Number
             // 
-            this.textBox_Number.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox_Number.Location = new System.Drawing.Point(246, 115);
+            this.textBox_Number.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox_Number.Location = new System.Drawing.Point(203, 118);
             this.textBox_Number.Name = "textBox_Number";
-            this.textBox_Number.Size = new System.Drawing.Size(187, 29);
+            this.textBox_Number.Size = new System.Drawing.Size(160, 24);
             this.textBox_Number.TabIndex = 3;
+            this.textBox_Number.TextChanged += new System.EventHandler(this.textBox_Number_TextChanged);
             this.textBox_Number.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_Number_KeyUp);
             // 
             // comboBox_Responsible
             // 
-            this.comboBox_Responsible.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBox_Responsible.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBox_Responsible.FormattingEnabled = true;
             this.comboBox_Responsible.Location = new System.Drawing.Point(6, 116);
             this.comboBox_Responsible.Name = "comboBox_Responsible";
-            this.comboBox_Responsible.Size = new System.Drawing.Size(171, 28);
+            this.comboBox_Responsible.Size = new System.Drawing.Size(158, 26);
             this.comboBox_Responsible.TabIndex = 2;
+            this.comboBox_Responsible.SelectedIndexChanged += new System.EventHandler(this.comboBox_Responsible_SelectedIndexChanged);
             // 
             // textBox_PC
             // 
-            this.textBox_PC.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox_PC.Location = new System.Drawing.Point(246, 51);
+            this.textBox_PC.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox_PC.Location = new System.Drawing.Point(203, 53);
             this.textBox_PC.Name = "textBox_PC";
-            this.textBox_PC.Size = new System.Drawing.Size(187, 27);
+            this.textBox_PC.Size = new System.Drawing.Size(160, 24);
             this.textBox_PC.TabIndex = 3;
+            this.textBox_PC.TextChanged += new System.EventHandler(this.textBox_PC_TextChanged);
             this.textBox_PC.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_PC_KeyUp);
             // 
             // comboBox_Room
             // 
-            this.comboBox_Room.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBox_Room.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBox_Room.FormattingEnabled = true;
             this.comboBox_Room.Location = new System.Drawing.Point(6, 51);
             this.comboBox_Room.Name = "comboBox_Room";
-            this.comboBox_Room.Size = new System.Drawing.Size(171, 28);
+            this.comboBox_Room.Size = new System.Drawing.Size(158, 26);
             this.comboBox_Room.TabIndex = 2;
-            // 
-            // button_Number
-            // 
-            this.button_Number.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_Number.BackgroundImage")));
-            this.button_Number.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_Number.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_Number.Location = new System.Drawing.Point(439, 116);
-            this.button_Number.Name = "button_Number";
-            this.button_Number.Size = new System.Drawing.Size(32, 32);
-            this.button_Number.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.button_Number, "Выгрузка");
-            this.button_Number.UseVisualStyleBackColor = true;
-            this.button_Number.Click += new System.EventHandler(this.button_Number_Click);
-            // 
-            // button_Responsible
-            // 
-            this.button_Responsible.AccessibleDescription = "Выгрузка";
-            this.button_Responsible.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_Responsible.BackgroundImage")));
-            this.button_Responsible.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_Responsible.Location = new System.Drawing.Point(183, 116);
-            this.button_Responsible.Name = "button_Responsible";
-            this.button_Responsible.Size = new System.Drawing.Size(32, 32);
-            this.button_Responsible.TabIndex = 0;
-            this.button_Responsible.UseVisualStyleBackColor = true;
-            this.button_Responsible.Click += new System.EventHandler(this.button_Responsible_Click);
-            // 
-            // button_PC
-            // 
-            this.button_PC.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_PC.BackgroundImage")));
-            this.button_PC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_PC.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_PC.Location = new System.Drawing.Point(439, 52);
-            this.button_PC.Name = "button_PC";
-            this.button_PC.Size = new System.Drawing.Size(32, 32);
-            this.button_PC.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.button_PC, "Выгрузка");
-            this.button_PC.UseVisualStyleBackColor = true;
-            this.button_PC.Click += new System.EventHandler(this.button_PC_Click);
-            // 
-            // button_Room
-            // 
-            this.button_Room.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_Room.BackgroundImage")));
-            this.button_Room.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_Room.Location = new System.Drawing.Point(183, 49);
-            this.button_Room.Name = "button_Room";
-            this.button_Room.Size = new System.Drawing.Size(32, 32);
-            this.button_Room.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.button_Room, "Выгрузка");
-            this.button_Room.UseVisualStyleBackColor = true;
-            this.button_Room.Click += new System.EventHandler(this.button_Room_Click);
+            this.comboBox_Room.SelectedIndexChanged += new System.EventHandler(this.comboBox_Room_SelectedIndexChanged);
             // 
             // groupBox3
             // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.AutoSize = true;
             this.groupBox3.Controls.Add(this.PRINT_LABELS);
             this.groupBox3.Controls.Add(this.PRINT_LABEL_ALL);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox3.Location = new System.Drawing.Point(1091, 33);
+            this.groupBox3.Location = new System.Drawing.Point(1146, 3);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(100, 181);
+            this.groupBox3.Size = new System.Drawing.Size(103, 180);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Печать";
@@ -270,7 +227,7 @@
             // 
             this.PRINT_LABELS.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PRINT_LABELS.BackgroundImage")));
             this.PRINT_LABELS.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.PRINT_LABELS.Location = new System.Drawing.Point(6, 91);
+            this.PRINT_LABELS.Location = new System.Drawing.Point(6, 111);
             this.PRINT_LABELS.Name = "PRINT_LABELS";
             this.PRINT_LABELS.Size = new System.Drawing.Size(64, 64);
             this.PRINT_LABELS.TabIndex = 0;
@@ -282,7 +239,7 @@
             // 
             this.PRINT_LABEL_ALL.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PRINT_LABEL_ALL.BackgroundImage")));
             this.PRINT_LABEL_ALL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.PRINT_LABEL_ALL.Location = new System.Drawing.Point(5, 18);
+            this.PRINT_LABEL_ALL.Location = new System.Drawing.Point(6, 40);
             this.PRINT_LABEL_ALL.Name = "PRINT_LABEL_ALL";
             this.PRINT_LABEL_ALL.Size = new System.Drawing.Size(64, 64);
             this.PRINT_LABEL_ALL.TabIndex = 0;
@@ -293,33 +250,29 @@
             // groupBox_Set_Data
             // 
             this.groupBox_Set_Data.AutoSize = true;
-            this.groupBox_Set_Data.Controls.Add(this.button_Repair);
-            this.groupBox_Set_Data.Controls.Add(this.button_New_data);
-            this.groupBox_Set_Data.Controls.Add(this.button_WriteOffTable);
-            this.groupBox_Set_Data.Controls.Add(this.button_Delete);
-            this.groupBox_Set_Data.Controls.Add(this.button_deleteDataBase);
-            this.groupBox_Set_Data.Controls.Add(this.button_Update);
+            this.groupBox_Set_Data.Controls.Add(this.flowLayoutPanel1);
+            this.groupBox_Set_Data.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox_Set_Data.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox_Set_Data.Location = new System.Drawing.Point(667, 33);
+            this.groupBox_Set_Data.Location = new System.Drawing.Point(656, 3);
             this.groupBox_Set_Data.Name = "groupBox_Set_Data";
-            this.groupBox_Set_Data.Size = new System.Drawing.Size(239, 181);
+            this.groupBox_Set_Data.Size = new System.Drawing.Size(266, 180);
             this.groupBox_Set_Data.TabIndex = 3;
             this.groupBox_Set_Data.TabStop = false;
             this.groupBox_Set_Data.Text = "Корректировка  данных ";
             // 
-            // button_Repair
+            // flowLayoutPanel1
             // 
-            this.button_Repair.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_Repair.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_Repair.BackgroundImage")));
-            this.button_Repair.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_Repair.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_Repair.Location = new System.Drawing.Point(6, 92);
-            this.button_Repair.Name = "button_Repair";
-            this.button_Repair.Size = new System.Drawing.Size(64, 64);
-            this.button_Repair.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.button_Repair, "Отправить в ремонт ");
-            this.button_Repair.UseVisualStyleBackColor = true;
-            this.button_Repair.Click += new System.EventHandler(this.button_Repair_Click);
+            this.flowLayoutPanel1.Controls.Add(this.button_New_data);
+            this.flowLayoutPanel1.Controls.Add(this.button_Delete);
+            this.flowLayoutPanel1.Controls.Add(this.button_Update);
+            this.flowLayoutPanel1.Controls.Add(this.button_Repair);
+            this.flowLayoutPanel1.Controls.Add(this.button_deleteDataBase);
+            this.flowLayoutPanel1.Controls.Add(this.button_WriteOffTable);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 19);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(260, 158);
+            this.flowLayoutPanel1.TabIndex = 0;
             // 
             // button_New_data
             // 
@@ -328,7 +281,7 @@
             this.button_New_data.Cursor = System.Windows.Forms.Cursors.SizeNS;
             this.button_New_data.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button_New_data.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_New_data.Location = new System.Drawing.Point(6, 22);
+            this.button_New_data.Location = new System.Drawing.Point(3, 3);
             this.button_New_data.Name = "button_New_data";
             this.button_New_data.Size = new System.Drawing.Size(64, 64);
             this.button_New_data.TabIndex = 1;
@@ -336,46 +289,18 @@
             this.button_New_data.UseVisualStyleBackColor = true;
             this.button_New_data.Click += new System.EventHandler(this.button_New_data_Click);
             // 
-            // button_WriteOffTable
-            // 
-            this.button_WriteOffTable.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_WriteOffTable.BackgroundImage")));
-            this.button_WriteOffTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_WriteOffTable.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_WriteOffTable.Location = new System.Drawing.Point(146, 93);
-            this.button_WriteOffTable.Name = "button_WriteOffTable";
-            this.button_WriteOffTable.Size = new System.Drawing.Size(64, 64);
-            this.button_WriteOffTable.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.button_WriteOffTable, "Таблица  списаных ");
-            this.button_WriteOffTable.UseVisualStyleBackColor = true;
-            this.button_WriteOffTable.Click += new System.EventHandler(this.button_WriteOffTable_Click);
-            // 
             // button_Delete
             // 
             this.button_Delete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_Delete.BackgroundImage")));
             this.button_Delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button_Delete.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_Delete.Location = new System.Drawing.Point(76, 22);
+            this.button_Delete.Location = new System.Drawing.Point(73, 3);
             this.button_Delete.Name = "button_Delete";
             this.button_Delete.Size = new System.Drawing.Size(64, 64);
             this.button_Delete.TabIndex = 1;
             this.toolTip1.SetToolTip(this.button_Delete, "Списать ");
             this.button_Delete.UseVisualStyleBackColor = true;
             this.button_Delete.Click += new System.EventHandler(this.button_Delete_Click);
-            // 
-            // button_deleteDataBase
-            // 
-            this.button_deleteDataBase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_deleteDataBase.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_deleteDataBase.BackgroundImage")));
-            this.button_deleteDataBase.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button_deleteDataBase.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_deleteDataBase.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_deleteDataBase.Location = new System.Drawing.Point(76, 92);
-            this.button_deleteDataBase.Name = "button_deleteDataBase";
-            this.button_deleteDataBase.Size = new System.Drawing.Size(64, 64);
-            this.button_deleteDataBase.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.button_deleteDataBase, "Удалить из базы");
-            this.button_deleteDataBase.UseVisualStyleBackColor = true;
-            this.button_deleteDataBase.Click += new System.EventHandler(this.button_Update_Click);
             // 
             // button_Update
             // 
@@ -384,13 +309,55 @@
             this.button_Update.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.button_Update.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button_Update.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_Update.Location = new System.Drawing.Point(146, 19);
+            this.button_Update.Location = new System.Drawing.Point(143, 3);
             this.button_Update.Name = "button_Update";
             this.button_Update.Size = new System.Drawing.Size(64, 64);
             this.button_Update.TabIndex = 1;
             this.toolTip1.SetToolTip(this.button_Update, "Изменить выделенную позицию");
             this.button_Update.UseVisualStyleBackColor = true;
             this.button_Update.Click += new System.EventHandler(this.button_Update_Click);
+            // 
+            // button_Repair
+            // 
+            this.button_Repair.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_Repair.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_Repair.BackgroundImage")));
+            this.button_Repair.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_Repair.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_Repair.Location = new System.Drawing.Point(3, 73);
+            this.button_Repair.Name = "button_Repair";
+            this.button_Repair.Size = new System.Drawing.Size(64, 64);
+            this.button_Repair.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.button_Repair, "Отправить в ремонт ");
+            this.button_Repair.UseVisualStyleBackColor = true;
+            this.button_Repair.Click += new System.EventHandler(this.button_Repair_Click);
+            // 
+            // button_deleteDataBase
+            // 
+            this.button_deleteDataBase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_deleteDataBase.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_deleteDataBase.BackgroundImage")));
+            this.button_deleteDataBase.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button_deleteDataBase.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_deleteDataBase.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_deleteDataBase.Location = new System.Drawing.Point(73, 73);
+            this.button_deleteDataBase.Name = "button_deleteDataBase";
+            this.button_deleteDataBase.Size = new System.Drawing.Size(64, 64);
+            this.button_deleteDataBase.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.button_deleteDataBase, "Удалить из базы");
+            this.button_deleteDataBase.UseVisualStyleBackColor = true;
+            this.button_deleteDataBase.Click += new System.EventHandler(this.button_Update_Click);
+            // 
+            // button_WriteOffTable
+            // 
+            this.button_WriteOffTable.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_WriteOffTable.BackgroundImage")));
+            this.button_WriteOffTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_WriteOffTable.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_WriteOffTable.Location = new System.Drawing.Point(143, 73);
+            this.button_WriteOffTable.Name = "button_WriteOffTable";
+            this.button_WriteOffTable.Size = new System.Drawing.Size(64, 64);
+            this.button_WriteOffTable.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.button_WriteOffTable, "Таблица  списаных ");
+            this.button_WriteOffTable.UseVisualStyleBackColor = true;
+            this.button_WriteOffTable.Click += new System.EventHandler(this.button_WriteOffTable_Click);
             // 
             // roomBindingSource
             // 
@@ -400,10 +367,11 @@
             // 
             this.groupBox1.Controls.Add(this.button_HTMLOpenFullReport);
             this.groupBox1.Controls.Add(this.button_ExcelOpenFullReport);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox1.Location = new System.Drawing.Point(504, 33);
+            this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(157, 86);
+            this.groupBox1.Size = new System.Drawing.Size(165, 84);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "полные отчеты";
@@ -443,7 +411,7 @@
             this.toolStripMenuItem_sentDef});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1434, 38);
+            this.menuStrip1.Size = new System.Drawing.Size(1363, 38);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -507,10 +475,11 @@
             // 
             this.groupBox2.Controls.Add(this.button_PartHtmlReport);
             this.groupBox2.Controls.Add(this.button_PartExcelReport);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox2.Location = new System.Drawing.Point(504, 126);
+            this.groupBox2.Location = new System.Drawing.Point(3, 93);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(157, 88);
+            this.groupBox2.Size = new System.Drawing.Size(165, 84);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "частичные отчеты";
@@ -562,7 +531,7 @@
             this.dataGridViewMT.Name = "dataGridViewMT";
             this.dataGridViewMT.RowTemplate.DividerHeight = 2;
             this.dataGridViewMT.RowTemplate.Height = 25;
-            this.dataGridViewMT.Size = new System.Drawing.Size(1234, 324);
+            this.dataGridViewMT.Size = new System.Drawing.Size(1173, 485);
             this.dataGridViewMT.TabIndex = 3;
             this.toolTip1.SetToolTip(this.dataGridViewMT, "частичные отчеты ");
             this.dataGridViewMT.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewMT_CellContentDoubleClick);
@@ -578,16 +547,17 @@
             this.dataGridViewPC_Name.Name = "dataGridViewPC_Name";
             this.dataGridViewPC_Name.RowTemplate.DividerHeight = 2;
             this.dataGridViewPC_Name.RowTemplate.Height = 25;
-            this.dataGridViewPC_Name.Size = new System.Drawing.Size(182, 324);
+            this.dataGridViewPC_Name.Size = new System.Drawing.Size(172, 485);
             this.dataGridViewPC_Name.TabIndex = 4;
             this.toolTip1.SetToolTip(this.dataGridViewPC_Name, "частичные отчеты ");
+            this.dataGridViewPC_Name.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPC_Name_CellEnter);
             this.dataGridViewPC_Name.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewPC_Name_CellMouseClick);
             // 
             // button_Hardware_StockRoom
             // 
             this.button_Hardware_StockRoom.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_Hardware_StockRoom.BackgroundImage")));
             this.button_Hardware_StockRoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_Hardware_StockRoom.Location = new System.Drawing.Point(6, 17);
+            this.button_Hardware_StockRoom.Location = new System.Drawing.Point(6, 40);
             this.button_Hardware_StockRoom.Name = "button_Hardware_StockRoom";
             this.button_Hardware_StockRoom.Size = new System.Drawing.Size(64, 64);
             this.button_Hardware_StockRoom.TabIndex = 0;
@@ -599,7 +569,7 @@
             // 
             this.button_Hardware_PS.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_Hardware_PS.BackgroundImage")));
             this.button_Hardware_PS.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_Hardware_PS.Location = new System.Drawing.Point(6, 93);
+            this.button_Hardware_PS.Location = new System.Drawing.Point(6, 111);
             this.button_Hardware_PS.Name = "button_Hardware_PS";
             this.button_Hardware_PS.Size = new System.Drawing.Size(64, 64);
             this.button_Hardware_PS.TabIndex = 0;
@@ -611,10 +581,11 @@
             // 
             this.groupBox_1С.AutoSize = true;
             this.groupBox_1С.Controls.Add(this.button1);
+            this.groupBox_1С.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox_1С.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox_1С.Location = new System.Drawing.Point(912, 33);
+            this.groupBox_1С.Location = new System.Drawing.Point(1037, 3);
             this.groupBox_1С.Name = "groupBox_1С";
-            this.groupBox_1С.Size = new System.Drawing.Size(85, 181);
+            this.groupBox_1С.Size = new System.Drawing.Size(103, 180);
             this.groupBox_1С.TabIndex = 4;
             this.groupBox_1С.TabStop = false;
             this.groupBox_1С.Text = "Работа  с данами из 1С";
@@ -623,10 +594,11 @@
             // 
             this.groupBox_MegaFiltr.AutoSize = true;
             this.groupBox_MegaFiltr.Controls.Add(this.button_Search);
+            this.groupBox_MegaFiltr.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox_MegaFiltr.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox_MegaFiltr.Location = new System.Drawing.Point(1003, 33);
+            this.groupBox_MegaFiltr.Location = new System.Drawing.Point(928, 3);
             this.groupBox_MegaFiltr.Name = "groupBox_MegaFiltr";
-            this.groupBox_MegaFiltr.Size = new System.Drawing.Size(82, 181);
+            this.groupBox_MegaFiltr.Size = new System.Drawing.Size(103, 180);
             this.groupBox_MegaFiltr.TabIndex = 4;
             this.groupBox_MegaFiltr.TabStop = false;
             this.groupBox_MegaFiltr.Text = "Расширенный поиск ";
@@ -656,8 +628,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dataGridViewMT);
-            this.splitContainer1.Size = new System.Drawing.Size(1420, 324);
-            this.splitContainer1.SplitterDistance = 182;
+            this.splitContainer1.Size = new System.Drawing.Size(1349, 485);
+            this.splitContainer1.SplitterDistance = 172;
             this.splitContainer1.TabIndex = 0;
             // 
             // groupBox_DATA
@@ -667,42 +639,104 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox_DATA.Controls.Add(this.splitContainer1);
             this.groupBox_DATA.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox_DATA.Location = new System.Drawing.Point(8, 220);
+            this.groupBox_DATA.Location = new System.Drawing.Point(8, 230);
             this.groupBox_DATA.Name = "groupBox_DATA";
-            this.groupBox_DATA.Size = new System.Drawing.Size(1426, 349);
+            this.groupBox_DATA.Size = new System.Drawing.Size(1355, 510);
             this.groupBox_DATA.TabIndex = 1;
             this.groupBox_DATA.TabStop = false;
             this.groupBox_DATA.Text = "Данные  по вашему запросу";
+            this.groupBox_DATA.Enter += new System.EventHandler(this.groupBox_DATA_Enter);
             // 
             // groupBox_Hardware
             // 
-            this.groupBox_Hardware.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox_Hardware.AutoSize = true;
             this.groupBox_Hardware.Controls.Add(this.button_Hardware_PS);
             this.groupBox_Hardware.Controls.Add(this.button_Hardware_StockRoom);
+            this.groupBox_Hardware.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox_Hardware.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox_Hardware.Location = new System.Drawing.Point(1197, 33);
+            this.groupBox_Hardware.Location = new System.Drawing.Point(1255, 3);
             this.groupBox_Hardware.Name = "groupBox_Hardware";
-            this.groupBox_Hardware.Size = new System.Drawing.Size(234, 181);
+            this.groupBox_Hardware.Size = new System.Drawing.Size(105, 180);
             this.groupBox_Hardware.TabIndex = 3;
             this.groupBox_Hardware.TabStop = false;
             this.groupBox_Hardware.Text = "Железо и расходники ";
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 8;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
+            this.tableLayoutPanel1.Controls.Add(this.groupBox_sum, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.grubBoxUnloading, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.groupBox_MegaFiltr, 4, 0);
+            this.tableLayoutPanel1.Controls.Add(this.groupBox_Hardware, 7, 0);
+            this.tableLayoutPanel1.Controls.Add(this.groupBox_1С, 5, 0);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.groupBox3, 6, 0);
+            this.tableLayoutPanel1.Controls.Add(this.groupBox_Set_Data, 3, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 38);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1363, 186);
+            this.tableLayoutPanel1.TabIndex = 7;
+            // 
+            // groupBox_sum
+            // 
+            this.groupBox_sum.Controls.Add(this.label_sum);
+            this.groupBox_sum.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox_sum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.groupBox_sum.Location = new System.Drawing.Point(384, 3);
+            this.groupBox_sum.Name = "groupBox_sum";
+            this.groupBox_sum.Size = new System.Drawing.Size(89, 180);
+            this.groupBox_sum.TabIndex = 11;
+            this.groupBox_sum.TabStop = false;
+            this.groupBox_sum.Text = "Количество элементов";
+            // 
+            // label_sum
+            // 
+            this.label_sum.AutoSize = true;
+            this.label_sum.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_sum.Location = new System.Drawing.Point(6, 66);
+            this.label_sum.Name = "label_sum";
+            this.label_sum.Size = new System.Drawing.Size(0, 39);
+            this.label_sum.TabIndex = 6;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Controls.Add(this.groupBox1, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.groupBox2, 0, 1);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(479, 3);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(171, 180);
+            this.tableLayoutPanel2.TabIndex = 1;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // MainFrorm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1434, 568);
-            this.Controls.Add(this.groupBox_Hardware);
-            this.Controls.Add(this.groupBox_Set_Data);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.groupBox_MegaFiltr);
-            this.Controls.Add(this.groupBox_1С);
+            this.ClientSize = new System.Drawing.Size(1363, 739);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.groupBox_DATA);
-            this.Controls.Add(this.grubBoxUnloading);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainFrorm";
@@ -713,6 +747,7 @@
             this.grubBoxUnloading.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox_Set_Data.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.roomBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
@@ -728,6 +763,11 @@
             this.splitContainer1.ResumeLayout(false);
             this.groupBox_DATA.ResumeLayout(false);
             this.groupBox_Hardware.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
+            this.groupBox_sum.ResumeLayout(false);
+            this.groupBox_sum.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -738,8 +778,6 @@
         private System.Windows.Forms.GroupBox grubBoxUnloading;
         private System.Windows.Forms.TextBox textBox_PC;
         private System.Windows.Forms.ComboBox comboBox_Room;
-        private System.Windows.Forms.Button button_PC;
-        private System.Windows.Forms.Button button_Room;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button PRINT_LABEL_ALL;
         private System.Windows.Forms.BindingSource roomBindingSource;
@@ -747,11 +785,9 @@
         private System.Windows.Forms.Label label_Room;
         private System.Windows.Forms.Label label_Responsible;
         private System.Windows.Forms.ComboBox comboBox_Responsible;
-        private System.Windows.Forms.Button button_Responsible;
         private System.Windows.Forms.Label label_PC;
         private System.Windows.Forms.Label label_Number;
         private System.Windows.Forms.TextBox textBox_Number;
-        private System.Windows.Forms.Button button_Number;
         private System.Windows.Forms.GroupBox groupBox_Set_Data;
         private System.Windows.Forms.Button button_Update;
         private System.Windows.Forms.Button button_Repair;
@@ -784,6 +820,12 @@
         private System.Windows.Forms.Button button_deleteDataBase;
         private System.Windows.Forms.Button button_HTMLOpenFullReport;
         private System.Windows.Forms.Button button_ExcelOpenFullReport;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.GroupBox groupBox_sum;
+        private System.Windows.Forms.Label label_sum;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }
 

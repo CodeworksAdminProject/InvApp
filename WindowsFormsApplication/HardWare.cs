@@ -13,6 +13,7 @@ namespace WindowsFormsApplication
     public partial class HardWare : Form
     {
         DAL_GET getDAL = new DAL_GET();
+        BLL_Buttoms bllButtoms = new BLL_Buttoms();
         
         public HardWare()
         {
@@ -32,7 +33,24 @@ namespace WindowsFormsApplication
 
         private void button_Delete_Click(object sender, EventArgs e)
         {
+            string AddId = null;
 
+            foreach (DataGridViewRow row in dataGridView_HardWare.Rows)
+            {
+                if (row.Selected == true)
+                {
+
+                    if (AddId != null)
+                        AddId += "," + row.Cells["ID"].Value.ToString();
+                    else
+                        AddId += row.Cells[0].Value.ToString();
+                }
+            }
+
+            if (AddId != null)
+            {
+                bllButtoms.Writtenoff(AddId, "HardWare");                
+            }
         }
 
         private void button_New_data_Click(object sender, EventArgs e)

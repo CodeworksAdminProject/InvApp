@@ -263,7 +263,7 @@ namespace WindowsFormsApplication
                 dataGridView.DataSource = searchMainTB();
             }
 
-            else if (tableName == "StockRoom")
+            else if (tableName == "HardwareStockRoom")
             {
                 dataGridView.DataSource = searchStockRoom();
             }

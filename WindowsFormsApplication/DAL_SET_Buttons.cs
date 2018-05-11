@@ -19,7 +19,7 @@ namespace WindowsFormsApplication
         String sConectDB = @"server=tcp:" + Properties.Settings.Default.SqlServer + "," +
             Properties.Settings.Default.SqlPort + "; Database=" + Properties.Settings.Default.SqlDataBase + "; Integrated Security=true;";
 
-        internal void AddJDB(string userName, int kindJfActivity, string reasonWriteOff, string addId, string tableName)
+        internal void AddJDB(string userName, string kindJfActivity, string reasonWriteOff, string addId, string tableName)
         {
             string nameDB1 = "MainTB";
             string nameBDDivise;
@@ -48,14 +48,14 @@ namespace WindowsFormsApplication
                    
                 SET @CURSOR  = CURSOR SCROLL
 	            FOR 
-	            Select ID FROM "+tableName + @" Where [ID] in (116)
+	            Select ID FROM "+tableName + @" Where [ID] in (" +addId+ @")
 	            Open @CURSOR
 	            FETCH NEXT FROM @CURSOR INTO @ID
 	
 	            WHILE @@FETCH_STATUS = 0
                 BEGIN
 
-                DECLARE @TypeDevice varchar(80)  = (select "+ nameBDDivise + "." + nameColumnDivise+ " from " + tableName + 
+                DECLARE @TypeDevice varchar(80)  = (select " + nameBDDivise + "." + nameColumnDivise+ " from " + tableName + 
                     " join "+ nameBDDivise + " on " + tableName + "." + nameColumnDiviseID +" = "+nameBDDivise+ ".ID Where " + tableName +
                     @".ID =@ID );
                 DECLARE @SN varchar(80)  = (select " + tableName + ".SN from " + tableName + " Where " + tableName + @".ID =@ID );
@@ -64,9 +64,9 @@ namespace WindowsFormsApplication
                 INSERT INTO dbo.JBD (dateCreated, UserName, KindOfActivity_ID, ReasonOrMoved, TypeDevice, SN, Model, ID_IN_Main_TB)
                 VALUES(GETDATE(), '"+ userName + "', "+kindJfActivity+ ", '"+ reasonWriteOff + @"' , @TypeDevice, @SN , @Model, @id);
 
-                FETCH NEXT FROM @TEST INTO @ID
+                FETCH NEXT FROM @CURSOR INTO @ID
                 end
-                CLOSE @TEST"
+                CLOSE @CURSOR"
 
                         , connect);
                     try
@@ -91,9 +91,9 @@ namespace WindowsFormsApplication
         {            
             using (SqlConnection connect = new SqlConnection(sConectDB))
             {
-                SqlCommand command = new SqlCommand("Update  "+ tableName + "  [WrittenOff] = " + value +
+                SqlCommand command = new SqlCommand("Update  "+ tableName + " Set  [WrittenOff] = " + value +
                     ", [ReasonWriteOff] = '" + Reason + "' " +
-                    "WHERE dbo.MainTB.ID IN (" + ID + ");", connect);
+                    "WHERE dbo." + tableName + ".ID IN (" + ID + ");", connect);
                 try
                 {
 

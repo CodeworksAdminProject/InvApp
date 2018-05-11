@@ -256,7 +256,7 @@ namespace WindowsFormsApplication
 
 
         // Forms setdata
-        public ArrayList GetForSetForms()
+        public ArrayList Get_For_SetForms_MaintTB(string ID)
         {
             string sqlQuestion;
             ArrayList DataGrid = new ArrayList();
@@ -264,52 +264,15 @@ namespace WindowsFormsApplication
             using (SqlConnection connect = new SqlConnection(sConectDB))
             {
 
-                if (BLL.Data.Count > 1)
-                {
-                    int n = 0;
-
+                
                     sqlQuestion = @"select maintb.ID, maintb.dateCreated, maintb.NumberINV, NameLAN.NameLAN, NameRes.NameRes, " +
                     @"[Floor].floorNambe, Room.NameRoom, TypeDevice.NameDevice, maintb.SN, MainTB.Model from MainTB " +
                     @"join [Floor] on maintb.Floor_ID = [Floor].ID join room on maintb.Room_ID =  Room.ID " +
                     @"join TypeDevice on maintb.TypeDevice_ID = TypeDevice.ID join NameLAN on maintb.NameLAN_ID = NameLAN.ID " +
                     @"join NameRes on maintb.NameRes_ID =  NameRes.ID " +
-                    @"where maintb.ID  IN (";
+                    @"where maintb.ID  IN ("+ID+") AND [WrittenOff] = 'False';";
 
-                    foreach (string item in BLL.Data)
-                    {
-
-                        sqlQuestion = sqlQuestion + "'";
-                        sqlQuestion = sqlQuestion + item + "'";
-                        sqlQuestion = sqlQuestion + ",";
-
-                        n++;
-                    }
-
-                    sqlQuestion = sqlQuestion + "NULL";
-                    sqlQuestion = sqlQuestion + ") AND [WrittenOff] = 'False';";
-
-                }
-
-                else
-                {
-                    sqlQuestion = "select maintb.ID, maintb.dateCreated, maintb.NumberINV, NameLAN.NameLAN, NameRes.NameRes, " +
-                    @"[Floor].floorNambe, Room.NameRoom, TypeDevice.NameDevice, maintb.SN, MainTB.Model from MainTB " +
-                    @"join [Floor] on maintb.Floor_ID = [Floor].ID join room on maintb.Room_ID =  Room.ID " +
-                    @"join TypeDevice on maintb.TypeDevice_ID = TypeDevice.ID join NameLAN on maintb.NameLAN_ID = NameLAN.ID " +
-                    @"join NameRes on maintb.NameRes_ID =  NameRes.ID " +
-                    @"where  maintb.ID  = '";
-
-                    foreach (string item in BLL.Data)
-                    {
-                        sqlQuestion = sqlQuestion + item;
-                    }
-
-                    sqlQuestion = sqlQuestion + "' AND [WrittenOff] = 'False';";
-                }
-
-
-
-
+                   
                 SqlCommand command = new SqlCommand(sqlQuestion, connect);
 
                 try
@@ -372,7 +335,8 @@ namespace WindowsFormsApplication
         {
             ArrayList DataGrid = new ArrayList();
             SqlConnection connect = new SqlConnection(sConectDB);
-            SqlCommand command = new SqlCommand(@"SELECT [dateCreated]
+            SqlCommand command = new SqlCommand(@"SELECT [HardwareStockRoom].ID
+                      ,[dateCreated]
                       ,[NumberINV]                      
                       ,[TypeHardWare]
                       ,[Model]
@@ -411,6 +375,7 @@ namespace WindowsFormsApplication
             SqlConnection connect = new SqlConnection(sConectDB);
             SqlCommand command = new SqlCommand(@"SELECT 
 	          NameLAN.NameLAN
+              ,HardWare.ID 
               ,[TypeHardWare]
               ,[Model]
               ,[SN]

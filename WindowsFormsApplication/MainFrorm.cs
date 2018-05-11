@@ -20,11 +20,13 @@ namespace WindowsFormsApplication
     {
         DAL_GET dal = new DAL_GET();
         DAL_SET dal_set = new DAL_SET();
-
+        BLL_Buttoms bllButtoms = new BLL_Buttoms();
         BLL bll = new BLL();
         SMTP_CLIENT smttp = new SMTP_CLIENT();
+
         public static string index;
         int indexControl = 0;
+        string flag_button;
 
         public MainFrorm()
         {
@@ -170,28 +172,7 @@ namespace WindowsFormsApplication
             //Print labels
             //TSCLIB_DLL.closeport();
            
-        }
-
-        private void button_Room_Click(object sender, EventArgs e)
-        {
-            dataGridViewMT.DataSource = dal.GetDataGrid("[dbo].[Room].[NameRoom]", comboBox_Room.SelectedValue.ToString());
-            stilDataGrid();
-            indexControl = 3;
-        }
-
-        private void button_Responsible_Click(object sender, EventArgs e)
-        {
-            dataGridViewMT.DataSource = dal.GetDataGrid("[dbo].[NameRes].[NameRes]" , comboBox_Responsible.SelectedValue.ToString());
-            stilDataGrid();
-            indexControl = 4;
-        }
-
-        private void button_PC_Click(object sender, EventArgs e)
-        {
-            dataGridViewMT.DataSource = dal.GetDataGrid("dbo.NameLAN.NameLAN", textBox_PC.Text);
-            stilDataGrid();
-            indexControl = 2;
-        }
+        }   
 
         private void button_New_data_Click(object sender, EventArgs e)
         {
@@ -201,31 +182,48 @@ namespace WindowsFormsApplication
             setNewData.ShowDialog();
             Update_Grid();
 
-        }      
+        } 
 
-        private void button_Number_Click(object sender, EventArgs e)
-        {
-            dataGridViewMT.DataSource = dal.GetDataGrid("MainTB.NumberINV", textBox_Number.Text);
-            stilDataGrid();
-            indexControl = 1;
-        }
 
         private void button_Update_Click(object sender, EventArgs e)
         {
+
+            string AddId = null;
 
             foreach (DataGridViewRow row in dataGridViewMT.Rows)
             {
                 if (row.Selected == true)
                 {
-                    BLL.Data.Add(row.Cells[0].Value.ToString());
-                    bll.AddDataNew(row.Cells[0].Value.ToString(), row.Cells[3].Value.ToString(), row.Cells[4].Value.ToString(), row.Cells[5].Value.ToString(), row.Cells[6].Value.ToString());
+
+                    if (AddId != null)
+                        AddId += "," + row.Cells["ID"].Value.ToString();
+                    else
+                        AddId += row.Cells["ID"].Value.ToString();
                 }
             }
 
-            setDataBase setNewData = new setDataBase();
-            //setNewData.Owner = this;
-            setNewData.ShowDialog();
-        }
+            
+            if (AddId != null)
+            {
+                bllButtoms.Change_data(AddId, flag_button);
+            }
+                /* foreach (DataGridViewRow row in dataGridViewMT.Rows)
+                 {
+                     if (row.Selected == true)
+                     {
+                         BLL.Data.Add(row.Cells["ID"].Value.ToString());
+                        // bll.AddDataNew(row.Cells["ID"].Value.ToString(), row.Cells[3].Value.ToString(), row.Cells[4].Value.ToString(), row.Cells[5].Value.ToString(), row.Cells[6].Value.ToString());
+                     }
+                 }
+
+
+                 setDataBase.flag_button = flag_button;
+                 setDataBase setNewData = new setDataBase();          
+
+                 //setNewData.Owner = this;
+                 setNewData.ShowDialog();*/
+
+            }
 
         private void MainFrorm_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -240,6 +238,7 @@ namespace WindowsFormsApplication
                 stilDataGrid();
                 }
             indexControl = 1;
+            label_sum.Text = dataGridViewMT.Rows.Count.ToString();
         }       
 
         private void textBox_PC_KeyUp(object sender, KeyEventArgs e)
@@ -250,6 +249,7 @@ namespace WindowsFormsApplication
                 stilDataGrid();
             }
             indexControl = 2;
+            label_sum.Text = dataGridViewMT.Rows.Count.ToString();
         }
 
         private void button_ExcelOpen_Click(object sender, EventArgs e)
@@ -273,35 +273,24 @@ namespace WindowsFormsApplication
 
         private void button_Delete_Click(object sender, EventArgs e)
         {
-           
-            WriteOff set = new WriteOff();
-            set.Owner = this;
-            set.button_OK.Text = "Списать";
-            set.ShowDialog();
-            
-            if (BLL.flag == true)
+
+            string AddId = null;
+
+            foreach (DataGridViewRow row in dataGridViewMT.Rows)
             {
-                string AddId = null;
-
-                foreach (DataGridViewRow row in dataGridViewMT.Rows)
+                if (row.Selected == true)
                 {
-                    if (row.Selected == true)
-                    {
-                        dal_set.WrittenOff(row.Cells[0].Value.ToString(), BLL.ReasonWriteOff, "1");
-                        if (AddId != null)
-                            AddId += "," + row.Cells[0].Value.ToString();
-                        else
-                            AddId += row.Cells[0].Value.ToString();
-                        dal_set.AddFDB(Environment.UserName, 1, BLL.ReasonWriteOff, row.Cells["NumberINV"].Value.ToString(),
-                            row.Cells["NameDevice"].Value.ToString(), row.Cells["SN"].Value.ToString(),
-                            row.Cells["Model"].Value.ToString(), row.Cells["ID"].Value.ToString());
-                    }
-                }
 
-                BLL.sHtmlTableAddWriteOffForReport = BLL.sHtmlTableAddWriteOffForReport + bll.WrittenOff_And_Delete(AddId, BLL.sHtmlTableAddWriteOffForReport, "Add");                
-                BLL.ReasonWriteOff = null;
-                BLL.flag = false;
-                Update_Grid();
+                    if (AddId != null)
+                        AddId += "," + row.Cells["ID"].Value.ToString();
+                    else
+                        AddId += row.Cells["ID"].Value.ToString();
+                }
+            }
+
+            if (AddId != null)
+            {
+                bllButtoms.Writtenoff(AddId, flag_button);                
             }
         }
              
@@ -315,6 +304,7 @@ namespace WindowsFormsApplication
         {
             if (e.RowIndex >= 0)
             {
+                flag_button = "MainTB";
                 if (Properties.Settings.Default.int_navigation == 0)
                     dataGridViewMT.DataSource = dal.GetDataGrid_NamePC(dataGridViewPC_Name.Rows[e.RowIndex].Cells[0].Value.ToString());
 
@@ -325,6 +315,7 @@ namespace WindowsFormsApplication
 
                 stilDataGrid();
                 indexControl = 5;
+                label_sum.Text = dataGridViewMT.Rows.Count.ToString();
             }
         }
 
@@ -362,11 +353,13 @@ namespace WindowsFormsApplication
 
         private void button_Hardware_StockRoom_Click(object sender, EventArgs e)
         {
+            flag_button = "HardwareStockRoom";
             dataGridViewMT.DataSource= dal.Get_Hardware_StockRoom();
         }
 
         private void button_Hardware_PS_Click(object sender, EventArgs e)
         {
+            flag_button = "HardWare";
             dataGridViewMT.DataSource=dal.Get_Hardware_PS();
         }
 
@@ -457,6 +450,72 @@ namespace WindowsFormsApplication
             Search search = new Search();
             search.ShowDialog();
             Update_Grid();
+        }
+
+        private void dataGridViewPC_Name_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                flag_button = "MainTB";
+                if (Properties.Settings.Default.int_navigation == 0)
+                    dataGridViewMT.DataSource = dal.GetDataGrid_NamePC(dataGridViewPC_Name.Rows[e.RowIndex].Cells[0].Value.ToString());
+
+                else if (Properties.Settings.Default.int_navigation == 1)
+                    dataGridViewMT.DataSource = dal.GetDataGrid_Responsoble(dataGridViewPC_Name.Rows[e.RowIndex].Cells[0].Value.ToString());
+                else
+                    dataGridViewMT.DataSource = dal.GetDataGrid_TypeDevice(dataGridViewPC_Name.Rows[e.RowIndex].Cells[0].Value.ToString());
+
+                stilDataGrid();
+                indexControl = 5;
+                label_sum.Text = dataGridViewMT.Rows.Count.ToString();
+
+            }
+        }
+
+        private void comboBox_Room_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            flag_button = "MainTB";
+            dataGridViewMT.DataSource = dal.GetDataGrid("[dbo].[Room].[NameRoom]", comboBox_Room.SelectedValue.ToString());
+            stilDataGrid();
+            indexControl = 3;
+            label_sum.Text = dataGridViewMT.Rows.Count.ToString();
+        }
+
+        private void comboBox_Responsible_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            flag_button = "MainTB";
+            dataGridViewMT.DataSource = dal.GetDataGrid("[dbo].[NameRes].[NameRes]", comboBox_Responsible.SelectedValue.ToString());
+            stilDataGrid();
+            indexControl = 4;
+            label_sum.Text = dataGridViewMT.Rows.Count.ToString();
+        }
+
+        private void textBox_PC_TextChanged(object sender, EventArgs e)
+        {
+            flag_button = "MainTB";
+            dataGridViewMT.DataSource = dal.GetDataGrid("dbo.NameLAN.NameLAN", textBox_PC.Text);
+            stilDataGrid();
+            indexControl = 2;
+            label_sum.Text = dataGridViewMT.Rows.Count.ToString();
+        }
+
+        private void textBox_Number_TextChanged(object sender, EventArgs e)
+        {
+            flag_button = "MainTB";
+            dataGridViewMT.DataSource = dal.GetDataGrid("MainTB.NumberINV", textBox_Number.Text);
+            stilDataGrid();
+            indexControl = 1;
+            label_sum.Text = dataGridViewMT.Rows.Count.ToString();
+        }
+
+        private void grubBoxUnloading_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox_DATA_Enter(object sender, EventArgs e)
+        {
+
         }
     } 
 }

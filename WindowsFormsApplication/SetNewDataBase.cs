@@ -272,8 +272,8 @@ namespace WindowsFormsApplication
 
                     bll.BodyMailNew(textBox_NumberInv.Text, LanName, Responsible, Floor, Room, typedevise, textBox_NumberSN.Text, textBox_Model.Text, Jira);
 
-                    dalSet.AddFDB(Environment.UserName, 4, "Устройства комната:"+Room + " приписан к PC " + LanName, textBox_NumberInv.Text,
-                           typedevise, textBox_Hardware_SN.Text, textBox_Hardware_Model.Text, dal_get.get_max_ID("[dbo].[MainTB]"));
+                    dalSet.AddFDB(Environment.UserName, 4, "В комната:"+Room + " приписан к PC: " + LanName, textBox_NumberInv.Text,
+                           typedevise, textBox_NumberSN.Text, textBox_Model.Text, dal_get.get_max_ID("[dbo].[MainTB]"));
 
                     update();
                     
@@ -296,7 +296,7 @@ namespace WindowsFormsApplication
                 if (checkBox_SetHardware.Checked == true)
                 {
                     messega = @"Инвентарный номер:\t" + textBox_NumberInv.Text +
-                               "\nНазвание в сети:\t\t" + comboBox_Hardware_TypeDevice.SelectedValue.ToString() +
+                               "\nНазвание в сети:\t\t" + comboBox_Hardware_LanName.SelectedValue.ToString() +
                                "\nТип устройства:\t\t" + typedevise +
                                "\nСерийный номер:\t\t" + textBox_Hardware_SN.Text +
                                "\nМодель:\t\t\t" + textBox_Hardware_Model.Text +
@@ -317,7 +317,7 @@ namespace WindowsFormsApplication
                         bll.new_Hardware_Into_PC(textBox_NumberInv.Text, typedevise, textBox_Hardware_SN.Text,
                         textBox_Hardware_Model.Text, Jira, comboBox_Hardware_LanName.SelectedValue.ToString());
 
-                        dalSet.AddFDB(Environment.UserName, 4, "Расходники или железо, для PC: " + comboBox_Hardware_LanName.SelectedValue.ToString(), textBox_NumberInv.Text,
+                        dalSet.AddFDB(Environment.UserName, 5, "Добавлено на PC: " + comboBox_Hardware_LanName.SelectedValue.ToString(), textBox_NumberInv.Text,
                            typedevise, textBox_Hardware_SN.Text, textBox_Hardware_Model.Text, dal_get.get_max_ID("[dbo].[HardWare]"));
 
                         update();
@@ -351,7 +351,7 @@ namespace WindowsFormsApplication
                         bll.new_Hardware_Into_StockRoom(textBox_NumberInv.Text, typedevise, textBox_Hardware_SN.Text,
                         textBox_Hardware_Model.Text, Jira, textBox_Hardware_Sum.Text);
 
-                        dalSet.AddFDB(Environment.UserName, 4, "Расходники или железо, на склад, " + textBox_Hardware_Sum.Text +" шт.", textBox_NumberInv.Text,
+                        dalSet.AddFDB(Environment.UserName, 5, "Добавлено на склад, " + textBox_Hardware_Sum.Text +" шт.", textBox_NumberInv.Text,
                            typedevise, textBox_Hardware_SN.Text, textBox_Hardware_Model.Text, dal_get.get_max_ID("[dbo].[HardwareStockRoom]"));
 
                         update();

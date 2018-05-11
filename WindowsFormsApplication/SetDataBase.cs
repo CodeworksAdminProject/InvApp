@@ -13,18 +13,28 @@ using System.Collections;
 namespace WindowsFormsApplication
 {
     public partial class setDataBase : Form
-    
+
     {
+        string flag_button;
         DAL_GET dal_get = new DAL_GET();
         DAL_SET dalSet = new DAL_SET();
         BLL bll = new BLL();
         ArrayList DataINV = new ArrayList();
-       
+
+        public void Set_flag_button(string Flag)
+        {
+            flag_button = Flag;
+        }
+
+        public void Set_ArrayList_DataINV(ArrayList Array)
+        {
+            DataINV = Array;
+        }
 
         public setDataBase()
         {
             InitializeComponent();
-
+                       
             comboBox_Room.DataSource = dal_get.Get_Data_From_Table_From_Colunm("Room", "NameRoom");
             comboBox_Room.DisplayMember = "NameRoom";
             comboBox_Room.ValueMember = "NameRoom";
@@ -37,19 +47,67 @@ namespace WindowsFormsApplication
             comboBox_Floor.DisplayMember = "floorNambe";
             comboBox_Floor.ValueMember = "floorNambe";
 
-            comboBox_LanName.DataSource = dal_get.Get_Data_From_Table_From_Colunm("NameLAN", "NameLAN");
-            comboBox_LanName.DisplayMember = "NameLAN";
-            comboBox_LanName.ValueMember = "NameLAN";
+            View_and_data();
 
-            
-            DataINV = dal_get.GetForSetForms();
 
             comboBox_invinNumber.DataSource = DataINV;
             comboBox_invinNumber.DisplayMember = "NumberINV";
             comboBox_invinNumber.ValueMember = "NumberINV";
  
-            dataGridView1.DataSource = DataINV;
-            
+            dataGridView1.DataSource = DataINV;            
+        }
+
+        private void View_and_data()
+        {
+            if (flag_button == "MainTB")
+            {
+                //DataINV = dal_get.GetForSetForms();
+
+                comboBox_LanName.DataSource = dal_get.Get_Data_From_Table_From_Colunm("NameLAN", "NameLAN");
+                comboBox_LanName.DisplayMember = "NameLAN";
+                comboBox_LanName.ValueMember = "NameLAN";
+
+                groupBox_Responsible.Enabled = true;
+                groupBox_LanName.Enabled = true;
+                Location.Enabled = true;
+                groupBox_room.Enabled = true;
+            }
+
+            else if (flag_button == "HardwareStockRoom")
+            {
+               // DataINV = dal_get.GetForSetForms();
+                comboBox_LanName.DataSource = dal_get.Get_PC_name_Hardware();
+                comboBox_LanName.DisplayMember = "NameLAN";
+                comboBox_LanName.ValueMember = "NameLAN";
+
+                groupBox_Responsible.Enabled = false;
+                groupBox_LanName.Enabled = true;
+                Location.Enabled = false;
+                groupBox_room.Enabled = false;
+            }
+
+            else if (flag_button == "HardWare")
+            {
+               // DataINV = dal_get.GetForSetForms();
+                comboBox_LanName.DataSource = dal_get.Get_PC_name_Hardware();
+                comboBox_LanName.DisplayMember = "NameLAN";
+                comboBox_LanName.ValueMember = "NameLAN";
+
+                groupBox_Responsible.Enabled = false;
+                groupBox_LanName.Enabled = true;
+                Location.Enabled = false;
+                groupBox_room.Enabled = false;
+            }
+
+            else
+            {
+                DataINV = null;
+                groupBox_Responsible.Enabled = false;
+                groupBox_LanName.Enabled = false;
+                Location.Enabled = false;
+                groupBox_room.Enabled = false;
+            }
+
         }
 
         private void textBox_NumberInv_KeyPress(object sender, KeyPressEventArgs e)
@@ -150,20 +208,6 @@ namespace WindowsFormsApplication
             this.Close();
         }
 
-        
-
-        private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
-        {
-            label_LN.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-            label_RES.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
-            label_FL.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
-            label_R.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
-            label_TD.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
-            label_NS.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
-            label_M.Text = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
-        }
-
-
         private void comboBox_TypeAccount_SelectedIndexChanged(object sender, EventArgs e)
         {
             update("TypeAC_ID", "TypeAC", "TypeAC");           
@@ -258,13 +302,27 @@ namespace WindowsFormsApplication
                 }
             }
 
-            DataINV = dal_get.GetForSetForms();
+          //  DataINV = dal_get.GetForSetForms();
             comboBox_invinNumber.DataSource = DataINV;
             comboBox_invinNumber.DisplayMember = "NumberINV";
             comboBox_invinNumber.ValueMember = "NumberINV";
             dataGridView1.DataSource = DataINV;
         }
 
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button_print_all_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_change_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

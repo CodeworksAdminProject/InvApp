@@ -63,6 +63,36 @@ namespace WindowsFormsApplication.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap Card_Exchange_48px {
+            get {
+                object obj = ResourceManager.GetObject("Card Exchange_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Card_Exchange_48px1 {
+            get {
+                object obj = ResourceManager.GetObject("Card Exchange_48px1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Horizontal_Line_48px {
+            get {
+                object obj = ResourceManager.GetObject("Horizontal Line_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap LOG2 {
             get {
                 object obj = ResourceManager.GetObject("LOG2", resourceCulture);
@@ -76,6 +106,36 @@ namespace WindowsFormsApplication.Properties {
         public static System.Drawing.Bitmap LOG2_old {
             get {
                 object obj = ResourceManager.GetObject("LOG2_old", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Print_48px {
+            get {
+                object obj = ResourceManager.GetObject("Print_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Trash_Can_48px {
+            get {
+                object obj = ResourceManager.GetObject("Trash Can_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Truck_48px {
+            get {
+                object obj = ResourceManager.GetObject("Truck_48px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -97,6 +157,16 @@ namespace WindowsFormsApplication.Properties {
             get {
                 object obj = ResourceManager.GetObject("TSCLIB1", resourceCulture);
                 return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Typewriter_With_Screen_48px {
+            get {
+                object obj = ResourceManager.GetObject("Typewriter With Screen_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

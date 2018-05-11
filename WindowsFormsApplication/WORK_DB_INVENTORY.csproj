@@ -332,7 +332,13 @@
     <None Include="Resources\LOG2.old.BMP" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Horizontal Line_48px.png" />
+    <None Include="Resources\Card Exchange_48px.png" />
     <Content Include="Resources\if_mail-letter-offer_2931172.png" />
+    <None Include="Resources\Truck_48px.png" />
+    <None Include="Resources\Trash Can_48px.png" />
+    <None Include="Resources\Typewriter With Screen_48px.png" />
+    <None Include="Resources\Print_48px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

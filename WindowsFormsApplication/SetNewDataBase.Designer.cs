@@ -85,6 +85,8 @@
             this.checkBox_SetHardware = new System.Windows.Forms.CheckBox();
             this.checkBox_Stockroom = new System.Windows.Forms.CheckBox();
             this.groupBox_Hardware_TypeDevice = new System.Windows.Forms.GroupBox();
+            this.textBox_Hardware_TypeDevice = new System.Windows.Forms.TextBox();
+            this.checkBox_Hardware_TypeDevice = new System.Windows.Forms.CheckBox();
             this.comboBox_Hardware_TypeDevice = new System.Windows.Forms.ComboBox();
             this.groupBox_Hardware_Model = new System.Windows.Forms.GroupBox();
             this.textBox_Hardware_Model = new System.Windows.Forms.TextBox();
@@ -92,8 +94,6 @@
             this.textBox_Hardware_SN = new System.Windows.Forms.TextBox();
             this.groupBox_Hardware_LanName = new System.Windows.Forms.GroupBox();
             this.comboBox_Hardware_LanName = new System.Windows.Forms.ComboBox();
-            this.textBox_Hardware_TypeDevice = new System.Windows.Forms.TextBox();
-            this.checkBox_Hardware_TypeDevice = new System.Windows.Forms.CheckBox();
             this.groupBox_TypeAccоunt.SuspendLayout();
             this.groupBox_TypeDevice.SuspendLayout();
             this.groupBox_Model.SuspendLayout();
@@ -763,6 +763,27 @@
             this.groupBox_Hardware_TypeDevice.TabStop = false;
             this.groupBox_Hardware_TypeDevice.Text = "Вид оборудования ";
             // 
+            // textBox_Hardware_TypeDevice
+            // 
+            this.textBox_Hardware_TypeDevice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_Hardware_TypeDevice.Enabled = false;
+            this.textBox_Hardware_TypeDevice.Location = new System.Drawing.Point(201, 36);
+            this.textBox_Hardware_TypeDevice.Name = "textBox_Hardware_TypeDevice";
+            this.textBox_Hardware_TypeDevice.Size = new System.Drawing.Size(227, 23);
+            this.textBox_Hardware_TypeDevice.TabIndex = 2;
+            // 
+            // checkBox_Hardware_TypeDevice
+            // 
+            this.checkBox_Hardware_TypeDevice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkBox_Hardware_TypeDevice.AutoSize = true;
+            this.checkBox_Hardware_TypeDevice.Location = new System.Drawing.Point(222, 18);
+            this.checkBox_Hardware_TypeDevice.Name = "checkBox_Hardware_TypeDevice";
+            this.checkBox_Hardware_TypeDevice.Size = new System.Drawing.Size(203, 21);
+            this.checkBox_Hardware_TypeDevice.TabIndex = 1;
+            this.checkBox_Hardware_TypeDevice.Text = "Новый вид оборудования  ";
+            this.checkBox_Hardware_TypeDevice.UseVisualStyleBackColor = true;
+            this.checkBox_Hardware_TypeDevice.CheckedChanged += new System.EventHandler(this.checkBox_Hardware_TypeDevice_CheckedChanged);
+            // 
             // comboBox_Hardware_TypeDevice
             // 
             this.comboBox_Hardware_TypeDevice.FormattingEnabled = true;
@@ -841,36 +862,15 @@
             this.comboBox_Hardware_LanName.Size = new System.Drawing.Size(274, 24);
             this.comboBox_Hardware_LanName.TabIndex = 3;
             // 
-            // textBox_Hardware_TypeDevice
-            // 
-            this.textBox_Hardware_TypeDevice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox_Hardware_TypeDevice.Enabled = false;
-            this.textBox_Hardware_TypeDevice.Location = new System.Drawing.Point(201, 36);
-            this.textBox_Hardware_TypeDevice.Name = "textBox_Hardware_TypeDevice";
-            this.textBox_Hardware_TypeDevice.Size = new System.Drawing.Size(227, 23);
-            this.textBox_Hardware_TypeDevice.TabIndex = 2;
-            // 
-            // checkBox_Hardware_TypeDevice
-            // 
-            this.checkBox_Hardware_TypeDevice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkBox_Hardware_TypeDevice.AutoSize = true;
-            this.checkBox_Hardware_TypeDevice.Location = new System.Drawing.Point(222, 18);
-            this.checkBox_Hardware_TypeDevice.Name = "checkBox_Hardware_TypeDevice";
-            this.checkBox_Hardware_TypeDevice.Size = new System.Drawing.Size(203, 21);
-            this.checkBox_Hardware_TypeDevice.TabIndex = 1;
-            this.checkBox_Hardware_TypeDevice.Text = "Новый вид оборудования  ";
-            this.checkBox_Hardware_TypeDevice.UseVisualStyleBackColor = true;
-            this.checkBox_Hardware_TypeDevice.CheckedChanged += new System.EventHandler(this.checkBox_Hardware_TypeDevice_CheckedChanged);
-            // 
             // SetNewDataBase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(467, 783);
-            this.Controls.Add(this.panel_Hardware);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.tableLayoutPanel_head);
+            this.Controls.Add(this.panel_Hardware);
             this.Controls.Add(this.panel_MainAcount);
             this.Name = "SetNewDataBase";
             this.Text = "SetNewDate";

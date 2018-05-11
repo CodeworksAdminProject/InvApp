@@ -121,7 +121,7 @@ namespace WindowsFormsApplication
 
                 }
 
-                else if (tableName == "StockRoom")
+                else if (tableName == "HardwareStockRoom")
                 {
                     dataGridView.Columns["ID"].Visible = Properties.Settings.Default.mainForms_stockroom_ID;
                     dataGridView.Columns["ID"].HeaderCell.Value = "ID";
