@@ -27,6 +27,8 @@ namespace WindowsFormsApplication
             Style = Style + ".miniPC{border: 3px solid black; background:#FFF8DC; padding: 4xp;font-family: Arial, Helvetica, sans-serif;}";
             Style = Style + "TR {border: 2px solid black; background:#FFFFFF; paddong: 4xp;}";
             Style = Style + "TD {border: 1px solid black; background:#FFFFFF; paddong: 4xp;}";
+            Style = Style + ".old {background: #ffe7e7; text-decoration: line-through; padding: 1px;}";
+            Style = Style + ".new {background: #ddfade; padding: 1px;}";
             Style = Style + "</style>";
 
             Html = "<!DOCTYPE HTML>";

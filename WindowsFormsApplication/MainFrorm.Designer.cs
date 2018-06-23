@@ -344,7 +344,7 @@
             this.button_deleteDataBase.TabIndex = 1;
             this.toolTip1.SetToolTip(this.button_deleteDataBase, "Удалить из базы");
             this.button_deleteDataBase.UseVisualStyleBackColor = true;
-            this.button_deleteDataBase.Click += new System.EventHandler(this.button_Update_Click);
+            this.button_deleteDataBase.Click += new System.EventHandler(this.button_deleteDataBase_Click);
             // 
             // button_WriteOffTable
             // 

@@ -107,13 +107,15 @@ namespace WindowsFormsApplication
         }
 
         private void PRINT_Click(object sender, EventArgs e)
-        {
-           
-                TSCLIB_DLL.openport("USB");
-                foreach (DataGridViewRow row in dataGridViewMT.Rows)
-                    printLabels(row.Cells[2].Value.ToString(), row.Cells[8].Value.ToString(), row.Cells[3].Value.ToString());
-                TSCLIB_DLL.closeport();
-           
+        {        
+            
+            foreach (DataGridViewRow row in dataGridViewMT.Rows)
+                bllButtoms.Print_Label(row.Cells["ID"].Value.ToString(), row.Cells["NumberINV"].Value.ToString(),
+                        row.Cells["NameDevice"].Value.ToString(), row.Cells["NameLAN"].Value.ToString(),
+                        row.Cells["SN"].Value.ToString(),  row.Cells["Model"].Value.ToString());
+
+
+                      
         }
 
         private void PRINT_LABELS_Click(object sender, EventArgs e)
@@ -124,7 +126,9 @@ namespace WindowsFormsApplication
                 {
                     if (row.Selected == true)
                     {
-                        printLabels(row.Cells[2].Value.ToString(), row.Cells[8].Value.ToString(), row.Cells[3].Value.ToString());
+                        bllButtoms.Print_Label(row.Cells["ID"].Value.ToString(), row.Cells["NumberINV"].Value.ToString(),
+                            row.Cells["NameDevice"].Value.ToString(), row.Cells["NameLAN"].Value.ToString(),
+                            row.Cells["SN"].Value.ToString(), row.Cells["Model"].Value.ToString());
                     }
                 }
                 TSCLIB_DLL.closeport();
@@ -187,43 +191,45 @@ namespace WindowsFormsApplication
 
         private void button_Update_Click(object sender, EventArgs e)
         {
-
-            string AddId = null;
-
-            foreach (DataGridViewRow row in dataGridViewMT.Rows)
+            if (flag_button == "MainTB")
             {
-                if (row.Selected == true)
-                {
+                string AddId = null;
 
-                    if (AddId != null)
-                        AddId += "," + row.Cells["ID"].Value.ToString();
-                    else
-                        AddId += row.Cells["ID"].Value.ToString();
+                foreach (DataGridViewRow row in dataGridViewMT.Rows)
+                {
+                    if (row.Selected == true)
+                    {
+                        bll.AddDataNew(row.Cells["ID"].Value.ToString(), row.Cells["NameLAN"].Value.ToString(), row.Cells["NameRes"].Value.ToString(), row.Cells["floorNambe"].Value.ToString(), row.Cells["NameRoom"].Value.ToString());
+                        if (AddId != null)
+                            AddId += "," + row.Cells["ID"].Value.ToString();
+                        else
+                            AddId += row.Cells["ID"].Value.ToString();
+                    }
+                }
+
+
+                if (AddId != null)
+                {
+                    bllButtoms.Change_data(AddId, flag_button);
                 }
             }
-
-            
-            if (AddId != null)
-            {
-                bllButtoms.Change_data(AddId, flag_button);
-            }
-                /* foreach (DataGridViewRow row in dataGridViewMT.Rows)
+            /* foreach (DataGridViewRow row in dataGridViewMT.Rows)
+             {
+                 if (row.Selected == true)
                  {
-                     if (row.Selected == true)
-                     {
-                         BLL.Data.Add(row.Cells["ID"].Value.ToString());
-                        // bll.AddDataNew(row.Cells["ID"].Value.ToString(), row.Cells[3].Value.ToString(), row.Cells[4].Value.ToString(), row.Cells[5].Value.ToString(), row.Cells[6].Value.ToString());
-                     }
+                     BLL.Data.Add(row.Cells["ID"].Value.ToString());
+                    // bll.AddDataNew(row.Cells["ID"].Value.ToString(), row.Cells[3].Value.ToString(), row.Cells[4].Value.ToString(), row.Cells[5].Value.ToString(), row.Cells[6].Value.ToString());
                  }
+             }
 
 
-                 setDataBase.flag_button = flag_button;
-                 setDataBase setNewData = new setDataBase();          
+             setDataBase.flag_button = flag_button;
+             setDataBase setNewData = new setDataBase();          
 
-                 //setNewData.Owner = this;
-                 setNewData.ShowDialog();*/
-
-            }
+             //setNewData.Owner = this;
+             setNewData.ShowDialog();*/
+            Update_Grid();
+        }
 
         private void MainFrorm_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -292,6 +298,7 @@ namespace WindowsFormsApplication
             {
                 bllButtoms.Writtenoff(AddId, flag_button);                
             }
+            Update_Grid();
         }
              
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
@@ -320,13 +327,21 @@ namespace WindowsFormsApplication
         }
 
         private void dataGridViewMT_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+
         {
-            if (dataGridViewMT.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Системный блок")
+            string systemBlok = "СИСТЕМНЫЙ БЛОК";
+
+            if (dataGridViewMT.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString().ToUpper() == systemBlok.ToUpper())
             {
 
-                MainFrorm.index = dataGridViewMT.Rows[e.RowIndex].Cells[0].Value.ToString();
+                MainFrorm.index = dataGridViewMT.Rows[e.RowIndex].Cells["ID"].Value.ToString();
 
                 HardWare hardWare = new HardWare();
+                hardWare.ID = dataGridViewMT.Rows[e.RowIndex].Cells["ID"].Value.ToString();
+                hardWare.INV = dataGridViewMT.Rows[e.RowIndex].Cells["NumberINV"].Value.ToString();
+                hardWare.RES = dataGridViewMT.Rows[e.RowIndex].Cells["NameRes"].Value.ToString();
+                hardWare.NAME = dataGridViewMT.Rows[e.RowIndex].Cells["NameLAN"].Value.ToString();
+                hardWare.SN = dataGridViewMT.Rows[e.RowIndex].Cells["SN"].Value.ToString();
                 hardWare.ShowDialog();
 
             }
@@ -475,7 +490,7 @@ namespace WindowsFormsApplication
         private void comboBox_Room_SelectedIndexChanged(object sender, EventArgs e)
         {
             flag_button = "MainTB";
-            dataGridViewMT.DataSource = dal.GetDataGrid("[dbo].[Room].[NameRoom]", comboBox_Room.SelectedValue.ToString());
+            dataGridViewMT.DataSource = dal.GetDataGrid_Combobox("[dbo].[Room].[NameRoom]", comboBox_Room.SelectedValue.ToString());
             stilDataGrid();
             indexControl = 3;
             label_sum.Text = dataGridViewMT.Rows.Count.ToString();
@@ -484,7 +499,7 @@ namespace WindowsFormsApplication
         private void comboBox_Responsible_SelectedIndexChanged(object sender, EventArgs e)
         {
             flag_button = "MainTB";
-            dataGridViewMT.DataSource = dal.GetDataGrid("[dbo].[NameRes].[NameRes]", comboBox_Responsible.SelectedValue.ToString());
+            dataGridViewMT.DataSource = dal.GetDataGrid_Combobox("[dbo].[NameRes].[NameRes]", comboBox_Responsible.SelectedValue.ToString());
             stilDataGrid();
             indexControl = 4;
             label_sum.Text = dataGridViewMT.Rows.Count.ToString();
@@ -516,6 +531,38 @@ namespace WindowsFormsApplication
         private void groupBox_DATA_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void button_deleteDataBase_Click(object sender, EventArgs e)
+        {
+            WriteOff set = new WriteOff();
+            set.Owner = this;
+            set.button_OK.Text = "Улалить";
+            set.ShowDialog();
+
+            if (BLL.flag == true)
+            {
+                string AddId = null;
+
+                foreach (DataGridViewRow row in dataGridViewMT.Rows)
+                {
+                    if (row.Selected == true)
+                    {
+                        BLL.sHtmlTableDeleteReport = BLL.sHtmlTableDeleteReport + bll.WrittenOff_And_Delete(row.Cells["ID"].Value.ToString(), BLL.sHtmlTableDeleteReport, "Delete");
+
+                        AddId += row.Cells[0].Value.ToString();
+                        dal_set.AddFDB(Environment.UserName, 3, BLL.ReasonWriteOff, row.Cells["NumberINV"].Value.ToString(),
+                            row.Cells["NameDevice"].Value.ToString(), row.Cells["SN"].Value.ToString(),
+                            row.Cells["Model"].Value.ToString(), row.Cells["ID"].Value.ToString());
+
+                        dal_set.Delete("MainTB", row.Cells[0].Value.ToString());
+                    }
+                }
+
+                BLL.ReasonWriteOff = null;
+                BLL.flag = false;
+                Update_Grid();
+            }
         }
     } 
 }

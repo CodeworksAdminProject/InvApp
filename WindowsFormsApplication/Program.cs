@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.IO;
 
 namespace WindowsFormsApplication
 {
@@ -22,6 +22,10 @@ namespace WindowsFormsApplication
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainFrorm());
+
+            string tabl = null;
+            if (BLL.sMailBody != null)
+                tabl = "</table>";
 
             string tabl1 = null;
             if (BLL.sMailBodyNew != null)
@@ -51,9 +55,14 @@ namespace WindowsFormsApplication
                 (BLL.sHtmlTableAddWriteOffForReport != null) || (BLL.sHtmlTableTakeAwayWriteOffForReport != null) || (BLL.sMailBodyDelete != null) ||
                 (BLL.sHtmlTableHardware_PS != null) || (BLL.sHtmlTableHardware_Stockroom != null))
 
-                sentmail.SentMail(BLL.heds + BLL.sMailBody + BLL.sMailBodyNew + tabl1+ BLL.sHtmlTableAddWriteOffForReport + 
+                sentmail.SentMail(BLL.heds + BLL.sMailBody +tabl + BLL.sMailBodyNew + tabl1+ BLL.sHtmlTableAddWriteOffForReport + 
                     tabl2 + BLL.sHtmlTableTakeAwayWriteOffForReport + tabl3 + BLL.sHtmlTableDeleteReport + tabl4 +
                     BLL.sHtmlTableHardware_Stockroom + tabl6 + BLL.sHtmlTableHardware_PS+tabl5, Properties.Settings.Default.Email);
+
+            System.IO.File.WriteAllText(@"D:\error\sMailBody.txt", BLL.sMailBody + tabl);
+          //  System.IO.File.WriteAllText(@"D:\error\heds.txt", BLL.heds);
         }
+
+        
     }
 }

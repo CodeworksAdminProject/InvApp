@@ -26,7 +26,10 @@ namespace WindowsFormsApplication
             textBox_NameDB.Text = Properties.Settings.Default.SqlDataBase;
             comboBox_navigation.SelectedIndex = Properties.Settings.Default.int_navigation;
             comboBox__print_BarKod.SelectedIndex = Properties.Settings.Default.inr_barcod;
+            comboBox_print_name_or_model.SelectedIndex = Properties.Settings.Default.print_name_or_model;
 
+
+            mainForms_mainTB_ID.Checked = Properties.Settings.Default.mainForms_mainTB_ID;
             mainForms_mainTB_date.Checked = Properties.Settings.Default.mainForms_mainTB_date;
             mainForms_mainTB_TypeAC.Checked = Properties.Settings.Default.mainForms_mainTB_TypeAC;
             mainForms_mainTB_InvNum.Checked = Properties.Settings.Default.mainForms_mainTB_InvNum;
@@ -64,6 +67,23 @@ namespace WindowsFormsApplication
             mainForms_stockroom_WrittenOff.Checked = Properties.Settings.Default.mainForms_stockroom_WrittenOff;
             mainForms_stockroom_JiraTask.Checked = Properties.Settings.Default.mainForms_stockroom_JiraTask;
             mainForms_stockroom_Reason.Checked = Properties.Settings.Default.mainForms_stockroom_Reason;
+
+            setDataBase_mainTB_ID.Checked = Properties.Settings.Default.setDataBase_mainTB_ID;
+            setDataBase_mainTB_date.Checked = Properties.Settings.Default.setDataBase_mainTB_date;
+            setDataBase_mainTB_TypeAC.Checked = Properties.Settings.Default.setDataBase_mainTB_TypeAC;
+            setDataBase_mainTB_InvNum.Checked = Properties.Settings.Default.setDataBase_mainTB_InvNum;
+            setDataBase_mainTB_LanName.Checked = Properties.Settings.Default.setDataBase_mainTB_LanName;
+            setDataBase_mainTB_ResName.Checked = Properties.Settings.Default.setDataBase_mainTB_ResName;
+            setDataBase_mainTB_Room.Checked = Properties.Settings.Default.setDataBase_mainTB_Room;
+            setDataBase_mainTB_Floor.Checked = Properties.Settings.Default.setDataBase_mainTB_Floor;
+            setDataBase_mainTB_TypeDiv.Checked = Properties.Settings.Default.setDataBase_mainTB_TypeDiv;
+            setDataBase_mainTB_SN.Checked = Properties.Settings.Default.setDataBase_mainTB_SN;
+            setDataBase_mainTB_Model.Checked = Properties.Settings.Default.setDataBase_mainTB_Model;
+            setDataBase_mainTB_WrittenOff.Checked = Properties.Settings.Default.setDataBase_mainTB_WrittenOff;
+            setDataBase_mainTB_JiraTask.Checked = Properties.Settings.Default.setDataBase_mainTB_JiraTask;
+            setDataBase_mainTB_Reason.Checked = Properties.Settings.Default.setDataBase_mainTB_Reason;
+
+
 
 
 
@@ -110,6 +130,7 @@ namespace WindowsFormsApplication
             Properties.Settings.Default.Save();            
             Properties.Settings.Default.int_navigation = comboBox_navigation.SelectedIndex;
             Properties.Settings.Default.inr_barcod = comboBox__print_BarKod.SelectedIndex;
+            Properties.Settings.Default.print_name_or_model = comboBox_print_name_or_model.SelectedIndex;
 
             Properties.Settings.Default.mainForms_stockroom_ID = mainForms_stockroom_ID.Checked;
             Properties.Settings.Default.mainForms_stockroom_date = mainForms_stockroom_date.Checked;
@@ -150,11 +171,24 @@ namespace WindowsFormsApplication
             Properties.Settings.Default.mainForms_hardware_WrittenOff = mainForms_hardware_WrittenOff.Checked;
             Properties.Settings.Default.mainForms_hardware_JiraTask = mainForms_hardware_JiraTask.Checked;
             Properties.Settings.Default.mainForms_hardware_Reason = mainForms_hardware_Reason.Checked;
-            
+
+            Properties.Settings.Default.setDataBase_mainTB_ID = setDataBase_mainTB_ID.Checked;
+            Properties.Settings.Default.setDataBase_mainTB_date = setDataBase_mainTB_date.Checked;
+            Properties.Settings.Default.setDataBase_mainTB_TypeAC = setDataBase_mainTB_TypeAC.Checked;
+            Properties.Settings.Default.setDataBase_mainTB_InvNum = setDataBase_mainTB_InvNum.Checked;
+            Properties.Settings.Default.setDataBase_mainTB_LanName = setDataBase_mainTB_LanName.Checked;
+            Properties.Settings.Default.setDataBase_mainTB_ResName = setDataBase_mainTB_ResName.Checked;
+            Properties.Settings.Default.setDataBase_mainTB_Room = setDataBase_mainTB_Room.Checked;
+            Properties.Settings.Default.setDataBase_mainTB_Floor = setDataBase_mainTB_Floor.Checked;
+            Properties.Settings.Default.setDataBase_mainTB_TypeDiv = setDataBase_mainTB_TypeDiv.Checked;
+            Properties.Settings.Default.setDataBase_mainTB_SN = setDataBase_mainTB_SN.Checked;
+            Properties.Settings.Default.setDataBase_mainTB_Model = setDataBase_mainTB_Model.Checked;
+            Properties.Settings.Default.setDataBase_mainTB_WrittenOff = setDataBase_mainTB_WrittenOff.Checked;
+            Properties.Settings.Default.setDataBase_mainTB_JiraTask = setDataBase_mainTB_JiraTask.Checked;
+            Properties.Settings.Default.setDataBase_mainTB_Reason = setDataBase_mainTB_Reason.Checked;
+
+
             this.Close();
-
-
-
         }
 
         private void button_MouseEnter(object sender, EventArgs e)

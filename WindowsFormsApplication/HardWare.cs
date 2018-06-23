@@ -14,7 +14,14 @@ namespace WindowsFormsApplication
     {
         DAL_GET getDAL = new DAL_GET();
         BLL_Buttoms bllButtoms = new BLL_Buttoms();
-        
+        public string ID;
+        public string INV;
+        public string NAME;
+        public string SN;
+        public string RES;
+
+
+
         public HardWare()
         {
             InitializeComponent();           
@@ -64,9 +71,24 @@ namespace WindowsFormsApplication
             setNewData.checkBox_SetHardware.Checked = true;
             setNewData.checkBox_Hardware.Enabled = false;
             setNewData.checkBox_SetHardware.Enabled = false;
+            setNewData.groupBox_Hardware_LanName.Enabled = false;
+            setNewData.label_ID.Visible = true;
+            setNewData.ID.Visible = true;
+            setNewData.label_ID.Text = ID;
+            setNewData.label_NAME.Visible = true;
+            setNewData.NAME.Visible = true;
+            setNewData.label_NAME.Text = NAME;
+            setNewData.label_INV.Visible = true;
+            setNewData.INV.Visible = true;
+            setNewData.label_INV.Text = INV;
+            setNewData.label_SN.Visible = true;
+            setNewData.SN.Visible = true;
+            setNewData.label_SN.Text = SN;
+            setNewData.label_RES.Visible = true;
+            setNewData.RES.Visible = true;
+            setNewData.label_RES.Text = RES;
 
-
-           setNewData.ShowDialog();
+            setNewData.ShowDialog();
         }
     }
 }

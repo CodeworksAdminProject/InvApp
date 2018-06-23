@@ -51,7 +51,7 @@ namespace WindowsFormsApplication
                 BLL.sHtmlTableTakeAwayWriteOffForReport = BLL.sHtmlTableTakeAwayWriteOffForReport +  bll.WrittenOff_And_Delete(AddId, BLL.sHtmlTableTakeAwayWriteOffForReport, "TakeAway");                
                 BLL.ReasonWriteOff = null;
                 BLL.flag = false;
-
+                dataGridView_WriteOffTable.DataSource = dal_get.getWrateOffTable();
             }
         }
 
@@ -84,6 +84,7 @@ namespace WindowsFormsApplication
                 BLL.flag = false;
 
             }
+            dataGridView_WriteOffTable.DataSource = dal_get.getWrateOffTable();
         }
     }
 }

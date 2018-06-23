@@ -255,5 +255,21 @@ namespace WindowsFormsApplication
 
             box.Items.Add(new { Text = "Для всех", Value = "0" });            
         }
+
+        private void PRINT_LABEL_ALL_Click(object sender, EventArgs e)
+        {
+            if (flag_button == "MainTB")
+            {
+                foreach (DataGridViewRow row in dataGridView.Rows)
+                {
+                    if (row.Selected == true)
+                    {
+                        bllButtoms.Print_Label(row.Cells["ID"].Value.ToString(), row.Cells["NumberINV"].Value.ToString(), 
+                            row.Cells["NameDevice"].Value.ToString(), row.Cells["NameLAN"].Value.ToString(),
+                            row.Cells["SN"].Value.ToString(), row.Cells["Model"].Value.ToString());
+                    }
+                }               
+            }
+        }
     }
 }

@@ -12,7 +12,7 @@ namespace WindowsFormsApplication.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.5.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.7.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -548,6 +548,186 @@ namespace WindowsFormsApplication.Properties {
             }
             set {
                 this["mainForms_stockroom_Reason"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool setDataBase_mainTB_ID {
+            get {
+                return ((bool)(this["setDataBase_mainTB_ID"]));
+            }
+            set {
+                this["setDataBase_mainTB_ID"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool setDataBase_mainTB_date {
+            get {
+                return ((bool)(this["setDataBase_mainTB_date"]));
+            }
+            set {
+                this["setDataBase_mainTB_date"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool setDataBase_mainTB_TypeAC {
+            get {
+                return ((bool)(this["setDataBase_mainTB_TypeAC"]));
+            }
+            set {
+                this["setDataBase_mainTB_TypeAC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool setDataBase_mainTB_InvNum {
+            get {
+                return ((bool)(this["setDataBase_mainTB_InvNum"]));
+            }
+            set {
+                this["setDataBase_mainTB_InvNum"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool setDataBase_mainTB_LanName {
+            get {
+                return ((bool)(this["setDataBase_mainTB_LanName"]));
+            }
+            set {
+                this["setDataBase_mainTB_LanName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool setDataBase_mainTB_ResName {
+            get {
+                return ((bool)(this["setDataBase_mainTB_ResName"]));
+            }
+            set {
+                this["setDataBase_mainTB_ResName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool setDataBase_mainTB_Room {
+            get {
+                return ((bool)(this["setDataBase_mainTB_Room"]));
+            }
+            set {
+                this["setDataBase_mainTB_Room"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool setDataBase_mainTB_Floor {
+            get {
+                return ((bool)(this["setDataBase_mainTB_Floor"]));
+            }
+            set {
+                this["setDataBase_mainTB_Floor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool setDataBase_mainTB_TypeDiv {
+            get {
+                return ((bool)(this["setDataBase_mainTB_TypeDiv"]));
+            }
+            set {
+                this["setDataBase_mainTB_TypeDiv"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool setDataBase_mainTB_SN {
+            get {
+                return ((bool)(this["setDataBase_mainTB_SN"]));
+            }
+            set {
+                this["setDataBase_mainTB_SN"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool setDataBase_mainTB_Model {
+            get {
+                return ((bool)(this["setDataBase_mainTB_Model"]));
+            }
+            set {
+                this["setDataBase_mainTB_Model"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool setDataBase_mainTB_WrittenOff {
+            get {
+                return ((bool)(this["setDataBase_mainTB_WrittenOff"]));
+            }
+            set {
+                this["setDataBase_mainTB_WrittenOff"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool setDataBase_mainTB_JiraTask {
+            get {
+                return ((bool)(this["setDataBase_mainTB_JiraTask"]));
+            }
+            set {
+                this["setDataBase_mainTB_JiraTask"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool setDataBase_mainTB_Reason {
+            get {
+                return ((bool)(this["setDataBase_mainTB_Reason"]));
+            }
+            set {
+                this["setDataBase_mainTB_Reason"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int print_name_or_model {
+            get {
+                return ((int)(this["print_name_or_model"]));
+            }
+            set {
+                this["print_name_or_model"] = value;
             }
         }
     }

@@ -48,14 +48,18 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.groupBox_ID = new System.Windows.Forms.GroupBox();
             this.textBox_ID = new System.Windows.Forms.TextBox();
-            this.groupBox_res_name = new System.Windows.Forms.GroupBox();
-            this.comboBox_Res_name = new System.Windows.Forms.ComboBox();
             this.groupBox_Model = new System.Windows.Forms.GroupBox();
             this.textBox_Model = new System.Windows.Forms.TextBox();
             this.groupBoxWritten_off = new System.Windows.Forms.GroupBox();
             this.checkBox_Writtenoff = new System.Windows.Forms.CheckBox();
             this.groupBox__numberINV = new System.Windows.Forms.GroupBox();
             this.textBox_InvNum = new System.Windows.Forms.TextBox();
+            this.groupBox_res_name = new System.Windows.Forms.GroupBox();
+            this.comboBox_Res_name = new System.Windows.Forms.ComboBox();
+            this.groupBox_JIRA = new System.Windows.Forms.GroupBox();
+            this.comboBox_JIRA = new System.Windows.Forms.ComboBox();
+            this.groupBox_TypeAC = new System.Windows.Forms.GroupBox();
+            this.comboBox_TypeAC = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.button_hardwarePC = new System.Windows.Forms.Button();
             this.button_Hardware_Stockroom = new System.Windows.Forms.Button();
@@ -78,10 +82,6 @@
             this.groupBox_sum = new System.Windows.Forms.GroupBox();
             this.label_sum = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.groupBox_JIRA = new System.Windows.Forms.GroupBox();
-            this.comboBox_JIRA = new System.Windows.Forms.ComboBox();
-            this.groupBox_TypeAC = new System.Windows.Forms.GroupBox();
-            this.comboBox_TypeAC = new System.Windows.Forms.ComboBox();
             this.panel_grid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -91,10 +91,12 @@
             this.groupBox_SN.SuspendLayout();
             this.groupBox_Date.SuspendLayout();
             this.groupBox_ID.SuspendLayout();
-            this.groupBox_res_name.SuspendLayout();
             this.groupBox_Model.SuspendLayout();
             this.groupBoxWritten_off.SuspendLayout();
             this.groupBox__numberINV.SuspendLayout();
+            this.groupBox_res_name.SuspendLayout();
+            this.groupBox_JIRA.SuspendLayout();
+            this.groupBox_TypeAC.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel_buttons.SuspendLayout();
@@ -103,8 +105,6 @@
             this.groupBox_reports.SuspendLayout();
             this.groupBox_print.SuspendLayout();
             this.groupBox_sum.SuspendLayout();
-            this.groupBox_JIRA.SuspendLayout();
-            this.groupBox_TypeAC.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel_grid
@@ -325,28 +325,6 @@
             this.textBox_ID.Size = new System.Drawing.Size(214, 23);
             this.textBox_ID.TabIndex = 1;
             // 
-            // groupBox_res_name
-            // 
-            this.groupBox_res_name.Controls.Add(this.comboBox_Res_name);
-            this.groupBox_res_name.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox_res_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox_res_name.Location = new System.Drawing.Point(457, 86);
-            this.groupBox_res_name.Name = "groupBox_res_name";
-            this.groupBox_res_name.Size = new System.Drawing.Size(221, 50);
-            this.groupBox_res_name.TabIndex = 22;
-            this.groupBox_res_name.TabStop = false;
-            this.groupBox_res_name.Text = "Ответственный";
-            // 
-            // comboBox_Res_name
-            // 
-            this.comboBox_Res_name.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox_Res_name.FormattingEnabled = true;
-            this.comboBox_Res_name.Location = new System.Drawing.Point(6, 19);
-            this.comboBox_Res_name.Name = "comboBox_Res_name";
-            this.comboBox_Res_name.Size = new System.Drawing.Size(209, 24);
-            this.comboBox_Res_name.TabIndex = 9;
-            // 
             // groupBox_Model
             // 
             this.groupBox_Model.Controls.Add(this.textBox_Model);
@@ -413,6 +391,72 @@
             this.textBox_InvNum.Name = "textBox_InvNum";
             this.textBox_InvNum.Size = new System.Drawing.Size(197, 23);
             this.textBox_InvNum.TabIndex = 4;
+            // 
+            // groupBox_res_name
+            // 
+            this.groupBox_res_name.Controls.Add(this.comboBox_Res_name);
+            this.groupBox_res_name.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox_res_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.groupBox_res_name.Location = new System.Drawing.Point(457, 86);
+            this.groupBox_res_name.Name = "groupBox_res_name";
+            this.groupBox_res_name.Size = new System.Drawing.Size(221, 50);
+            this.groupBox_res_name.TabIndex = 22;
+            this.groupBox_res_name.TabStop = false;
+            this.groupBox_res_name.Text = "Ответственный";
+            // 
+            // comboBox_Res_name
+            // 
+            this.comboBox_Res_name.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox_Res_name.FormattingEnabled = true;
+            this.comboBox_Res_name.Location = new System.Drawing.Point(6, 19);
+            this.comboBox_Res_name.Name = "comboBox_Res_name";
+            this.comboBox_Res_name.Size = new System.Drawing.Size(209, 24);
+            this.comboBox_Res_name.TabIndex = 9;
+            // 
+            // groupBox_JIRA
+            // 
+            this.groupBox_JIRA.Controls.Add(this.comboBox_JIRA);
+            this.groupBox_JIRA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox_JIRA.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.groupBox_JIRA.Location = new System.Drawing.Point(1138, 3);
+            this.groupBox_JIRA.Name = "groupBox_JIRA";
+            this.groupBox_JIRA.Size = new System.Drawing.Size(224, 77);
+            this.groupBox_JIRA.TabIndex = 22;
+            this.groupBox_JIRA.TabStop = false;
+            this.groupBox_JIRA.Text = "Задача в JIRA";
+            // 
+            // comboBox_JIRA
+            // 
+            this.comboBox_JIRA.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox_JIRA.FormattingEnabled = true;
+            this.comboBox_JIRA.Location = new System.Drawing.Point(6, 19);
+            this.comboBox_JIRA.Name = "comboBox_JIRA";
+            this.comboBox_JIRA.Size = new System.Drawing.Size(212, 24);
+            this.comboBox_JIRA.TabIndex = 9;
+            // 
+            // groupBox_TypeAC
+            // 
+            this.groupBox_TypeAC.Controls.Add(this.comboBox_TypeAC);
+            this.groupBox_TypeAC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox_TypeAC.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.groupBox_TypeAC.Location = new System.Drawing.Point(1138, 86);
+            this.groupBox_TypeAC.Name = "groupBox_TypeAC";
+            this.groupBox_TypeAC.Size = new System.Drawing.Size(224, 50);
+            this.groupBox_TypeAC.TabIndex = 22;
+            this.groupBox_TypeAC.TabStop = false;
+            this.groupBox_TypeAC.Text = "Вид учёта";
+            // 
+            // comboBox_TypeAC
+            // 
+            this.comboBox_TypeAC.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox_TypeAC.FormattingEnabled = true;
+            this.comboBox_TypeAC.Location = new System.Drawing.Point(6, 19);
+            this.comboBox_TypeAC.Name = "comboBox_TypeAC";
+            this.comboBox_TypeAC.Size = new System.Drawing.Size(212, 24);
+            this.comboBox_TypeAC.TabIndex = 9;
             // 
             // tableLayoutPanel3
             // 
@@ -688,6 +732,7 @@
             this.PRINT_LABEL_ALL.Size = new System.Drawing.Size(64, 64);
             this.PRINT_LABEL_ALL.TabIndex = 2;
             this.PRINT_LABEL_ALL.UseVisualStyleBackColor = true;
+            this.PRINT_LABEL_ALL.Click += new System.EventHandler(this.PRINT_LABEL_ALL_Click);
             // 
             // groupBox_sum
             // 
@@ -710,50 +755,6 @@
             this.label_sum.Size = new System.Drawing.Size(0, 39);
             this.label_sum.TabIndex = 6;
             // 
-            // groupBox_JIRA
-            // 
-            this.groupBox_JIRA.Controls.Add(this.comboBox_JIRA);
-            this.groupBox_JIRA.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox_JIRA.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox_JIRA.Location = new System.Drawing.Point(1138, 3);
-            this.groupBox_JIRA.Name = "groupBox_JIRA";
-            this.groupBox_JIRA.Size = new System.Drawing.Size(224, 77);
-            this.groupBox_JIRA.TabIndex = 22;
-            this.groupBox_JIRA.TabStop = false;
-            this.groupBox_JIRA.Text = "Задача в JIRA";
-            // 
-            // comboBox_JIRA
-            // 
-            this.comboBox_JIRA.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox_JIRA.FormattingEnabled = true;
-            this.comboBox_JIRA.Location = new System.Drawing.Point(6, 19);
-            this.comboBox_JIRA.Name = "comboBox_JIRA";
-            this.comboBox_JIRA.Size = new System.Drawing.Size(212, 24);
-            this.comboBox_JIRA.TabIndex = 9;
-            // 
-            // groupBox_TypeAC
-            // 
-            this.groupBox_TypeAC.Controls.Add(this.comboBox_TypeAC);
-            this.groupBox_TypeAC.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox_TypeAC.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox_TypeAC.Location = new System.Drawing.Point(1138, 86);
-            this.groupBox_TypeAC.Name = "groupBox_TypeAC";
-            this.groupBox_TypeAC.Size = new System.Drawing.Size(224, 50);
-            this.groupBox_TypeAC.TabIndex = 22;
-            this.groupBox_TypeAC.TabStop = false;
-            this.groupBox_TypeAC.Text = "Вид учёта";
-            // 
-            // comboBox_TypeAC
-            // 
-            this.comboBox_TypeAC.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox_TypeAC.FormattingEnabled = true;
-            this.comboBox_TypeAC.Location = new System.Drawing.Point(6, 19);
-            this.comboBox_TypeAC.Name = "comboBox_TypeAC";
-            this.comboBox_TypeAC.Size = new System.Drawing.Size(212, 24);
-            this.comboBox_TypeAC.TabIndex = 9;
-            // 
             // Search
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -775,13 +776,15 @@
             this.groupBox_Date.ResumeLayout(false);
             this.groupBox_ID.ResumeLayout(false);
             this.groupBox_ID.PerformLayout();
-            this.groupBox_res_name.ResumeLayout(false);
             this.groupBox_Model.ResumeLayout(false);
             this.groupBox_Model.PerformLayout();
             this.groupBoxWritten_off.ResumeLayout(false);
             this.groupBoxWritten_off.PerformLayout();
             this.groupBox__numberINV.ResumeLayout(false);
             this.groupBox__numberINV.PerformLayout();
+            this.groupBox_res_name.ResumeLayout(false);
+            this.groupBox_JIRA.ResumeLayout(false);
+            this.groupBox_TypeAC.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel_buttons.ResumeLayout(false);
@@ -791,8 +794,6 @@
             this.groupBox_print.ResumeLayout(false);
             this.groupBox_sum.ResumeLayout(false);
             this.groupBox_sum.PerformLayout();
-            this.groupBox_JIRA.ResumeLayout(false);
-            this.groupBox_TypeAC.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

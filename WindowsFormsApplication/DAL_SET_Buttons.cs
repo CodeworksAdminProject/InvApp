@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Collections;
 using System.Data.Common;
 using System.Windows.Forms;
+using System.Data;
 
 namespace WindowsFormsApplication
 {
@@ -108,6 +109,35 @@ namespace WindowsFormsApplication
                 }
 
                 connect.Close();
+            }
+        }
+
+        internal DataTable Get_Hardware_TB(string ID)
+        {
+            {
+                DataTable Data = new DataTable();
+                using (SqlConnection connect = new SqlConnection(sConectDB))
+                {
+                    SqlCommand command = new SqlCommand(@"select TypeHardWare_ID, Model From HardWare Where MainTB_ID =  " + ID + " and WrittenOff = 'false';", connect);
+
+                    try
+                    {
+
+                        connect.Open();
+                        SqlDataAdapter da = new SqlDataAdapter(command);
+                        DataSet ds = new DataSet();
+                        da.Fill(ds);
+                        Data = ds.Tables[0];
+                    }
+
+                    catch (SqlException exception)
+                    {
+                        MessageBox.Show(exception.ToString());
+                    }
+                    connect.Close();
+                }
+                
+                return Data;
             }
         }
     }

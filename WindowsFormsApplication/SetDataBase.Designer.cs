@@ -30,19 +30,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.model = new System.Windows.Forms.Label();
+            this.typeDiv = new System.Windows.Forms.Label();
             this.label_model = new System.Windows.Forms.Label();
             this.label_type_div = new System.Windows.Forms.Label();
-            this.comboBox_invinNumber = new System.Windows.Forms.ComboBox();
-            this.groupBox_TypeAccоunt = new System.Windows.Forms.GroupBox();
-            this.textBox_TypeAccount = new System.Windows.Forms.TextBox();
-            this.checkBox_Account = new System.Windows.Forms.CheckBox();
-            this.comboBox_TypeAccount = new System.Windows.Forms.ComboBox();
             this.Location = new System.Windows.Forms.GroupBox();
             this.textBox_Floor = new System.Windows.Forms.TextBox();
             this.checkBox_Floor = new System.Windows.Forms.CheckBox();
@@ -73,7 +68,6 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
-            this.groupBox_TypeAccоunt.SuspendLayout();
             this.Location.SuspendLayout();
             this.groupBox_LanName.SuspendLayout();
             this.groupBox_Responsible.SuspendLayout();
@@ -84,29 +78,6 @@
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(501, 1066);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(302, 69);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Внести в базу ";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button3.Location = new System.Drawing.Point(25, 1066);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(261, 69);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Отмена";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // imageList1
             // 
@@ -141,100 +112,60 @@
             this.dataGridView1.Size = new System.Drawing.Size(1175, 551);
             this.dataGridView1.StandardTab = true;
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEnter);
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.model);
+            this.panel1.Controls.Add(this.typeDiv);
             this.panel1.Controls.Add(this.label_model);
             this.panel1.Controls.Add(this.label_type_div);
-            this.panel1.Controls.Add(this.comboBox_invinNumber);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(219, 105);
+            this.panel1.Size = new System.Drawing.Size(326, 105);
             this.panel1.TabIndex = 8;
+            // 
+            // model
+            // 
+            this.model.AutoSize = true;
+            this.model.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.model.ForeColor = System.Drawing.Color.Red;
+            this.model.Location = new System.Drawing.Point(136, 49);
+            this.model.Name = "model";
+            this.model.Size = new System.Drawing.Size(79, 20);
+            this.model.TabIndex = 6;
+            this.model.Text = "модель ";
+            // 
+            // typeDiv
+            // 
+            this.typeDiv.AutoSize = true;
+            this.typeDiv.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)), true);
+            this.typeDiv.ForeColor = System.Drawing.Color.Red;
+            this.typeDiv.Location = new System.Drawing.Point(136, 6);
+            this.typeDiv.Name = "typeDiv";
+            this.typeDiv.Size = new System.Drawing.Size(126, 20);
+            this.typeDiv.TabIndex = 6;
+            this.typeDiv.Text = "тип устройва ";
             // 
             // label_model
             // 
             this.label_model.AutoSize = true;
-            this.label_model.Location = new System.Drawing.Point(4, 76);
+            this.label_model.Location = new System.Drawing.Point(9, 52);
             this.label_model.Name = "label_model";
-            this.label_model.Size = new System.Drawing.Size(72, 20);
+            this.label_model.Size = new System.Drawing.Size(78, 20);
             this.label_model.TabIndex = 6;
-            this.label_model.Text = "модель ";
+            this.label_model.Text = "Модель :";
             // 
             // label_type_div
             // 
             this.label_type_div.AutoSize = true;
-            this.label_type_div.Location = new System.Drawing.Point(4, 46);
+            this.label_type_div.Location = new System.Drawing.Point(9, 6);
             this.label_type_div.Name = "label_type_div";
-            this.label_type_div.Size = new System.Drawing.Size(113, 20);
+            this.label_type_div.Size = new System.Drawing.Size(117, 20);
             this.label_type_div.TabIndex = 6;
-            this.label_type_div.Text = "тип устройва ";
-            // 
-            // comboBox_invinNumber
-            // 
-            this.comboBox_invinNumber.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox_invinNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.comboBox_invinNumber.FormattingEnabled = true;
-            this.comboBox_invinNumber.Location = new System.Drawing.Point(4, 5);
-            this.comboBox_invinNumber.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.comboBox_invinNumber.Name = "comboBox_invinNumber";
-            this.comboBox_invinNumber.Size = new System.Drawing.Size(211, 32);
-            this.comboBox_invinNumber.TabIndex = 5;
-            // 
-            // groupBox_TypeAccоunt
-            // 
-            this.groupBox_TypeAccоunt.BackColor = System.Drawing.SystemColors.Control;
-            this.groupBox_TypeAccоunt.Controls.Add(this.textBox_TypeAccount);
-            this.groupBox_TypeAccоunt.Controls.Add(this.checkBox_Account);
-            this.groupBox_TypeAccоunt.Controls.Add(this.comboBox_TypeAccount);
-            this.groupBox_TypeAccоunt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox_TypeAccоunt.Enabled = false;
-            this.groupBox_TypeAccоunt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox_TypeAccоunt.Location = new System.Drawing.Point(679, 5);
-            this.groupBox_TypeAccоunt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox_TypeAccоunt.Name = "groupBox_TypeAccоunt";
-            this.groupBox_TypeAccоunt.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox_TypeAccоunt.Size = new System.Drawing.Size(217, 101);
-            this.groupBox_TypeAccоunt.TabIndex = 3;
-            this.groupBox_TypeAccоunt.TabStop = false;
-            this.groupBox_TypeAccоunt.Text = "Вид учета";
-            // 
-            // textBox_TypeAccount
-            // 
-            this.textBox_TypeAccount.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox_TypeAccount.Enabled = false;
-            this.textBox_TypeAccount.Location = new System.Drawing.Point(8, 74);
-            this.textBox_TypeAccount.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox_TypeAccount.Name = "textBox_TypeAccount";
-            this.textBox_TypeAccount.Size = new System.Drawing.Size(201, 23);
-            this.textBox_TypeAccount.TabIndex = 2;
-            // 
-            // checkBox_Account
-            // 
-            this.checkBox_Account.AutoSize = true;
-            this.checkBox_Account.Location = new System.Drawing.Point(32, 49);
-            this.checkBox_Account.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.checkBox_Account.Name = "checkBox_Account";
-            this.checkBox_Account.Size = new System.Drawing.Size(139, 21);
-            this.checkBox_Account.TabIndex = 1;
-            this.checkBox_Account.Text = "Новый вид учета";
-            this.checkBox_Account.UseVisualStyleBackColor = true;
-            this.checkBox_Account.CheckedChanged += new System.EventHandler(this.checkBox_Account_CheckedChanged);
-            // 
-            // comboBox_TypeAccount
-            // 
-            this.comboBox_TypeAccount.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox_TypeAccount.FormattingEnabled = true;
-            this.comboBox_TypeAccount.Location = new System.Drawing.Point(8, 19);
-            this.comboBox_TypeAccount.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.comboBox_TypeAccount.Name = "comboBox_TypeAccount";
-            this.comboBox_TypeAccount.Size = new System.Drawing.Size(201, 24);
-            this.comboBox_TypeAccount.TabIndex = 0;
+            this.label_type_div.Text = "Тип устройва :";
             // 
             // Location
             // 
@@ -244,11 +175,11 @@
             this.Location.Controls.Add(this.comboBox_Floor);
             this.Location.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Location.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Location.Location = new System.Drawing.Point(904, 5);
+            this.Location.Location = new System.Drawing.Point(762, 5);
             this.Location.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Location.Name = "Location";
             this.Location.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Location.Size = new System.Drawing.Size(134, 101);
+            this.Location.Size = new System.Drawing.Size(205, 101);
             this.Location.TabIndex = 3;
             this.Location.TabStop = false;
             this.Location.Text = "Этаж";
@@ -261,7 +192,7 @@
             this.textBox_Floor.Location = new System.Drawing.Point(4, 74);
             this.textBox_Floor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox_Floor.Name = "textBox_Floor";
-            this.textBox_Floor.Size = new System.Drawing.Size(122, 23);
+            this.textBox_Floor.Size = new System.Drawing.Size(193, 23);
             this.textBox_Floor.TabIndex = 5;
             this.textBox_Floor.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_Floor_KeyUp);
             // 
@@ -285,7 +216,7 @@
             this.comboBox_Floor.Location = new System.Drawing.Point(4, 19);
             this.comboBox_Floor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.comboBox_Floor.Name = "comboBox_Floor";
-            this.comboBox_Floor.Size = new System.Drawing.Size(122, 24);
+            this.comboBox_Floor.Size = new System.Drawing.Size(193, 24);
             this.comboBox_Floor.TabIndex = 3;
             this.comboBox_Floor.SelectedIndexChanged += new System.EventHandler(this.comboBox_Floor_SelectedIndexChanged);
             // 
@@ -297,11 +228,11 @@
             this.groupBox_LanName.Controls.Add(this.comboBox_LanName);
             this.groupBox_LanName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox_LanName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox_LanName.Location = new System.Drawing.Point(454, 5);
+            this.groupBox_LanName.Location = new System.Drawing.Point(549, 5);
             this.groupBox_LanName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox_LanName.Name = "groupBox_LanName";
             this.groupBox_LanName.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox_LanName.Size = new System.Drawing.Size(217, 101);
+            this.groupBox_LanName.Size = new System.Drawing.Size(205, 101);
             this.groupBox_LanName.TabIndex = 3;
             this.groupBox_LanName.TabStop = false;
             this.groupBox_LanName.Text = "Название в сети";
@@ -314,7 +245,7 @@
             this.textBox_LanName.Location = new System.Drawing.Point(9, 74);
             this.textBox_LanName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox_LanName.Name = "textBox_LanName";
-            this.textBox_LanName.Size = new System.Drawing.Size(200, 23);
+            this.textBox_LanName.Size = new System.Drawing.Size(188, 23);
             this.textBox_LanName.TabIndex = 5;
             this.textBox_LanName.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_LanName_KeyUp);
             // 
@@ -338,7 +269,7 @@
             this.comboBox_LanName.Location = new System.Drawing.Point(8, 19);
             this.comboBox_LanName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.comboBox_LanName.Name = "comboBox_LanName";
-            this.comboBox_LanName.Size = new System.Drawing.Size(201, 24);
+            this.comboBox_LanName.Size = new System.Drawing.Size(189, 24);
             this.comboBox_LanName.TabIndex = 3;
             this.comboBox_LanName.SelectedIndexChanged += new System.EventHandler(this.comboBox_LanName_SelectedIndexChanged);
             // 
@@ -350,11 +281,11 @@
             this.groupBox_Responsible.Controls.Add(this.comboBox_Responsible);
             this.groupBox_Responsible.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox_Responsible.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox_Responsible.Location = new System.Drawing.Point(229, 5);
+            this.groupBox_Responsible.Location = new System.Drawing.Point(336, 5);
             this.groupBox_Responsible.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox_Responsible.Name = "groupBox_Responsible";
             this.groupBox_Responsible.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox_Responsible.Size = new System.Drawing.Size(217, 101);
+            this.groupBox_Responsible.Size = new System.Drawing.Size(205, 101);
             this.groupBox_Responsible.TabIndex = 3;
             this.groupBox_Responsible.TabStop = false;
             this.groupBox_Responsible.Text = "Ответственный";
@@ -367,7 +298,7 @@
             this.textBox_Responsible.Location = new System.Drawing.Point(9, 74);
             this.textBox_Responsible.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox_Responsible.Name = "textBox_Responsible";
-            this.textBox_Responsible.Size = new System.Drawing.Size(202, 23);
+            this.textBox_Responsible.Size = new System.Drawing.Size(190, 23);
             this.textBox_Responsible.TabIndex = 5;
             this.textBox_Responsible.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_Responsible_KeyUp);
             // 
@@ -391,7 +322,7 @@
             this.comboBox_Responsible.Location = new System.Drawing.Point(9, 19);
             this.comboBox_Responsible.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.comboBox_Responsible.Name = "comboBox_Responsible";
-            this.comboBox_Responsible.Size = new System.Drawing.Size(200, 24);
+            this.comboBox_Responsible.Size = new System.Drawing.Size(188, 24);
             this.comboBox_Responsible.TabIndex = 3;
             this.comboBox_Responsible.SelectedIndexChanged += new System.EventHandler(this.comboBox_Responsible_SelectedIndexChanged);
             // 
@@ -403,11 +334,11 @@
             this.groupBox_room.Controls.Add(this.checkBox_Room);
             this.groupBox_room.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox_room.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox_room.Location = new System.Drawing.Point(1046, 5);
+            this.groupBox_room.Location = new System.Drawing.Point(975, 5);
             this.groupBox_room.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox_room.Name = "groupBox_room";
             this.groupBox_room.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox_room.Size = new System.Drawing.Size(137, 101);
+            this.groupBox_room.Size = new System.Drawing.Size(208, 101);
             this.groupBox_room.TabIndex = 7;
             this.groupBox_room.TabStop = false;
             this.groupBox_room.Text = "Помещение";
@@ -420,7 +351,7 @@
             this.textBox_Room.Location = new System.Drawing.Point(8, 74);
             this.textBox_Room.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox_Room.Name = "textBox_Room";
-            this.textBox_Room.Size = new System.Drawing.Size(120, 23);
+            this.textBox_Room.Size = new System.Drawing.Size(191, 23);
             this.textBox_Room.TabIndex = 5;
             this.textBox_Room.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_Room_KeyUp);
             // 
@@ -432,7 +363,7 @@
             this.comboBox_Room.Location = new System.Drawing.Point(8, 19);
             this.comboBox_Room.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.comboBox_Room.Name = "comboBox_Room";
-            this.comboBox_Room.Size = new System.Drawing.Size(121, 24);
+            this.comboBox_Room.Size = new System.Drawing.Size(192, 24);
             this.comboBox_Room.TabIndex = 3;
             this.comboBox_Room.SelectedIndexChanged += new System.EventHandler(this.comboBox_Room_SelectedIndexChanged);
             // 
@@ -450,25 +381,22 @@
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 6;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
-            this.tableLayoutPanel1.Controls.Add(this.groupBox_room, 5, 0);
+            this.tableLayoutPanel1.ColumnCount = 5;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18F));
+            this.tableLayoutPanel1.Controls.Add(this.groupBox_room, 4, 0);
             this.tableLayoutPanel1.Controls.Add(this.groupBox_Responsible, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.groupBox_LanName, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.Location, 4, 0);
-            this.tableLayoutPanel1.Controls.Add(this.groupBox_TypeAccоunt, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.Location, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 111F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1187, 111);
             this.tableLayoutPanel1.TabIndex = 6;
             // 
@@ -498,7 +426,6 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(424, 57);
             this.flowLayoutPanel1.TabIndex = 0;
-            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
             // button_change
             // 
@@ -583,6 +510,7 @@
             this.button_print_select_str.Size = new System.Drawing.Size(52, 52);
             this.button_print_select_str.TabIndex = 0;
             this.button_print_select_str.UseVisualStyleBackColor = true;
+            this.button_print_select_str.Click += new System.EventHandler(this.button_print_select_str_Click);
             // 
             // setDataBase
             // 
@@ -593,8 +521,6 @@
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "setDataBase";
@@ -604,8 +530,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.groupBox_TypeAccоunt.ResumeLayout(false);
-            this.groupBox_TypeAccоunt.PerformLayout();
             this.Location.ResumeLayout(false);
             this.Location.PerformLayout();
             this.groupBox_LanName.ResumeLayout(false);
@@ -624,19 +548,12 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label_model;
         private System.Windows.Forms.Label label_type_div;
-        private System.Windows.Forms.ComboBox comboBox_invinNumber;
-        private System.Windows.Forms.GroupBox groupBox_TypeAccоunt;
-        private System.Windows.Forms.TextBox textBox_TypeAccount;
-        private System.Windows.Forms.CheckBox checkBox_Account;
-        private System.Windows.Forms.ComboBox comboBox_TypeAccount;
         private System.Windows.Forms.GroupBox Location;
         private System.Windows.Forms.TextBox textBox_Floor;
         private System.Windows.Forms.CheckBox checkBox_Floor;
@@ -664,5 +581,7 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private System.Windows.Forms.Button button_print_all;
         private System.Windows.Forms.Button button_print_select_str;
+        private System.Windows.Forms.Label model;
+        private System.Windows.Forms.Label typeDiv;
     }
 }

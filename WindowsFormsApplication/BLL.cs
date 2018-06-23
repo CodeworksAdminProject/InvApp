@@ -67,44 +67,86 @@ namespace WindowsFormsApplication
             DataOld.Add(str);
         }
 
-        public void Compere(string ID, string NameLan, string NameRes, string Floor, string Room, string NameDevice)
+        public void Compere(string ID, string INV, string NameLan, string NameRes, string Floor, string Room, string NameDevice,string Model, string SN)
         {
-            
+            string old = @"<span class='old'>";
+            string New = @"<span  class='new'>";
+
+
             if (BLL.heds == null)
-                BLL.heds = "<h1><p> В  пользователем:  <font  color = 'red' >" + System.Environment.UserName + "</font> были внесены  следующие  изменения: </p></h1>";
+                BLL.heds = " <h1><p> В  пользователем:  <font  color = 'red' >" + System.Environment.UserName + "</font> были внесены  следующие  изменения: </p></h1>";
 
             foreach (string[] str in DataOld)
             {
                 if (str[0] == ID)
                 {
-                    if((str[1] != NameLan) || (str[2] != NameRes) || (str[3] != Floor) || (str[4] != Room))
+                    if ((str[1] != NameLan) || (str[2] != NameRes) || (str[3] != Floor) || (str[4] != Room))
                     {
                         if (BLL.sMailBody == null)
+                        {
                             BLL.sMailBody = "<h2>Добавлены правки во следующие  позиции:</h2>";
+                            BLL.sMailBody = BLL.sMailBody + "<table>" +
+                                                "<tr>" +
+                                                "<th>Инвентарный номер</th>" +
+                                                 "<th>Название в сети</th>" +
+                                                 "<th>Ответственный</th>" +
+                                                 "<th>Этаж</th>" +
+                                                 "<th>Помещение</th>" +
+                                                 "<th>Тип устройства</th>" +
+                                                 "<th>Модель</th>" +
+                                                 "<th>Серийный номер</th>" +
+                                                 "</tr>";
 
-                        BLL.sMailBody = BLL.sMailBody +  "<h4><p>" + BLL.n + ") " +  NameDevice + " c инвентарным № <font  color = 'red' ><i>" +  str[0] + "</i></font></h4>";
+                           
+                        }
+
+                        BLL.sMailBody = BLL.sMailBody + "<tr><td><nobr>" + INV + "</nobr></td>";
+
+                        if (str[1] != NameLan)
+                        {
+                            BLL.sMailBody = BLL.sMailBody + "<td><nobr>" + old + str[1] + @"</span></nobr></br><nobr>" +
+                                 New + NameLan + "</span></nobr></td>";
+                        }
+                        else  { BLL.sMailBody = BLL.sMailBody + "<td><nobr>" + str[1] + @"</nobr></br></td>"; }
+
 
                         if (str[2] != NameRes)
                         {
-                            BLL.sMailBody = BLL.sMailBody + "Изменено  ответственное  лицо с  <font  color='blue'>" + str[2] + " </font> на  <font  color='red'>" + NameRes + "</font><br>";
+                            BLL.sMailBody = BLL.sMailBody + "<td><nobr>" + old + str[2] + @"</span></nobr></br><nobr>" +
+                                New + NameRes + "</span></nobr></td>";
                         }
+                        else {
+                            BLL.sMailBody = BLL.sMailBody + "<td><nobr>" + str[2] + @"</nobr></br></td>";
+                        }
+
                         if (str[3] != Floor)
                         {
-                            BLL.sMailBody = BLL.sMailBody + "Перетащили  с <font  color='blue'> " + str[3] + "</font> этажа на <font  color='red'>" + Floor + " этаж </font><br>";
+                            BLL.sMailBody = BLL.sMailBody + "<td><nobr>" + old + str[3] + @"</span></nobr></br><nobr>" +
+                                 New + Floor + "</span></nobr></td>";
                         }
+                        else {
+                            BLL.sMailBody = BLL.sMailBody + "<td><nobr>" + str[3] + @"</nobr></br></td>";
+                        }
+
                         if (str[4] != Room)
                         {
-                            BLL.sMailBody = BLL.sMailBody + "Был в <font  color='blue'>" + str[4] + "</font>  а, заволокли  <font  color='red'> в " + Room + "</font><br>";
+                            BLL.sMailBody = BLL.sMailBody + "<td><nobr>" + old + str[4] + @"</span></nobr></br><nobr>" +
+                                 New + Room + "</span></nobr></td>";
                         }
-                        if (str[1] != NameLan)
-                        {
-                            BLL.sMailBody = BLL.sMailBody + "Изменили сетевое имя с  <font  color='blue'>" + str[1] + "</font> на <font  color = 'red' > "  + NameLan + "</font><br>";
+                        else {
+                            BLL.sMailBody = BLL.sMailBody + "<td><nobr>" + str[4] + @"</nobr></br></td>";
                         }
-                                                
-                        BLL.sMailBody = BLL.sMailBody + "<br></p>";
+
+                        BLL.sMailBody = BLL.sMailBody + "<td><nobr>" + NameDevice + "</nobr></td>";
+                        BLL.sMailBody = BLL.sMailBody + "<td><nobr>" + Model + "</nobr></td>";
+                        BLL.sMailBody = BLL.sMailBody + "<td><nobr>" + SN + "</nobr></td></tr>";
+
+
+                        dalSet.AddFDB(Environment.UserName, 7, "", INV, NameDevice, SN, Model, ID);
+                       
                     }
                 }
-                n++;
+                
             }
             
         }
@@ -418,7 +460,9 @@ namespace WindowsFormsApplication
 
                 if (sHtmlTableHardware_PS == null)
                 {
-                    sHtmlTableHardware_PS = @"<table border='1' > 
+                    sHtmlTableHardware_PS = @"
+                 <h2> Новое на компьютер(ы) железо или расходники</h2> 
+                 <table border='1' > 
                 <caption><font size='5'>Добавлено новое на компьютер(ы) железо или расходники :</font></caption>
                 <tr> 
                 <th>Номер операции </th>
@@ -454,8 +498,10 @@ namespace WindowsFormsApplication
 
             if (sHtmlTableHardware_Stockroom == null)
             {
-                sHtmlTableHardware_Stockroom = @"<table border='1' > 
-                <caption><font size='5'>Добавлено новое на компьютер(ы) железо или расходники :</font></caption>
+                sHtmlTableHardware_Stockroom = @"
+                <h2> Новое на склад (железо или расходники)</h2 > 
+                <table border='1' > 
+                <caption><font size='5'>Добавлено новое на  железо или расходники  на  склад :</font></caption>
                 <tr> 
                 <th>Номер операции </th>
                 <th>Инвентарный номер</th>
@@ -493,13 +539,14 @@ namespace WindowsFormsApplication
 
             if (sHtmlTable == null)
             {
+
                 string_HTML_Table.Append("<table border='1'>");
                 if (flag == "Add")
-                    string_HTML_Table.Append("<caption><font size='5'>Таблица представленное на списание</font></caption>");
+                    string_HTML_Table.Append("<h2> Представленное на списание </h2><table border='1'><caption><font size='5'>Таблица представленное на списание</font></caption>");
                 else if (flag == "TakeAway")
-                    string_HTML_Table.Append("<caption><font size='5'>Оборудование возвращённое  в основной  учет</font></caption>");
+                    string_HTML_Table.Append("<h2>Оборудование возвращённое  в основной  учет </h2><table border='1'><caption><font size='5'>Оборудование возвращённое  в основной  учет</font></caption>");
                 else if (flag == "Delete" )
-                    string_HTML_Table.Append("<caption><font size='5'>Удаление из базы </font></caption>");
+                    string_HTML_Table.Append("<h2> Удаление из базы </h2><table border='1'><caption><font size='5'>Удаление из базы </font></caption>");
                 string_HTML_Table.Append("<tr>");
                 string_HTML_Table.Append("<th>Номер операции </th>");
                 string_HTML_Table.Append("<th>Дата и время</th>");

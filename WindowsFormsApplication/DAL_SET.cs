@@ -92,6 +92,36 @@ namespace WindowsFormsApplication
 
         }
 
+        public void SetNewPosition(string TypeDevice, string Model, string SN, string InvNumber, string jira, int MainTB_ID)
+        {
+            ArrayList DataGrid = new ArrayList();
+            SqlConnection connect = new SqlConnection(sConectDB);
+            // переработать  20-21
+            SqlCommand command = new SqlCommand(@" INSERT INTO[dbo].[HardWare]
+                ([dateCreated], [MainTB_ID], [TypeHardWare_ID],[Model],[SN],[WrittenOff], [NumberINV], [JiraTask_ID])
+                values(GETDATE()," + 
+                MainTB_ID.ToString() + ", " +
+                TypeDevice + ", '" +
+                Model + "', '" +
+                SN + "', 0, '" + InvNumber + "', " + jira + ");", connect);
+
+            try
+            {
+
+                connect.Open();
+
+                command.ExecuteNonQuery();
+            }
+
+            catch (SqlException exception)
+            {
+                MessageBox.Show(exception.ToString());
+            }
+
+            connect.Close();
+
+        }
+
         public void SetNewPosition(string TypeDevice, string Model, string SN, int SUM, string InvNumber, string jira)
         {
             ArrayList DataGrid = new ArrayList();
@@ -246,14 +276,15 @@ namespace WindowsFormsApplication
             SqlConnection connect = new SqlConnection(sConectDB);
             // переработать  20-21
             SqlCommand command = new SqlCommand(@" INSERT INTO dbo.JBD (dateCreated, UserName, KindOfActivity_ID, ReasonOrMoved, " +
-                @"TypeDevice, SN, Model, ID_IN_Main_TB) VALUES(GETDATE(), '" +
+                @"TypeDevice, SN, Model, ID_IN_Main_TB, InvNumber) VALUES(GETDATE(), '" +
                 userName + "', " +
                 ID + ", '" +
                 reasonWriteOff + "', '" +
                 TypeDevice + "', '" +
                 SN + "', '" +
                 Model + "'," +
-                ID_main + ");", connect);
+                ID_main + ",'" +
+                InvNumber + "');", connect);
 
             try
             {

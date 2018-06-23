@@ -76,6 +76,10 @@
             this.comboBox_Jira = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel_Hardware = new System.Windows.Forms.Panel();
+            this.label_NAME = new System.Windows.Forms.Label();
+            this.label_INV = new System.Windows.Forms.Label();
+            this.label_SN = new System.Windows.Forms.Label();
+            this.label_ID = new System.Windows.Forms.Label();
             this.groupBox_Hardware_jira = new System.Windows.Forms.GroupBox();
             this.textBox_Hardware_jira = new System.Windows.Forms.TextBox();
             this.checkBox_Hardware_jira = new System.Windows.Forms.CheckBox();
@@ -94,6 +98,12 @@
             this.textBox_Hardware_SN = new System.Windows.Forms.TextBox();
             this.groupBox_Hardware_LanName = new System.Windows.Forms.GroupBox();
             this.comboBox_Hardware_LanName = new System.Windows.Forms.ComboBox();
+            this.label_RES = new System.Windows.Forms.Label();
+            this.ID = new System.Windows.Forms.Label();
+            this.SN = new System.Windows.Forms.Label();
+            this.INV = new System.Windows.Forms.Label();
+            this.NAME = new System.Windows.Forms.Label();
+            this.RES = new System.Windows.Forms.Label();
             this.groupBox_TypeAccоunt.SuspendLayout();
             this.groupBox_TypeDevice.SuspendLayout();
             this.groupBox_Model.SuspendLayout();
@@ -636,6 +646,16 @@
             // 
             // panel_Hardware
             // 
+            this.panel_Hardware.Controls.Add(this.RES);
+            this.panel_Hardware.Controls.Add(this.label_RES);
+            this.panel_Hardware.Controls.Add(this.NAME);
+            this.panel_Hardware.Controls.Add(this.label_NAME);
+            this.panel_Hardware.Controls.Add(this.INV);
+            this.panel_Hardware.Controls.Add(this.SN);
+            this.panel_Hardware.Controls.Add(this.label_INV);
+            this.panel_Hardware.Controls.Add(this.ID);
+            this.panel_Hardware.Controls.Add(this.label_SN);
+            this.panel_Hardware.Controls.Add(this.label_ID);
             this.panel_Hardware.Controls.Add(this.groupBox_Hardware_jira);
             this.panel_Hardware.Controls.Add(this.groupBox_Hardware_Sum);
             this.panel_Hardware.Controls.Add(this.checkBox_SetHardware);
@@ -649,6 +669,50 @@
             this.panel_Hardware.Size = new System.Drawing.Size(460, 625);
             this.panel_Hardware.TabIndex = 10;
             this.panel_Hardware.Visible = false;
+            // 
+            // label_NAME
+            // 
+            this.label_NAME.AutoSize = true;
+            this.label_NAME.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_NAME.Location = new System.Drawing.Point(218, 515);
+            this.label_NAME.Name = "label_NAME";
+            this.label_NAME.Size = new System.Drawing.Size(111, 20);
+            this.label_NAME.TabIndex = 7;
+            this.label_NAME.Text = "label_NAME";
+            this.label_NAME.Visible = false;
+            // 
+            // label_INV
+            // 
+            this.label_INV.AutoSize = true;
+            this.label_INV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_INV.Location = new System.Drawing.Point(220, 455);
+            this.label_INV.Name = "label_INV";
+            this.label_INV.Size = new System.Drawing.Size(89, 20);
+            this.label_INV.TabIndex = 8;
+            this.label_INV.Text = "label_INV";
+            this.label_INV.Visible = false;
+            // 
+            // label_SN
+            // 
+            this.label_SN.AutoSize = true;
+            this.label_SN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_SN.Location = new System.Drawing.Point(218, 545);
+            this.label_SN.Name = "label_SN";
+            this.label_SN.Size = new System.Drawing.Size(90, 20);
+            this.label_SN.TabIndex = 9;
+            this.label_SN.Text = "label_SN ";
+            this.label_SN.Visible = false;
+            // 
+            // label_ID
+            // 
+            this.label_ID.AutoSize = true;
+            this.label_ID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_ID.Location = new System.Drawing.Point(220, 485);
+            this.label_ID.Name = "label_ID";
+            this.label_ID.Size = new System.Drawing.Size(78, 20);
+            this.label_ID.TabIndex = 10;
+            this.label_ID.Text = "label_ID";
+            this.label_ID.Visible = false;
             // 
             // groupBox_Hardware_jira
             // 
@@ -862,6 +926,72 @@
             this.comboBox_Hardware_LanName.Size = new System.Drawing.Size(274, 24);
             this.comboBox_Hardware_LanName.TabIndex = 3;
             // 
+            // label_RES
+            // 
+            this.label_RES.AutoSize = true;
+            this.label_RES.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_RES.Location = new System.Drawing.Point(219, 575);
+            this.label_RES.Name = "label_RES";
+            this.label_RES.Size = new System.Drawing.Size(96, 20);
+            this.label_RES.TabIndex = 11;
+            this.label_RES.Text = "label_RES";
+            this.label_RES.Visible = false;
+            // 
+            // ID
+            // 
+            this.ID.AutoSize = true;
+            this.ID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ID.Location = new System.Drawing.Point(15, 485);
+            this.ID.Name = "ID";
+            this.ID.Size = new System.Drawing.Size(95, 20);
+            this.ID.TabIndex = 10;
+            this.ID.Text = "ID в базе: ";
+            this.ID.Visible = false;
+            // 
+            // SN
+            // 
+            this.SN.AutoSize = true;
+            this.SN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SN.Location = new System.Drawing.Point(13, 545);
+            this.SN.Name = "SN";
+            this.SN.Size = new System.Drawing.Size(155, 20);
+            this.SN.TabIndex = 9;
+            this.SN.Text = "Серийный номер:";
+            this.SN.Visible = false;
+            // 
+            // INV
+            // 
+            this.INV.AutoSize = true;
+            this.INV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.INV.Location = new System.Drawing.Point(15, 455);
+            this.INV.Name = "INV";
+            this.INV.Size = new System.Drawing.Size(189, 20);
+            this.INV.TabIndex = 8;
+            this.INV.Text = "Инвентарный номер: ";
+            this.INV.Visible = false;
+            // 
+            // NAME
+            // 
+            this.NAME.AutoSize = true;
+            this.NAME.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.NAME.Location = new System.Drawing.Point(13, 515);
+            this.NAME.Name = "NAME";
+            this.NAME.Size = new System.Drawing.Size(111, 20);
+            this.NAME.TabIndex = 7;
+            this.NAME.Text = "Имя в сети: ";
+            this.NAME.Visible = false;
+            // 
+            // RES
+            // 
+            this.RES.AutoSize = true;
+            this.RES.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.RES.Location = new System.Drawing.Point(14, 575);
+            this.RES.Name = "RES";
+            this.RES.Size = new System.Drawing.Size(148, 20);
+            this.RES.TabIndex = 11;
+            this.RES.Text = "Ответственный:";
+            this.RES.Visible = false;
+            // 
             // SetNewDataBase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -965,7 +1095,7 @@
         private System.Windows.Forms.TextBox textBox_Hardware_Model;
         private System.Windows.Forms.GroupBox groupBox_Hardware_SN;
         private System.Windows.Forms.TextBox textBox_Hardware_SN;
-        private System.Windows.Forms.GroupBox groupBox_Hardware_LanName;
+        public System.Windows.Forms.GroupBox groupBox_Hardware_LanName;
         private System.Windows.Forms.ComboBox comboBox_Hardware_LanName;
         public System.Windows.Forms.CheckBox checkBox_SetHardware;
         public System.Windows.Forms.CheckBox checkBox_Stockroom;
@@ -981,5 +1111,15 @@
         private System.Windows.Forms.ComboBox comboBox_Hardware_jira;
         private System.Windows.Forms.TextBox textBox_Hardware_TypeDevice;
         private System.Windows.Forms.CheckBox checkBox_Hardware_TypeDevice;
+        public System.Windows.Forms.Label label_NAME;
+        public System.Windows.Forms.Label label_INV;
+        public System.Windows.Forms.Label label_SN;
+        public System.Windows.Forms.Label label_ID;
+        public System.Windows.Forms.Label label_RES;
+        public System.Windows.Forms.Label RES;
+        public System.Windows.Forms.Label NAME;
+        public System.Windows.Forms.Label INV;
+        public System.Windows.Forms.Label SN;
+        public System.Windows.Forms.Label ID;
     }
 }

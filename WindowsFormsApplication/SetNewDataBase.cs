@@ -35,6 +35,10 @@ namespace WindowsFormsApplication
 
         private void update()
         {
+            comboBox_TypeAccount.DataSource = dal_get.Get_Data_From_Table_From_Colunm("TypeAC", "TypeAC");
+            comboBox_TypeAccount.DisplayMember = "TypeAC";
+            comboBox_TypeAccount.ValueMember = "TypeAC";
+
             comboBox_Room.DataSource = dal_get.Get_Data_From_Table_From_Colunm("Room", "NameRoom");
             comboBox_Room.DisplayMember = "NameRoom";
             comboBox_Room.ValueMember = "NameRoom";
@@ -217,6 +221,11 @@ namespace WindowsFormsApplication
 
             if (checkBox_MainAcount.Checked == true)
             {
+                string typeAC;
+                if (textBox_TypeAccount.Enabled == true)
+                    typeAC = textBox_TypeAccount.Text;
+                else { typeAC = comboBox_TypeAccount.SelectedValue.ToString(); }
+
                 string typedevise;
                 if (textBox_TypeDevice.Enabled == true)
                     typedevise = textBox_TypeDevice.Text;
@@ -254,11 +263,12 @@ namespace WindowsFormsApplication
                                "\nТип устройства:\t\t" + typedevise +
                                "\nСерийный номер:\t\t" + textBox_NumberSN.Text +
                                "\nМодель:\t\t\t" + textBox_Model.Text +
-                               "\nЗадача в JIRA:\t\t\t" + Jira), "Подтверждение отправки", MessageBoxButtons.OKCancel);               
+                               "\nЗадача в JIRA:\t\t" + Jira), "Подтверждение отправки", MessageBoxButtons.OKCancel);
 
                 if (dialogResult == DialogResult.OK)
                 {
-                    dalSet.SetNewPosition("NULL", bll.Get_ID("TypeDevice", "NameDevice", typedevise).ToString(),
+                    dalSet.SetNewPosition(bll.Get_ID("TypeAC", "TypeAC", typeAC).ToString(),
+                        bll.Get_ID("TypeDevice", "NameDevice", typedevise).ToString(),
                         textBox_Model.Text,
                         textBox_NumberSN.Text, bll.Get_ID("NameRes",
                         "NameRes", Responsible).ToString(),
@@ -268,20 +278,21 @@ namespace WindowsFormsApplication
                         bll.Get_ID("Room", "NameRoom",
                         Room).ToString(), textBox_NumberInv.Text,
                         bll.Get_ID("JiraTask", "JiraTask", Jira).ToString());
-                    
+
 
                     bll.BodyMailNew(textBox_NumberInv.Text, LanName, Responsible, Floor, Room, typedevise, textBox_NumberSN.Text, textBox_Model.Text, Jira);
 
-                    dalSet.AddFDB(Environment.UserName, 4, "В комната:"+Room + " приписан к PC: " + LanName, textBox_NumberInv.Text,
+                    dalSet.AddFDB(Environment.UserName, 4, "В комната:" + Room + " приписан к PC: " + LanName, textBox_NumberInv.Text,
                            typedevise, textBox_NumberSN.Text, textBox_Model.Text, dal_get.get_max_ID("[dbo].[MainTB]"));
 
                     update();
-                    
+
                 }
                 else if (dialogResult == DialogResult.No)
                 { }
             }
-            else 
+ 
+            else
             {
                 string typedevise;
                 if (textBox_Hardware_TypeDevice.Enabled == true)
@@ -291,25 +302,25 @@ namespace WindowsFormsApplication
                 string Jira;
                 if (textBox_Hardware_jira.Enabled == true)
                     Jira = textBox_Hardware_jira.Text;
-                else { Jira = comboBox_Hardware_jira.SelectedValue.ToString(); }
+                else { Jira = comboBox_Hardware_jira.SelectedValue.ToString();  }
 
-                if (checkBox_SetHardware.Checked == true)
+                if (checkBox_SetHardware.Checked == true & label_ID.Visible == false)
                 {
                     messega = @"Инвентарный номер:\t" + textBox_NumberInv.Text +
                                "\nНазвание в сети:\t\t" + comboBox_Hardware_LanName.SelectedValue.ToString() +
                                "\nТип устройства:\t\t" + typedevise +
                                "\nСерийный номер:\t\t" + textBox_Hardware_SN.Text +
                                "\nМодель:\t\t\t" + textBox_Hardware_Model.Text +
-                               "\nЗадача в JIRA:\t\t\t" + Jira;
+                               "\nЗадача в JIRA:\t\t" + Jira;
 
-                    dialogResult = MessageBox.Show(messega, "Подтверждение отправки", MessageBoxButtons.OKCancel);                   
+                    dialogResult = MessageBox.Show(messega, "Подтверждение отправки", MessageBoxButtons.OKCancel);
 
                     if (dialogResult == DialogResult.OK)
                     {
                         //  
                         dalSet.SetNewPosition(bll.Get_ID("[TypeHardWare]", "[TypeHardWare]", typedevise).ToString(),
                             textBox_Hardware_Model.Text,
-                            textBox_Hardware_SN.Text, 
+                            textBox_Hardware_SN.Text,
                             comboBox_Hardware_LanName.SelectedValue.ToString(),
                             textBox_NumberInv.Text,
                             bll.Get_ID("JiraTask", "JiraTask", Jira).ToString());
@@ -325,15 +336,51 @@ namespace WindowsFormsApplication
                     else if (dialogResult == DialogResult.No)
                     { }
                 }
+
+                else if (label_ID.Visible == true)
+                {
+                    messega = @"Инвентарный номер:\t\t" + textBox_NumberInv.Text +
+                              "\nНазвание в сети:\t\t" + label_NAME.Text +
+                              "\nID в базе:\t\t" + label_ID.Text +
+                              "\nТип устройства:\t\t" + typedevise +
+                              "\nСерийный номер:\t\t" + textBox_Hardware_SN.Text +
+                              "\nМодель:\t\t\t" + textBox_Hardware_Model.Text +
+                              "\nЗадача в JIRA:\t\t" + Jira;
+
+                    dialogResult = MessageBox.Show(messega, "Подтверждение отправки", MessageBoxButtons.OKCancel);
+
+                    if (dialogResult == DialogResult.OK)
+                    {
+                        //  
+                        dalSet.SetNewPosition(bll.Get_ID("[TypeHardWare]", "[TypeHardWare]", typedevise).ToString(),
+                            textBox_Hardware_Model.Text,
+                            textBox_Hardware_SN.Text,                            
+                            textBox_NumberInv.Text,
+                            bll.Get_ID("JiraTask", "JiraTask", Jira).ToString(), Convert.ToInt32(label_ID.Text));
+
+                        bll.new_Hardware_Into_PC(textBox_NumberInv.Text, typedevise, textBox_Hardware_SN.Text,
+                        textBox_Hardware_Model.Text, Jira, comboBox_Hardware_LanName.SelectedValue.ToString());
+
+                        dalSet.AddFDB(Environment.UserName, 5, "Добавлено на PC: " + comboBox_Hardware_LanName.SelectedValue.ToString(), textBox_NumberInv.Text,
+                           typedevise, textBox_Hardware_SN.Text, textBox_Hardware_Model.Text, dal_get.get_max_ID("[dbo].[HardWare]"));
+
+                        update();
+                    }
+                    else if (dialogResult == DialogResult.No)
+                    { }
+
+
+                }
+
                 else
                 {
                     messega = @"Инвентарный номер:\t" + textBox_NumberInv.Text +
                                 "\nТип устройства:\t\t" + typedevise +
                                 "\nСерийный номер:\t\t" + textBox_Hardware_SN.Text +
                                 "\nМодель:\t\t" + textBox_Hardware_Model.Text +
-                                "\nЗадача в JIRA:\t\t\t" + Jira +
+                                "\nЗадача в JIRA:\t\t" + Jira +
                                 "\nКоличество :\t\t" + textBox_Hardware_Sum.Text;
-                                
+
 
                     dialogResult = MessageBox.Show(messega, "Подтверждение отправки", MessageBoxButtons.OKCancel);
 
@@ -351,7 +398,7 @@ namespace WindowsFormsApplication
                         bll.new_Hardware_Into_StockRoom(textBox_NumberInv.Text, typedevise, textBox_Hardware_SN.Text,
                         textBox_Hardware_Model.Text, Jira, textBox_Hardware_Sum.Text);
 
-                        dalSet.AddFDB(Environment.UserName, 5, "Добавлено на склад, " + textBox_Hardware_Sum.Text +" шт.", textBox_NumberInv.Text,
+                        dalSet.AddFDB(Environment.UserName, 5, "Добавлено на склад, " + textBox_Hardware_Sum.Text + " шт.", textBox_NumberInv.Text,
                            typedevise, textBox_Hardware_SN.Text, textBox_Hardware_Model.Text, dal_get.get_max_ID("[dbo].[HardwareStockRoom]"));
 
                         update();
@@ -421,16 +468,13 @@ namespace WindowsFormsApplication
             {
                 groupBox_Hardware_LanName.Enabled = true;                
                 groupBox_Hardware_Sum.Enabled = false;
-                checkBox_Stockroom.Checked = false;
-                groupBox_Hardware_jira.Enabled = false;
-
+                checkBox_Stockroom.Checked = false;             
             }
             else
             {
                 groupBox_Hardware_LanName.Enabled = false;                
                 groupBox_Hardware_Sum.Enabled = true;
-                checkBox_Stockroom.Checked = true;
-                groupBox_Hardware_jira.Enabled =true;
+                checkBox_Stockroom.Checked = true; 
             }
 
         }
