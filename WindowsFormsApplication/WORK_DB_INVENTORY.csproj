@@ -127,11 +127,11 @@
   <ItemGroup>
     <Compile Include="BLL_Buttoms.cs" />
     <Compile Include="BLL_Search.cs" />
-    <Compile Include="change.cs">
+    <Compile Include="changeFormOne.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="change.Designer.cs">
-      <DependentUpon>change.cs</DependentUpon>
+    <Compile Include="changeFormOne.Designer.cs">
+      <DependentUpon>changeFormOne.cs</DependentUpon>
     </Compile>
     <Compile Include="DAL_SEARCH.cs" />
     <Compile Include="DAL_SET_Buttons.cs" />
@@ -215,8 +215,8 @@
     <Compile Include="WriteOffTable.Designer.cs">
       <DependentUpon>WriteOffTable.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="change.resx">
-      <DependentUpon>change.cs</DependentUpon>
+    <EmbeddedResource Include="changeFormOne.resx">
+      <DependentUpon>changeFormOne.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Delete.resx">
       <DependentUpon>Delete.cs</DependentUpon>

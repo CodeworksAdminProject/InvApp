@@ -108,27 +108,27 @@
             this.panel_settengs_mail = new System.Windows.Forms.Panel();
             this.label_Mail = new System.Windows.Forms.Label();
             this.textBox_Mail = new System.Windows.Forms.TextBox();
+            this.panel_navigation = new System.Windows.Forms.Panel();
+            this.comboBox_navigation = new System.Windows.Forms.ComboBox();
+            this.label_navigation = new System.Windows.Forms.Label();
             this.panel_print = new System.Windows.Forms.Panel();
+            this.comboBox_print_name_or_model = new System.Windows.Forms.ComboBox();
+            this.label_print_name_or_model = new System.Windows.Forms.Label();
             this.textBox_LogatipPath = new System.Windows.Forms.TextBox();
             this.button_NewImaje = new System.Windows.Forms.Button();
             this.comboBox__print_BarKod = new System.Windows.Forms.ComboBox();
             this.pictureBox_Image = new System.Windows.Forms.PictureBox();
             this.label_Logotip = new System.Windows.Forms.Label();
             this.label_print_BarKod = new System.Windows.Forms.Label();
-            this.panel_navigation = new System.Windows.Forms.Panel();
-            this.comboBox_navigation = new System.Windows.Forms.ComboBox();
-            this.label_navigation = new System.Windows.Forms.Label();
-            this.comboBox_print_name_or_model = new System.Windows.Forms.ComboBox();
-            this.label_print_name_or_model = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel_View.SuspendLayout();
             this.panel_data_base.SuspendLayout();
             this.panel_settengs_mail.SuspendLayout();
+            this.panel_navigation.SuspendLayout();
             this.panel_print.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Image)).BeginInit();
-            this.panel_navigation.SuspendLayout();
             this.SuspendLayout();
             // 
             // button_Save
@@ -299,11 +299,11 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.panel_print);
             this.panel2.Controls.Add(this.panel_View);
             this.panel2.Controls.Add(this.panel_data_base);
             this.panel2.Controls.Add(this.panel_settengs_mail);
             this.panel2.Controls.Add(this.panel_navigation);
+            this.panel2.Controls.Add(this.panel_print);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(227, 0);
             this.panel2.Name = "panel2";
@@ -1054,6 +1054,42 @@
             this.textBox_Mail.Size = new System.Drawing.Size(209, 23);
             this.textBox_Mail.TabIndex = 67;
             // 
+            // panel_navigation
+            // 
+            this.panel_navigation.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.panel_navigation.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel_navigation.Controls.Add(this.comboBox_navigation);
+            this.panel_navigation.Controls.Add(this.label_navigation);
+            this.panel_navigation.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_navigation.Location = new System.Drawing.Point(0, 0);
+            this.panel_navigation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel_navigation.Name = "panel_navigation";
+            this.panel_navigation.Size = new System.Drawing.Size(450, 534);
+            this.panel_navigation.TabIndex = 55;
+            this.panel_navigation.Visible = false;
+            // 
+            // comboBox_navigation
+            // 
+            this.comboBox_navigation.FormattingEnabled = true;
+            this.comboBox_navigation.Items.AddRange(new object[] {
+            "По именам ПК",
+            "По ответственным ",
+            "По типу  устройства "});
+            this.comboBox_navigation.Location = new System.Drawing.Point(116, 11);
+            this.comboBox_navigation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBox_navigation.Name = "comboBox_navigation";
+            this.comboBox_navigation.Size = new System.Drawing.Size(241, 24);
+            this.comboBox_navigation.TabIndex = 71;
+            // 
+            // label_navigation
+            // 
+            this.label_navigation.AutoSize = true;
+            this.label_navigation.Location = new System.Drawing.Point(13, 19);
+            this.label_navigation.Name = "label_navigation";
+            this.label_navigation.Size = new System.Drawing.Size(81, 17);
+            this.label_navigation.TabIndex = 70;
+            this.label_navigation.Text = "Навигатор:";
+            // 
             // panel_print
             // 
             this.panel_print.BackColor = System.Drawing.SystemColors.ButtonFace;
@@ -1073,6 +1109,27 @@
             this.panel_print.Size = new System.Drawing.Size(450, 534);
             this.panel_print.TabIndex = 56;
             this.panel_print.Visible = false;
+            // 
+            // comboBox_print_name_or_model
+            // 
+            this.comboBox_print_name_or_model.FormattingEnabled = true;
+            this.comboBox_print_name_or_model.Items.AddRange(new object[] {
+            "Имя  ПК ",
+            "Модель"});
+            this.comboBox_print_name_or_model.Location = new System.Drawing.Point(229, 272);
+            this.comboBox_print_name_or_model.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBox_print_name_or_model.Name = "comboBox_print_name_or_model";
+            this.comboBox_print_name_or_model.Size = new System.Drawing.Size(212, 24);
+            this.comboBox_print_name_or_model.TabIndex = 81;
+            // 
+            // label_print_name_or_model
+            // 
+            this.label_print_name_or_model.AutoSize = true;
+            this.label_print_name_or_model.Location = new System.Drawing.Point(9, 256);
+            this.label_print_name_or_model.Name = "label_print_name_or_model";
+            this.label_print_name_or_model.Size = new System.Drawing.Size(305, 34);
+            this.label_print_name_or_model.TabIndex = 80;
+            this.label_print_name_or_model.Text = "Печать имени ПК  или модели на наклейках \r\nдля периферийных устройств  :";
             // 
             // textBox_LogatipPath
             // 
@@ -1133,63 +1190,6 @@
             this.label_print_BarKod.TabIndex = 78;
             this.label_print_BarKod.Text = "Печать баркода: ";
             // 
-            // panel_navigation
-            // 
-            this.panel_navigation.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.panel_navigation.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel_navigation.Controls.Add(this.comboBox_navigation);
-            this.panel_navigation.Controls.Add(this.label_navigation);
-            this.panel_navigation.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_navigation.Location = new System.Drawing.Point(0, 0);
-            this.panel_navigation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel_navigation.Name = "panel_navigation";
-            this.panel_navigation.Size = new System.Drawing.Size(450, 534);
-            this.panel_navigation.TabIndex = 55;
-            this.panel_navigation.Visible = false;
-            // 
-            // comboBox_navigation
-            // 
-            this.comboBox_navigation.FormattingEnabled = true;
-            this.comboBox_navigation.Items.AddRange(new object[] {
-            "По именам ПК",
-            "По ответственным ",
-            "По типу  устройства "});
-            this.comboBox_navigation.Location = new System.Drawing.Point(116, 11);
-            this.comboBox_navigation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox_navigation.Name = "comboBox_navigation";
-            this.comboBox_navigation.Size = new System.Drawing.Size(241, 24);
-            this.comboBox_navigation.TabIndex = 71;
-            // 
-            // label_navigation
-            // 
-            this.label_navigation.AutoSize = true;
-            this.label_navigation.Location = new System.Drawing.Point(13, 19);
-            this.label_navigation.Name = "label_navigation";
-            this.label_navigation.Size = new System.Drawing.Size(81, 17);
-            this.label_navigation.TabIndex = 70;
-            this.label_navigation.Text = "Навигатор:";
-            // 
-            // comboBox_print_name_or_model
-            // 
-            this.comboBox_print_name_or_model.FormattingEnabled = true;
-            this.comboBox_print_name_or_model.Items.AddRange(new object[] {
-            "Имя  ПК ",
-            "Модель"});
-            this.comboBox_print_name_or_model.Location = new System.Drawing.Point(229, 272);
-            this.comboBox_print_name_or_model.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox_print_name_or_model.Name = "comboBox_print_name_or_model";
-            this.comboBox_print_name_or_model.Size = new System.Drawing.Size(212, 24);
-            this.comboBox_print_name_or_model.TabIndex = 81;
-            // 
-            // label_print_name_or_model
-            // 
-            this.label_print_name_or_model.AutoSize = true;
-            this.label_print_name_or_model.Location = new System.Drawing.Point(9, 256);
-            this.label_print_name_or_model.Name = "label_print_name_or_model";
-            this.label_print_name_or_model.Size = new System.Drawing.Size(305, 34);
-            this.label_print_name_or_model.TabIndex = 80;
-            this.label_print_name_or_model.Text = "Печать имени ПК  или модели на наклейках \r\nдля периферийных устройств  :";
-            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1212,11 +1212,11 @@
             this.panel_data_base.PerformLayout();
             this.panel_settengs_mail.ResumeLayout(false);
             this.panel_settengs_mail.PerformLayout();
+            this.panel_navigation.ResumeLayout(false);
+            this.panel_navigation.PerformLayout();
             this.panel_print.ResumeLayout(false);
             this.panel_print.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Image)).EndInit();
-            this.panel_navigation.ResumeLayout(false);
-            this.panel_navigation.PerformLayout();
             this.ResumeLayout(false);
 
         }

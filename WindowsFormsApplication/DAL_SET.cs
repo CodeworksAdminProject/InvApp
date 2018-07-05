@@ -92,6 +92,38 @@ namespace WindowsFormsApplication
 
         }
 
+
+        internal void change(string label_ID, string type_AC, string inv, string type_Device, string SN, string Model, string type_Jira)
+        {
+            ArrayList DataGrid = new ArrayList();
+            using (SqlConnection connect = new SqlConnection(sConectDB))
+            {
+                SqlCommand command = new SqlCommand("Update [dbo].[MainTB] SET " +
+                    " [TypeAC_ID] = " + type_AC +
+                    " , [NumberINV] = '" +inv+ "' "+
+                    " , [TypeDevice_ID] = " + type_Device +
+                    " , [SN] = '" + SN +"' "+
+                    " , [Model] = '" +Model+"' "+
+                    " , [JiraTask_ID] = " + type_Jira +
+                    " Where[MainTB].[ID] = " + label_ID + " ;", connect);
+                try
+                {
+
+                    connect.Open();
+
+                    command.ExecuteNonQuery();
+                }
+
+                catch (SqlException exception)
+                {
+                    MessageBox.Show(exception.ToString());
+                }
+
+                connect.Close();
+            }
+
+        }
+
         public void SetNewPosition(string TypeDevice, string Model, string SN, string InvNumber, string jira, int MainTB_ID)
         {
             ArrayList DataGrid = new ArrayList();

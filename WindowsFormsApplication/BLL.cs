@@ -23,6 +23,7 @@ namespace WindowsFormsApplication
 
         public static ArrayList Data = new ArrayList();        
         public static ArrayList DataOld = new ArrayList();
+        public static ArrayList ArrayChancge= new ArrayList();
         public static ArrayList MailBody = new ArrayList();
         public static string sMailBody;
         public static string heds;
@@ -33,6 +34,7 @@ namespace WindowsFormsApplication
         public static string sHtmlTableDeleteReport = null;
         public static string sHtmlTableHardware_PS = null;
         public static string sHtmlTableHardware_Stockroom = null;
+        public static string sHtmlTable_Change_data = null;
 
         public static string ReasonWriteOff = null;
         public static bool flag = false;
@@ -65,6 +67,12 @@ namespace WindowsFormsApplication
         {
             string[] str = new string[] { ID, NameLan, NameRes, Floor, Room };
             DataOld.Add(str);
+        }
+         
+        public void Add_Data_ArrayChancge(string ID, string date, string typeAC, string Invnum, string typeDev, string SN, string Model, string jira, string NameLan, string NameRes, string Floor, string Room)
+        {
+            string[] str = new string[] { ID, date, typeAC, Invnum, typeDev, SN, Model, jira, NameLan, NameRes, Floor, Room };
+            ArrayChancge.Add(str);
         }
 
         public void Compere(string ID, string INV, string NameLan, string NameRes, string Floor, string Room, string NameDevice,string Model, string SN)
@@ -149,6 +157,129 @@ namespace WindowsFormsApplication
                 
             }
             
+        }
+
+        internal void change(string ID, string type_AC, string inv, string type_Device, string SN, string Model, string type_Jira)
+        {
+            string old = @"<span class='old'>";
+            string New = @"<span  class='new'>";
+
+
+            if (BLL.heds == null)
+                BLL.heds = " <h1><p> В  пользователем:  <font  color = 'red' >" + System.Environment.UserName + "</font> были внесены  следующие  изменения: </p></h1>";
+
+            foreach (string[] str in ArrayChancge)
+            {
+                if (str[0] == ID)
+                {
+                    if ((str[2] != type_AC) || (str[3] != inv) || (str[4] != type_Device) || (str[5] != SN) || (str[6] != Model) || (str[7] != type_Jira))
+                    {
+                        if (BLL.sHtmlTable_Change_data == null)
+                        {
+                            BLL.sHtmlTable_Change_data = "<h2>Исправление уникальных значений :</h2>";
+                            BLL.sHtmlTable_Change_data = BLL.sHtmlTable_Change_data + "<table>" +
+                                                "<tr>" +
+                                                "<th>ID в базе</th>" +
+                                                "<th>Тип учёта</th>" +
+                                                "<th>Инвентарный номер</th>" +
+                                                "<th>Название в сети</th>" +
+                                                "<th>Ответственный</th>" +
+                                                "<th>Этаж</th>" +
+                                                "<th>Помещение</th>" +
+                                                "<th>Тип устройства</th>" +
+                                                "<th>Модель</th>" +
+                                                "<th>Серийный номер</th>" +
+                                                "<th>JIRA</th>" +
+                                                "</tr>";
+
+
+                        }
+
+                        BLL.sHtmlTable_Change_data = BLL.sHtmlTable_Change_data + "<tr><td><nobr>" + str[0] + "</nobr></td>";
+
+                        if (str[2] != type_AC)
+                        {
+                            BLL.sHtmlTable_Change_data = BLL.sHtmlTable_Change_data + "<td><nobr>" + old + str[2] + @"</span></nobr></br><nobr>" +
+                                 New + type_AC + "</span></nobr></td>";
+                        }
+                        else { BLL.sHtmlTable_Change_data = BLL.sHtmlTable_Change_data + "<td><nobr>" + str[2] + @"</nobr></br></td>"; }
+
+                        BLL.sHtmlTable_Change_data = BLL.sHtmlTable_Change_data + "<td><nobr>" + str[8] + @"</nobr></br></td>";
+
+                        if (str[3] != inv)
+                        {
+                            BLL.sHtmlTable_Change_data = BLL.sHtmlTable_Change_data + "<td><nobr>" + old + str[3] + @"</span></nobr></br><nobr>" +
+                                New + inv + "</span></nobr></td>";
+                        }
+                        else
+                        {
+                            BLL.sHtmlTable_Change_data = BLL.sHtmlTable_Change_data + "<td><nobr>" + str[3] + @"</nobr></br></td>";
+                        }
+
+                        BLL.sHtmlTable_Change_data = BLL.sHtmlTable_Change_data + "<td><nobr>" + str[8] + @"</nobr></br></td>";
+                        BLL.sHtmlTable_Change_data = BLL.sHtmlTable_Change_data + "<td><nobr>" + str[9] + @"</nobr></br></td>";
+                        BLL.sHtmlTable_Change_data = BLL.sHtmlTable_Change_data + "<td><nobr>" + str[10] + @"</nobr></br></td>";
+                        BLL.sHtmlTable_Change_data = BLL.sHtmlTable_Change_data + "<td><nobr>" + str[11] + @"</nobr></br></td>";
+
+                        if (str[4] != type_Device)
+                        {
+                            BLL.sHtmlTable_Change_data = BLL.sHtmlTable_Change_data + "<td><nobr>" + old + str[4] + @"</span></nobr></br><nobr>" +
+                                 New + type_Device + "</span></nobr></td>";
+                        }
+                        else
+                        {
+                            BLL.sHtmlTable_Change_data = BLL.sHtmlTable_Change_data + "<td><nobr>" + str[4] + @"</nobr></br></td>";
+                        }
+
+                        if (str[6] != Model)
+                        {
+                            BLL.sHtmlTable_Change_data = BLL.sHtmlTable_Change_data + "<td><nobr>" + old + str[6] + @"</span></nobr></br><nobr>" +
+                                 New + Model + "</span></nobr></td>";
+                        }
+                        else
+                        {
+                            BLL.sHtmlTable_Change_data = BLL.sHtmlTable_Change_data + "<td><nobr>" + str[6] + @"</nobr></br></td>";
+                        }
+
+                        if (str[6] != SN)
+                        {
+                            BLL.sHtmlTable_Change_data = BLL.sHtmlTable_Change_data + "<td><nobr>" + old + str[5] + @"</span></nobr></br><nobr>" +
+                                 New + SN + "</span></nobr></td>";
+                        }
+                        else
+                        {
+                            BLL.sHtmlTable_Change_data = BLL.sHtmlTable_Change_data + "<td><nobr>" + str[5] + @"</nobr></br></td>";
+                        }
+
+                        if (str[6] != type_Jira)
+                        {
+                            if (str[6] != "")
+                            {
+
+                                BLL.sHtmlTable_Change_data = BLL.sHtmlTable_Change_data + "<td><nobr>" + old + str[7] + @"</span></nobr></br><nobr>" +
+                                     New + type_Jira + "</span></nobr></br><nobr><a href='http://jira.mara.local/browse/" + str[7] + "'>" + str[7] +
+                                     "</a></nobr></br></td></tr>";
+                            }
+
+                            else
+                                BLL.sHtmlTable_Change_data = BLL.sHtmlTable_Change_data + "<td></td></tr>"; 
+                        }
+                        else
+                        {
+                            if (str[6] != "")
+                            {
+                                BLL.sHtmlTable_Change_data = BLL.sHtmlTable_Change_data + "<td><nobr><a href='http://jira.mara.local/browse/" + str[7] +
+                                    "</a></nobr></br></td></tr>";
+                            }
+                            else
+                                BLL.sHtmlTable_Change_data = BLL.sHtmlTable_Change_data + "<td></td></tr>";
+                        }
+
+                        dalSet.AddFDB(Environment.UserName, 6, "",inv , type_Device, SN, Model, ID);
+                    }
+                }
+
+            }
         }
 
         public void Delete(string invNumber, string nameDevice, string SN, string model, string reason)
