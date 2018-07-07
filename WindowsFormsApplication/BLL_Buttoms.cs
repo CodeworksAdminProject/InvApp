@@ -132,5 +132,24 @@ namespace WindowsFormsApplication
             TSCLIB_DLL.sendcommand("CUT");
             TSCLIB_DLL.closeport();
         }
+
+        internal void Change_unique_data()
+        {
+            if (BLL.ArrayChancge.Count == 1)
+            {
+                changeFormOne change = new changeFormOne();
+                change.ShowDialog();
+            }
+            else if (BLL.ArrayChancge.Count > 1)
+            {
+                changeFormTwo change = new changeFormTwo();
+                change.ShowDialog();
+            }
+            else
+            {
+
+            }
+
+        }
     }
 }

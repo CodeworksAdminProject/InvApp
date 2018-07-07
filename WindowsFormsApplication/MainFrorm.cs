@@ -121,7 +121,7 @@ namespace WindowsFormsApplication
         private void PRINT_LABELS_Click(object sender, EventArgs e)
         {
             
-                TSCLIB_DLL.openport("USB");
+                
                 foreach (DataGridViewRow row in dataGridViewMT.Rows)
                 {
                     if (row.Selected == true)
@@ -131,7 +131,7 @@ namespace WindowsFormsApplication
                             row.Cells["SN"].Value.ToString(), row.Cells["Model"].Value.ToString());
                     }
                 }
-                TSCLIB_DLL.closeport();
+                
             
         }
 

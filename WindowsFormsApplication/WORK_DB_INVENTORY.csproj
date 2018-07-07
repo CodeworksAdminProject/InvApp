@@ -133,6 +133,12 @@
     <Compile Include="changeFormOne.Designer.cs">
       <DependentUpon>changeFormOne.cs</DependentUpon>
     </Compile>
+    <Compile Include="changeFormTwo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="changeFormTwo.Designer.cs">
+      <DependentUpon>changeFormTwo.cs</DependentUpon>
+    </Compile>
     <Compile Include="DAL_SEARCH.cs" />
     <Compile Include="DAL_SET_Buttons.cs" />
     <Compile Include="Delete.cs">
@@ -217,6 +223,9 @@
     </Compile>
     <EmbeddedResource Include="changeFormOne.resx">
       <DependentUpon>changeFormOne.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="changeFormTwo.resx">
+      <DependentUpon>changeFormTwo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Delete.resx">
       <DependentUpon>Delete.cs</DependentUpon>

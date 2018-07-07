@@ -202,9 +202,7 @@ namespace WindowsFormsApplication
                             BLL.sHtmlTable_Change_data = BLL.sHtmlTable_Change_data + "<td><nobr>" + old + str[2] + @"</span></nobr></br><nobr>" +
                                  New + type_AC + "</span></nobr></td>";
                         }
-                        else { BLL.sHtmlTable_Change_data = BLL.sHtmlTable_Change_data + "<td><nobr>" + str[2] + @"</nobr></br></td>"; }
-
-                        BLL.sHtmlTable_Change_data = BLL.sHtmlTable_Change_data + "<td><nobr>" + str[8] + @"</nobr></br></td>";
+                        else { BLL.sHtmlTable_Change_data = BLL.sHtmlTable_Change_data + "<td><nobr>" + str[2] + @"</nobr></br></td>"; }                                             
 
                         if (str[3] != inv)
                         {
@@ -215,7 +213,7 @@ namespace WindowsFormsApplication
                         {
                             BLL.sHtmlTable_Change_data = BLL.sHtmlTable_Change_data + "<td><nobr>" + str[3] + @"</nobr></br></td>";
                         }
-
+                        
                         BLL.sHtmlTable_Change_data = BLL.sHtmlTable_Change_data + "<td><nobr>" + str[8] + @"</nobr></br></td>";
                         BLL.sHtmlTable_Change_data = BLL.sHtmlTable_Change_data + "<td><nobr>" + str[9] + @"</nobr></br></td>";
                         BLL.sHtmlTable_Change_data = BLL.sHtmlTable_Change_data + "<td><nobr>" + str[10] + @"</nobr></br></td>";
@@ -241,7 +239,7 @@ namespace WindowsFormsApplication
                             BLL.sHtmlTable_Change_data = BLL.sHtmlTable_Change_data + "<td><nobr>" + str[6] + @"</nobr></br></td>";
                         }
 
-                        if (str[6] != SN)
+                        if (str[5] != SN)
                         {
                             BLL.sHtmlTable_Change_data = BLL.sHtmlTable_Change_data + "<td><nobr>" + old + str[5] + @"</span></nobr></br><nobr>" +
                                  New + SN + "</span></nobr></td>";
@@ -251,25 +249,26 @@ namespace WindowsFormsApplication
                             BLL.sHtmlTable_Change_data = BLL.sHtmlTable_Change_data + "<td><nobr>" + str[5] + @"</nobr></br></td>";
                         }
 
-                        if (str[6] != type_Jira)
+                        if (str[7] != type_Jira)
                         {
-                            if (str[6] != "")
+                            if (type_Jira != ""  || str[7] != "")
                             {
 
-                                BLL.sHtmlTable_Change_data = BLL.sHtmlTable_Change_data + "<td><nobr>" + old + str[7] + @"</span></nobr></br><nobr>" +
-                                     New + type_Jira + "</span></nobr></br><nobr><a href='http://jira.mara.local/browse/" + str[7] + "'>" + str[7] +
-                                     "</a></nobr></br></td></tr>";
+                                BLL.sHtmlTable_Change_data = BLL.sHtmlTable_Change_data + "<td><nobr>" + old + "<a href='http://jira.mara.local/browse/" + str[7] +
+                                   "'>" + str[7] + "</ a ></span></nobr></br><nobr>" + New + "<a href='http://jira.mara.local/browse/" +
+                                      type_Jira + "'>" + type_Jira + "</ a ></span></nobr></td>";
                             }
 
-                            else
-                                BLL.sHtmlTable_Change_data = BLL.sHtmlTable_Change_data + "<td></td></tr>"; 
+                            else                         
+                               BLL.sHtmlTable_Change_data = BLL.sHtmlTable_Change_data + "<td></td></tr>";
+                            
                         }
                         else
                         {
-                            if (str[6] != "")
+                            if (type_Jira != "" || str[7] != "")
                             {
-                                BLL.sHtmlTable_Change_data = BLL.sHtmlTable_Change_data + "<td><nobr><a href='http://jira.mara.local/browse/" + str[7] +
-                                    "</a></nobr></br></td></tr>";
+                                BLL.sHtmlTable_Change_data = BLL.sHtmlTable_Change_data + "<td><nobr><a href='http://jira.mara.local/browse/" + str[7] +"'>"
+                                   +str[7] + "</a></nobr></br></td></tr>";
                             }
                             else
                                 BLL.sHtmlTable_Change_data = BLL.sHtmlTable_Change_data + "<td></td></tr>";

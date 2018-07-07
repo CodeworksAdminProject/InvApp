@@ -20,7 +20,9 @@ namespace WindowsFormsApplication
 
         String sConectDB = @"server=tcp:" + Properties.Settings.Default.SqlServer + "," +
             Properties.Settings.Default.SqlPort + "; Database="+Properties.Settings.Default.SqlDataBase+"; Integrated Security=true;";
-       
+
+  
+
         //======================================Array List ======================================================== 
 
         // get JBD
@@ -517,11 +519,64 @@ namespace WindowsFormsApplication
             return DataGrid;
         }
 
-      
+
 
 
         //======================================Data table ======================================================== 
 
+        internal DataTable Table_Change_data(string IDs)
+        {
+           DataTable Data = new DataTable();
+            using (SqlConnection connect = new SqlConnection(sConectDB))
+            {
+                SqlCommand command = new SqlCommand(@"select
+                maintb.ID, 
+                maintb.dateCreated, 
+                maintb.NumberINV, 
+                TypeAC.TypeAC,
+                NameLAN.NameLAN, 
+                NameRes.NameRes, 
+                [Floor].floorNambe, 
+                Room.NameRoom,
+                TypeDevice.NameDevice, 
+                maintb.SN,
+                MainTB.Model,
+                JiraTask, 
+                WrittenOff,
+                ReasonWriteOff
+                from MainTB
+                join TypeAC on maintb.TypeAC_ID = TypeAC.ID 
+                join [Floor] on maintb.Floor_ID = [Floor].ID 
+                join room on maintb.Room_ID =  Room.ID 
+                join TypeDevice on maintb.TypeDevice_ID = TypeDevice.ID 
+                join NameLAN on maintb.NameLAN_ID = NameLAN.ID 
+                join NameRes on maintb.NameRes_ID =  NameRes.ID 
+                Join JiraTask on maintb.JiraTask_ID = JiraTask.ID                 
+                where maintb.ID  IN (" + IDs +
+                @") AND [WrittenOff] = 'False'; ", connect);
+
+                try
+                {
+
+                    connect.Open();
+
+                    SqlDataAdapter da = new SqlDataAdapter(command);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    Data = ds.Tables[0];
+                        
+                }
+
+                catch (SqlException exception)
+                {
+                    MessageBox.Show(exception.ToString());
+                }
+
+                connect.Close();
+            }
+            return Data;
+        }
+        
         // from BBL report 
         internal DataTable getWrateOffTable(string ID)
         {

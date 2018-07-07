@@ -51,13 +51,17 @@ namespace WindowsFormsApplication
             if (BLL.sHtmlTableHardware_Stockroom != null)
                 tabl6 = "</table>";
 
+            string tabl7 = null;
+            if (BLL.sHtmlTable_Change_data != null)
+                tabl7 = "</table>";
+
             if ((BLL.sMailBody != null) || (BLL.sMailBodyNew != null) || (BLL.sMailBodyDelete != null) || 
                 (BLL.sHtmlTableAddWriteOffForReport != null) || (BLL.sHtmlTableTakeAwayWriteOffForReport != null) || (BLL.sMailBodyDelete != null) ||
-                (BLL.sHtmlTableHardware_PS != null) || (BLL.sHtmlTableHardware_Stockroom != null))
+                (BLL.sHtmlTableHardware_PS != null) || (BLL.sHtmlTableHardware_Stockroom != null) || (BLL.sHtmlTable_Change_data != null))
 
                 sentmail.SentMail(BLL.heds + BLL.sMailBody +tabl + BLL.sMailBodyNew + tabl1+ BLL.sHtmlTableAddWriteOffForReport + 
                     tabl2 + BLL.sHtmlTableTakeAwayWriteOffForReport + tabl3 + BLL.sHtmlTableDeleteReport + tabl4 +
-                    BLL.sHtmlTableHardware_Stockroom + tabl6 + BLL.sHtmlTableHardware_PS+tabl5, Properties.Settings.Default.Email);
+                    BLL.sHtmlTableHardware_Stockroom + tabl6 + BLL.sHtmlTableHardware_PS+tabl5 + BLL.sHtmlTable_Change_data + tabl7, Properties.Settings.Default.Email);
 
             System.IO.File.WriteAllText(@"D:\error\sMailBody.txt", BLL.sMailBody + tabl);
           //  System.IO.File.WriteAllText(@"D:\error\heds.txt", BLL.heds);

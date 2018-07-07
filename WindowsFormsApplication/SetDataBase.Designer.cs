@@ -57,12 +57,12 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button_change = new System.Windows.Forms.Button();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.button_change = new System.Windows.Forms.Button();
             this.button_writtenoff = new System.Windows.Forms.Button();
             this.button_repairs = new System.Windows.Forms.Button();
             this.button_delete = new System.Windows.Forms.Button();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.button_print_all = new System.Windows.Forms.Button();
             this.button_print_select_str = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -427,6 +427,28 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(424, 57);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Controls.Add(this.button_writtenoff);
+            this.flowLayoutPanel2.Controls.Add(this.button_repairs);
+            this.flowLayoutPanel2.Controls.Add(this.button_delete);
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(433, 3);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(424, 57);
+            this.flowLayoutPanel2.TabIndex = 0;
+            // 
+            // flowLayoutPanel3
+            // 
+            this.flowLayoutPanel3.Controls.Add(this.button_print_all);
+            this.flowLayoutPanel3.Controls.Add(this.button_print_select_str);
+            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(863, 3);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(318, 57);
+            this.flowLayoutPanel3.TabIndex = 0;
+            // 
             // button_change
             // 
             this.button_change.BackgroundImage = global::WindowsFormsApplication.Properties.Resources.Card_Exchange_48px1;
@@ -439,17 +461,6 @@
             this.button_change.Text = "            корректировка";
             this.button_change.UseVisualStyleBackColor = true;
             this.button_change.Click += new System.EventHandler(this.button_change_Click);
-            // 
-            // flowLayoutPanel2
-            // 
-            this.flowLayoutPanel2.Controls.Add(this.button_writtenoff);
-            this.flowLayoutPanel2.Controls.Add(this.button_repairs);
-            this.flowLayoutPanel2.Controls.Add(this.button_delete);
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(433, 3);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(424, 57);
-            this.flowLayoutPanel2.TabIndex = 0;
             // 
             // button_writtenoff
             // 
@@ -480,17 +491,6 @@
             this.button_delete.Size = new System.Drawing.Size(52, 52);
             this.button_delete.TabIndex = 0;
             this.button_delete.UseVisualStyleBackColor = true;
-            // 
-            // flowLayoutPanel3
-            // 
-            this.flowLayoutPanel3.Controls.Add(this.button_print_all);
-            this.flowLayoutPanel3.Controls.Add(this.button_print_select_str);
-            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(863, 3);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(318, 57);
-            this.flowLayoutPanel3.TabIndex = 0;
             // 
             // button_print_all
             // 

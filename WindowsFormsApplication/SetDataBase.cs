@@ -508,8 +508,29 @@ namespace WindowsFormsApplication
 
         private void button_change_Click(object sender, EventArgs e)
         {
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.Selected == true)
+                {
+                    bll.Add_Data_ArrayChancge(row.Cells["ID"].Value.ToString(),
+                              row.Cells["dateCreated"].Value.ToString(),
+                              row.Cells["TypeAC"].Value.ToString(),
+                              row.Cells["NumberINV"].Value.ToString(),
+                              row.Cells["NameDevice"].Value.ToString(),
+                              row.Cells["SN"].Value.ToString(),
+                              row.Cells["Model"].Value.ToString(),
+                              row.Cells["JiraTask"].Value.ToString(),
+                              row.Cells["NameLAN"].Value.ToString(),
+                              row.Cells["NameRes"].Value.ToString(),
+                              row.Cells["floorNambe"].Value.ToString(),
+                              row.Cells["NameRoom"].Value.ToString());
+                }
 
+            }
+            bllButtoms.Change_unique_data();
         }
+
+
 
         private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
@@ -552,9 +573,12 @@ namespace WindowsFormsApplication
         private void button_print_select_str_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow row in dataGridView1.Rows)
-                bllButtoms.Print_Label(row.Cells["ID"].Value.ToString(), row.Cells["NumberINV"].Value.ToString(),
+                if (row.Selected == true)
+                {
+                    bllButtoms.Print_Label(row.Cells["ID"].Value.ToString(), row.Cells["NumberINV"].Value.ToString(),
                         row.Cells["NameDevice"].Value.ToString(), row.Cells["NameLAN"].Value.ToString(),
                         row.Cells["SN"].Value.ToString(), row.Cells["Model"].Value.ToString());
+                }
         }
     }
 }

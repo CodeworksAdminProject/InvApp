@@ -22,22 +22,25 @@ namespace WindowsFormsApplication
             InitializeComponent();
 
             // заполняем форму  старые значения
-            label_ID.Text = BLL.ArrayChancge[0].ToString();
-            label_date.Text = BLL.ArrayChancge[1].ToString();
-            label_AC_old.Text = BLL.ArrayChancge[2].ToString();
-            label_inv_old.Text = BLL.ArrayChancge[3].ToString();
-            label_device_old.Text = BLL.ArrayChancge[4].ToString();
-            label_SN_old.Text = BLL.ArrayChancge[5].ToString();
-            label_model_old.Text = BLL.ArrayChancge[6].ToString();
-            label_Jira_old.Text = BLL.ArrayChancge[7].ToString();
-            textBox_inv.Text = BLL.ArrayChancge[3].ToString();
-            textBox_model.Text = BLL.ArrayChancge[6].ToString();
-            textBox_SN.Text = BLL.ArrayChancge[5].ToString();
+            foreach (string[] str in BLL.ArrayChancge)
+            {
+                label_ID.Text = str[0].ToString();
+                label_date.Text = str[1].ToString();
+                label_AC_old.Text = str[2].ToString();
+                label_inv_old.Text = str[3].ToString();
+                label_device_old.Text = str[4].ToString();
+                label_SN_old.Text = str[5].ToString();
+                label_model_old.Text = str[6].ToString();
+                label_Jira_old.Text = str[7].ToString();
+                textBox_inv.Text = str[3].ToString();
+                textBox_model.Text = str[6].ToString();
+                textBox_SN.Text = str[5].ToString();
+            }            
 
             // загружаем данные в  comboboxs 
-            comboBox_device.DataSource = dalGet.Get_Data_From_Table_From_Colunm("TypeHardWare", "TypeHardWare");
-            comboBox_device.DisplayMember = "TypeHardWare";
-            comboBox_device.ValueMember = "TypeHardWare";
+            comboBox_device.DataSource = dalGet.Get_Data_From_Table_From_Colunm("TypeDevice", "NameDevice");
+            comboBox_device.DisplayMember = "NameDevice";
+            comboBox_device.ValueMember = "NameDevice";
 
             comboBox_AC.DataSource = dalGet.Get_Data_From_Table_From_Colunm("TypeAC", "TypeAC");
             comboBox_AC.DisplayMember = "TypeAC";
@@ -69,7 +72,13 @@ namespace WindowsFormsApplication
             string Type_Jira ;
             if (textBox_jira.Enabled == true)
                 Type_Jira = textBox_jira.Text;
-            else { Type_Jira = comboBox_jira.SelectedValue.ToString(); }
+            else
+            {
+                if (comboBox_jira.SelectedValue.ToString() != null)
+                    Type_Jira = comboBox_jira.SelectedValue.ToString();
+                else
+                    Type_Jira = "";
+            }
 
             bll.change(label_ID.Text, Type_AC, textBox_inv.Text, Type_Device, textBox_SN.Text, textBox_model.Text, Type_Jira);
 
@@ -80,6 +89,9 @@ namespace WindowsFormsApplication
                 textBox_SN.Text, 
                 textBox_model.Text, 
                 bll.Get_ID("JiraTask", "JiraTask", Type_Jira).ToString());
+
+            BLL.ArrayChancge.Clear();
+            this.Close();
         }
 
         private void checkBox_AC_CheckedChanged(object sender, EventArgs e)
@@ -100,7 +112,7 @@ namespace WindowsFormsApplication
 
         private void checkBox_device_CheckedChanged(object sender, EventArgs e)
         {
-            if (this.checkBox_AC.Checked == true)
+            if (this.checkBox_device.Checked == true)
             {
                 textBox_device.Enabled = true;
                 comboBox_device.Enabled = false;
@@ -115,7 +127,7 @@ namespace WindowsFormsApplication
 
         private void checkBox_jira_CheckedChanged(object sender, EventArgs e)
         {
-            if (this.checkBox_AC.Checked == true)
+            if (this.checkBox_jira.Checked == true)
             {
                 textBox_jira.Enabled = true;
                 comboBox_jira.Enabled = false;
@@ -126,6 +138,17 @@ namespace WindowsFormsApplication
                 textBox_jira.Enabled = false;
                 comboBox_jira.Enabled = true;
             }
+        }
+
+        private void button_cancel_Click(object sender, EventArgs e)
+        {
+            BLL.ArrayChancge.Clear();
+            this.Close();
+        }
+
+        private void changeFormOne_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            BLL.ArrayChancge.Clear();
         }
     }
 }

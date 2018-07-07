@@ -454,6 +454,9 @@
             // 
             // panel_View
             // 
+            this.panel_View.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel_View.AutoScroll = true;
             this.panel_View.BackColor = System.Drawing.SystemColors.Control;
             this.panel_View.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -498,16 +501,14 @@
             this.panel_View.Controls.Add(this.comboBox_AC);
             this.panel_View.Controls.Add(this.label_inv_text1);
             this.panel_View.Controls.Add(this.label_Inv);
-            this.panel_View.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_View.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.panel_View.Location = new System.Drawing.Point(0, 0);
             this.panel_View.MinimumSize = new System.Drawing.Size(400, 71);
             this.panel_View.Name = "panel_View";
             this.panel_View.Padding = new System.Windows.Forms.Padding(5);
-            this.panel_View.Size = new System.Drawing.Size(483, 851);
+            this.panel_View.Size = new System.Drawing.Size(491, 829);
             this.panel_View.TabIndex = 55;
             this.panel_View.TabStop = true;
-            this.panel_View.Visible = false;
             // 
             // label_date
             // 
@@ -559,16 +560,16 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 851);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 835);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(3);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(483, 50);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(491, 50);
             this.flowLayoutPanel1.TabIndex = 6;
             // 
             // button_OK
             // 
             this.button_OK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_OK.Location = new System.Drawing.Point(370, 5);
+            this.button_OK.Location = new System.Drawing.Point(378, 5);
             this.button_OK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_OK.Name = "button_OK";
             this.button_OK.Size = new System.Drawing.Size(100, 35);
@@ -580,23 +581,25 @@
             // button_cancel
             // 
             this.button_cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_cancel.Location = new System.Drawing.Point(264, 5);
+            this.button_cancel.Location = new System.Drawing.Point(272, 5);
             this.button_cancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_cancel.Name = "button_cancel";
             this.button_cancel.Size = new System.Drawing.Size(100, 35);
             this.button_cancel.TabIndex = 5;
             this.button_cancel.Text = "Отмена ";
             this.button_cancel.UseVisualStyleBackColor = true;
+            this.button_cancel.Click += new System.EventHandler(this.button_cancel_Click);
             // 
             // changeFormOne
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(483, 901);
-            this.Controls.Add(this.panel_View);
+            this.ClientSize = new System.Drawing.Size(491, 885);
             this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.panel_View);
             this.Name = "changeFormOne";
             this.Text = "change";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.changeFormOne_FormClosed);
             this.panel_View.ResumeLayout(false);
             this.panel_View.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
