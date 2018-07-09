@@ -77,6 +77,8 @@
             // dataGridView
             // 
             this.dataGridView.AllowDrop = true;
+            this.dataGridView.AllowUserToAddRows = false;
+            this.dataGridView.AllowUserToDeleteRows = false;
             this.dataGridView.AllowUserToOrderColumns = true;
             this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -134,6 +136,7 @@
             this.textBox_jira.Name = "textBox_jira";
             this.textBox_jira.Size = new System.Drawing.Size(358, 23);
             this.textBox_jira.TabIndex = 5;
+            this.textBox_jira.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_jira_KeyUp);
             // 
             // comboBox_jira
             // 
@@ -145,6 +148,7 @@
             this.comboBox_jira.Name = "comboBox_jira";
             this.comboBox_jira.Size = new System.Drawing.Size(359, 24);
             this.comboBox_jira.TabIndex = 3;
+            this.comboBox_jira.SelectedIndexChanged += new System.EventHandler(this.comboBox_jira_SelectedIndexChanged);
             // 
             // checkBox_jira
             // 
@@ -156,6 +160,7 @@
             this.checkBox_jira.TabIndex = 4;
             this.checkBox_jira.Text = "Новая задача";
             this.checkBox_jira.UseVisualStyleBackColor = true;
+            this.checkBox_jira.CheckedChanged += new System.EventHandler(this.checkBox_jira_CheckedChanged);
             // 
             // groupBox_AC
             // 
@@ -184,6 +189,7 @@
             this.textBox_AC.Name = "textBox_AC";
             this.textBox_AC.Size = new System.Drawing.Size(356, 23);
             this.textBox_AC.TabIndex = 5;
+            this.textBox_AC.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_AC_KeyUp);
             // 
             // checkBox_AC
             // 
@@ -207,6 +213,7 @@
             this.comboBox_AC.Name = "comboBox_AC";
             this.comboBox_AC.Size = new System.Drawing.Size(356, 24);
             this.comboBox_AC.TabIndex = 3;
+            this.comboBox_AC.SelectedIndexChanged += new System.EventHandler(this.comboBox_AC_SelectedIndexChanged);
             // 
             // Devices
             // 
@@ -235,6 +242,7 @@
             this.textBox_Device.Name = "textBox_Device";
             this.textBox_Device.Size = new System.Drawing.Size(361, 23);
             this.textBox_Device.TabIndex = 5;
+            this.textBox_Device.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_Device_KeyUp);
             // 
             // checkBox_Device
             // 
@@ -258,6 +266,7 @@
             this.comboBox_Device.Name = "comboBox_Device";
             this.comboBox_Device.Size = new System.Drawing.Size(361, 24);
             this.comboBox_Device.TabIndex = 3;
+            this.comboBox_Device.SelectedIndexChanged += new System.EventHandler(this.comboBox_Device_SelectedIndexChanged);
             // 
             // tableLayoutPanel2
             // 
@@ -289,6 +298,7 @@
             this.button_cancel.TabIndex = 6;
             this.button_cancel.Text = "Отмена ";
             this.button_cancel.UseVisualStyleBackColor = true;
+            this.button_cancel.Click += new System.EventHandler(this.button_cancel_Click);
             // 
             // flowLayoutPanel2
             // 
@@ -351,6 +361,7 @@
             this.button_OK.TabIndex = 5;
             this.button_OK.Text = "Внести  изменения в базу (Ok)";
             this.button_OK.UseVisualStyleBackColor = true;
+            this.button_OK.Click += new System.EventHandler(this.button_OK_Click);
             // 
             // changeFormTwo
             // 
@@ -362,6 +373,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "changeFormTwo";
             this.Text = "changeFormTwo";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.changeFormTwo_FormClosed);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);

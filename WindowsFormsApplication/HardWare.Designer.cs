@@ -104,6 +104,7 @@
             this.button_deleteDataBase.Size = new System.Drawing.Size(64, 64);
             this.button_deleteDataBase.TabIndex = 5;
             this.button_deleteDataBase.UseVisualStyleBackColor = true;
+            this.button_deleteDataBase.Click += new System.EventHandler(this.button_deleteDataBase_Click);
             // 
             // button_Delete
             // 

@@ -83,10 +83,20 @@ namespace WindowsFormsApplication
             setDataBase_mainTB_JiraTask.Checked = Properties.Settings.Default.setDataBase_mainTB_JiraTask;
             setDataBase_mainTB_Reason.Checked = Properties.Settings.Default.setDataBase_mainTB_Reason;
 
-
-
-
-
+            changeFormTwo_mainTB_ID.Checked = Properties.Settings.Default.changeFormTwo_mainTB_ID;
+            changeFormTwo_mainTB_date.Checked = Properties.Settings.Default.changeFormTwo_mainTB_date;
+            changeFormTwo_mainTB_TypeAC.Checked = Properties.Settings.Default.changeFormTwo_mainTB_TypeAC;
+            changeFormTwo_mainTB_InvNum.Checked = Properties.Settings.Default.changeFormTwo_mainTB_InvNum;
+            changeFormTwo_mainTB_LanName.Checked = Properties.Settings.Default.changeFormTwo_mainTB_LanName;
+            changeFormTwo_mainTB_ResName.Checked = Properties.Settings.Default.changeFormTwo_mainTB_ResName;
+            changeFormTwo_mainTB_Room.Checked = Properties.Settings.Default.changeFormTwo_mainTB_Room;
+            changeFormTwo_mainTB_Floor.Checked = Properties.Settings.Default.changeFormTwo_mainTB_Floor;
+            changeFormTwo_mainTB_TypeDiv.Checked = Properties.Settings.Default.changeFormTwo_mainTB_TypeDiv;
+            changeFormTwo_mainTB_SN.Checked = Properties.Settings.Default.changeFormTwo_mainTB_SN;
+            changeFormTwo_mainTB_Model.Checked = Properties.Settings.Default.changeFormTwo_mainTB_Model;
+            changeFormTwo_mainTB_WrittenOff.Checked = Properties.Settings.Default.changeFormTwo_mainTB_WrittenOff;
+            changeFormTwo_mainTB_JiraTask.Checked = Properties.Settings.Default.changeFormTwo_mainTB_JiraTask;
+            changeFormTwo_mainTB_Reason.Checked = Properties.Settings.Default.changeFormTwo_mainTB_Reason;
 
 
             if (Properties.Settings.Default.ImgPath != "")
@@ -186,6 +196,22 @@ namespace WindowsFormsApplication
             Properties.Settings.Default.setDataBase_mainTB_WrittenOff = setDataBase_mainTB_WrittenOff.Checked;
             Properties.Settings.Default.setDataBase_mainTB_JiraTask = setDataBase_mainTB_JiraTask.Checked;
             Properties.Settings.Default.setDataBase_mainTB_Reason = setDataBase_mainTB_Reason.Checked;
+
+            Properties.Settings.Default.changeFormTwo_mainTB_ID = changeFormTwo_mainTB_ID.Checked;
+            Properties.Settings.Default.changeFormTwo_mainTB_date = changeFormTwo_mainTB_date.Checked;
+            Properties.Settings.Default.changeFormTwo_mainTB_TypeAC = changeFormTwo_mainTB_TypeAC.Checked;
+            Properties.Settings.Default.changeFormTwo_mainTB_InvNum = changeFormTwo_mainTB_InvNum.Checked;
+            Properties.Settings.Default.changeFormTwo_mainTB_LanName = changeFormTwo_mainTB_LanName.Checked;
+            Properties.Settings.Default.changeFormTwo_mainTB_ResName = changeFormTwo_mainTB_ResName.Checked;
+            Properties.Settings.Default.changeFormTwo_mainTB_Room = changeFormTwo_mainTB_Room.Checked;
+            Properties.Settings.Default.changeFormTwo_mainTB_Floor = changeFormTwo_mainTB_Floor.Checked;
+            Properties.Settings.Default.changeFormTwo_mainTB_TypeDiv = changeFormTwo_mainTB_TypeDiv.Checked;
+            Properties.Settings.Default.changeFormTwo_mainTB_SN = changeFormTwo_mainTB_SN.Checked;
+            Properties.Settings.Default.changeFormTwo_mainTB_Model = changeFormTwo_mainTB_Model.Checked;
+            Properties.Settings.Default.changeFormTwo_mainTB_WrittenOff = changeFormTwo_mainTB_WrittenOff.Checked;
+            Properties.Settings.Default.changeFormTwo_mainTB_JiraTask = changeFormTwo_mainTB_JiraTask.Checked;
+            Properties.Settings.Default.changeFormTwo_mainTB_Reason = changeFormTwo_mainTB_Reason.Checked;
+
 
 
             this.Close();

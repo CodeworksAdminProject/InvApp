@@ -580,6 +580,11 @@ namespace WindowsFormsApplication
                         row.Cells["SN"].Value.ToString(), row.Cells["Model"].Value.ToString());
                 }
         }
+
+        private void button_writtenoff_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

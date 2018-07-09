@@ -90,5 +90,10 @@ namespace WindowsFormsApplication
 
             setNewData.ShowDialog();
         }
+
+        private void button_deleteDataBase_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

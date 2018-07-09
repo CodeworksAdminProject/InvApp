@@ -730,5 +730,173 @@ namespace WindowsFormsApplication.Properties {
                 this["print_name_or_model"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool changeFormTwo_mainTB_ID {
+            get {
+                return ((bool)(this["changeFormTwo_mainTB_ID"]));
+            }
+            set {
+                this["changeFormTwo_mainTB_ID"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool changeFormTwo_mainTB_date {
+            get {
+                return ((bool)(this["changeFormTwo_mainTB_date"]));
+            }
+            set {
+                this["changeFormTwo_mainTB_date"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool changeFormTwo_mainTB_TypeAC {
+            get {
+                return ((bool)(this["changeFormTwo_mainTB_TypeAC"]));
+            }
+            set {
+                this["changeFormTwo_mainTB_TypeAC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool changeFormTwo_mainTB_InvNum {
+            get {
+                return ((bool)(this["changeFormTwo_mainTB_InvNum"]));
+            }
+            set {
+                this["changeFormTwo_mainTB_InvNum"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool changeFormTwo_mainTB_LanName {
+            get {
+                return ((bool)(this["changeFormTwo_mainTB_LanName"]));
+            }
+            set {
+                this["changeFormTwo_mainTB_LanName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool changeFormTwo_mainTB_ResName {
+            get {
+                return ((bool)(this["changeFormTwo_mainTB_ResName"]));
+            }
+            set {
+                this["changeFormTwo_mainTB_ResName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool changeFormTwo_mainTB_Room {
+            get {
+                return ((bool)(this["changeFormTwo_mainTB_Room"]));
+            }
+            set {
+                this["changeFormTwo_mainTB_Room"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool changeFormTwo_mainTB_Floor {
+            get {
+                return ((bool)(this["changeFormTwo_mainTB_Floor"]));
+            }
+            set {
+                this["changeFormTwo_mainTB_Floor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool changeFormTwo_mainTB_TypeDiv {
+            get {
+                return ((bool)(this["changeFormTwo_mainTB_TypeDiv"]));
+            }
+            set {
+                this["changeFormTwo_mainTB_TypeDiv"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool changeFormTwo_mainTB_SN {
+            get {
+                return ((bool)(this["changeFormTwo_mainTB_SN"]));
+            }
+            set {
+                this["changeFormTwo_mainTB_SN"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool changeFormTwo_mainTB_Model {
+            get {
+                return ((bool)(this["changeFormTwo_mainTB_Model"]));
+            }
+            set {
+                this["changeFormTwo_mainTB_Model"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool changeFormTwo_mainTB_WrittenOff {
+            get {
+                return ((bool)(this["changeFormTwo_mainTB_WrittenOff"]));
+            }
+            set {
+                this["changeFormTwo_mainTB_WrittenOff"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool changeFormTwo_mainTB_JiraTask {
+            get {
+                return ((bool)(this["changeFormTwo_mainTB_JiraTask"]));
+            }
+            set {
+                this["changeFormTwo_mainTB_JiraTask"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool changeFormTwo_mainTB_Reason {
+            get {
+                return ((bool)(this["changeFormTwo_mainTB_Reason"]));
+            }
+            set {
+                this["changeFormTwo_mainTB_Reason"] = value;
+            }
+        }
     }
 }

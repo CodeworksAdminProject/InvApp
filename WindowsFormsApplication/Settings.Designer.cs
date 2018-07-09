@@ -55,7 +55,7 @@
             this.setDataBase_mainTB_ResName = new System.Windows.Forms.CheckBox();
             this.setDataBase_mainTB_ID = new System.Windows.Forms.CheckBox();
             this.setDataBase_mainTB_date = new System.Windows.Forms.CheckBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.label_selform_mainTB = new System.Windows.Forms.Label();
             this.mainForms_stockroom_Reason = new System.Windows.Forms.CheckBox();
             this.mainForms_stockroom_TypeDiv = new System.Windows.Forms.CheckBox();
             this.label_setform = new System.Windows.Forms.Label();
@@ -120,6 +120,22 @@
             this.pictureBox_Image = new System.Windows.Forms.PictureBox();
             this.label_Logotip = new System.Windows.Forms.Label();
             this.label_print_BarKod = new System.Windows.Forms.Label();
+            this.changeFormTwo_mainTB_Reason = new System.Windows.Forms.CheckBox();
+            this.changeFormTwo_mainTB_TypeDiv = new System.Windows.Forms.CheckBox();
+            this.changeFormTwo_mainTB_SN = new System.Windows.Forms.CheckBox();
+            this.changeFormTwo_mainTB_JiraTask = new System.Windows.Forms.CheckBox();
+            this.changeFormTwo_mainTB_LanName = new System.Windows.Forms.CheckBox();
+            this.changeFormTwo_mainTB_Floor = new System.Windows.Forms.CheckBox();
+            this.changeFormTwo_mainTB_WrittenOff = new System.Windows.Forms.CheckBox();
+            this.changeFormTwo_mainTB_InvNum = new System.Windows.Forms.CheckBox();
+            this.changeFormTwo_mainTB_Room = new System.Windows.Forms.CheckBox();
+            this.changeFormTwo_mainTB_Model = new System.Windows.Forms.CheckBox();
+            this.changeFormTwo_mainTB_TypeAC = new System.Windows.Forms.CheckBox();
+            this.changeFormTwo_mainTB_ResName = new System.Windows.Forms.CheckBox();
+            this.changeFormTwo_mainTB_ID = new System.Windows.Forms.CheckBox();
+            this.changeFormTwo_mainTB_date = new System.Windows.Forms.CheckBox();
+            this.label_change_MainTB = new System.Windows.Forms.Label();
+            this.label_Change = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -315,6 +331,22 @@
             this.panel_View.AutoScroll = true;
             this.panel_View.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.panel_View.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel_View.Controls.Add(this.changeFormTwo_mainTB_Reason);
+            this.panel_View.Controls.Add(this.changeFormTwo_mainTB_TypeDiv);
+            this.panel_View.Controls.Add(this.changeFormTwo_mainTB_SN);
+            this.panel_View.Controls.Add(this.changeFormTwo_mainTB_JiraTask);
+            this.panel_View.Controls.Add(this.changeFormTwo_mainTB_LanName);
+            this.panel_View.Controls.Add(this.changeFormTwo_mainTB_Floor);
+            this.panel_View.Controls.Add(this.changeFormTwo_mainTB_WrittenOff);
+            this.panel_View.Controls.Add(this.changeFormTwo_mainTB_InvNum);
+            this.panel_View.Controls.Add(this.changeFormTwo_mainTB_Room);
+            this.panel_View.Controls.Add(this.changeFormTwo_mainTB_Model);
+            this.panel_View.Controls.Add(this.changeFormTwo_mainTB_TypeAC);
+            this.panel_View.Controls.Add(this.changeFormTwo_mainTB_ResName);
+            this.panel_View.Controls.Add(this.changeFormTwo_mainTB_ID);
+            this.panel_View.Controls.Add(this.changeFormTwo_mainTB_date);
+            this.panel_View.Controls.Add(this.label_change_MainTB);
+            this.panel_View.Controls.Add(this.label_Change);
             this.panel_View.Controls.Add(this.setDataBase_mainTB_Reason);
             this.panel_View.Controls.Add(this.setDataBase_mainTB_TypeDiv);
             this.panel_View.Controls.Add(this.setDataBase_mainTB_SN);
@@ -329,7 +361,7 @@
             this.panel_View.Controls.Add(this.setDataBase_mainTB_ResName);
             this.panel_View.Controls.Add(this.setDataBase_mainTB_ID);
             this.panel_View.Controls.Add(this.setDataBase_mainTB_date);
-            this.panel_View.Controls.Add(this.label2);
+            this.panel_View.Controls.Add(this.label_selform_mainTB);
             this.panel_View.Controls.Add(this.mainForms_stockroom_Reason);
             this.panel_View.Controls.Add(this.mainForms_stockroom_TypeDiv);
             this.panel_View.Controls.Add(this.label_setform);
@@ -521,15 +553,15 @@
             this.setDataBase_mainTB_date.Text = "Дата ";
             this.setDataBase_mainTB_date.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // label_selform_mainTB
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(33, 1174);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(206, 20);
-            this.label2.TabIndex = 67;
-            this.label2.Text = "Таблица  основного учета";
+            this.label_selform_mainTB.AutoSize = true;
+            this.label_selform_mainTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_selform_mainTB.Location = new System.Drawing.Point(33, 1174);
+            this.label_selform_mainTB.Name = "label_selform_mainTB";
+            this.label_selform_mainTB.Size = new System.Drawing.Size(206, 20);
+            this.label_selform_mainTB.TabIndex = 67;
+            this.label_selform_mainTB.Text = "Таблица  основного учета";
             // 
             // mainForms_stockroom_Reason
             // 
@@ -1190,6 +1222,167 @@
             this.label_print_BarKod.TabIndex = 78;
             this.label_print_BarKod.Text = "Печать баркода: ";
             // 
+            // changeFormTwo_mainTB_Reason
+            // 
+            this.changeFormTwo_mainTB_Reason.AutoSize = true;
+            this.changeFormTwo_mainTB_Reason.Location = new System.Drawing.Point(11, 1972);
+            this.changeFormTwo_mainTB_Reason.Name = "changeFormTwo_mainTB_Reason";
+            this.changeFormTwo_mainTB_Reason.Size = new System.Drawing.Size(151, 21);
+            this.changeFormTwo_mainTB_Reason.TabIndex = 84;
+            this.changeFormTwo_mainTB_Reason.Text = "Причина списания";
+            this.changeFormTwo_mainTB_Reason.UseVisualStyleBackColor = true;
+            // 
+            // changeFormTwo_mainTB_TypeDiv
+            // 
+            this.changeFormTwo_mainTB_TypeDiv.AutoSize = true;
+            this.changeFormTwo_mainTB_TypeDiv.Location = new System.Drawing.Point(11, 1847);
+            this.changeFormTwo_mainTB_TypeDiv.Name = "changeFormTwo_mainTB_TypeDiv";
+            this.changeFormTwo_mainTB_TypeDiv.Size = new System.Drawing.Size(130, 21);
+            this.changeFormTwo_mainTB_TypeDiv.TabIndex = 85;
+            this.changeFormTwo_mainTB_TypeDiv.Text = "Тип устройства";
+            this.changeFormTwo_mainTB_TypeDiv.UseVisualStyleBackColor = true;
+            // 
+            // changeFormTwo_mainTB_SN
+            // 
+            this.changeFormTwo_mainTB_SN.AutoSize = true;
+            this.changeFormTwo_mainTB_SN.Location = new System.Drawing.Point(11, 1872);
+            this.changeFormTwo_mainTB_SN.Name = "changeFormTwo_mainTB_SN";
+            this.changeFormTwo_mainTB_SN.Size = new System.Drawing.Size(139, 21);
+            this.changeFormTwo_mainTB_SN.TabIndex = 86;
+            this.changeFormTwo_mainTB_SN.Text = "Серийный номер";
+            this.changeFormTwo_mainTB_SN.UseVisualStyleBackColor = true;
+            // 
+            // changeFormTwo_mainTB_JiraTask
+            // 
+            this.changeFormTwo_mainTB_JiraTask.AutoSize = true;
+            this.changeFormTwo_mainTB_JiraTask.Location = new System.Drawing.Point(11, 1947);
+            this.changeFormTwo_mainTB_JiraTask.Name = "changeFormTwo_mainTB_JiraTask";
+            this.changeFormTwo_mainTB_JiraTask.Size = new System.Drawing.Size(120, 21);
+            this.changeFormTwo_mainTB_JiraTask.TabIndex = 87;
+            this.changeFormTwo_mainTB_JiraTask.Text = "Задача в JIRA";
+            this.changeFormTwo_mainTB_JiraTask.UseVisualStyleBackColor = true;
+            // 
+            // changeFormTwo_mainTB_LanName
+            // 
+            this.changeFormTwo_mainTB_LanName.AutoSize = true;
+            this.changeFormTwo_mainTB_LanName.Location = new System.Drawing.Point(11, 1747);
+            this.changeFormTwo_mainTB_LanName.Name = "changeFormTwo_mainTB_LanName";
+            this.changeFormTwo_mainTB_LanName.Size = new System.Drawing.Size(103, 21);
+            this.changeFormTwo_mainTB_LanName.TabIndex = 88;
+            this.changeFormTwo_mainTB_LanName.Text = "Имя в сети ";
+            this.changeFormTwo_mainTB_LanName.UseVisualStyleBackColor = true;
+            // 
+            // changeFormTwo_mainTB_Floor
+            // 
+            this.changeFormTwo_mainTB_Floor.AutoSize = true;
+            this.changeFormTwo_mainTB_Floor.Location = new System.Drawing.Point(11, 1822);
+            this.changeFormTwo_mainTB_Floor.Name = "changeFormTwo_mainTB_Floor";
+            this.changeFormTwo_mainTB_Floor.Size = new System.Drawing.Size(60, 21);
+            this.changeFormTwo_mainTB_Floor.TabIndex = 89;
+            this.changeFormTwo_mainTB_Floor.Text = "Этаж";
+            this.changeFormTwo_mainTB_Floor.UseVisualStyleBackColor = true;
+            // 
+            // changeFormTwo_mainTB_WrittenOff
+            // 
+            this.changeFormTwo_mainTB_WrittenOff.AutoSize = true;
+            this.changeFormTwo_mainTB_WrittenOff.Location = new System.Drawing.Point(11, 1922);
+            this.changeFormTwo_mainTB_WrittenOff.Name = "changeFormTwo_mainTB_WrittenOff";
+            this.changeFormTwo_mainTB_WrittenOff.Size = new System.Drawing.Size(83, 21);
+            this.changeFormTwo_mainTB_WrittenOff.TabIndex = 90;
+            this.changeFormTwo_mainTB_WrittenOff.Text = "Списано";
+            this.changeFormTwo_mainTB_WrittenOff.UseVisualStyleBackColor = true;
+            // 
+            // changeFormTwo_mainTB_InvNum
+            // 
+            this.changeFormTwo_mainTB_InvNum.AutoSize = true;
+            this.changeFormTwo_mainTB_InvNum.Location = new System.Drawing.Point(11, 1722);
+            this.changeFormTwo_mainTB_InvNum.Name = "changeFormTwo_mainTB_InvNum";
+            this.changeFormTwo_mainTB_InvNum.Size = new System.Drawing.Size(162, 21);
+            this.changeFormTwo_mainTB_InvNum.TabIndex = 91;
+            this.changeFormTwo_mainTB_InvNum.Text = "Инвентарный номер";
+            this.changeFormTwo_mainTB_InvNum.UseVisualStyleBackColor = true;
+            // 
+            // changeFormTwo_mainTB_Room
+            // 
+            this.changeFormTwo_mainTB_Room.AutoSize = true;
+            this.changeFormTwo_mainTB_Room.Location = new System.Drawing.Point(11, 1797);
+            this.changeFormTwo_mainTB_Room.Name = "changeFormTwo_mainTB_Room";
+            this.changeFormTwo_mainTB_Room.Size = new System.Drawing.Size(84, 21);
+            this.changeFormTwo_mainTB_Room.TabIndex = 92;
+            this.changeFormTwo_mainTB_Room.Text = "Комната";
+            this.changeFormTwo_mainTB_Room.UseVisualStyleBackColor = true;
+            // 
+            // changeFormTwo_mainTB_Model
+            // 
+            this.changeFormTwo_mainTB_Model.AutoSize = true;
+            this.changeFormTwo_mainTB_Model.Location = new System.Drawing.Point(11, 1897);
+            this.changeFormTwo_mainTB_Model.Name = "changeFormTwo_mainTB_Model";
+            this.changeFormTwo_mainTB_Model.Size = new System.Drawing.Size(77, 21);
+            this.changeFormTwo_mainTB_Model.TabIndex = 93;
+            this.changeFormTwo_mainTB_Model.Text = "Модель";
+            this.changeFormTwo_mainTB_Model.UseVisualStyleBackColor = true;
+            // 
+            // changeFormTwo_mainTB_TypeAC
+            // 
+            this.changeFormTwo_mainTB_TypeAC.AutoSize = true;
+            this.changeFormTwo_mainTB_TypeAC.Location = new System.Drawing.Point(11, 1697);
+            this.changeFormTwo_mainTB_TypeAC.Name = "changeFormTwo_mainTB_TypeAC";
+            this.changeFormTwo_mainTB_TypeAC.Size = new System.Drawing.Size(94, 21);
+            this.changeFormTwo_mainTB_TypeAC.TabIndex = 94;
+            this.changeFormTwo_mainTB_TypeAC.Text = "Вид учёта";
+            this.changeFormTwo_mainTB_TypeAC.UseVisualStyleBackColor = true;
+            // 
+            // changeFormTwo_mainTB_ResName
+            // 
+            this.changeFormTwo_mainTB_ResName.AutoSize = true;
+            this.changeFormTwo_mainTB_ResName.Location = new System.Drawing.Point(11, 1772);
+            this.changeFormTwo_mainTB_ResName.Name = "changeFormTwo_mainTB_ResName";
+            this.changeFormTwo_mainTB_ResName.Size = new System.Drawing.Size(130, 21);
+            this.changeFormTwo_mainTB_ResName.TabIndex = 95;
+            this.changeFormTwo_mainTB_ResName.Text = "Ответственный";
+            this.changeFormTwo_mainTB_ResName.UseVisualStyleBackColor = true;
+            // 
+            // changeFormTwo_mainTB_ID
+            // 
+            this.changeFormTwo_mainTB_ID.AutoSize = true;
+            this.changeFormTwo_mainTB_ID.Location = new System.Drawing.Point(11, 1647);
+            this.changeFormTwo_mainTB_ID.Name = "changeFormTwo_mainTB_ID";
+            this.changeFormTwo_mainTB_ID.Size = new System.Drawing.Size(40, 21);
+            this.changeFormTwo_mainTB_ID.TabIndex = 96;
+            this.changeFormTwo_mainTB_ID.Text = "ID";
+            this.changeFormTwo_mainTB_ID.UseVisualStyleBackColor = true;
+            // 
+            // changeFormTwo_mainTB_date
+            // 
+            this.changeFormTwo_mainTB_date.AutoSize = true;
+            this.changeFormTwo_mainTB_date.Location = new System.Drawing.Point(11, 1672);
+            this.changeFormTwo_mainTB_date.Name = "changeFormTwo_mainTB_date";
+            this.changeFormTwo_mainTB_date.Size = new System.Drawing.Size(65, 21);
+            this.changeFormTwo_mainTB_date.TabIndex = 97;
+            this.changeFormTwo_mainTB_date.Text = "Дата ";
+            this.changeFormTwo_mainTB_date.UseVisualStyleBackColor = true;
+            // 
+            // label_change_MainTB
+            // 
+            this.label_change_MainTB.AutoSize = true;
+            this.label_change_MainTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_change_MainTB.Location = new System.Drawing.Point(31, 1630);
+            this.label_change_MainTB.Name = "label_change_MainTB";
+            this.label_change_MainTB.Size = new System.Drawing.Size(206, 20);
+            this.label_change_MainTB.TabIndex = 83;
+            this.label_change_MainTB.Text = "Таблица  основного учета";
+            // 
+            // label_Change
+            // 
+            this.label_Change.BackColor = System.Drawing.Color.Silver;
+            this.label_Change.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.7F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
+                | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_Change.Location = new System.Drawing.Point(5, 1585);
+            this.label_Change.Name = "label_Change";
+            this.label_Change.Size = new System.Drawing.Size(419, 22);
+            this.label_Change.TabIndex = 82;
+            this.label_Change.Text = "Вид окна изменения уникальных значений";
+            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1309,9 +1502,25 @@
         private System.Windows.Forms.CheckBox setDataBase_mainTB_ResName;
         private System.Windows.Forms.CheckBox setDataBase_mainTB_ID;
         private System.Windows.Forms.CheckBox setDataBase_mainTB_date;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label_selform_mainTB;
         private System.Windows.Forms.Label label_setform;
         private System.Windows.Forms.ComboBox comboBox_print_name_or_model;
         private System.Windows.Forms.Label label_print_name_or_model;
+        private System.Windows.Forms.CheckBox changeFormTwo_mainTB_Reason;
+        private System.Windows.Forms.CheckBox changeFormTwo_mainTB_TypeDiv;
+        private System.Windows.Forms.CheckBox changeFormTwo_mainTB_SN;
+        private System.Windows.Forms.CheckBox changeFormTwo_mainTB_JiraTask;
+        private System.Windows.Forms.CheckBox changeFormTwo_mainTB_LanName;
+        private System.Windows.Forms.CheckBox changeFormTwo_mainTB_Floor;
+        private System.Windows.Forms.CheckBox changeFormTwo_mainTB_WrittenOff;
+        private System.Windows.Forms.CheckBox changeFormTwo_mainTB_InvNum;
+        private System.Windows.Forms.CheckBox changeFormTwo_mainTB_Room;
+        private System.Windows.Forms.CheckBox changeFormTwo_mainTB_Model;
+        private System.Windows.Forms.CheckBox changeFormTwo_mainTB_TypeAC;
+        private System.Windows.Forms.CheckBox changeFormTwo_mainTB_ResName;
+        private System.Windows.Forms.CheckBox changeFormTwo_mainTB_ID;
+        private System.Windows.Forms.CheckBox changeFormTwo_mainTB_date;
+        private System.Windows.Forms.Label label_change_MainTB;
+        private System.Windows.Forms.Label label_Change;
     }
 }
