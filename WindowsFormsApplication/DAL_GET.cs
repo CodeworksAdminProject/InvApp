@@ -745,13 +745,14 @@ namespace WindowsFormsApplication
         {
             ArrayList DataGrid = new ArrayList();
             SqlConnection connect = new SqlConnection(sConectDB);
-            SqlCommand command = new SqlCommand(@"select maintb.ID, maintb.dateCreated, maintb.NumberINV, NameLAN.NameLAN, NameRes.NameRes, 
+            SqlCommand command = new SqlCommand(@"select maintb.ID, maintb.dateCreated,TypeAC, maintb.NumberINV, NameLAN.NameLAN, NameRes.NameRes, 
                 [Floor].floorNambe, Room.NameRoom, TypeDevice.NameDevice, maintb.SN, MainTB.Model, JiraTask from MainTB 
+                join TypeAC on maintb.TypeAC_ID = TypeAC.ID 
                 join [Floor] on maintb.Floor_ID = [Floor].ID join room on maintb.Room_ID =  Room.ID 
                 join TypeDevice on maintb.TypeDevice_ID = TypeDevice.ID join NameLAN on maintb.NameLAN_ID = NameLAN.ID 
                 join NameRes on maintb.NameRes_ID =  NameRes.ID 
                 Join JiraTask on maintb.JiraTask_ID = JiraTask.ID
-                Where " +table+ " like'%" + value+ "%' AND[WrittenOff] = 'False' order by NameRes,NameLAN, TypeDevice_ID;", connect);
+                Where " + table+ " like'%" + value+ "%' AND[WrittenOff] = 'False' order by NameRes,NameLAN, TypeDevice_ID;", connect);
 
             try
             {
@@ -779,8 +780,9 @@ namespace WindowsFormsApplication
         {
             ArrayList DataGrid = new ArrayList();
             SqlConnection connect = new SqlConnection(sConectDB);
-            SqlCommand command = new SqlCommand(@"select maintb.ID, maintb.dateCreated, maintb.NumberINV, NameLAN.NameLAN, NameRes.NameRes, 
+            SqlCommand command = new SqlCommand(@"select maintb.ID, maintb.dateCreated, TypeAC, maintb.NumberINV, NameLAN.NameLAN, NameRes.NameRes, 
                 [Floor].floorNambe, Room.NameRoom, TypeDevice.NameDevice, maintb.SN, MainTB.Model, JiraTask from MainTB 
+                join TypeAC on maintb.TypeAC_ID = TypeAC.ID
                 join [Floor] on maintb.Floor_ID = [Floor].ID join room on maintb.Room_ID =  Room.ID 
                 join TypeDevice on maintb.TypeDevice_ID = TypeDevice.ID join NameLAN on maintb.NameLAN_ID = NameLAN.ID 
                 join NameRes on maintb.NameRes_ID =  NameRes.ID 
@@ -864,8 +866,9 @@ namespace WindowsFormsApplication
         {
             ArrayList DataGrid = new ArrayList();
             SqlConnection connect = new SqlConnection(sConectDB);
-            SqlCommand command = new SqlCommand(@"select maintb.ID, maintb.dateCreated, maintb.NumberINV, NameLAN.NameLAN, NameRes.NameRes, " +
+            SqlCommand command = new SqlCommand(@"select maintb.ID, maintb.dateCreated, TypeAC, maintb.NumberINV, NameLAN.NameLAN, NameRes.NameRes, " +
                 @"[Floor].floorNambe, Room.NameRoom, TypeDevice.NameDevice, maintb.SN, MainTB.Model, JiraTask from MainTB " +
+                @"join TypeAC on maintb.TypeAC_ID = TypeAC.ID "+
                 @"join [Floor] on maintb.Floor_ID = [Floor].ID join room on maintb.Room_ID =  Room.ID " +
                 @"join TypeDevice on maintb.TypeDevice_ID = TypeDevice.ID join NameLAN on maintb.NameLAN_ID = NameLAN.ID " +
                 @"join NameRes on maintb.NameRes_ID =  NameRes.ID " +
@@ -899,8 +902,9 @@ namespace WindowsFormsApplication
         {
             ArrayList DataGrid = new ArrayList();
             SqlConnection connect = new SqlConnection(sConectDB);
-            SqlCommand command = new SqlCommand(@"select maintb.ID, maintb.dateCreated, maintb.NumberINV, NameLAN.NameLAN, NameRes.NameRes, " +
+            SqlCommand command = new SqlCommand(@"select maintb.ID, maintb.dateCreated, TypeAC, maintb.NumberINV, NameLAN.NameLAN, NameRes.NameRes, " +
                 @"[Floor].floorNambe, Room.NameRoom, TypeDevice.NameDevice, maintb.SN, MainTB.Model, JiraTask from MainTB " +
+                @"join TypeAC on maintb.TypeAC_ID = TypeAC.ID " +
                 @"join [Floor] on maintb.Floor_ID = [Floor].ID join room on maintb.Room_ID =  Room.ID " +
                 @"join TypeDevice on maintb.TypeDevice_ID = TypeDevice.ID join NameLAN on maintb.NameLAN_ID = NameLAN.ID " +
                 @"join NameRes on maintb.NameRes_ID =  NameRes.ID " +
@@ -934,8 +938,9 @@ namespace WindowsFormsApplication
         {
             ArrayList DataGrid = new ArrayList();
             SqlConnection connect = new SqlConnection(sConectDB);
-            SqlCommand command = new SqlCommand(@"select maintb.ID, maintb.dateCreated, maintb.NumberINV, NameLAN.NameLAN, NameRes.NameRes, " +
+            SqlCommand command = new SqlCommand(@"select maintb.ID, maintb.dateCreated, TypeAC, maintb.NumberINV, NameLAN.NameLAN, NameRes.NameRes, " +
                 @"[Floor].floorNambe, Room.NameRoom, TypeDevice.NameDevice, maintb.SN, MainTB.Model, JiraTask from MainTB " +
+                @"join TypeAC on maintb.TypeAC_ID = TypeAC.ID " +
                 @"join [Floor] on maintb.Floor_ID = [Floor].ID join room on maintb.Room_ID =  Room.ID " +
                 @"join TypeDevice on maintb.TypeDevice_ID = TypeDevice.ID join NameLAN on maintb.NameLAN_ID = NameLAN.ID " +
                 @"join NameRes on maintb.NameRes_ID =  NameRes.ID " +

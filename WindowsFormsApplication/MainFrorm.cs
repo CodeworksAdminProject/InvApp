@@ -23,6 +23,8 @@ namespace WindowsFormsApplication
         BLL_Buttoms bllButtoms = new BLL_Buttoms();
         BLL bll = new BLL();
         SMTP_CLIENT smttp = new SMTP_CLIENT();
+        DAL_SEARCH dalSearch = new DAL_SEARCH();
+
 
         public static string index;
         int indexControl = 0;
@@ -91,7 +93,7 @@ namespace WindowsFormsApplication
                 //dataGridViewTB.ColumnHeadersDefaultCellStyle.ForeColor = Color.Red; //цвет ячейки
 
                 dataGridViewMT.Columns["dateCreated"].HeaderCell.Value = "Дата:";
-               // dataGridViewMT.Columns["TypeAC"].HeaderCell.Value = "Вид учета:";
+                dataGridViewMT.Columns["TypeAC"].HeaderCell.Value = "Вид учета:";
                 dataGridViewMT.Columns["NumberINV"].HeaderCell.Value = "Инвентарный №:";
                 dataGridViewMT.Columns["NameLAN"].HeaderCell.Value = "Имя в сети:";
                 dataGridViewMT.Columns["NameRes"].HeaderCell.Value = "Ответственный:";
@@ -368,14 +370,12 @@ namespace WindowsFormsApplication
 
         private void button_Hardware_StockRoom_Click(object sender, EventArgs e)
         {
-            flag_button = "HardwareStockRoom";
-            dataGridViewMT.DataSource= dal.Get_Hardware_StockRoom();
+
         }
 
         private void button_Hardware_PS_Click(object sender, EventArgs e)
         {
-            flag_button = "HardWare";
-            dataGridViewMT.DataSource=dal.Get_Hardware_PS();
+
         }
 
         private void dataGridViewMT_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -563,6 +563,68 @@ namespace WindowsFormsApplication
                 BLL.flag = false;
                 Update_Grid();
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            flag_button = "HardwareStockRoom";
+            button_MainTB.ForeColor = button_hardwarePC.ForeColor = Color.MidnightBlue;
+            button_MainTB.BackColor = button_hardwarePC.BackColor = Color.White;
+            button_Hardware_Stockroom.BackColor = Color.LightGray;
+            button_Hardware_Stockroom.ForeColor = Color.Black;
+            dataGridViewMT.DataSource = null;
+            dataGridViewMT.DataSource = dal.Get_Hardware_StockRoom();
+        }
+
+        private void button_hardwarePC_Click(object sender, EventArgs e)
+        {
+            flag_button = "HardWare";
+            button_MainTB.ForeColor = button_Hardware_Stockroom.ForeColor = Color.MidnightBlue;
+            button_MainTB.BackColor = button_Hardware_Stockroom.BackColor = Color.White;
+            button_hardwarePC.BackColor = Color.LightGray;
+            button_hardwarePC.ForeColor = Color.Black;
+            dataGridViewMT.DataSource = null;
+            dataGridViewMT.DataSource = dal.Get_Hardware_PS();
+        }
+
+        private void button_change_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dataGridViewMT.Rows)
+            {
+                if (row.Selected == true)
+                {
+                    bll.Add_Data_ArrayChancge(row.Cells["ID"].Value.ToString(),
+                              row.Cells["dateCreated"].Value.ToString(),
+                              row.Cells["TypeAC"].Value.ToString(),
+                              row.Cells["NumberINV"].Value.ToString(),
+                              row.Cells["NameDevice"].Value.ToString(),
+                              row.Cells["SN"].Value.ToString(),
+                              row.Cells["Model"].Value.ToString(),
+                              row.Cells["JiraTask"].Value.ToString(),
+                              row.Cells["NameLAN"].Value.ToString(),
+                              row.Cells["NameRes"].Value.ToString(),
+                              row.Cells["floorNambe"].Value.ToString(),
+                              row.Cells["NameRoom"].Value.ToString());
+                }
+            }
+            bllButtoms.Change_unique_data();
+            Update_Grid();
+        }
+
+        private void button_MainTB_Click(object sender, EventArgs e)
+        {
+            flag_button = "MainTB";
+
+            button_hardwarePC.ForeColor = button_Hardware_Stockroom.ForeColor = Color.MidnightBlue;
+            button_hardwarePC.BackColor = button_Hardware_Stockroom.BackColor = Color.White;
+            button_MainTB.BackColor = Color.LightGray;
+            button_MainTB.ForeColor = Color.Black;
+
+            dataGridViewMT.DataSource = null;
+            dataGridViewMT.DataSource = dal.GetDataGrid("MainTB.NumberINV", null);            
+            stilDataGrid();
+            indexControl = 1;
+            label_sum.Text = dataGridViewMT.Rows.Count.ToString();
         }
     } 
 }
