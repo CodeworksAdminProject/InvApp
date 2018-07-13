@@ -24,8 +24,9 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>\\mn-mssql01\AppInv\publishKiev\</UpdateUrl>
-    <ProductName>invKiev</ProductName>
+    <ProductName>In</ProductName>
     <PublisherName>Zimburavi©</PublisherName>
+    <SuiteName>Inventory</SuiteName>
     <ApplicationRevision>11</ApplicationRevision>
     <ApplicationVersion>0.1.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>

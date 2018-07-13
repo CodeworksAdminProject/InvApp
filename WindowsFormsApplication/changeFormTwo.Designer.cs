@@ -321,6 +321,7 @@
             this.button_writtenoff.Size = new System.Drawing.Size(52, 52);
             this.button_writtenoff.TabIndex = 0;
             this.button_writtenoff.UseVisualStyleBackColor = true;
+            this.button_writtenoff.Click += new System.EventHandler(this.button_writtenoff_Click);
             // 
             // button_delete
             // 
@@ -331,6 +332,7 @@
             this.button_delete.Size = new System.Drawing.Size(52, 52);
             this.button_delete.TabIndex = 0;
             this.button_delete.UseVisualStyleBackColor = true;
+            this.button_delete.Click += new System.EventHandler(this.button_delete_Click);
             // 
             // button_print_select_str
             // 
@@ -340,6 +342,7 @@
             this.button_print_select_str.Size = new System.Drawing.Size(52, 52);
             this.button_print_select_str.TabIndex = 0;
             this.button_print_select_str.UseVisualStyleBackColor = true;
+            this.button_print_select_str.Click += new System.EventHandler(this.button_print_select_str_Click);
             // 
             // button_print_all
             // 
@@ -349,6 +352,7 @@
             this.button_print_all.Size = new System.Drawing.Size(52, 52);
             this.button_print_all.TabIndex = 0;
             this.button_print_all.UseVisualStyleBackColor = true;
+            this.button_print_all.Click += new System.EventHandler(this.button_print_all_Click);
             // 
             // button_OK
             // 

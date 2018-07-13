@@ -115,15 +115,11 @@ namespace WindowsFormsApplication
                 bllButtoms.Print_Label(row.Cells["ID"].Value.ToString(), row.Cells["NumberINV"].Value.ToString(),
                         row.Cells["NameDevice"].Value.ToString(), row.Cells["NameLAN"].Value.ToString(),
                         row.Cells["SN"].Value.ToString(),  row.Cells["Model"].Value.ToString());
-
-
-                      
+                                  
         }
 
         private void PRINT_LABELS_Click(object sender, EventArgs e)
-        {
-            
-                
+        {             
                 foreach (DataGridViewRow row in dataGridViewMT.Rows)
                 {
                     if (row.Selected == true)
@@ -132,8 +128,7 @@ namespace WindowsFormsApplication
                             row.Cells["NameDevice"].Value.ToString(), row.Cells["NameLAN"].Value.ToString(),
                             row.Cells["SN"].Value.ToString(), row.Cells["Model"].Value.ToString());
                     }
-                }
-                
+                }         
             
         }
 

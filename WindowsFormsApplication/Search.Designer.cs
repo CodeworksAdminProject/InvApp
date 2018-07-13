@@ -636,6 +636,7 @@
             this.button_Update.Size = new System.Drawing.Size(64, 64);
             this.button_Update.TabIndex = 9;
             this.button_Update.UseVisualStyleBackColor = true;
+            this.button_Update.Click += new System.EventHandler(this.button_Update_Click);
             // 
             // button_deleteDataBase
             // 
@@ -648,6 +649,7 @@
             this.button_deleteDataBase.Size = new System.Drawing.Size(64, 64);
             this.button_deleteDataBase.TabIndex = 11;
             this.button_deleteDataBase.UseVisualStyleBackColor = true;
+            this.button_deleteDataBase.Click += new System.EventHandler(this.button_deleteDataBase_Click);
             // 
             // button_Delete
             // 

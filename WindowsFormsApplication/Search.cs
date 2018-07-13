@@ -17,6 +17,8 @@ namespace WindowsFormsApplication
         BLL_Search bllSearch = new BLL_Search();
         DAL_GET dalGet = new DAL_GET();
         DAL_SEARCH dalSearch = new DAL_SEARCH();
+        BLL bll = new BLL();
+        DAL_SET dalSet = new DAL_SET();
        
 
         string flag_button;
@@ -269,6 +271,72 @@ namespace WindowsFormsApplication
                             row.Cells["SN"].Value.ToString(), row.Cells["Model"].Value.ToString());
                     }
                 }               
+            }
+        }
+
+        private void button_deleteDataBase_Click(object sender, EventArgs e)
+        {
+            if (flag_button == "MainTB")
+            {
+                WriteOff set = new WriteOff();
+                set.Owner = this;
+                set.button_OK.Text = "Улалить";
+                set.ShowDialog();
+
+                if (BLL.flag == true)
+                {
+                    string AddId = null;
+
+                    foreach (DataGridViewRow row in dataGridView.Rows)
+                    {
+                        if (row.Selected == true)
+                        {
+                            BLL.sHtmlTableDeleteReport = BLL.sHtmlTableDeleteReport + bll.WrittenOff_And_Delete(row.Cells["ID"].Value.ToString(), BLL.sHtmlTableDeleteReport, "Delete");
+
+                            AddId += row.Cells[0].Value.ToString();
+                            dalSet.AddFDB(Environment.UserName, 3, BLL.ReasonWriteOff, row.Cells["NumberINV"].Value.ToString(),
+                                row.Cells["NameDevice"].Value.ToString(), row.Cells["SN"].Value.ToString(),
+                                row.Cells["Model"].Value.ToString(), row.Cells["ID"].Value.ToString());
+
+                            dalSet.Delete("MainTB", row.Cells[0].Value.ToString());
+                        }
+                    }
+
+                    BLL.ReasonWriteOff = null;
+                    BLL.flag = false;                    
+                }
+
+                dataGridView.DataSource = null;
+                dataGridView.DataSource = dalSearch.dataMainTB();
+                bllSearch.Update_Grid(dataGridView, flag_button);
+                label_sum.Text = dataGridView.Rows.Count.ToString();
+            }
+        }
+
+        private void button_Update_Click(object sender, EventArgs e)
+        {
+            if (flag_button == "MainTB")
+            {
+                string AddId = null;
+
+                foreach (DataGridViewRow row in dataGridView.Rows)
+                {
+                    if (row.Selected == true)
+                    {
+                        bll.AddDataNew(row.Cells["ID"].Value.ToString(), row.Cells["NameLAN"].Value.ToString(), row.Cells["NameRes"].Value.ToString(), row.Cells["floorNambe"].Value.ToString(), row.Cells["NameRoom"].Value.ToString());
+                        if (AddId != null)
+                            AddId += "," + row.Cells["ID"].Value.ToString();
+                        else
+                            AddId += row.Cells["ID"].Value.ToString();
+                    }
+                }
+
+
+
+                if (AddId != null)
+                {
+                    bllButtoms.Change_data(AddId, flag_button);
+                }
             }
         }
     }

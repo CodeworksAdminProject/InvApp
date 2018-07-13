@@ -82,98 +82,107 @@
             this.label_Inv.BackColor = System.Drawing.Color.Silver;
             this.label_Inv.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.7F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
                 | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_Inv.Location = new System.Drawing.Point(10, 257);
+            this.label_Inv.Location = new System.Drawing.Point(10, 210);
             this.label_Inv.Name = "label_Inv";
             this.label_Inv.Size = new System.Drawing.Size(449, 22);
             this.label_Inv.TabIndex = 60;
             this.label_Inv.Text = "Инвентарной номер ";
+            this.label_Inv.Click += new System.EventHandler(this.label_Inv_Click);
             // 
             // label_inv_text1
             // 
             this.label_inv_text1.AutoSize = true;
-            this.label_inv_text1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_inv_text1.Location = new System.Drawing.Point(12, 292);
+            this.label_inv_text1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_inv_text1.Location = new System.Drawing.Point(12, 240);
             this.label_inv_text1.Name = "label_inv_text1";
-            this.label_inv_text1.Size = new System.Drawing.Size(156, 20);
+            this.label_inv_text1.Size = new System.Drawing.Size(138, 16);
             this.label_inv_text1.TabIndex = 61;
             this.label_inv_text1.Text = "Текущее значение :";
+            this.label_inv_text1.Click += new System.EventHandler(this.label_inv_text1_Click);
             // 
             // comboBox_AC
             // 
-            this.comboBox_AC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBox_AC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBox_AC.FormattingEnabled = true;
-            this.comboBox_AC.Location = new System.Drawing.Point(188, 151);
+            this.comboBox_AC.Location = new System.Drawing.Point(188, 130);
             this.comboBox_AC.Name = "comboBox_AC";
-            this.comboBox_AC.Size = new System.Drawing.Size(250, 28);
+            this.comboBox_AC.Size = new System.Drawing.Size(250, 24);
             this.comboBox_AC.TabIndex = 0;
+            this.comboBox_AC.SelectedIndexChanged += new System.EventHandler(this.comboBox_AC_SelectedIndexChanged);
             // 
             // label__inv_text2
             // 
             this.label__inv_text2.AutoSize = true;
-            this.label__inv_text2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label__inv_text2.Location = new System.Drawing.Point(12, 324);
+            this.label__inv_text2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label__inv_text2.Location = new System.Drawing.Point(12, 265);
             this.label__inv_text2.Name = "label__inv_text2";
-            this.label__inv_text2.Size = new System.Drawing.Size(110, 20);
+            this.label__inv_text2.Size = new System.Drawing.Size(95, 16);
             this.label__inv_text2.TabIndex = 62;
             this.label__inv_text2.Text = "Изменить на:";
+            this.label__inv_text2.Click += new System.EventHandler(this.label__inv_text2_Click);
             // 
             // label_inv_old
             // 
             this.label_inv_old.AutoSize = true;
-            this.label_inv_old.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_inv_old.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label_inv_old.ForeColor = System.Drawing.Color.Maroon;
-            this.label_inv_old.Location = new System.Drawing.Point(188, 292);
+            this.label_inv_old.Location = new System.Drawing.Point(188, 240);
             this.label_inv_old.Name = "label_inv_old";
-            this.label_inv_old.Size = new System.Drawing.Size(57, 20);
+            this.label_inv_old.Size = new System.Drawing.Size(51, 16);
             this.label_inv_old.TabIndex = 63;
             this.label_inv_old.Text = "label1";
+            this.label_inv_old.Click += new System.EventHandler(this.label_inv_old_Click);
             // 
             // textBox_inv
             // 
-            this.textBox_inv.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox_inv.Location = new System.Drawing.Point(188, 318);
+            this.textBox_inv.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox_inv.Location = new System.Drawing.Point(188, 265);
             this.textBox_inv.Name = "textBox_inv";
-            this.textBox_inv.Size = new System.Drawing.Size(250, 26);
+            this.textBox_inv.Size = new System.Drawing.Size(250, 22);
             this.textBox_inv.TabIndex = 64;
+            this.textBox_inv.TextChanged += new System.EventHandler(this.textBox_inv_TextChanged);
             // 
             // label_AC
             // 
             this.label_AC.BackColor = System.Drawing.Color.Silver;
             this.label_AC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.7F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
                 | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_AC.Location = new System.Drawing.Point(10, 82);
+            this.label_AC.Location = new System.Drawing.Point(10, 80);
             this.label_AC.Name = "label_AC";
             this.label_AC.Size = new System.Drawing.Size(449, 22);
             this.label_AC.TabIndex = 65;
             this.label_AC.Text = "Тип учёта  ";
+            this.label_AC.Click += new System.EventHandler(this.label_AC_Click);
             // 
             // label_AC_text1
             // 
             this.label_AC_text1.AutoSize = true;
-            this.label_AC_text1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_AC_text1.Location = new System.Drawing.Point(12, 119);
+            this.label_AC_text1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_AC_text1.Location = new System.Drawing.Point(12, 110);
             this.label_AC_text1.Name = "label_AC_text1";
-            this.label_AC_text1.Size = new System.Drawing.Size(156, 20);
+            this.label_AC_text1.Size = new System.Drawing.Size(138, 16);
             this.label_AC_text1.TabIndex = 66;
             this.label_AC_text1.Text = "Текущее значение :";
+            this.label_AC_text1.Click += new System.EventHandler(this.label_AC_text1_Click);
             // 
             // label_AC_text2
             // 
             this.label_AC_text2.AutoSize = true;
-            this.label_AC_text2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_AC_text2.Location = new System.Drawing.Point(12, 151);
+            this.label_AC_text2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_AC_text2.Location = new System.Drawing.Point(12, 135);
             this.label_AC_text2.Name = "label_AC_text2";
-            this.label_AC_text2.Size = new System.Drawing.Size(110, 20);
+            this.label_AC_text2.Size = new System.Drawing.Size(95, 16);
             this.label_AC_text2.TabIndex = 67;
             this.label_AC_text2.Text = "Изменить на:";
+            this.label_AC_text2.Click += new System.EventHandler(this.label_AC_text2_Click);
             // 
             // checkBox_AC
             // 
             this.checkBox_AC.AutoSize = true;
-            this.checkBox_AC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.checkBox_AC.Location = new System.Drawing.Point(12, 197);
+            this.checkBox_AC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBox_AC.Location = new System.Drawing.Point(12, 160);
             this.checkBox_AC.Name = "checkBox_AC";
-            this.checkBox_AC.Size = new System.Drawing.Size(160, 24);
+            this.checkBox_AC.Size = new System.Drawing.Size(141, 20);
             this.checkBox_AC.TabIndex = 1;
             this.checkBox_AC.Text = "Новый тип учёта ";
             this.checkBox_AC.UseVisualStyleBackColor = true;
@@ -182,170 +191,186 @@
             // label_AC_old
             // 
             this.label_AC_old.AutoSize = true;
-            this.label_AC_old.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_AC_old.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label_AC_old.ForeColor = System.Drawing.Color.Maroon;
-            this.label_AC_old.Location = new System.Drawing.Point(188, 119);
+            this.label_AC_old.Location = new System.Drawing.Point(188, 110);
             this.label_AC_old.Name = "label_AC_old";
-            this.label_AC_old.Size = new System.Drawing.Size(57, 20);
+            this.label_AC_old.Size = new System.Drawing.Size(51, 16);
             this.label_AC_old.TabIndex = 68;
             this.label_AC_old.Text = "label1";
+            this.label_AC_old.Click += new System.EventHandler(this.label_AC_old_Click);
             // 
             // textBox_AC
             // 
             this.textBox_AC.Enabled = false;
-            this.textBox_AC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox_AC.Location = new System.Drawing.Point(188, 195);
+            this.textBox_AC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox_AC.Location = new System.Drawing.Point(188, 160);
             this.textBox_AC.Name = "textBox_AC";
-            this.textBox_AC.Size = new System.Drawing.Size(250, 26);
+            this.textBox_AC.Size = new System.Drawing.Size(250, 22);
             this.textBox_AC.TabIndex = 69;
+            this.textBox_AC.TextChanged += new System.EventHandler(this.textBox_AC_TextChanged);
             // 
             // label_SN
             // 
             this.label_SN.BackColor = System.Drawing.Color.Silver;
             this.label_SN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.7F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
                 | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_SN.Location = new System.Drawing.Point(10, 378);
+            this.label_SN.Location = new System.Drawing.Point(10, 315);
             this.label_SN.Name = "label_SN";
             this.label_SN.Size = new System.Drawing.Size(449, 22);
             this.label_SN.TabIndex = 70;
             this.label_SN.Text = "Серийный номер";
+            this.label_SN.Click += new System.EventHandler(this.label_SN_Click);
             // 
             // label_SN_text1
             // 
             this.label_SN_text1.AutoSize = true;
-            this.label_SN_text1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_SN_text1.Location = new System.Drawing.Point(12, 413);
+            this.label_SN_text1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_SN_text1.Location = new System.Drawing.Point(12, 345);
             this.label_SN_text1.Name = "label_SN_text1";
-            this.label_SN_text1.Size = new System.Drawing.Size(156, 20);
+            this.label_SN_text1.Size = new System.Drawing.Size(138, 16);
             this.label_SN_text1.TabIndex = 71;
             this.label_SN_text1.Text = "Текущее значение :";
+            this.label_SN_text1.Click += new System.EventHandler(this.label_SN_text1_Click);
             // 
             // label_SN_text2
             // 
             this.label_SN_text2.AutoSize = true;
-            this.label_SN_text2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_SN_text2.Location = new System.Drawing.Point(12, 445);
+            this.label_SN_text2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_SN_text2.Location = new System.Drawing.Point(12, 370);
             this.label_SN_text2.Name = "label_SN_text2";
-            this.label_SN_text2.Size = new System.Drawing.Size(110, 20);
+            this.label_SN_text2.Size = new System.Drawing.Size(95, 16);
             this.label_SN_text2.TabIndex = 72;
             this.label_SN_text2.Text = "Изменить на:";
+            this.label_SN_text2.Click += new System.EventHandler(this.label_SN_text2_Click);
             // 
             // label_SN_old
             // 
             this.label_SN_old.AutoSize = true;
-            this.label_SN_old.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_SN_old.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label_SN_old.ForeColor = System.Drawing.Color.Maroon;
-            this.label_SN_old.Location = new System.Drawing.Point(188, 413);
+            this.label_SN_old.Location = new System.Drawing.Point(188, 345);
             this.label_SN_old.Name = "label_SN_old";
-            this.label_SN_old.Size = new System.Drawing.Size(57, 20);
+            this.label_SN_old.Size = new System.Drawing.Size(51, 16);
             this.label_SN_old.TabIndex = 73;
             this.label_SN_old.Text = "label1";
+            this.label_SN_old.Click += new System.EventHandler(this.label_SN_old_Click);
             // 
             // textBox_SN
             // 
-            this.textBox_SN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox_SN.Location = new System.Drawing.Point(188, 439);
+            this.textBox_SN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox_SN.Location = new System.Drawing.Point(188, 370);
             this.textBox_SN.Name = "textBox_SN";
-            this.textBox_SN.Size = new System.Drawing.Size(250, 26);
+            this.textBox_SN.Size = new System.Drawing.Size(250, 22);
             this.textBox_SN.TabIndex = 74;
+            this.textBox_SN.TextChanged += new System.EventHandler(this.textBox_SN_TextChanged);
             // 
             // label_model
             // 
             this.label_model.BackColor = System.Drawing.Color.Silver;
             this.label_model.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.7F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
                 | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_model.Location = new System.Drawing.Point(10, 499);
+            this.label_model.Location = new System.Drawing.Point(10, 420);
             this.label_model.Name = "label_model";
             this.label_model.Size = new System.Drawing.Size(449, 22);
             this.label_model.TabIndex = 75;
             this.label_model.Text = "Модель";
+            this.label_model.Click += new System.EventHandler(this.label_model_Click);
             // 
             // label_model_text1
             // 
             this.label_model_text1.AutoSize = true;
-            this.label_model_text1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_model_text1.Location = new System.Drawing.Point(12, 534);
+            this.label_model_text1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_model_text1.Location = new System.Drawing.Point(12, 450);
             this.label_model_text1.Name = "label_model_text1";
-            this.label_model_text1.Size = new System.Drawing.Size(156, 20);
+            this.label_model_text1.Size = new System.Drawing.Size(138, 16);
             this.label_model_text1.TabIndex = 76;
             this.label_model_text1.Text = "Текущее значение :";
+            this.label_model_text1.Click += new System.EventHandler(this.label_model_text1_Click);
             // 
             // label_model_text2
             // 
             this.label_model_text2.AutoSize = true;
-            this.label_model_text2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_model_text2.Location = new System.Drawing.Point(12, 566);
+            this.label_model_text2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_model_text2.Location = new System.Drawing.Point(12, 475);
             this.label_model_text2.Name = "label_model_text2";
-            this.label_model_text2.Size = new System.Drawing.Size(110, 20);
+            this.label_model_text2.Size = new System.Drawing.Size(95, 16);
             this.label_model_text2.TabIndex = 77;
             this.label_model_text2.Text = "Изменить на:";
+            this.label_model_text2.Click += new System.EventHandler(this.label_model_text2_Click);
             // 
             // label_model_old
             // 
             this.label_model_old.AutoSize = true;
-            this.label_model_old.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_model_old.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label_model_old.ForeColor = System.Drawing.Color.Maroon;
-            this.label_model_old.Location = new System.Drawing.Point(188, 534);
+            this.label_model_old.Location = new System.Drawing.Point(188, 450);
             this.label_model_old.Name = "label_model_old";
-            this.label_model_old.Size = new System.Drawing.Size(57, 20);
+            this.label_model_old.Size = new System.Drawing.Size(51, 16);
             this.label_model_old.TabIndex = 78;
             this.label_model_old.Text = "label1";
+            this.label_model_old.Click += new System.EventHandler(this.label_model_old_Click);
             // 
             // textBox_model
             // 
-            this.textBox_model.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox_model.Location = new System.Drawing.Point(188, 560);
+            this.textBox_model.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox_model.Location = new System.Drawing.Point(188, 475);
             this.textBox_model.Name = "textBox_model";
-            this.textBox_model.Size = new System.Drawing.Size(250, 26);
+            this.textBox_model.Size = new System.Drawing.Size(250, 22);
             this.textBox_model.TabIndex = 79;
+            this.textBox_model.TextChanged += new System.EventHandler(this.textBox_model_TextChanged);
             // 
             // comboBox_device
             // 
-            this.comboBox_device.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBox_device.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBox_device.FormattingEnabled = true;
-            this.comboBox_device.Location = new System.Drawing.Point(188, 699);
+            this.comboBox_device.Location = new System.Drawing.Point(188, 575);
             this.comboBox_device.Name = "comboBox_device";
-            this.comboBox_device.Size = new System.Drawing.Size(250, 28);
+            this.comboBox_device.Size = new System.Drawing.Size(250, 24);
             this.comboBox_device.TabIndex = 80;
+            this.comboBox_device.SelectedIndexChanged += new System.EventHandler(this.comboBox_device_SelectedIndexChanged);
             // 
             // label_device
             // 
             this.label_device.BackColor = System.Drawing.Color.Silver;
             this.label_device.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.7F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
                 | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_device.Location = new System.Drawing.Point(10, 630);
+            this.label_device.Location = new System.Drawing.Point(10, 525);
             this.label_device.Name = "label_device";
             this.label_device.Size = new System.Drawing.Size(449, 22);
             this.label_device.TabIndex = 82;
             this.label_device.Text = "Тип оборудования";
+            this.label_device.Click += new System.EventHandler(this.label_device_Click);
             // 
             // label_device_text1
             // 
             this.label_device_text1.AutoSize = true;
-            this.label_device_text1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_device_text1.Location = new System.Drawing.Point(12, 667);
+            this.label_device_text1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_device_text1.Location = new System.Drawing.Point(12, 555);
             this.label_device_text1.Name = "label_device_text1";
-            this.label_device_text1.Size = new System.Drawing.Size(156, 20);
+            this.label_device_text1.Size = new System.Drawing.Size(138, 16);
             this.label_device_text1.TabIndex = 83;
             this.label_device_text1.Text = "Текущее значение :";
+            this.label_device_text1.Click += new System.EventHandler(this.label_device_text1_Click);
             // 
             // label_device_text2
             // 
             this.label_device_text2.AutoSize = true;
-            this.label_device_text2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_device_text2.Location = new System.Drawing.Point(12, 699);
+            this.label_device_text2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_device_text2.Location = new System.Drawing.Point(12, 580);
             this.label_device_text2.Name = "label_device_text2";
-            this.label_device_text2.Size = new System.Drawing.Size(110, 20);
+            this.label_device_text2.Size = new System.Drawing.Size(95, 16);
             this.label_device_text2.TabIndex = 84;
             this.label_device_text2.Text = "Изменить на:";
+            this.label_device_text2.Click += new System.EventHandler(this.label_device_text2_Click);
             // 
             // checkBox_device
             // 
             this.checkBox_device.AutoSize = true;
-            this.checkBox_device.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.checkBox_device.Location = new System.Drawing.Point(12, 745);
+            this.checkBox_device.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBox_device.Location = new System.Drawing.Point(12, 605);
             this.checkBox_device.Name = "checkBox_device";
-            this.checkBox_device.Size = new System.Drawing.Size(153, 24);
+            this.checkBox_device.Size = new System.Drawing.Size(134, 20);
             this.checkBox_device.TabIndex = 81;
             this.checkBox_device.Text = "Новый тип обор.";
             this.checkBox_device.UseVisualStyleBackColor = true;
@@ -354,70 +379,76 @@
             // label_device_old
             // 
             this.label_device_old.AutoSize = true;
-            this.label_device_old.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_device_old.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label_device_old.ForeColor = System.Drawing.Color.Maroon;
-            this.label_device_old.Location = new System.Drawing.Point(188, 667);
+            this.label_device_old.Location = new System.Drawing.Point(188, 555);
             this.label_device_old.Name = "label_device_old";
-            this.label_device_old.Size = new System.Drawing.Size(57, 20);
+            this.label_device_old.Size = new System.Drawing.Size(45, 16);
             this.label_device_old.TabIndex = 85;
             this.label_device_old.Text = "label1";
+            this.label_device_old.Click += new System.EventHandler(this.label_device_old_Click);
             // 
             // textBox_device
             // 
             this.textBox_device.Enabled = false;
-            this.textBox_device.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox_device.Location = new System.Drawing.Point(188, 743);
+            this.textBox_device.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox_device.Location = new System.Drawing.Point(188, 605);
             this.textBox_device.Name = "textBox_device";
-            this.textBox_device.Size = new System.Drawing.Size(250, 26);
+            this.textBox_device.Size = new System.Drawing.Size(250, 22);
             this.textBox_device.TabIndex = 86;
+            this.textBox_device.TextChanged += new System.EventHandler(this.textBox_device_TextChanged);
             // 
             // comboBox_jira
             // 
-            this.comboBox_jira.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBox_jira.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBox_jira.FormattingEnabled = true;
-            this.comboBox_jira.Location = new System.Drawing.Point(188, 872);
+            this.comboBox_jira.Location = new System.Drawing.Point(188, 705);
             this.comboBox_jira.Name = "comboBox_jira";
-            this.comboBox_jira.Size = new System.Drawing.Size(250, 28);
+            this.comboBox_jira.Size = new System.Drawing.Size(250, 24);
             this.comboBox_jira.TabIndex = 87;
+            this.comboBox_jira.SelectedIndexChanged += new System.EventHandler(this.comboBox_jira_SelectedIndexChanged);
             // 
             // label_Jira
             // 
             this.label_Jira.BackColor = System.Drawing.Color.Silver;
             this.label_Jira.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.7F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
                 | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_Jira.Location = new System.Drawing.Point(10, 803);
+            this.label_Jira.Location = new System.Drawing.Point(10, 655);
             this.label_Jira.Name = "label_Jira";
             this.label_Jira.Size = new System.Drawing.Size(449, 22);
             this.label_Jira.TabIndex = 89;
             this.label_Jira.Text = "Задача в JIRA";
+            this.label_Jira.Click += new System.EventHandler(this.label_Jira_Click);
             // 
             // label_Jira_text1
             // 
             this.label_Jira_text1.AutoSize = true;
-            this.label_Jira_text1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_Jira_text1.Location = new System.Drawing.Point(12, 840);
+            this.label_Jira_text1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_Jira_text1.Location = new System.Drawing.Point(12, 685);
             this.label_Jira_text1.Name = "label_Jira_text1";
-            this.label_Jira_text1.Size = new System.Drawing.Size(156, 20);
+            this.label_Jira_text1.Size = new System.Drawing.Size(138, 16);
             this.label_Jira_text1.TabIndex = 90;
             this.label_Jira_text1.Text = "Текущее значение :";
+            this.label_Jira_text1.Click += new System.EventHandler(this.label_Jira_text1_Click);
             // 
             // label_Jira_text2
             // 
             this.label_Jira_text2.AutoSize = true;
-            this.label_Jira_text2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_Jira_text2.Location = new System.Drawing.Point(12, 872);
+            this.label_Jira_text2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_Jira_text2.Location = new System.Drawing.Point(12, 710);
             this.label_Jira_text2.Name = "label_Jira_text2";
-            this.label_Jira_text2.Size = new System.Drawing.Size(110, 20);
+            this.label_Jira_text2.Size = new System.Drawing.Size(95, 16);
             this.label_Jira_text2.TabIndex = 91;
             this.label_Jira_text2.Text = "Изменить на:";
+            this.label_Jira_text2.Click += new System.EventHandler(this.label_Jira_text2_Click);
             // 
             // checkBox_jira
             // 
             this.checkBox_jira.AutoSize = true;
-            this.checkBox_jira.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.checkBox_jira.Location = new System.Drawing.Point(12, 918);
+            this.checkBox_jira.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBox_jira.Location = new System.Drawing.Point(12, 735);
             this.checkBox_jira.Name = "checkBox_jira";
-            this.checkBox_jira.Size = new System.Drawing.Size(135, 24);
+            this.checkBox_jira.Size = new System.Drawing.Size(119, 20);
             this.checkBox_jira.TabIndex = 88;
             this.checkBox_jira.Text = "Новая задача";
             this.checkBox_jira.UseVisualStyleBackColor = true;
@@ -426,31 +457,34 @@
             // label_Jira_old
             // 
             this.label_Jira_old.AutoSize = true;
-            this.label_Jira_old.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_Jira_old.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label_Jira_old.ForeColor = System.Drawing.Color.Maroon;
-            this.label_Jira_old.Location = new System.Drawing.Point(188, 840);
+            this.label_Jira_old.Location = new System.Drawing.Point(188, 685);
             this.label_Jira_old.Name = "label_Jira_old";
-            this.label_Jira_old.Size = new System.Drawing.Size(57, 20);
+            this.label_Jira_old.Size = new System.Drawing.Size(45, 16);
             this.label_Jira_old.TabIndex = 92;
             this.label_Jira_old.Text = "label1";
+            this.label_Jira_old.Click += new System.EventHandler(this.label_Jira_old_Click);
             // 
             // textBox_jira
             // 
             this.textBox_jira.Enabled = false;
-            this.textBox_jira.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox_jira.Location = new System.Drawing.Point(188, 916);
+            this.textBox_jira.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox_jira.Location = new System.Drawing.Point(188, 735);
             this.textBox_jira.Name = "textBox_jira";
-            this.textBox_jira.Size = new System.Drawing.Size(250, 26);
+            this.textBox_jira.Size = new System.Drawing.Size(250, 22);
             this.textBox_jira.TabIndex = 93;
+            this.textBox_jira.TextChanged += new System.EventHandler(this.textBox_jira_TextChanged);
             // 
             // Metka
             // 
             this.Metka.AutoSize = true;
             this.Metka.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Metka.Location = new System.Drawing.Point(8, 954);
+            this.Metka.Location = new System.Drawing.Point(167, 735);
             this.Metka.Name = "Metka";
             this.Metka.Size = new System.Drawing.Size(0, 20);
             this.Metka.TabIndex = 94;
+            this.Metka.Click += new System.EventHandler(this.Metka_Click);
             // 
             // panel_View
             // 
@@ -501,12 +535,12 @@
             this.panel_View.Controls.Add(this.comboBox_AC);
             this.panel_View.Controls.Add(this.label_inv_text1);
             this.panel_View.Controls.Add(this.label_Inv);
-            this.panel_View.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.panel_View.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.panel_View.Location = new System.Drawing.Point(0, 0);
             this.panel_View.MinimumSize = new System.Drawing.Size(400, 71);
             this.panel_View.Name = "panel_View";
             this.panel_View.Padding = new System.Windows.Forms.Padding(5);
-            this.panel_View.Size = new System.Drawing.Size(491, 829);
+            this.panel_View.Size = new System.Drawing.Size(491, 767);
             this.panel_View.TabIndex = 55;
             this.panel_View.TabStop = true;
             // 
@@ -520,6 +554,7 @@
             this.label_date.Size = new System.Drawing.Size(66, 24);
             this.label_date.TabIndex = 96;
             this.label_date.Text = "label1";
+            this.label_date.Click += new System.EventHandler(this.label_date_Click);
             // 
             // label_ID
             // 
@@ -531,6 +566,7 @@
             this.label_ID.Size = new System.Drawing.Size(66, 24);
             this.label_ID.TabIndex = 96;
             this.label_ID.Text = "label1";
+            this.label_ID.Click += new System.EventHandler(this.label_ID_Click);
             // 
             // label_date_test
             // 
@@ -541,6 +577,7 @@
             this.label_date_test.Size = new System.Drawing.Size(122, 24);
             this.label_date_test.TabIndex = 95;
             this.label_date_test.Text = "Дата в базе:";
+            this.label_date_test.Click += new System.EventHandler(this.label_date_test_Click);
             // 
             // label_ID_text
             // 
@@ -551,6 +588,7 @@
             this.label_ID_text.Size = new System.Drawing.Size(105, 24);
             this.label_ID_text.TabIndex = 95;
             this.label_ID_text.Text = "ID  в базе :";
+            this.label_ID_text.Click += new System.EventHandler(this.label_ID_text_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -560,11 +598,12 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 835);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 773);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(3);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(491, 50);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(491, 55);
             this.flowLayoutPanel1.TabIndex = 6;
+            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
             // button_OK
             // 
@@ -594,7 +633,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(491, 885);
+            this.ClientSize = new System.Drawing.Size(491, 828);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.panel_View);
             this.Name = "changeFormOne";
