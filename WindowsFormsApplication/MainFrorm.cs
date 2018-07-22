@@ -78,34 +78,144 @@ namespace WindowsFormsApplication
            dataGridViewPC_Name.DataSource = dal.Get_Data_From_Table_From_Colunm(tablename, value);
         }
 
-        private void stilDataGrid()
+        private void stilDataGrid(DataGridView dataGridView, string tableName)
         {
-            if (dataGridViewMT.DataSource != null)
+            if (dataGridView.Rows.Count != 0)
             {
-                dataGridViewMT.Columns["ID"].Visible = false;
-                dataGridViewMT.Columns["floorNambe"].Visible = false;
 
+                if (tableName == "MainTB")
+                {
+                    dataGridView.Columns["ID"].Visible = Properties.Settings.Default.mainForms_mainTB_ID;
+                    dataGridView.Columns["ID"].HeaderCell.Value = "ID";
 
-                dataGridViewMT.EnableHeadersVisualStyles = false;
-                dataGridViewMT.ColumnHeadersDefaultCellStyle.Font = new Font(dataGridViewMT.ColumnHeadersDefaultCellStyle.Font.FontFamily, 11f, FontStyle.Bold  | FontStyle.Italic); //жирный курсив размера 16 FontStyle.Italic
-                
-                //dataGridViewTB.ColumnHeadersDefaultCellStyle.BackColor = Color.Yellow; //цвет текста
-                //dataGridViewTB.ColumnHeadersDefaultCellStyle.ForeColor = Color.Red; //цвет ячейки
+                    dataGridView.Columns["dateCreated"].Visible = Properties.Settings.Default.mainForms_mainTB_date;
+                    dataGridView.Columns["dateCreated"].HeaderCell.Value = "Дата";
 
-                dataGridViewMT.Columns["dateCreated"].HeaderCell.Value = "Дата:";
-                dataGridViewMT.Columns["TypeAC"].HeaderCell.Value = "Вид учета:";
-                dataGridViewMT.Columns["NumberINV"].HeaderCell.Value = "Инвентарный №:";
-                dataGridViewMT.Columns["NameLAN"].HeaderCell.Value = "Имя в сети:";
-                dataGridViewMT.Columns["NameRes"].HeaderCell.Value = "Ответственный:";
-                dataGridViewMT.Columns["NameRoom"].HeaderCell.Value = "Месторасположение:";
-                dataGridViewMT.Columns["SN"].HeaderCell.Value = "Серийный №:";
-                dataGridViewMT.Columns["Model"].HeaderCell.Value = "Модель:";
-                dataGridViewMT.Columns["NameDevice"].HeaderCell.Value = "Тип устройства:";
+                    dataGridView.Columns["TypeAC"].Visible = Properties.Settings.Default.mainForms_mainTB_TypeAC;
+                    dataGridView.Columns["TypeAC"].HeaderCell.Value = "Вид учёта";
 
+                    dataGridView.Columns["NumberINV"].Visible = Properties.Settings.Default.mainForms_mainTB_InvNum;
+                    dataGridView.Columns["NumberINV"].HeaderCell.Value = "Инвентарный номер";
+
+                    dataGridView.Columns["NameLAN"].Visible = Properties.Settings.Default.mainForms_mainTB_LanName;
+                    dataGridView.Columns["NameLAN"].HeaderCell.Value = "Имя в сети (ПК)";
+
+                    dataGridView.Columns["NameRes"].Visible = Properties.Settings.Default.mainForms_mainTB_ResName;
+                    dataGridView.Columns["NameRes"].HeaderCell.Value = "Ответственный ";
+
+                    dataGridView.Columns["floorNambe"].Visible = Properties.Settings.Default.mainForms_mainTB_Floor;
+                    dataGridView.Columns["floorNambe"].HeaderCell.Value = "Этаж";
+
+                    dataGridView.Columns["NameRoom"].Visible = Properties.Settings.Default.mainForms_mainTB_Room;
+                    dataGridView.Columns["NameRoom"].HeaderCell.Value = "Комната";
+
+                    dataGridView.Columns["NameDevice"].Visible = Properties.Settings.Default.mainForms_mainTB_TypeDiv;
+                    dataGridView.Columns["NameDevice"].HeaderCell.Value = "Тип устройства";
+
+                    dataGridView.Columns["Model"].Visible = Properties.Settings.Default.mainForms_mainTB_Model;
+                    dataGridView.Columns["Model"].HeaderCell.Value = "Модель";
+
+                    dataGridView.Columns["SN"].Visible = Properties.Settings.Default.mainForms_mainTB_SN;
+                    dataGridView.Columns["SN"].HeaderCell.Value = "Серийный номер";
+
+                    dataGridView.Columns["JiraTask"].Visible = Properties.Settings.Default.mainForms_mainTB_JiraTask;
+                    dataGridView.Columns["JiraTask"].HeaderCell.Value = "Задача в JIRA";
+
+                    //dataGridView.Columns["WrittenOff"].Visible = Properties.Settings.Default.mainForms_mainTB_WrittenOff;
+                    //dataGridView.Columns["WrittenOff"].HeaderCell.Value = "Списано";
+
+                    //dataGridView.Columns["ReasonWriteOff"].Visible = Properties.Settings.Default.mainForms_mainTB_Reason;
+                    //dataGridView.Columns["ReasonWriteOff"].HeaderCell.Value = "Причина списания ";
+
+                    dataGridView.EnableHeadersVisualStyles = false;
+                    dataGridView.ColumnHeadersDefaultCellStyle.Font = new Font(dataGridView.ColumnHeadersDefaultCellStyle.Font.FontFamily, 10f, FontStyle.Bold | FontStyle.Italic);
+
+                }
+
+                else if (tableName == "HardWare")
+                {
+                    dataGridView.Columns["ID"].Visible = Properties.Settings.Default.mainForms_hardware_ID;
+                    dataGridView.Columns["ID"].HeaderCell.Value = "ID";
+
+                    dataGridView.Columns["dateCreated"].Visible = Properties.Settings.Default.mainForms_hardware_date;
+                    dataGridView.Columns["dateCreated"].HeaderCell.Value = "Дата";
+
+                    dataGridView.Columns["NumberINV"].Visible = Properties.Settings.Default.mainForms_hardware_InvNum;
+                    dataGridView.Columns["NumberINV"].HeaderCell.Value = "Инвентарный номер";
+
+                    dataGridView.Columns["NameLAN"].Visible = Properties.Settings.Default.mainForms_hardware_LanName;
+                    dataGridView.Columns["NameLAN"].HeaderCell.Value = "Имя в сети (ПК)";
+
+                    dataGridView.Columns["NameRes"].Visible = Properties.Settings.Default.mainForms_hardware_ResName;
+                    dataGridView.Columns["NameRes"].HeaderCell.Value = "Ответственный ";
+
+                    dataGridView.Columns["floorNambe"].Visible = Properties.Settings.Default.mainForms_hardware_Floor;
+                    dataGridView.Columns["floorNambe"].HeaderCell.Value = "Этаж";
+
+                    dataGridView.Columns["NameRoom"].Visible = Properties.Settings.Default.mainForms_hardware_Room;
+                    dataGridView.Columns["NameRoom"].HeaderCell.Value = "Комната";
+
+                    dataGridView.Columns["TypeHardWare"].Visible = Properties.Settings.Default.mainForms_hardware_TypeDiv;
+                    dataGridView.Columns["TypeHardWare"].HeaderCell.Value = "Тип устройства";
+
+                    dataGridView.Columns["Model"].Visible = Properties.Settings.Default.mainForms_hardware_Model;
+                    dataGridView.Columns["Model"].HeaderCell.Value = "Модель";
+
+                    dataGridView.Columns["SN"].Visible = Properties.Settings.Default.mainForms_hardware_SN;
+                    dataGridView.Columns["SN"].HeaderCell.Value = "Серийный номер";
+
+                    dataGridView.Columns["JiraTask"].Visible = Properties.Settings.Default.mainForms_hardware_JiraTask;
+                    dataGridView.Columns["JiraTask"].HeaderCell.Value = "Задача в JIRA";
+
+                    dataGridView.Columns["WrittenOff"].Visible = Properties.Settings.Default.mainForms_hardware_WrittenOff;
+                    dataGridView.Columns["WrittenOff"].HeaderCell.Value = "Списано";
+
+                    dataGridView.Columns["ReasonWriteOff"].Visible = Properties.Settings.Default.mainForms_hardware_Reason;
+                    dataGridView.Columns["ReasonWriteOff"].HeaderCell.Value = "Причина списания ";
+
+                    dataGridView.EnableHeadersVisualStyles = false;
+                    dataGridView.ColumnHeadersDefaultCellStyle.Font = new Font(dataGridView.ColumnHeadersDefaultCellStyle.Font.FontFamily, 10f, FontStyle.Bold | FontStyle.Italic);
+
+                }
+
+                else if (tableName == "HardwareStockRoom")
+                {
+                    dataGridView.Columns["ID"].Visible = Properties.Settings.Default.mainForms_stockroom_ID;
+                    dataGridView.Columns["ID"].HeaderCell.Value = "ID";
+
+                    dataGridView.Columns["dateCreated"].Visible = Properties.Settings.Default.mainForms_stockroom_date;
+                    dataGridView.Columns["dateCreated"].HeaderCell.Value = "Дата";
+
+                    dataGridView.Columns["NumberINV"].Visible = Properties.Settings.Default.mainForms_stockroom_InvNum;
+                    dataGridView.Columns["NumberINV"].HeaderCell.Value = "Инвентарный номер";
+
+                    dataGridView.Columns["quantity"].Visible = Properties.Settings.Default.mainForms_stockroom_Quantity;
+                    dataGridView.Columns["quantity"].HeaderCell.Value = "Количество";
+
+                    dataGridView.Columns["TypeHardWare"].Visible = Properties.Settings.Default.mainForms_stockroom_TypeDiv;
+                    dataGridView.Columns["TypeHardWare"].HeaderCell.Value = "Тип устройства";
+
+                    dataGridView.Columns["Model"].Visible = Properties.Settings.Default.mainForms_stockroom_Model;
+                    dataGridView.Columns["Model"].HeaderCell.Value = "Модель";
+
+                    dataGridView.Columns["SN"].Visible = Properties.Settings.Default.mainForms_stockroom_SN;
+                    dataGridView.Columns["SN"].HeaderCell.Value = "Серийный номер";
+
+                    dataGridView.Columns["JiraTask"].Visible = Properties.Settings.Default.mainForms_stockroom_JiraTask;
+                    dataGridView.Columns["JiraTask"].HeaderCell.Value = "Задача в JIRA";
+
+                    dataGridView.Columns["WrittenOff"].Visible = Properties.Settings.Default.mainForms_stockroom_WrittenOff;
+                    dataGridView.Columns["WrittenOff"].HeaderCell.Value = "Списано";
+
+                    dataGridView.Columns["ReasonWriteOff"].Visible = Properties.Settings.Default.mainForms_stockroom_Reason;
+                    dataGridView.Columns["ReasonWriteOff"].HeaderCell.Value = "Причина списания ";
+
+                    dataGridView.EnableHeadersVisualStyles = false;
+                    dataGridView.ColumnHeadersDefaultCellStyle.Font = new Font(dataGridView.ColumnHeadersDefaultCellStyle.Font.FontFamily, 10f, FontStyle.Bold | FontStyle.Italic);
+
+                }
 
             }
-            
-
         }
 
         private void PRINT_Click(object sender, EventArgs e)
@@ -132,49 +242,6 @@ namespace WindowsFormsApplication
             
         }
 
-        private void printLabels(string invNumber, string SN, string PC_Name)
-        {
-            string numbeSN = "SN: " + SN;
-            string NamePC = "PC: " + PC_Name;
-            
-            TSCLIB_DLL.setup("37", "70", "5", "15", "1", "3", "0");
-            //TSCLIB_DLL.sendcommand("GAP 3");
-            //TSCLIB_DLL.sendcommand("DIRECTION 0");
-            //TSCLIB_DLL.downloadpcx("UL.PCX", "UL.PCX");
-            //TSCLIB_DLL.sendcommand("PUTPCX 148,48,\"UL.PCX\"");
-            //TSCLIB_DLL.sendcommand("SPEED 2");
-            TSCLIB_DLL.sendcommand("SET PARTIAL_CUTTER OFF");
-            TSCLIB_DLL.sendcommand("CLS");
-            TSCLIB_DLL.sendcommand("BARCODE 96, 525, \"128\", 96, 0,270,3,2,\"" + invNumber + "\"");
-            TSCLIB_DLL.windowsfont( 28, 525, 64, 90, 0, 0, "ARIAL", invNumber );
-            TSCLIB_DLL.windowsfont( 196, 525, 32, 90, 1, 0, "ARIAL", numbeSN);
-            TSCLIB_DLL.windowsfont( 232, 525, 32, 90, 1, 0, "ARIAL", NamePC);
-
-            if (Properties.Settings.Default.ImgPath != "")
-            {
-                TSCLIB_DLL.downloadpcx(Properties.Settings.Default.ImgPath, "LOG2.BMP");
-                TSCLIB_DLL.sendcommand("PUTBMP 44,25,\"LOG2.BMP\"");
-            }
-            
-            //TSCLIB_DLL.sendcommand("CUT");
-            //
-            //Open specified printer driver
-            //   TSCLIB_DLL.setup("37", "70", "4", "12", "0", "1", "1");                              //Setup the media size and sensor type info
-            // TSCLIB_DLL.clearbuffer();                                                             //Clear image buffer
-            //TSCLIB_DLL.barcode("78", "491", "128M", "136", "1", "270", "2", "2", "19012016565");   //Drawing barcode
-            //TSCLIB_DLL.printerfont("24", "491", "3", "270", "1", "1", "S/N: 011642042");          //Drawing printer font
-            //TSCLIB_DLL.windowsfont(48, 491, 24, 90, 1, 0, "ARIAL", "NAME: MN-ADPC02");            //Draw windows font
-            // TSCLIB_DLL.downloadpcx("UL.PCX", "UL.PCX");                                         //Download PCX file into printer
-            // TSCLIB_DLL.sendcommand("PUTPCX 136,70,\"UL.PCX\"");                                 // TSCLIB_DLL.downloadpcx("UL.PCX", "UL.PCX");                                         //Download PCX file into printer
-            // TSCLIB_DLL.sendcommand("PUTPCX 136,70,\"UL.PCX\"");                                //Drawing PCX graphic
-            TSCLIB_DLL.printlabel("1", "1");
-            TSCLIB_DLL.sendcommand("CUT");
-
-            //Print labels
-            //TSCLIB_DLL.closeport();
-           
-        }   
-
         private void button_New_data_Click(object sender, EventArgs e)
         {
             SetNewDataBase setNewData = new SetNewDataBase();
@@ -183,7 +250,7 @@ namespace WindowsFormsApplication
             setNewData.ShowDialog();
             Update_Grid();
 
-        } 
+        }
 
 
         private void button_Update_Click(object sender, EventArgs e)
@@ -210,22 +277,41 @@ namespace WindowsFormsApplication
                     bllButtoms.Change_data(AddId, flag_button);
                 }
             }
-            /* foreach (DataGridViewRow row in dataGridViewMT.Rows)
-             {
-                 if (row.Selected == true)
-                 {
-                     BLL.Data.Add(row.Cells["ID"].Value.ToString());
-                    // bll.AddDataNew(row.Cells["ID"].Value.ToString(), row.Cells[3].Value.ToString(), row.Cells[4].Value.ToString(), row.Cells[5].Value.ToString(), row.Cells[6].Value.ToString());
-                 }
-             }
+            else if (flag_button == "HardwareStockRoom" || flag_button == "HardWare")
+            {
+                if (dataGridViewMT.SelectedRows.Count == 1)
+                {
+                    foreach (DataGridViewRow row in dataGridViewMT.Rows)
+                    {
+                        string Lan = null;
+                        if (flag_button == "HardwareStockRoom")
+                            Lan = row.Cells["quantity"].Value.ToString();
+                        else
+                            Lan = row.Cells["NameLAN"].Value.ToString();
 
+                        if (row.Selected == true)
+                        {                          
 
-             setDataBase.flag_button = flag_button;
-             setDataBase setNewData = new setDataBase();          
+                            bllButtoms.Move_Hardware(row.Cells["ID"].Value.ToString(),
+                                row.Cells["NumberINV"].Value.ToString(),
+                                row.Cells["TypeHardWare"].Value.ToString(),
+                                row.Cells["Model"].Value.ToString(),
+                                row.Cells["SN"].Value.ToString(),
+                                row.Cells["JiraTask"].Value.ToString(),
+                                Lan,
+                                flag_button);
 
-             //setNewData.Owner = this;
-             setNewData.ShowDialog();*/
-            Update_Grid();
+                            
+                        }
+                    }
+                }
+
+                else
+                    MessageBox.Show("Количество выбранных объектов превышает допустимое значение (одна позиции за раз)",
+                   "Боливар не вынесет двоих", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+                Update_Grid();
         }
 
         private void MainFrorm_FormClosed(object sender, FormClosedEventArgs e)
@@ -238,7 +324,7 @@ namespace WindowsFormsApplication
             if (e.KeyCode == Keys.Enter)
                 {
                 dataGridViewMT.DataSource = dal.GetDataGrid("MainTB.NumberINV", textBox_Number.Text);
-                stilDataGrid();
+                stilDataGrid(dataGridViewMT, flag_button);
                 }
             indexControl = 1;
             label_sum.Text = dataGridViewMT.Rows.Count.ToString();
@@ -249,7 +335,7 @@ namespace WindowsFormsApplication
             if (e.KeyCode == Keys.Enter)
             {
                 dataGridViewMT.DataSource = dal.GetDataGrid("dbo.NameLAN.NameLAN", textBox_PC.Text);
-                stilDataGrid();
+                stilDataGrid(dataGridViewMT, flag_button);
             }
             indexControl = 2;
             label_sum.Text = dataGridViewMT.Rows.Count.ToString();
@@ -317,7 +403,7 @@ namespace WindowsFormsApplication
                 else
                     dataGridViewMT.DataSource = dal.GetDataGrid_TypeDevice(dataGridViewPC_Name.Rows[e.RowIndex].Cells[0].Value.ToString());
 
-                stilDataGrid();
+                stilDataGrid(dataGridViewMT, flag_button);
                 indexControl = 5;
                 label_sum.Text = dataGridViewMT.Rows.Count.ToString();
             }
@@ -412,42 +498,60 @@ namespace WindowsFormsApplication
 
         public  void Update_Grid()
         {
-            if (indexControl  == 1)
+            if (flag_button == "MainTB")
             {
-                dataGridViewMT.DataSource = dal.GetDataGrid("MainTB.NumberINV", textBox_Number.Text);
-                stilDataGrid();
-            }
-            else if (indexControl == 2)
-            {
-                dataGridViewMT.DataSource = dal.GetDataGrid("dbo.NameLAN.NameLAN", textBox_PC.Text);
-                stilDataGrid();
-            }
-            else if (indexControl == 3)
-            {
-                dataGridViewMT.DataSource = dal.GetDataGrid("[dbo].[Room].[NameRoom]", comboBox_Room.SelectedValue.ToString());
-                stilDataGrid();
-            }
-            else if (indexControl == 4)
-            {
-                dataGridViewMT.DataSource = dal.GetDataGrid("[dbo].[NameRes].[NameRes]", comboBox_Responsible.SelectedValue.ToString());
-                stilDataGrid();
-            }
-            else if (indexControl == 5)
-            {
-                foreach (DataGridViewRow row in dataGridViewPC_Name.Rows)
+
+                if (indexControl == 1)
                 {
-                    if (row.Selected == true || row.Cells[0].Selected == true)
+                    dataGridViewMT.DataSource = dal.GetDataGrid("MainTB.NumberINV", textBox_Number.Text);
+                    stilDataGrid(dataGridViewMT, flag_button);
+                }
+                else if (indexControl == 2)
+                {
+                    dataGridViewMT.DataSource = dal.GetDataGrid("dbo.NameLAN.NameLAN", textBox_PC.Text);
+                    stilDataGrid(dataGridViewMT, flag_button);
+                }
+                else if (indexControl == 3)
+                {
+                    dataGridViewMT.DataSource = dal.GetDataGrid("[dbo].[Room].[NameRoom]", comboBox_Room.SelectedValue.ToString());
+                    stilDataGrid(dataGridViewMT, flag_button);
+                }
+                else if (indexControl == 4)
+                {
+                    dataGridViewMT.DataSource = dal.GetDataGrid("[dbo].[NameRes].[NameRes]", comboBox_Responsible.SelectedValue.ToString());
+                    stilDataGrid(dataGridViewMT, flag_button);
+                }
+                else if (indexControl == 5)
+                {
+                    foreach (DataGridViewRow row in dataGridViewPC_Name.Rows)
                     {
-                        dataGridViewMT.DataSource = dal.GetDataGrid_NamePC(row.Cells[0].Value.ToString());
-                        stilDataGrid();
+                        if (row.Selected == true || row.Cells[0].Selected == true)
+                        {
+                            dataGridViewMT.DataSource = dal.GetDataGrid_NamePC(row.Cells[0].Value.ToString());
+                            stilDataGrid(dataGridViewMT, flag_button);
+                        }
                     }
                 }
+                else
+                {
+                    dataGridViewMT.DataSource = dal.GetDataGrid("MainTB.NumberINV", "");
+                    stilDataGrid(dataGridViewMT, flag_button);
+                }
             }
-            else
+
+            else if (flag_button == "HardwareStockRoom")
             {
-                dataGridViewMT.DataSource = dal.GetDataGrid("MainTB.NumberINV", "");
-                stilDataGrid();
+                dataGridViewMT.DataSource = null;
+                dataGridViewMT.DataSource = dal.Get_Hardware_StockRoom();
             }
+
+            else if (flag_button == "Hardware")
+            {
+                dataGridViewMT.DataSource = null;
+                dataGridViewMT.DataSource = dal.Get_Hardware_PS();
+
+            }
+            
         }
 
         private void button_Repair_Click(object sender, EventArgs e)
@@ -475,7 +579,7 @@ namespace WindowsFormsApplication
                 else
                     dataGridViewMT.DataSource = dal.GetDataGrid_TypeDevice(dataGridViewPC_Name.Rows[e.RowIndex].Cells[0].Value.ToString());
 
-                stilDataGrid();
+                stilDataGrid(dataGridViewMT, flag_button);
                 indexControl = 5;
                 label_sum.Text = dataGridViewMT.Rows.Count.ToString();
 
@@ -486,7 +590,7 @@ namespace WindowsFormsApplication
         {
             flag_button = "MainTB";
             dataGridViewMT.DataSource = dal.GetDataGrid_Combobox("[dbo].[Room].[NameRoom]", comboBox_Room.SelectedValue.ToString());
-            stilDataGrid();
+            stilDataGrid(dataGridViewMT, flag_button);
             indexControl = 3;
             label_sum.Text = dataGridViewMT.Rows.Count.ToString();
         }
@@ -495,7 +599,7 @@ namespace WindowsFormsApplication
         {
             flag_button = "MainTB";
             dataGridViewMT.DataSource = dal.GetDataGrid_Combobox("[dbo].[NameRes].[NameRes]", comboBox_Responsible.SelectedValue.ToString());
-            stilDataGrid();
+            stilDataGrid(dataGridViewMT, flag_button);
             indexControl = 4;
             label_sum.Text = dataGridViewMT.Rows.Count.ToString();
         }
@@ -504,7 +608,7 @@ namespace WindowsFormsApplication
         {
             flag_button = "MainTB";
             dataGridViewMT.DataSource = dal.GetDataGrid("dbo.NameLAN.NameLAN", textBox_PC.Text);
-            stilDataGrid();
+            stilDataGrid(dataGridViewMT, flag_button);
             indexControl = 2;
             label_sum.Text = dataGridViewMT.Rows.Count.ToString();
         }
@@ -513,7 +617,7 @@ namespace WindowsFormsApplication
         {
             flag_button = "MainTB";
             dataGridViewMT.DataSource = dal.GetDataGrid("MainTB.NumberINV", textBox_Number.Text);
-            stilDataGrid();
+            stilDataGrid(dataGridViewMT, flag_button);
             indexControl = 1;
             label_sum.Text = dataGridViewMT.Rows.Count.ToString();
         }
@@ -617,7 +721,7 @@ namespace WindowsFormsApplication
 
             dataGridViewMT.DataSource = null;
             dataGridViewMT.DataSource = dal.GetDataGrid("MainTB.NumberINV", null);            
-            stilDataGrid();
+            stilDataGrid(dataGridViewMT, flag_button);
             indexControl = 1;
             label_sum.Text = dataGridViewMT.Rows.Count.ToString();
         }

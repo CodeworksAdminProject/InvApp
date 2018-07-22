@@ -92,6 +92,30 @@ namespace WindowsFormsApplication
 
         }
 
+        internal void Move_Hardware(string ID, string ID_PC)
+        {
+            ArrayList DataGrid = new ArrayList();
+            using (SqlConnection connect = new SqlConnection(sConectDB))
+            {
+                SqlCommand command = new SqlCommand(@"Update  [dbo].[HardWare] set [dbo].[HardWare].MainTB_ID = "+ID_PC+ 
+                    " where ID = "+ID+";", connect)
+                ;
+                try
+                {
+
+                    connect.Open();
+
+                    command.ExecuteNonQuery();
+                }
+
+                catch (SqlException exception)
+                {
+                    MessageBox.Show(exception.ToString());
+                }
+
+                connect.Close();
+            }
+        }
 
         internal void change(string label_ID, string type_AC, string inv, string type_Device, string SN, string Model, string type_Jira)
         {
@@ -281,7 +305,6 @@ namespace WindowsFormsApplication
 
         public void Delete (string table, string ID)
         {
-            ArrayList DataGrid = new ArrayList();
             using (SqlConnection connect = new SqlConnection(sConectDB))
             {
                 SqlCommand command = new SqlCommand("Delete  dbo."+ table +  
@@ -299,6 +322,33 @@ namespace WindowsFormsApplication
                     MessageBox.Show(exception.ToString());
                 }
 
+                connect.Close();
+            }
+        }
+
+        internal void remove_one_unit_stockroom(string ID)
+        {            
+            using (SqlConnection connect = new SqlConnection(sConectDB))
+            {
+                SqlCommand command = new SqlCommand(@"Update [dbo].[HardwareStockRoom] Set quantity= quantity -1 Where ID =" + ID+ @";
+                declare @Count int = (select quantity  FROM [dbo].[HardwareStockRoom] Where ID = " + ID + @");
+                if (@Count = 0)
+                begin
+                Delete [dbo].[HardwareStockRoom] Where ID = " + ID + @";
+                end
+                select* from [dbo].[HardwareStockRoom];", connect);
+                try
+                {
+
+                    connect.Open();
+
+                    command.ExecuteNonQuery();
+                }
+
+                catch (SqlException exception)
+                {
+                    MessageBox.Show(exception.ToString());
+                }
                 connect.Close();
             }
         }

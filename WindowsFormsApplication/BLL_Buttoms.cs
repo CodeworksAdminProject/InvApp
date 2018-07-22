@@ -7,7 +7,7 @@ namespace WindowsFormsApplication
     {
         DAL_SET_Buttons dalSetButtonns = new DAL_SET_Buttons();
         BLL bll = new BLL();
-        DAL_GET dalGet = new DAL_GET();
+        DAL_GET dalGet = new DAL_GET();        
 
         internal void Writtenoff(string addId, string tableName)
         {
@@ -150,6 +150,41 @@ namespace WindowsFormsApplication
 
             }
 
+        }
+
+        internal void Move_Hardware(string ID, string NumberINV, string TypeHardWare, string Model, string SN, string jira, string Old_NameLan,string flag)
+        {
+            Move_Hardware moveHardwar = new Move_Hardware();
+            if (flag == "HardWare")
+            {
+                
+                moveHardwar.ID = ID;
+                moveHardwar.NumberINV = NumberINV;
+                moveHardwar.TypeHardWare = TypeHardWare;
+                moveHardwar.Model = Model;                
+                moveHardwar.SN = SN;
+                moveHardwar.jira = jira;
+                moveHardwar.Old_NameLan = Old_NameLan;
+                moveHardwar.Hardware.Text = TypeHardWare + " " + Model + " (SN: " + SN + "). " + "Установлено на " + Old_NameLan + " (Инв №: " +NumberINV+")" ;
+                moveHardwar.sum.Text = "1";
+                moveHardwar.ShowDialog();
+            }
+
+            else if (flag == "HardwareStockRoom")
+            {
+                moveHardwar.ID = ID;
+                moveHardwar.NumberINV = NumberINV;
+                moveHardwar.TypeHardWare = TypeHardWare;
+                moveHardwar.Model = Model;
+                moveHardwar.SN = SN;
+                moveHardwar.jira = jira;
+                moveHardwar.Old_NameLan = Old_NameLan;
+                moveHardwar.Hardware.Text = TypeHardWare + " " + Model + " (SN: " + SN + "). На складе" + " (Инв №: " + NumberINV + ")";
+                moveHardwar.sum.Text = Old_NameLan;
+                moveHardwar.button_stockroom.Enabled = false;
+                moveHardwar.button_stockroom.Visible = false;
+                moveHardwar.ShowDialog();
+            }
         }
     }
 }

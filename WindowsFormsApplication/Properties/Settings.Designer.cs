@@ -898,5 +898,449 @@ namespace WindowsFormsApplication.Properties {
                 this["changeFormTwo_mainTB_Reason"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Search_hardware_ID {
+            get {
+                return ((bool)(this["Search_hardware_ID"]));
+            }
+            set {
+                this["Search_hardware_ID"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Search_hardware_date {
+            get {
+                return ((bool)(this["Search_hardware_date"]));
+            }
+            set {
+                this["Search_hardware_date"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool Search_hardware_InvNum {
+            get {
+                return ((bool)(this["Search_hardware_InvNum"]));
+            }
+            set {
+                this["Search_hardware_InvNum"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool Search_hardware_LanName {
+            get {
+                return ((bool)(this["Search_hardware_LanName"]));
+            }
+            set {
+                this["Search_hardware_LanName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool Search_hardware_ResName {
+            get {
+                return ((bool)(this["Search_hardware_ResName"]));
+            }
+            set {
+                this["Search_hardware_ResName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool Search_hardware_Room {
+            get {
+                return ((bool)(this["Search_hardware_Room"]));
+            }
+            set {
+                this["Search_hardware_Room"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Search_hardware_Floor {
+            get {
+                return ((bool)(this["Search_hardware_Floor"]));
+            }
+            set {
+                this["Search_hardware_Floor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool Search_hardware_TypeDiv {
+            get {
+                return ((bool)(this["Search_hardware_TypeDiv"]));
+            }
+            set {
+                this["Search_hardware_TypeDiv"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool Search_hardware_SN {
+            get {
+                return ((bool)(this["Search_hardware_SN"]));
+            }
+            set {
+                this["Search_hardware_SN"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool Search_hardware_Model {
+            get {
+                return ((bool)(this["Search_hardware_Model"]));
+            }
+            set {
+                this["Search_hardware_Model"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Search_hardware_WrittenOff {
+            get {
+                return ((bool)(this["Search_hardware_WrittenOff"]));
+            }
+            set {
+                this["Search_hardware_WrittenOff"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Search_hardware_JiraTask {
+            get {
+                return ((bool)(this["Search_hardware_JiraTask"]));
+            }
+            set {
+                this["Search_hardware_JiraTask"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Search_hardware_Reason {
+            get {
+                return ((bool)(this["Search_hardware_Reason"]));
+            }
+            set {
+                this["Search_hardware_Reason"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool Search_mainTB_ID {
+            get {
+                return ((bool)(this["Search_mainTB_ID"]));
+            }
+            set {
+                this["Search_mainTB_ID"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool Search_mainTB_date {
+            get {
+                return ((bool)(this["Search_mainTB_date"]));
+            }
+            set {
+                this["Search_mainTB_date"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool Search_mainTB_TypeAC {
+            get {
+                return ((bool)(this["Search_mainTB_TypeAC"]));
+            }
+            set {
+                this["Search_mainTB_TypeAC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool Search_mainTB_InvNum {
+            get {
+                return ((bool)(this["Search_mainTB_InvNum"]));
+            }
+            set {
+                this["Search_mainTB_InvNum"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool Search_mainTB_LanName {
+            get {
+                return ((bool)(this["Search_mainTB_LanName"]));
+            }
+            set {
+                this["Search_mainTB_LanName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool Search_mainTB_ResName {
+            get {
+                return ((bool)(this["Search_mainTB_ResName"]));
+            }
+            set {
+                this["Search_mainTB_ResName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool Search_mainTB_Room {
+            get {
+                return ((bool)(this["Search_mainTB_Room"]));
+            }
+            set {
+                this["Search_mainTB_Room"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool Search_mainTB_Floor {
+            get {
+                return ((bool)(this["Search_mainTB_Floor"]));
+            }
+            set {
+                this["Search_mainTB_Floor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool Search_mainTB_TypeDiv {
+            get {
+                return ((bool)(this["Search_mainTB_TypeDiv"]));
+            }
+            set {
+                this["Search_mainTB_TypeDiv"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool Search_mainTB_SN {
+            get {
+                return ((bool)(this["Search_mainTB_SN"]));
+            }
+            set {
+                this["Search_mainTB_SN"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool Search_mainTB_Model {
+            get {
+                return ((bool)(this["Search_mainTB_Model"]));
+            }
+            set {
+                this["Search_mainTB_Model"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool Search_mainTB_WrittenOff {
+            get {
+                return ((bool)(this["Search_mainTB_WrittenOff"]));
+            }
+            set {
+                this["Search_mainTB_WrittenOff"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool Search_mainTB_JiraTask {
+            get {
+                return ((bool)(this["Search_mainTB_JiraTask"]));
+            }
+            set {
+                this["Search_mainTB_JiraTask"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Search_mainTB_Reason {
+            get {
+                return ((bool)(this["Search_mainTB_Reason"]));
+            }
+            set {
+                this["Search_mainTB_Reason"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Search_stockroom_ID {
+            get {
+                return ((bool)(this["Search_stockroom_ID"]));
+            }
+            set {
+                this["Search_stockroom_ID"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Search_stockroom_date {
+            get {
+                return ((bool)(this["Search_stockroom_date"]));
+            }
+            set {
+                this["Search_stockroom_date"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool Search_stockroom_InvNum {
+            get {
+                return ((bool)(this["Search_stockroom_InvNum"]));
+            }
+            set {
+                this["Search_stockroom_InvNum"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool Search_stockroom_Quantity {
+            get {
+                return ((bool)(this["Search_stockroom_Quantity"]));
+            }
+            set {
+                this["Search_stockroom_Quantity"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool Search_stockroom_TypeDiv {
+            get {
+                return ((bool)(this["Search_stockroom_TypeDiv"]));
+            }
+            set {
+                this["Search_stockroom_TypeDiv"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Search_stockroom_SN {
+            get {
+                return ((bool)(this["Search_stockroom_SN"]));
+            }
+            set {
+                this["Search_stockroom_SN"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool Search_stockroom_Model {
+            get {
+                return ((bool)(this["Search_stockroom_Model"]));
+            }
+            set {
+                this["Search_stockroom_Model"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Search_stockroom_WrittenOff {
+            get {
+                return ((bool)(this["Search_stockroom_WrittenOff"]));
+            }
+            set {
+                this["Search_stockroom_WrittenOff"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool Search_stockroom_JiraTask {
+            get {
+                return ((bool)(this["Search_stockroom_JiraTask"]));
+            }
+            set {
+                this["Search_stockroom_JiraTask"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Search_stockroom_Reason {
+            get {
+                return ((bool)(this["Search_stockroom_Reason"]));
+            }
+            set {
+                this["Search_stockroom_Reason"] = value;
+            }
+        }
     }
 }

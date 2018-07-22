@@ -65,6 +65,54 @@ namespace WindowsFormsApplication
             return Data;
         }
 
+        internal ArrayList Get_LanName_Haradware(string Inv, string Lan, string Res)
+        {
+            ArrayList PS_name = new ArrayList();
+
+            using (SqlConnection connect = new SqlConnection(sConectDB))
+            {
+                SqlCommand command = new SqlCommand(@"SELECT [dbo].[MainTB].[ID]
+            ,[NumberINV]
+            ,[NameLAN].NameLAN
+            ,[NameRes]
+            ,[floorNambe]
+            ,[NameRoom]
+            ,[NameDevice]
+            FROM  [dbo].[MainTB]
+            JOIN NameRes on NameRes_ID = NameRes.ID
+            JOIN [Floor] on Floor_ID = [Floor].[ID]
+            JOIN [Room] on Room_ID = Room.ID
+            JOIN [TypeDevice] on TypeDevice_ID = TypeDevice.ID
+            JOIN [NameLAN] on NameLAN_ID = NameLAN.ID
+            where (TypeDevice.NameDevice  like '%истемный блок' or  TypeDevice.NameDevice  like  '%ини ПК' or   TypeDevice.NameDevice  like '%ервер')
+            and NameLAN LIKE '%"+Lan+ @"%'
+		    and NameRes LIKE '%"+Res+@"%'
+		    and [NumberINV] LIKE '%"+Inv+@"%'
+            and MainTB.WrittenOff = 'false';", connect);
+
+                try
+                {
+
+                    connect.Open();
+                    SqlDataReader datareader = command.ExecuteReader();
+
+                    if (datareader.HasRows)
+                        foreach (DbDataRecord result in datareader)
+                            PS_name.Add(result);
+                    else
+                        return null;
+                }
+
+                catch (SqlException exception)
+                {
+                    MessageBox.Show(exception.ToString());
+                }
+
+                connect.Close();
+            }
+            return PS_name;
+        }
+
         // JBD
         internal ArrayList getJDB(string value )
         {
@@ -455,9 +503,10 @@ namespace WindowsFormsApplication
                       ,[Model]
                       ,[SN]
                       ,[quantity]
-                      ,[JiraTask_ID]
+                      ,[JiraTask]
                   FROM [dbo].[HardwareStockRoom]
-                  Join [TypeHardWare] on TypeHardWare_ID = [TypeHardWare].[ID];", connect);
+                  Join [TypeHardWare] on TypeHardWare_ID = [TypeHardWare].[ID]
+                  Join [JiraTask] on JiraTask_ID = JiraTask.ID ;", connect);
 
             try
             {
@@ -490,11 +539,14 @@ namespace WindowsFormsApplication
 	          NameLAN.NameLAN
               ,HardWare.ID 
               ,[TypeHardWare]
+              ,[NumberINV]
               ,[Model]
               ,[SN]
               ,[WrittenOff]
-               FROM [dbo].[HardWare],NameLAN, TypeHardWare
-                Where NameLAN = (SELECT NameLAN  FROM [dbo].[MainTB] join NameLAN on NameLAN_ID = NameLAN.ID   Where [MainTB].ID = MainTB_ID) 
+              ,[JiraTask]
+               FROM [dbo].[HardWare],NameLAN, TypeHardWare, JiraTask
+                Where NameLAN = (SELECT NameLAN  FROM [dbo].[MainTB] join NameLAN on NameLAN_ID = NameLAN.ID   Where [MainTB].ID = MainTB_ID)
+                AND JiraTask_ID = JiraTask.ID 
                 AND TypeHardWare_ID = TypeHardWare.ID;", connect);
 
             try

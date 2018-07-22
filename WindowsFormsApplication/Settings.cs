@@ -40,9 +40,9 @@ namespace WindowsFormsApplication
             mainForms_mainTB_TypeDiv.Checked = Properties.Settings.Default.mainForms_mainTB_TypeDiv;
             mainForms_mainTB_SN.Checked = Properties.Settings.Default.mainForms_mainTB_SN;
             mainForms_mainTB_Model.Checked = Properties.Settings.Default.mainForms_mainTB_Model;
-            mainForms_mainTB_WrittenOff.Checked = Properties.Settings.Default.mainForms_mainTB_WrittenOff;
+            //mainForms_mainTB_WrittenOff.Checked = Properties.Settings.Default.mainForms_mainTB_WrittenOff;
             mainForms_mainTB_JiraTask.Checked = Properties.Settings.Default.mainForms_mainTB_JiraTask;
-            mainForms_mainTB_Reason.Checked = Properties.Settings.Default.mainForms_mainTB_Reason;
+            mainForms_mainTB_note.Checked = Properties.Settings.Default.mainForms_mainTB_Reason;
 
             mainForms_hardware_date.Checked = Properties.Settings.Default.mainForms_hardware_date;
             mainForms_hardware_InvNum.Checked = Properties.Settings.Default.mainForms_hardware_InvNum;
@@ -53,9 +53,9 @@ namespace WindowsFormsApplication
             mainForms_hardware_TypeDiv.Checked = Properties.Settings.Default.mainForms_hardware_TypeDiv;
             mainForms_hardware_SN.Checked = Properties.Settings.Default.mainForms_hardware_SN;
             mainForms_hardware_Model.Checked = Properties.Settings.Default.mainForms_hardware_Model;
-            mainForms_hardware_WrittenOff.Checked = Properties.Settings.Default.mainForms_hardware_WrittenOff;
+            //mainForms_hardware_WrittenOff.Checked = Properties.Settings.Default.mainForms_hardware_WrittenOff;
             mainForms_hardware_JiraTask.Checked = Properties.Settings.Default.mainForms_hardware_JiraTask;
-            mainForms_hardware_Reason.Checked = Properties.Settings.Default.mainForms_hardware_Reason;
+            mainForms_hardware_note.Checked = Properties.Settings.Default.mainForms_hardware_Reason;
 
             mainForms_stockroom_ID.Checked = Properties.Settings.Default.mainForms_stockroom_ID;
             mainForms_stockroom_date.Checked = Properties.Settings.Default.mainForms_stockroom_date;            
@@ -97,6 +97,50 @@ namespace WindowsFormsApplication
             changeFormTwo_mainTB_WrittenOff.Checked = Properties.Settings.Default.changeFormTwo_mainTB_WrittenOff;
             changeFormTwo_mainTB_JiraTask.Checked = Properties.Settings.Default.changeFormTwo_mainTB_JiraTask;
             changeFormTwo_mainTB_Reason.Checked = Properties.Settings.Default.changeFormTwo_mainTB_Reason;
+
+            Search_mainTB_ID.Checked = Properties.Settings.Default.Search_mainTB_ID;
+            Search_mainTB_date.Checked = Properties.Settings.Default.Search_mainTB_date;
+            Search_mainTB_TypeAC.Checked = Properties.Settings.Default.Search_mainTB_TypeAC;
+            Search_mainTB_InvNum.Checked = Properties.Settings.Default.Search_mainTB_InvNum;
+            Search_mainTB_LanName.Checked = Properties.Settings.Default.Search_mainTB_LanName;
+            Search_mainTB_ResName.Checked = Properties.Settings.Default.Search_mainTB_ResName;
+            Search_mainTB_Room.Checked = Properties.Settings.Default.Search_mainTB_Room;
+            Search_mainTB_Floor.Checked = Properties.Settings.Default.Search_mainTB_Floor;
+            Search_mainTB_TypeDiv.Checked = Properties.Settings.Default.Search_mainTB_TypeDiv;
+            Search_mainTB_SN.Checked = Properties.Settings.Default.Search_mainTB_SN;
+            Search_mainTB_Model.Checked = Properties.Settings.Default.Search_mainTB_Model;
+            Search_mainTB_WrittenOff.Checked = Properties.Settings.Default.Search_mainTB_WrittenOff;
+            Search_mainTB_JiraTask.Checked = Properties.Settings.Default.Search_mainTB_JiraTask;
+            Search_mainTB_Reason.Checked = Properties.Settings.Default.Search_mainTB_Reason;
+
+            Search_hardware_ID.Checked = Properties.Settings.Default.Search_hardware_ID;
+            Search_hardware_date.Checked = Properties.Settings.Default.Search_hardware_date;
+            Search_hardware_InvNum.Checked = Properties.Settings.Default.Search_hardware_InvNum;
+            Search_hardware_LanName.Checked = Properties.Settings.Default.Search_hardware_LanName;
+            Search_hardware_ResName.Checked = Properties.Settings.Default.Search_hardware_ResName;
+            Search_hardware_Room.Checked = Properties.Settings.Default.Search_hardware_Room;
+            Search_hardware_Floor.Checked = Properties.Settings.Default.Search_hardware_Floor;
+            Search_hardware_TypeDiv.Checked = Properties.Settings.Default.Search_hardware_TypeDiv;
+            Search_hardware_SN.Checked = Properties.Settings.Default.Search_hardware_SN;
+            Search_hardware_Model.Checked = Properties.Settings.Default.Search_hardware_Model;
+            Search_hardware_WrittenOff.Checked = Properties.Settings.Default.Search_hardware_WrittenOff;
+            Search_hardware_JiraTask.Checked = Properties.Settings.Default.Search_hardware_JiraTask;
+            Search_hardware_Reason.Checked = Properties.Settings.Default.Search_hardware_Reason;
+
+            Search_stockroom_ID.Checked = Properties.Settings.Default.Search_stockroom_ID;
+            Search_stockroom_date.Checked = Properties.Settings.Default.Search_stockroom_date;
+            Search_stockroom_InvNum.Checked = Properties.Settings.Default.Search_stockroom_InvNum;
+            Search_stockroom_Quantity.Checked = Properties.Settings.Default.Search_stockroom_Quantity;
+            Search_stockroom_TypeDiv.Checked = Properties.Settings.Default.Search_stockroom_TypeDiv;
+            Search_stockroom_SN.Checked = Properties.Settings.Default.Search_stockroom_SN;
+            Search_stockroom_Model.Checked = Properties.Settings.Default.Search_stockroom_Model;
+            Search_stockroom_WrittenOff.Checked = Properties.Settings.Default.Search_stockroom_WrittenOff;
+            Search_stockroom_JiraTask.Checked = Properties.Settings.Default.Search_stockroom_JiraTask;
+            Search_stockroom_Reason.Checked = Properties.Settings.Default.Search_stockroom_Reason;
+
+
+
+
 
 
             if (Properties.Settings.Default.ImgPath != "")
@@ -164,9 +208,9 @@ namespace WindowsFormsApplication
             Properties.Settings.Default.mainForms_mainTB_TypeDiv = mainForms_mainTB_TypeDiv.Checked;
             Properties.Settings.Default.mainForms_mainTB_SN = mainForms_mainTB_SN.Checked;
             Properties.Settings.Default.mainForms_mainTB_Model = mainForms_mainTB_Model.Checked;
-            Properties.Settings.Default.mainForms_mainTB_WrittenOff = mainForms_mainTB_WrittenOff.Checked;
+            //Properties.Settings.Default.mainForms_mainTB_WrittenOff = mainForms_mainTB_WrittenOff.Checked;
             Properties.Settings.Default.mainForms_mainTB_JiraTask = mainForms_mainTB_JiraTask.Checked;
-            Properties.Settings.Default.mainForms_mainTB_Reason = mainForms_mainTB_Reason.Checked;
+            Properties.Settings.Default.mainForms_mainTB_Reason = mainForms_mainTB_note.Checked;
 
             Properties.Settings.Default.mainForms_hardware_ID = mainForms_hardware_ID.Checked;
             Properties.Settings.Default.mainForms_hardware_date = mainForms_hardware_date.Checked;
@@ -178,9 +222,9 @@ namespace WindowsFormsApplication
             Properties.Settings.Default.mainForms_hardware_TypeDiv = mainForms_hardware_TypeDiv.Checked;
             Properties.Settings.Default.mainForms_hardware_SN = mainForms_hardware_SN.Checked;
             Properties.Settings.Default.mainForms_hardware_Model = mainForms_hardware_Model.Checked;
-            Properties.Settings.Default.mainForms_hardware_WrittenOff = mainForms_hardware_WrittenOff.Checked;
+           // Properties.Settings.Default.mainForms_hardware_WrittenOff = mainForms_hardware_WrittenOff.Checked;
             Properties.Settings.Default.mainForms_hardware_JiraTask = mainForms_hardware_JiraTask.Checked;
-            Properties.Settings.Default.mainForms_hardware_Reason = mainForms_hardware_Reason.Checked;
+            Properties.Settings.Default.mainForms_hardware_Reason = mainForms_hardware_note.Checked;
 
             Properties.Settings.Default.setDataBase_mainTB_ID = setDataBase_mainTB_ID.Checked;
             Properties.Settings.Default.setDataBase_mainTB_date = setDataBase_mainTB_date.Checked;
@@ -211,6 +255,50 @@ namespace WindowsFormsApplication
             Properties.Settings.Default.changeFormTwo_mainTB_WrittenOff = changeFormTwo_mainTB_WrittenOff.Checked;
             Properties.Settings.Default.changeFormTwo_mainTB_JiraTask = changeFormTwo_mainTB_JiraTask.Checked;
             Properties.Settings.Default.changeFormTwo_mainTB_Reason = changeFormTwo_mainTB_Reason.Checked;
+
+            Properties.Settings.Default.Search_hardware_ID = Search_hardware_ID.Checked;
+            Properties.Settings.Default.Search_hardware_date = Search_hardware_date.Checked;            
+            Properties.Settings.Default.Search_hardware_InvNum = Search_hardware_InvNum.Checked;
+            Properties.Settings.Default.Search_hardware_LanName = Search_hardware_LanName.Checked;
+            Properties.Settings.Default.Search_hardware_ResName = Search_hardware_ResName.Checked;
+            Properties.Settings.Default.Search_hardware_Room = Search_hardware_Room.Checked;
+            Properties.Settings.Default.Search_hardware_Floor = Search_hardware_Floor.Checked;
+            Properties.Settings.Default.Search_hardware_TypeDiv = Search_hardware_TypeDiv.Checked;
+            Properties.Settings.Default.Search_hardware_SN = Search_hardware_SN.Checked;
+            Properties.Settings.Default.Search_hardware_Model = Search_hardware_Model.Checked;
+            Properties.Settings.Default.Search_hardware_WrittenOff = Search_hardware_WrittenOff.Checked;
+            Properties.Settings.Default.Search_hardware_JiraTask = Search_hardware_JiraTask.Checked;
+            Properties.Settings.Default.Search_hardware_Reason = Search_hardware_Reason.Checked;
+
+            Properties.Settings.Default.Search_mainTB_ID = Search_mainTB_ID.Checked;
+            Properties.Settings.Default.Search_mainTB_date = Search_mainTB_date.Checked;
+            Properties.Settings.Default.Search_mainTB_TypeAC = Search_mainTB_TypeAC.Checked;
+            Properties.Settings.Default.Search_mainTB_InvNum = Search_mainTB_InvNum.Checked;
+            Properties.Settings.Default.Search_mainTB_LanName = Search_mainTB_LanName.Checked;
+            Properties.Settings.Default.Search_mainTB_ResName = Search_mainTB_ResName.Checked;
+            Properties.Settings.Default.Search_mainTB_Room = Search_mainTB_Room.Checked;
+            Properties.Settings.Default.Search_mainTB_Floor = Search_mainTB_Floor.Checked;
+            Properties.Settings.Default.Search_mainTB_TypeDiv = Search_mainTB_TypeDiv.Checked;
+            Properties.Settings.Default.Search_mainTB_SN = Search_mainTB_SN.Checked;
+            Properties.Settings.Default.Search_mainTB_Model = Search_mainTB_Model.Checked;
+            Properties.Settings.Default.Search_mainTB_WrittenOff = Search_mainTB_WrittenOff.Checked;
+            Properties.Settings.Default.Search_mainTB_JiraTask = Search_mainTB_JiraTask.Checked;
+            Properties.Settings.Default.Search_mainTB_Reason = Search_mainTB_Reason.Checked;
+
+            Properties.Settings.Default.Search_stockroom_ID = Search_stockroom_ID.Checked;
+            Properties.Settings.Default.Search_stockroom_date = Search_stockroom_date.Checked;
+            Properties.Settings.Default.Search_stockroom_InvNum = Search_stockroom_InvNum.Checked;
+            Properties.Settings.Default.Search_stockroom_Quantity = Search_stockroom_Quantity.Checked;
+            Properties.Settings.Default.Search_stockroom_TypeDiv = Search_stockroom_TypeDiv.Checked;
+            Properties.Settings.Default.Search_stockroom_SN = Search_stockroom_SN.Checked;
+            Properties.Settings.Default.Search_stockroom_Model = Search_stockroom_Model.Checked;
+            Properties.Settings.Default.Search_stockroom_WrittenOff = Search_stockroom_WrittenOff.Checked;
+            Properties.Settings.Default.Search_stockroom_JiraTask = Search_stockroom_JiraTask.Checked;
+            Properties.Settings.Default.Search_stockroom_Reason = Search_stockroom_Reason.Checked;
+
+
+
+
 
 
 

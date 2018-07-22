@@ -1000,8 +1000,8 @@
             this.ClientSize = new System.Drawing.Size(467, 783);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.tableLayoutPanel_head);
-            this.Controls.Add(this.panel_MainAcount);
             this.Controls.Add(this.panel_Hardware);
+            this.Controls.Add(this.panel_MainAcount);
             this.Name = "SetNewDataBase";
             this.Text = "SetNewDate";
             this.groupBox_TypeAccоunt.ResumeLayout(false);

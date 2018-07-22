@@ -62,12 +62,25 @@ namespace WindowsFormsApplication
             string Type_AC = null;            
             if (textBox_AC.Enabled == true)
                 Type_AC = textBox_AC.Text;
-            else { Type_AC = comboBox_AC.SelectedValue.ToString(); }
-
+            else
+            {
+                if (comboBox_AC.SelectedValue.ToString() != null)
+                    Type_AC = comboBox_AC.SelectedValue.ToString();
+                else
+                    Type_AC = "";
+            }
+            
             string Type_Device;
             if (textBox_device.Enabled == true)
                 Type_Device = textBox_device.Text;
-            else { Type_Device = comboBox_device.SelectedValue.ToString(); }
+            else
+            {
+                if (comboBox_device.SelectedValue.ToString() != null)
+                    Type_Device = comboBox_device.SelectedValue.ToString();                
+                else
+                    Type_Device = "";
+
+            }
 
             string Type_Jira ;
             if (textBox_jira.Enabled == true)
@@ -149,201 +162,6 @@ namespace WindowsFormsApplication
         private void changeFormOne_FormClosed(object sender, FormClosedEventArgs e)
         {
             BLL.ArrayChancge.Clear();
-        }
-
-        private void label_Inv_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label_inv_text1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox_AC_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label__inv_text2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label_inv_old_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox_inv_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label_AC_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label_AC_text1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label_AC_text2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label_AC_old_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox_AC_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label_SN_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label_SN_text1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label_SN_text2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label_SN_old_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox_SN_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label_model_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label_model_text1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label_model_text2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label_model_old_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox_model_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox_device_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label_device_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label_device_text1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label_device_text2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label_device_old_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox_device_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox_jira_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label_Jira_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label_Jira_text1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label_Jira_text2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label_Jira_old_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox_jira_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Metka_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label_date_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label_ID_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label_date_test_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label_ID_text_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        }        
     }
 }

@@ -46,11 +46,11 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.button_cancel = new System.Windows.Forms.Button();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.button_OK = new System.Windows.Forms.Button();
             this.button_writtenoff = new System.Windows.Forms.Button();
             this.button_delete = new System.Windows.Forms.Button();
             this.button_print_select_str = new System.Windows.Forms.Button();
             this.button_print_all = new System.Windows.Forms.Button();
-            this.button_OK = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -115,7 +115,7 @@
             this.groupBox_jira.Controls.Add(this.textBox_jira);
             this.groupBox_jira.Controls.Add(this.comboBox_jira);
             this.groupBox_jira.Controls.Add(this.checkBox_jira);
-            this.groupBox_jira.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox_jira.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox_jira.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBox_jira.Location = new System.Drawing.Point(766, 5);
             this.groupBox_jira.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -312,6 +312,19 @@
             this.flowLayoutPanel2.Size = new System.Drawing.Size(232, 60);
             this.flowLayoutPanel2.TabIndex = 0;
             // 
+            // button_OK
+            // 
+            this.button_OK.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button_OK.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_OK.Location = new System.Drawing.Point(801, 2);
+            this.button_OK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button_OK.Name = "button_OK";
+            this.button_OK.Size = new System.Drawing.Size(341, 62);
+            this.button_OK.TabIndex = 5;
+            this.button_OK.Text = "Внести  изменения в базу (Ok)";
+            this.button_OK.UseVisualStyleBackColor = true;
+            this.button_OK.Click += new System.EventHandler(this.button_OK_Click);
+            // 
             // button_writtenoff
             // 
             this.button_writtenoff.BackgroundImage = global::WindowsFormsApplication.Properties.Resources.Horizontal_Line_48px;
@@ -353,19 +366,6 @@
             this.button_print_all.TabIndex = 0;
             this.button_print_all.UseVisualStyleBackColor = true;
             this.button_print_all.Click += new System.EventHandler(this.button_print_all_Click);
-            // 
-            // button_OK
-            // 
-            this.button_OK.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button_OK.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_OK.Location = new System.Drawing.Point(801, 2);
-            this.button_OK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button_OK.Name = "button_OK";
-            this.button_OK.Size = new System.Drawing.Size(341, 62);
-            this.button_OK.TabIndex = 5;
-            this.button_OK.Text = "Внести  изменения в базу (Ok)";
-            this.button_OK.UseVisualStyleBackColor = true;
-            this.button_OK.Click += new System.EventHandler(this.button_OK_Click);
             // 
             // changeFormTwo
             // 

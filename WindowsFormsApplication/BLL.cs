@@ -35,6 +35,7 @@ namespace WindowsFormsApplication
         public static string sHtmlTableHardware_PS = null;
         public static string sHtmlTableHardware_Stockroom = null;
         public static string sHtmlTable_Change_data = null;
+        public static string sHtmlTable_Move_Hardware = null; 
 
         public static string ReasonWriteOff = null;
         public static bool flag = false;
@@ -619,7 +620,56 @@ namespace WindowsFormsApplication
             
         }
 
+        internal void Move_Hardware(string invNumber, string typedevise, string SN, string Model, string Jira, string PC_name, string Old_NameLan, string flag )
+        {
+            string New = @"<span  class='new'>";
+            string PC = null;
+
+            if (flag == "PC_S")
+                PC = "Снято с " + Old_NameLan + New + " и отправлено на склад</span>";
+            else if (flag == "S_PC")
+                PC = "Взято со склада и установлено на " + New + PC_name +"</span>";
+            else
+                PC = "Снято с "+Old_NameLan +" и установлено на " + New + PC_name + " </span>";
+
+
+
+            if (BLL.heds == null)
+                BLL.heds = "<h1><p> В  пользователем:  <font  color = 'red' >" + System.Environment.UserName + " </font> были внесены  следующие  изменения: </p></h1>";
+
+            if (sHtmlTable_Move_Hardware == null)
+            {
+                sHtmlTable_Move_Hardware = @"
+                 <h2> Пепремещение железа или расходников</h2> 
+                 <table border='1' > 
+                <caption><font size='5'>Пепремещение железа или расходников :</font></caption>
+                <tr> 
+                <th>Номер операции </th>
+                <th>Инвентарный номер</th>
+                <th>Имя компьютера</th>
+                <th>Тип устройства</th>
+                <th>Серийный номер</th>
+                <th>Модель</th>
+                <th> Задача  в Jira</th> 
+                </tr>";
+            }
+
+
+            sHtmlTable_Move_Hardware = sHtmlTable_Move_Hardware +
+                       "<tr>" +
+                       "<td>" + Number + "</td>" +
+                       "<td>" + invNumber + "</td>" +
+                        "<td>" + PC + "</td>" +
+                        "<td>" + typedevise + "</td>" +
+                        "<td>" + Model + "</td>" +
+                        "<td>" + SN + "</td>" +
+                        "<td>" + "<a href='http://jira.mara.local/browse/" + Jira + "'>" + Jira + " </a></td>" +
+                        "</tr>";
+
+        }
+
         internal void new_Hardware_Into_StockRoom(string invNumber, string typedevise, string SN, string Model, string Jira, string Sum)
+
 
 
         {
@@ -631,7 +681,7 @@ namespace WindowsFormsApplication
                 sHtmlTableHardware_Stockroom = @"
                 <h2> Новое на склад (железо или расходники)</h2 > 
                 <table border='1' > 
-                <caption><font size='5'>Добавлено новое на  железо или расходники  на  склад :</font></caption>
+                <caption><font size='5'>Добавлено новое железо или расходники  на  склад :</font></caption>
                 <tr> 
                 <th>Номер операции </th>
                 <th>Инвентарный номер</th>

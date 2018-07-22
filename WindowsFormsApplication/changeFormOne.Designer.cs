@@ -87,7 +87,6 @@
             this.label_Inv.Size = new System.Drawing.Size(449, 22);
             this.label_Inv.TabIndex = 60;
             this.label_Inv.Text = "Инвентарной номер ";
-            this.label_Inv.Click += new System.EventHandler(this.label_Inv_Click);
             // 
             // label_inv_text1
             // 
@@ -98,7 +97,6 @@
             this.label_inv_text1.Size = new System.Drawing.Size(138, 16);
             this.label_inv_text1.TabIndex = 61;
             this.label_inv_text1.Text = "Текущее значение :";
-            this.label_inv_text1.Click += new System.EventHandler(this.label_inv_text1_Click);
             // 
             // comboBox_AC
             // 
@@ -108,7 +106,6 @@
             this.comboBox_AC.Name = "comboBox_AC";
             this.comboBox_AC.Size = new System.Drawing.Size(250, 24);
             this.comboBox_AC.TabIndex = 0;
-            this.comboBox_AC.SelectedIndexChanged += new System.EventHandler(this.comboBox_AC_SelectedIndexChanged);
             // 
             // label__inv_text2
             // 
@@ -119,7 +116,6 @@
             this.label__inv_text2.Size = new System.Drawing.Size(95, 16);
             this.label__inv_text2.TabIndex = 62;
             this.label__inv_text2.Text = "Изменить на:";
-            this.label__inv_text2.Click += new System.EventHandler(this.label__inv_text2_Click);
             // 
             // label_inv_old
             // 
@@ -131,7 +127,6 @@
             this.label_inv_old.Size = new System.Drawing.Size(51, 16);
             this.label_inv_old.TabIndex = 63;
             this.label_inv_old.Text = "label1";
-            this.label_inv_old.Click += new System.EventHandler(this.label_inv_old_Click);
             // 
             // textBox_inv
             // 
@@ -140,7 +135,6 @@
             this.textBox_inv.Name = "textBox_inv";
             this.textBox_inv.Size = new System.Drawing.Size(250, 22);
             this.textBox_inv.TabIndex = 64;
-            this.textBox_inv.TextChanged += new System.EventHandler(this.textBox_inv_TextChanged);
             // 
             // label_AC
             // 
@@ -152,7 +146,6 @@
             this.label_AC.Size = new System.Drawing.Size(449, 22);
             this.label_AC.TabIndex = 65;
             this.label_AC.Text = "Тип учёта  ";
-            this.label_AC.Click += new System.EventHandler(this.label_AC_Click);
             // 
             // label_AC_text1
             // 
@@ -163,7 +156,6 @@
             this.label_AC_text1.Size = new System.Drawing.Size(138, 16);
             this.label_AC_text1.TabIndex = 66;
             this.label_AC_text1.Text = "Текущее значение :";
-            this.label_AC_text1.Click += new System.EventHandler(this.label_AC_text1_Click);
             // 
             // label_AC_text2
             // 
@@ -174,7 +166,6 @@
             this.label_AC_text2.Size = new System.Drawing.Size(95, 16);
             this.label_AC_text2.TabIndex = 67;
             this.label_AC_text2.Text = "Изменить на:";
-            this.label_AC_text2.Click += new System.EventHandler(this.label_AC_text2_Click);
             // 
             // checkBox_AC
             // 
@@ -198,7 +189,6 @@
             this.label_AC_old.Size = new System.Drawing.Size(51, 16);
             this.label_AC_old.TabIndex = 68;
             this.label_AC_old.Text = "label1";
-            this.label_AC_old.Click += new System.EventHandler(this.label_AC_old_Click);
             // 
             // textBox_AC
             // 
@@ -208,7 +198,6 @@
             this.textBox_AC.Name = "textBox_AC";
             this.textBox_AC.Size = new System.Drawing.Size(250, 22);
             this.textBox_AC.TabIndex = 69;
-            this.textBox_AC.TextChanged += new System.EventHandler(this.textBox_AC_TextChanged);
             // 
             // label_SN
             // 
@@ -220,7 +209,6 @@
             this.label_SN.Size = new System.Drawing.Size(449, 22);
             this.label_SN.TabIndex = 70;
             this.label_SN.Text = "Серийный номер";
-            this.label_SN.Click += new System.EventHandler(this.label_SN_Click);
             // 
             // label_SN_text1
             // 
@@ -231,7 +219,6 @@
             this.label_SN_text1.Size = new System.Drawing.Size(138, 16);
             this.label_SN_text1.TabIndex = 71;
             this.label_SN_text1.Text = "Текущее значение :";
-            this.label_SN_text1.Click += new System.EventHandler(this.label_SN_text1_Click);
             // 
             // label_SN_text2
             // 
@@ -242,7 +229,6 @@
             this.label_SN_text2.Size = new System.Drawing.Size(95, 16);
             this.label_SN_text2.TabIndex = 72;
             this.label_SN_text2.Text = "Изменить на:";
-            this.label_SN_text2.Click += new System.EventHandler(this.label_SN_text2_Click);
             // 
             // label_SN_old
             // 
@@ -254,7 +240,6 @@
             this.label_SN_old.Size = new System.Drawing.Size(51, 16);
             this.label_SN_old.TabIndex = 73;
             this.label_SN_old.Text = "label1";
-            this.label_SN_old.Click += new System.EventHandler(this.label_SN_old_Click);
             // 
             // textBox_SN
             // 
@@ -263,7 +248,6 @@
             this.textBox_SN.Name = "textBox_SN";
             this.textBox_SN.Size = new System.Drawing.Size(250, 22);
             this.textBox_SN.TabIndex = 74;
-            this.textBox_SN.TextChanged += new System.EventHandler(this.textBox_SN_TextChanged);
             // 
             // label_model
             // 
@@ -275,7 +259,6 @@
             this.label_model.Size = new System.Drawing.Size(449, 22);
             this.label_model.TabIndex = 75;
             this.label_model.Text = "Модель";
-            this.label_model.Click += new System.EventHandler(this.label_model_Click);
             // 
             // label_model_text1
             // 
@@ -286,7 +269,6 @@
             this.label_model_text1.Size = new System.Drawing.Size(138, 16);
             this.label_model_text1.TabIndex = 76;
             this.label_model_text1.Text = "Текущее значение :";
-            this.label_model_text1.Click += new System.EventHandler(this.label_model_text1_Click);
             // 
             // label_model_text2
             // 
@@ -297,7 +279,6 @@
             this.label_model_text2.Size = new System.Drawing.Size(95, 16);
             this.label_model_text2.TabIndex = 77;
             this.label_model_text2.Text = "Изменить на:";
-            this.label_model_text2.Click += new System.EventHandler(this.label_model_text2_Click);
             // 
             // label_model_old
             // 
@@ -309,7 +290,6 @@
             this.label_model_old.Size = new System.Drawing.Size(51, 16);
             this.label_model_old.TabIndex = 78;
             this.label_model_old.Text = "label1";
-            this.label_model_old.Click += new System.EventHandler(this.label_model_old_Click);
             // 
             // textBox_model
             // 
@@ -318,7 +298,6 @@
             this.textBox_model.Name = "textBox_model";
             this.textBox_model.Size = new System.Drawing.Size(250, 22);
             this.textBox_model.TabIndex = 79;
-            this.textBox_model.TextChanged += new System.EventHandler(this.textBox_model_TextChanged);
             // 
             // comboBox_device
             // 
@@ -328,7 +307,6 @@
             this.comboBox_device.Name = "comboBox_device";
             this.comboBox_device.Size = new System.Drawing.Size(250, 24);
             this.comboBox_device.TabIndex = 80;
-            this.comboBox_device.SelectedIndexChanged += new System.EventHandler(this.comboBox_device_SelectedIndexChanged);
             // 
             // label_device
             // 
@@ -340,7 +318,6 @@
             this.label_device.Size = new System.Drawing.Size(449, 22);
             this.label_device.TabIndex = 82;
             this.label_device.Text = "Тип оборудования";
-            this.label_device.Click += new System.EventHandler(this.label_device_Click);
             // 
             // label_device_text1
             // 
@@ -351,7 +328,6 @@
             this.label_device_text1.Size = new System.Drawing.Size(138, 16);
             this.label_device_text1.TabIndex = 83;
             this.label_device_text1.Text = "Текущее значение :";
-            this.label_device_text1.Click += new System.EventHandler(this.label_device_text1_Click);
             // 
             // label_device_text2
             // 
@@ -362,7 +338,6 @@
             this.label_device_text2.Size = new System.Drawing.Size(95, 16);
             this.label_device_text2.TabIndex = 84;
             this.label_device_text2.Text = "Изменить на:";
-            this.label_device_text2.Click += new System.EventHandler(this.label_device_text2_Click);
             // 
             // checkBox_device
             // 
@@ -386,7 +361,6 @@
             this.label_device_old.Size = new System.Drawing.Size(45, 16);
             this.label_device_old.TabIndex = 85;
             this.label_device_old.Text = "label1";
-            this.label_device_old.Click += new System.EventHandler(this.label_device_old_Click);
             // 
             // textBox_device
             // 
@@ -396,7 +370,6 @@
             this.textBox_device.Name = "textBox_device";
             this.textBox_device.Size = new System.Drawing.Size(250, 22);
             this.textBox_device.TabIndex = 86;
-            this.textBox_device.TextChanged += new System.EventHandler(this.textBox_device_TextChanged);
             // 
             // comboBox_jira
             // 
@@ -406,7 +379,6 @@
             this.comboBox_jira.Name = "comboBox_jira";
             this.comboBox_jira.Size = new System.Drawing.Size(250, 24);
             this.comboBox_jira.TabIndex = 87;
-            this.comboBox_jira.SelectedIndexChanged += new System.EventHandler(this.comboBox_jira_SelectedIndexChanged);
             // 
             // label_Jira
             // 
@@ -418,7 +390,6 @@
             this.label_Jira.Size = new System.Drawing.Size(449, 22);
             this.label_Jira.TabIndex = 89;
             this.label_Jira.Text = "Задача в JIRA";
-            this.label_Jira.Click += new System.EventHandler(this.label_Jira_Click);
             // 
             // label_Jira_text1
             // 
@@ -429,7 +400,6 @@
             this.label_Jira_text1.Size = new System.Drawing.Size(138, 16);
             this.label_Jira_text1.TabIndex = 90;
             this.label_Jira_text1.Text = "Текущее значение :";
-            this.label_Jira_text1.Click += new System.EventHandler(this.label_Jira_text1_Click);
             // 
             // label_Jira_text2
             // 
@@ -440,7 +410,6 @@
             this.label_Jira_text2.Size = new System.Drawing.Size(95, 16);
             this.label_Jira_text2.TabIndex = 91;
             this.label_Jira_text2.Text = "Изменить на:";
-            this.label_Jira_text2.Click += new System.EventHandler(this.label_Jira_text2_Click);
             // 
             // checkBox_jira
             // 
@@ -464,7 +433,6 @@
             this.label_Jira_old.Size = new System.Drawing.Size(45, 16);
             this.label_Jira_old.TabIndex = 92;
             this.label_Jira_old.Text = "label1";
-            this.label_Jira_old.Click += new System.EventHandler(this.label_Jira_old_Click);
             // 
             // textBox_jira
             // 
@@ -474,7 +442,6 @@
             this.textBox_jira.Name = "textBox_jira";
             this.textBox_jira.Size = new System.Drawing.Size(250, 22);
             this.textBox_jira.TabIndex = 93;
-            this.textBox_jira.TextChanged += new System.EventHandler(this.textBox_jira_TextChanged);
             // 
             // Metka
             // 
@@ -484,7 +451,6 @@
             this.Metka.Name = "Metka";
             this.Metka.Size = new System.Drawing.Size(0, 20);
             this.Metka.TabIndex = 94;
-            this.Metka.Click += new System.EventHandler(this.Metka_Click);
             // 
             // panel_View
             // 
@@ -554,7 +520,6 @@
             this.label_date.Size = new System.Drawing.Size(66, 24);
             this.label_date.TabIndex = 96;
             this.label_date.Text = "label1";
-            this.label_date.Click += new System.EventHandler(this.label_date_Click);
             // 
             // label_ID
             // 
@@ -566,7 +531,6 @@
             this.label_ID.Size = new System.Drawing.Size(66, 24);
             this.label_ID.TabIndex = 96;
             this.label_ID.Text = "label1";
-            this.label_ID.Click += new System.EventHandler(this.label_ID_Click);
             // 
             // label_date_test
             // 
@@ -577,7 +541,6 @@
             this.label_date_test.Size = new System.Drawing.Size(122, 24);
             this.label_date_test.TabIndex = 95;
             this.label_date_test.Text = "Дата в базе:";
-            this.label_date_test.Click += new System.EventHandler(this.label_date_test_Click);
             // 
             // label_ID_text
             // 
@@ -588,7 +551,6 @@
             this.label_ID_text.Size = new System.Drawing.Size(105, 24);
             this.label_ID_text.TabIndex = 95;
             this.label_ID_text.Text = "ID  в базе :";
-            this.label_ID_text.Click += new System.EventHandler(this.label_ID_text_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -603,7 +565,6 @@
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(3);
             this.flowLayoutPanel1.Size = new System.Drawing.Size(491, 55);
             this.flowLayoutPanel1.TabIndex = 6;
-            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
             // button_OK
             // 

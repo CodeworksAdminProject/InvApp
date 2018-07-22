@@ -24,10 +24,10 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>\\mn-mssql01\AppInv\publishKiev\</UpdateUrl>
-    <ProductName>In</ProductName>
+    <ProductName>Inventory</ProductName>
     <PublisherName>Zimburavi©</PublisherName>
     <SuiteName>Inventory</SuiteName>
-    <ApplicationRevision>11</ApplicationRevision>
+    <ApplicationRevision>13</ApplicationRevision>
     <ApplicationVersion>0.1.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -170,6 +170,12 @@
       <DependentUpon>JBD.cs</DependentUpon>
     </Compile>
     <Compile Include="LDAPAuthentication.cs" />
+    <Compile Include="Move_Hardware.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Move_Hardware.Designer.cs">
+      <DependentUpon>Move_Hardware.cs</DependentUpon>
+    </Compile>
     <Compile Include="Search.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -242,6 +248,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainFrorm.resx">
       <DependentUpon>MainFrorm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Move_Hardware.resx">
+      <DependentUpon>Move_Hardware.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

@@ -23,47 +23,53 @@ namespace WindowsFormsApplication
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainFrorm());
 
-            string tabl = null;
+            string table = null;
             if (BLL.sMailBody != null)
-                tabl = "</table>";
+                table = "</table>";
 
-            string tabl1 = null;
+            string table1 = null;
             if (BLL.sMailBodyNew != null)
-                tabl1 = "</table>";
+                table1 = "</table>";
 
-            string tabl2 = null;
+            string table2 = null;
             if (BLL.sHtmlTableAddWriteOffForReport != null)
-                tabl2 = "</table>";
+                table2 = "</table>";
 
-            string tabl3 = null;
+            string table3 = null;
             if (BLL.sHtmlTableTakeAwayWriteOffForReport != null)
-                tabl3 = "</table>";
+                table3 = "</table>";
 
-            string tabl4 = null;
+            string table4 = null;
             if (BLL.sHtmlTableDeleteReport != null)
-                tabl4 = "</table>";
+                table4 = "</table>";
 
-            string tabl5 = null;
+            string table5 = null;
             if (BLL.sHtmlTableHardware_PS != null)
-                tabl5 = "</table>";
+                table5 = "</table>";
 
-            string tabl6 = null;
+            string table6 = null;
             if (BLL.sHtmlTableHardware_Stockroom != null)
-                tabl6 = "</table>";
+                table6 = "</table>";
 
-            string tabl7 = null;
+            string table7 = null;
             if (BLL.sHtmlTable_Change_data != null)
-                tabl7 = "</table>";
+                table7 = "</table>";
+
+            string table8 = null;
+            if (BLL.sHtmlTable_Move_Hardware  != null)
+                table8 = "</table>";
 
             if ((BLL.sMailBody != null) || (BLL.sMailBodyNew != null) || (BLL.sMailBodyDelete != null) || 
                 (BLL.sHtmlTableAddWriteOffForReport != null) || (BLL.sHtmlTableTakeAwayWriteOffForReport != null) || (BLL.sMailBodyDelete != null) ||
-                (BLL.sHtmlTableHardware_PS != null) || (BLL.sHtmlTableHardware_Stockroom != null) || (BLL.sHtmlTable_Change_data != null))
+                (BLL.sHtmlTableHardware_PS != null) || (BLL.sHtmlTableHardware_Stockroom != null) || (BLL.sHtmlTable_Change_data != null) ||
+                (BLL.sHtmlTable_Move_Hardware != null))
 
-                sentmail.SentMail(BLL.heds + BLL.sMailBody +tabl + BLL.sMailBodyNew + tabl1+ BLL.sHtmlTableAddWriteOffForReport + 
-                    tabl2 + BLL.sHtmlTableTakeAwayWriteOffForReport + tabl3 + BLL.sHtmlTableDeleteReport + tabl4 +
-                    BLL.sHtmlTableHardware_Stockroom + tabl6 + BLL.sHtmlTableHardware_PS+tabl5 + BLL.sHtmlTable_Change_data + tabl7, Properties.Settings.Default.Email);
+                sentmail.SentMail(BLL.heds + BLL.sMailBody +table + BLL.sMailBodyNew + table1+ BLL.sHtmlTableAddWriteOffForReport + 
+                    table2 + BLL.sHtmlTableTakeAwayWriteOffForReport + table3 + BLL.sHtmlTableDeleteReport + table4 +
+                    BLL.sHtmlTableHardware_Stockroom + table6 + BLL.sHtmlTableHardware_PS+table5 + BLL.sHtmlTable_Change_data + table7 +
+                    BLL.sHtmlTable_Move_Hardware + table8, Properties.Settings.Default.Email);
 
-            System.IO.File.WriteAllText(@"D:\error\sMailBody.txt", BLL.sMailBody + tabl);
+          //  System.IO.File.WriteAllText(@"D:\error\sMailBody.txt", BLL.sMailBody + table);
           //  System.IO.File.WriteAllText(@"D:\error\heds.txt", BLL.heds);
         }
 
