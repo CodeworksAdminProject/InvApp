@@ -28,47 +28,50 @@ namespace WindowsFormsApplication
 
                 if (tableName == "MainTB")
                 {
-                    dataGridView.Columns["ID"].Visible = Properties.Settings.Default.mainForms_mainTB_ID;
+                    dataGridView.Columns["ID"].Visible = Properties.Settings.Default.Search_mainTB_ID;
                     dataGridView.Columns["ID"].HeaderCell.Value = "ID";
 
-                    dataGridView.Columns["dateCreated"].Visible = Properties.Settings.Default.mainForms_mainTB_date;
+                    dataGridView.Columns["dateCreated"].Visible = Properties.Settings.Default.Search_mainTB_date;
                     dataGridView.Columns["dateCreated"].HeaderCell.Value = "Дата";
 
-                    dataGridView.Columns["TypeAC"].Visible = Properties.Settings.Default.mainForms_mainTB_TypeAC;
+                    dataGridView.Columns["TypeAC"].Visible = Properties.Settings.Default.Search_mainTB_TypeAC;
                     dataGridView.Columns["TypeAC"].HeaderCell.Value = "Вид учёта";
 
-                    dataGridView.Columns["NumberINV"].Visible = Properties.Settings.Default.mainForms_mainTB_InvNum;
+                    dataGridView.Columns["NumberINV"].Visible = Properties.Settings.Default.Search_mainTB_InvNum;
                     dataGridView.Columns["NumberINV"].HeaderCell.Value = "Инвентарный номер";
 
-                    dataGridView.Columns["NameLAN"].Visible = Properties.Settings.Default.mainForms_mainTB_LanName;
+                    dataGridView.Columns["NameLAN"].Visible = Properties.Settings.Default.Search_mainTB_LanName;
                     dataGridView.Columns["NameLAN"].HeaderCell.Value = "Имя в сети (ПК)";
 
-                    dataGridView.Columns["NameRes"].Visible = Properties.Settings.Default.mainForms_mainTB_ResName;
+                    dataGridView.Columns["NameRes"].Visible = Properties.Settings.Default.Search_mainTB_ResName;
                     dataGridView.Columns["NameRes"].HeaderCell.Value = "Ответственный ";
 
-                    dataGridView.Columns["floorNambe"].Visible = Properties.Settings.Default.mainForms_mainTB_Floor;
+                    dataGridView.Columns["floorNambe"].Visible = Properties.Settings.Default.Search_mainTB_Floor;
                     dataGridView.Columns["floorNambe"].HeaderCell.Value = "Этаж";
 
-                    dataGridView.Columns["NameRoom"].Visible = Properties.Settings.Default.mainForms_mainTB_Room;
+                    dataGridView.Columns["NameRoom"].Visible = Properties.Settings.Default.Search_mainTB_Room;
                     dataGridView.Columns["NameRoom"].HeaderCell.Value = "Комната";
 
-                    dataGridView.Columns["NameDevice"].Visible = Properties.Settings.Default.mainForms_mainTB_TypeDiv;
+                    dataGridView.Columns["NameDevice"].Visible = Properties.Settings.Default.Search_mainTB_TypeDiv;
                     dataGridView.Columns["NameDevice"].HeaderCell.Value = "Тип устройства";
 
-                    dataGridView.Columns["Model"].Visible = Properties.Settings.Default.mainForms_mainTB_Model;
+                    dataGridView.Columns["Model"].Visible = Properties.Settings.Default.Search_mainTB_Model;
                     dataGridView.Columns["Model"].HeaderCell.Value = "Модель";
 
-                    dataGridView.Columns["SN"].Visible = Properties.Settings.Default.mainForms_mainTB_SN;
+                    dataGridView.Columns["SN"].Visible = Properties.Settings.Default.Search_mainTB_SN;
                     dataGridView.Columns["SN"].HeaderCell.Value = "Серийный номер";
 
-                    dataGridView.Columns["JiraTask"].Visible = Properties.Settings.Default.mainForms_mainTB_JiraTask;
+                    dataGridView.Columns["JiraTask"].Visible = Properties.Settings.Default.Search_mainTB_JiraTask;
                     dataGridView.Columns["JiraTask"].HeaderCell.Value = "Задача в JIRA";
 
-                    dataGridView.Columns["WrittenOff"].Visible = Properties.Settings.Default.mainForms_mainTB_WrittenOff;
+                    dataGridView.Columns["WrittenOff"].Visible = Properties.Settings.Default.Search_mainTB_WrittenOff;
                     dataGridView.Columns["WrittenOff"].HeaderCell.Value = "Списано";
 
-                    dataGridView.Columns["ReasonWriteOff"].Visible = Properties.Settings.Default.mainForms_mainTB_Reason;
+                    dataGridView.Columns["ReasonWriteOff"].Visible = Properties.Settings.Default.Search_mainTB_Reason;
                     dataGridView.Columns["ReasonWriteOff"].HeaderCell.Value = "Причина списания ";
+
+                    dataGridView.Columns["Note"].Visible = Properties.Settings.Default.Search_mainTB_note;
+                    dataGridView.Columns["Note"].HeaderCell.Value = "Примеччание";
 
                     dataGridView.EnableHeadersVisualStyles = false;
                     dataGridView.ColumnHeadersDefaultCellStyle.Font = new Font(dataGridView.ColumnHeadersDefaultCellStyle.Font.FontFamily, 10f, FontStyle.Bold | FontStyle.Italic);
@@ -77,44 +80,47 @@ namespace WindowsFormsApplication
 
                 else if (tableName == "HardWare")
                 {
-                    dataGridView.Columns["ID"].Visible = Properties.Settings.Default.mainForms_hardware_ID;
+                    dataGridView.Columns["ID"].Visible = Properties.Settings.Default.Search_hardware_ID;
                     dataGridView.Columns["ID"].HeaderCell.Value = "ID";
 
-                    dataGridView.Columns["dateCreated"].Visible = Properties.Settings.Default.mainForms_hardware_date;
+                    dataGridView.Columns["dateCreated"].Visible = Properties.Settings.Default.Search_hardware_date;
                     dataGridView.Columns["dateCreated"].HeaderCell.Value = "Дата";
 
-                    dataGridView.Columns["NumberINV"].Visible = Properties.Settings.Default.mainForms_hardware_InvNum;
+                    dataGridView.Columns["NumberINV"].Visible = Properties.Settings.Default.Search_hardware_InvNum;
                     dataGridView.Columns["NumberINV"].HeaderCell.Value = "Инвентарный номер";
 
-                    dataGridView.Columns["NameLAN"].Visible = Properties.Settings.Default.mainForms_hardware_LanName;
+                    dataGridView.Columns["NameLAN"].Visible = Properties.Settings.Default.Search_hardware_LanName;
                     dataGridView.Columns["NameLAN"].HeaderCell.Value = "Имя в сети (ПК)";
 
-                    dataGridView.Columns["NameRes"].Visible = Properties.Settings.Default.mainForms_hardware_ResName;
+                    dataGridView.Columns["NameRes"].Visible = Properties.Settings.Default.Search_hardware_ResName;
                     dataGridView.Columns["NameRes"].HeaderCell.Value = "Ответственный ";
 
-                    dataGridView.Columns["floorNambe"].Visible = Properties.Settings.Default.mainForms_hardware_Floor;
+                    dataGridView.Columns["floorNambe"].Visible = Properties.Settings.Default.Search_hardware_Floor;
                     dataGridView.Columns["floorNambe"].HeaderCell.Value = "Этаж";
 
-                    dataGridView.Columns["NameRoom"].Visible = Properties.Settings.Default.mainForms_hardware_Room;
+                    dataGridView.Columns["NameRoom"].Visible = Properties.Settings.Default.Search_hardware_Room;
                     dataGridView.Columns["NameRoom"].HeaderCell.Value = "Комната";
 
-                    dataGridView.Columns["TypeHardWare"].Visible = Properties.Settings.Default.mainForms_hardware_TypeDiv;
+                    dataGridView.Columns["TypeHardWare"].Visible = Properties.Settings.Default.Search_hardware_TypeDiv;
                     dataGridView.Columns["TypeHardWare"].HeaderCell.Value = "Тип устройства";
 
-                    dataGridView.Columns["Model"].Visible = Properties.Settings.Default.mainForms_hardware_Model;
+                    dataGridView.Columns["Model"].Visible = Properties.Settings.Default.Search_hardware_Model;
                     dataGridView.Columns["Model"].HeaderCell.Value = "Модель";
 
-                    dataGridView.Columns["SN"].Visible = Properties.Settings.Default.mainForms_hardware_SN;
+                    dataGridView.Columns["SN"].Visible = Properties.Settings.Default.Search_hardware_SN;
                     dataGridView.Columns["SN"].HeaderCell.Value = "Серийный номер";
 
-                    dataGridView.Columns["JiraTask"].Visible = Properties.Settings.Default.mainForms_hardware_JiraTask;
+                    dataGridView.Columns["JiraTask"].Visible = Properties.Settings.Default.Search_hardware_JiraTask;
                     dataGridView.Columns["JiraTask"].HeaderCell.Value = "Задача в JIRA";
 
-                    dataGridView.Columns["WrittenOff"].Visible = Properties.Settings.Default.mainForms_hardware_WrittenOff;
+                    dataGridView.Columns["WrittenOff"].Visible = Properties.Settings.Default.Search_hardware_WrittenOff;
                     dataGridView.Columns["WrittenOff"].HeaderCell.Value = "Списано";
 
-                    dataGridView.Columns["ReasonWriteOff"].Visible = Properties.Settings.Default.mainForms_hardware_Reason;
+                    dataGridView.Columns["ReasonWriteOff"].Visible = Properties.Settings.Default.Search_hardware_Reason;
                     dataGridView.Columns["ReasonWriteOff"].HeaderCell.Value = "Причина списания ";
+
+                    dataGridView.Columns["Note"].Visible = Properties.Settings.Default.Search_hardware_note;
+                    dataGridView.Columns["Note"].HeaderCell.Value = "Примечание";
 
                     dataGridView.EnableHeadersVisualStyles = false;
                     dataGridView.ColumnHeadersDefaultCellStyle.Font = new Font(dataGridView.ColumnHeadersDefaultCellStyle.Font.FontFamily, 10f, FontStyle.Bold | FontStyle.Italic);
@@ -123,35 +129,38 @@ namespace WindowsFormsApplication
 
                 else if (tableName == "HardwareStockRoom")
                 {
-                    dataGridView.Columns["ID"].Visible = Properties.Settings.Default.mainForms_stockroom_ID;
+                    dataGridView.Columns["ID"].Visible = Properties.Settings.Default.Search_stockroom_ID;
                     dataGridView.Columns["ID"].HeaderCell.Value = "ID";
 
-                    dataGridView.Columns["dateCreated"].Visible = Properties.Settings.Default.mainForms_stockroom_date;
+                    dataGridView.Columns["dateCreated"].Visible = Properties.Settings.Default.Search_stockroom_date;
                     dataGridView.Columns["dateCreated"].HeaderCell.Value = "Дата";
 
-                    dataGridView.Columns["NumberINV"].Visible = Properties.Settings.Default.mainForms_stockroom_InvNum;
+                    dataGridView.Columns["NumberINV"].Visible = Properties.Settings.Default.Search_stockroom_InvNum;
                     dataGridView.Columns["NumberINV"].HeaderCell.Value = "Инвентарный номер";
 
-                    dataGridView.Columns["quantity"].Visible = Properties.Settings.Default.mainForms_stockroom_Quantity;
+                    dataGridView.Columns["quantity"].Visible = Properties.Settings.Default.Search_stockroom_Quantity;
                     dataGridView.Columns["quantity"].HeaderCell.Value = "Количество";
 
-                    dataGridView.Columns["TypeHardWare"].Visible = Properties.Settings.Default.mainForms_stockroom_TypeDiv;
+                    dataGridView.Columns["TypeHardWare"].Visible = Properties.Settings.Default.Search_stockroom_TypeDiv;
                     dataGridView.Columns["TypeHardWare"].HeaderCell.Value = "Тип устройства";
 
-                    dataGridView.Columns["Model"].Visible = Properties.Settings.Default.mainForms_stockroom_Model;
+                    dataGridView.Columns["Model"].Visible = Properties.Settings.Default.Search_stockroom_Model;
                     dataGridView.Columns["Model"].HeaderCell.Value = "Модель";
 
-                    dataGridView.Columns["SN"].Visible = Properties.Settings.Default.mainForms_stockroom_SN;
+                    dataGridView.Columns["SN"].Visible = Properties.Settings.Default.Search_stockroom_SN;
                     dataGridView.Columns["SN"].HeaderCell.Value = "Серийный номер";
 
-                    dataGridView.Columns["JiraTask"].Visible = Properties.Settings.Default.mainForms_stockroom_JiraTask;
+                    dataGridView.Columns["JiraTask"].Visible = Properties.Settings.Default.Search_stockroom_JiraTask;
                     dataGridView.Columns["JiraTask"].HeaderCell.Value = "Задача в JIRA";
 
-                    dataGridView.Columns["WrittenOff"].Visible = Properties.Settings.Default.mainForms_stockroom_WrittenOff;
+                    dataGridView.Columns["WrittenOff"].Visible = Properties.Settings.Default.Search_stockroom_WrittenOff;
                     dataGridView.Columns["WrittenOff"].HeaderCell.Value = "Списано";
 
-                    dataGridView.Columns["ReasonWriteOff"].Visible = Properties.Settings.Default.mainForms_stockroom_Reason;
+                    dataGridView.Columns["ReasonWriteOff"].Visible = Properties.Settings.Default.Search_stockroom_Reason;
                     dataGridView.Columns["ReasonWriteOff"].HeaderCell.Value = "Причина списания ";
+
+                    dataGridView.Columns["Note"].Visible = Properties.Settings.Default.Search_stockroom_note;
+                    dataGridView.Columns["Note"].HeaderCell.Value = "Примичание";
 
                     dataGridView.EnableHeadersVisualStyles = false;
                     dataGridView.ColumnHeadersDefaultCellStyle.Font = new Font(dataGridView.ColumnHeadersDefaultCellStyle.Font.FontFamily, 10f, FontStyle.Bold | FontStyle.Italic);

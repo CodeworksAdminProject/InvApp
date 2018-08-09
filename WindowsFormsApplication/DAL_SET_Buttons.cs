@@ -140,5 +140,28 @@ namespace WindowsFormsApplication
                 return Data;
             }
         }
+
+        internal void Note(string ID, string tableName, string note)
+        {
+            using (SqlConnection connect = new SqlConnection(sConectDB))
+            {
+                SqlCommand command = new SqlCommand("Update  " + tableName + " Set  Note = '" +note +
+                    "' WHERE dbo." + tableName + ".ID IN (" + ID + ");", connect);
+                try
+                {
+
+                    connect.Open();
+
+                    command.ExecuteNonQuery();
+                }
+
+                catch (SqlException exception)
+                {
+                    MessageBox.Show(exception.ToString());
+                }
+
+                connect.Close();
+            }
+        }
     }
 }

@@ -28,7 +28,7 @@ namespace WindowsFormsApplication
             comboBox__print_BarKod.SelectedIndex = Properties.Settings.Default.inr_barcod;
             comboBox_print_name_or_model.SelectedIndex = Properties.Settings.Default.print_name_or_model;
 
-
+            //главное окно 
             mainForms_mainTB_ID.Checked = Properties.Settings.Default.mainForms_mainTB_ID;
             mainForms_mainTB_date.Checked = Properties.Settings.Default.mainForms_mainTB_date;
             mainForms_mainTB_TypeAC.Checked = Properties.Settings.Default.mainForms_mainTB_TypeAC;
@@ -40,10 +40,9 @@ namespace WindowsFormsApplication
             mainForms_mainTB_TypeDiv.Checked = Properties.Settings.Default.mainForms_mainTB_TypeDiv;
             mainForms_mainTB_SN.Checked = Properties.Settings.Default.mainForms_mainTB_SN;
             mainForms_mainTB_Model.Checked = Properties.Settings.Default.mainForms_mainTB_Model;
-            //mainForms_mainTB_WrittenOff.Checked = Properties.Settings.Default.mainForms_mainTB_WrittenOff;
             mainForms_mainTB_JiraTask.Checked = Properties.Settings.Default.mainForms_mainTB_JiraTask;
-            mainForms_mainTB_note.Checked = Properties.Settings.Default.mainForms_mainTB_Reason;
-
+            mainForms_mainTB_note.Checked = Properties.Settings.Default.mainForms_mainTB_note;
+            
             mainForms_hardware_date.Checked = Properties.Settings.Default.mainForms_hardware_date;
             mainForms_hardware_InvNum.Checked = Properties.Settings.Default.mainForms_hardware_InvNum;
             mainForms_hardware_LanName.Checked = Properties.Settings.Default.mainForms_hardware_LanName;
@@ -53,9 +52,8 @@ namespace WindowsFormsApplication
             mainForms_hardware_TypeDiv.Checked = Properties.Settings.Default.mainForms_hardware_TypeDiv;
             mainForms_hardware_SN.Checked = Properties.Settings.Default.mainForms_hardware_SN;
             mainForms_hardware_Model.Checked = Properties.Settings.Default.mainForms_hardware_Model;
-            //mainForms_hardware_WrittenOff.Checked = Properties.Settings.Default.mainForms_hardware_WrittenOff;
             mainForms_hardware_JiraTask.Checked = Properties.Settings.Default.mainForms_hardware_JiraTask;
-            mainForms_hardware_note.Checked = Properties.Settings.Default.mainForms_hardware_Reason;
+            mainForms_hardware_note.Checked = Properties.Settings.Default.mainForms_hardware_note;
 
             mainForms_stockroom_ID.Checked = Properties.Settings.Default.mainForms_stockroom_ID;
             mainForms_stockroom_date.Checked = Properties.Settings.Default.mainForms_stockroom_date;            
@@ -66,8 +64,9 @@ namespace WindowsFormsApplication
             mainForms_stockroom_Model.Checked = Properties.Settings.Default.mainForms_stockroom_Model;
             mainForms_stockroom_WrittenOff.Checked = Properties.Settings.Default.mainForms_stockroom_WrittenOff;
             mainForms_stockroom_JiraTask.Checked = Properties.Settings.Default.mainForms_stockroom_JiraTask;
-            mainForms_stockroom_Reason.Checked = Properties.Settings.Default.mainForms_stockroom_Reason;
+            mainForms_stockroom_note.Checked = Properties.Settings.Default.mainForms_stockroom_note;
 
+            //перемещение 
             setDataBase_mainTB_ID.Checked = Properties.Settings.Default.setDataBase_mainTB_ID;
             setDataBase_mainTB_date.Checked = Properties.Settings.Default.setDataBase_mainTB_date;
             setDataBase_mainTB_TypeAC.Checked = Properties.Settings.Default.setDataBase_mainTB_TypeAC;
@@ -83,6 +82,7 @@ namespace WindowsFormsApplication
             setDataBase_mainTB_JiraTask.Checked = Properties.Settings.Default.setDataBase_mainTB_JiraTask;
             setDataBase_mainTB_Reason.Checked = Properties.Settings.Default.setDataBase_mainTB_Reason;
 
+            // изменение 
             changeFormTwo_mainTB_ID.Checked = Properties.Settings.Default.changeFormTwo_mainTB_ID;
             changeFormTwo_mainTB_date.Checked = Properties.Settings.Default.changeFormTwo_mainTB_date;
             changeFormTwo_mainTB_TypeAC.Checked = Properties.Settings.Default.changeFormTwo_mainTB_TypeAC;
@@ -97,7 +97,37 @@ namespace WindowsFormsApplication
             changeFormTwo_mainTB_WrittenOff.Checked = Properties.Settings.Default.changeFormTwo_mainTB_WrittenOff;
             changeFormTwo_mainTB_JiraTask.Checked = Properties.Settings.Default.changeFormTwo_mainTB_JiraTask;
             changeFormTwo_mainTB_Reason.Checked = Properties.Settings.Default.changeFormTwo_mainTB_Reason;
+            changeFormTwo_mainTB_note.Checked = Properties.Settings.Default.changeFormTwo_mainTB_note;
 
+            ChangeFormTwo_hardware_date.Checked = Properties.Settings.Default.ChangeFormTwo_hardware_ID;
+            ChangeFormTwo_hardware_date.Checked = Properties.Settings.Default.ChangeFormTwo_hardware_date;
+            ChangeFormTwo_hardware_InvNum.Checked = Properties.Settings.Default.ChangeFormTwo_hardware_InvNum;
+            ChangeFormTwo_hardware_LanName.Checked = Properties.Settings.Default.ChangeFormTwo_hardware_LanName;
+            ChangeFormTwo_hardware_ResName.Checked = Properties.Settings.Default.ChangeFormTwo_hardware_ResName;
+            ChangeFormTwo_hardware_Room.Checked = Properties.Settings.Default.ChangeFormTwo_hardware_Room;
+            ChangeFormTwo_hardware_Floor.Checked = Properties.Settings.Default.ChangeFormTwo_hardware_Floor;
+            ChangeFormTwo_hardware_TypeDiv.Checked = Properties.Settings.Default.ChangeFormTwo_hardware_TypeDiv;
+            ChangeFormTwo_hardware_SN.Checked = Properties.Settings.Default.ChangeFormTwo_hardware_SN;
+            ChangeFormTwo_hardware_Model.Checked = Properties.Settings.Default.ChangeFormTwo_hardware_Model;
+            ChangeFormTwo_hardware_WrittenOff.Checked = Properties.Settings.Default.ChangeFormTwo_hardware_WrittenOff;
+            ChangeFormTwo_hardware_JiraTask.Checked = Properties.Settings.Default.ChangeFormTwo_hardware_JiraTask;
+            ChangeFormTwo_hardware_Reason.Checked = Properties.Settings.Default.ChangeFormTwo_hardware_Reason;
+            ChangeFormTwo_hardware_Note.Checked = Properties.Settings.Default.ChangeFormTwo_hardware_Note;
+
+            ChangeFormTwo_stockroom_ID.Checked = Properties.Settings.Default.ChangeFormTwo_stockroom_ID;
+            ChangeFormTwo_stockroom_date.Checked = Properties.Settings.Default.ChangeFormTwo_stockroom_date;
+            ChangeFormTwo_stockroom_InvNum.Checked = Properties.Settings.Default.ChangeFormTwo_stockroom_InvNum;
+            ChangeFormTwo_stockroom_Quantity.Checked = Properties.Settings.Default.ChangeFormTwo_stockroom_Quantity;
+            ChangeFormTwo_stockroom_TypeDiv.Checked = Properties.Settings.Default.ChangeFormTwo_stockroom_TypeDiv;
+            ChangeFormTwo_stockroom_SN.Checked = Properties.Settings.Default.ChangeFormTwo_stockroom_SN;
+            ChangeFormTwo_stockroom_Model.Checked = Properties.Settings.Default.ChangeFormTwo_stockroom_Model;
+            ChangeFormTwo_stockroom_WrittenOff.Checked = Properties.Settings.Default.ChangeFormTwo_stockroom_WrittenOff;
+            ChangeFormTwo_stockroom_JiraTask.Checked = Properties.Settings.Default.ChangeFormTwo_stockroom_JiraTask;
+            ChangeFormTwo_stockroom_Reason.Checked = Properties.Settings.Default.ChangeFormTwo_stockroom_Reason;
+            ChangeFormTwo_stockroom_Note.Checked = Properties.Settings.Default.ChangeFormTwo_stockroom_Note;
+
+
+            // поиск 
             Search_mainTB_ID.Checked = Properties.Settings.Default.Search_mainTB_ID;
             Search_mainTB_date.Checked = Properties.Settings.Default.Search_mainTB_date;
             Search_mainTB_TypeAC.Checked = Properties.Settings.Default.Search_mainTB_TypeAC;
@@ -196,6 +226,7 @@ namespace WindowsFormsApplication
             Properties.Settings.Default.mainForms_stockroom_WrittenOff = mainForms_stockroom_WrittenOff.Checked;
             Properties.Settings.Default.mainForms_stockroom_JiraTask = mainForms_stockroom_JiraTask.Checked;
             Properties.Settings.Default.mainForms_stockroom_Reason = mainForms_stockroom_Reason.Checked;
+            Properties.Settings.Default.mainForms_stockroom_note = mainForms_stockroom_note.Checked;
 
             Properties.Settings.Default.mainForms_mainTB_ID = mainForms_mainTB_ID.Checked;
             Properties.Settings.Default.mainForms_mainTB_date = mainForms_mainTB_date.Checked;
@@ -208,9 +239,9 @@ namespace WindowsFormsApplication
             Properties.Settings.Default.mainForms_mainTB_TypeDiv = mainForms_mainTB_TypeDiv.Checked;
             Properties.Settings.Default.mainForms_mainTB_SN = mainForms_mainTB_SN.Checked;
             Properties.Settings.Default.mainForms_mainTB_Model = mainForms_mainTB_Model.Checked;
-            //Properties.Settings.Default.mainForms_mainTB_WrittenOff = mainForms_mainTB_WrittenOff.Checked;
             Properties.Settings.Default.mainForms_mainTB_JiraTask = mainForms_mainTB_JiraTask.Checked;
             Properties.Settings.Default.mainForms_mainTB_Reason = mainForms_mainTB_note.Checked;
+
 
             Properties.Settings.Default.mainForms_hardware_ID = mainForms_hardware_ID.Checked;
             Properties.Settings.Default.mainForms_hardware_date = mainForms_hardware_date.Checked;
@@ -222,7 +253,6 @@ namespace WindowsFormsApplication
             Properties.Settings.Default.mainForms_hardware_TypeDiv = mainForms_hardware_TypeDiv.Checked;
             Properties.Settings.Default.mainForms_hardware_SN = mainForms_hardware_SN.Checked;
             Properties.Settings.Default.mainForms_hardware_Model = mainForms_hardware_Model.Checked;
-           // Properties.Settings.Default.mainForms_hardware_WrittenOff = mainForms_hardware_WrittenOff.Checked;
             Properties.Settings.Default.mainForms_hardware_JiraTask = mainForms_hardware_JiraTask.Checked;
             Properties.Settings.Default.mainForms_hardware_Reason = mainForms_hardware_note.Checked;
 
@@ -240,6 +270,7 @@ namespace WindowsFormsApplication
             Properties.Settings.Default.setDataBase_mainTB_WrittenOff = setDataBase_mainTB_WrittenOff.Checked;
             Properties.Settings.Default.setDataBase_mainTB_JiraTask = setDataBase_mainTB_JiraTask.Checked;
             Properties.Settings.Default.setDataBase_mainTB_Reason = setDataBase_mainTB_Reason.Checked;
+            Properties.Settings.Default.setDataBase_mainTB_note = setDataBase_mainTB_note.Checked;
 
             Properties.Settings.Default.changeFormTwo_mainTB_ID = changeFormTwo_mainTB_ID.Checked;
             Properties.Settings.Default.changeFormTwo_mainTB_date = changeFormTwo_mainTB_date.Checked;
@@ -255,6 +286,7 @@ namespace WindowsFormsApplication
             Properties.Settings.Default.changeFormTwo_mainTB_WrittenOff = changeFormTwo_mainTB_WrittenOff.Checked;
             Properties.Settings.Default.changeFormTwo_mainTB_JiraTask = changeFormTwo_mainTB_JiraTask.Checked;
             Properties.Settings.Default.changeFormTwo_mainTB_Reason = changeFormTwo_mainTB_Reason.Checked;
+            Properties.Settings.Default.changeFormTwo_mainTB_note = changeFormTwo_mainTB_note.Checked;
 
             Properties.Settings.Default.Search_hardware_ID = Search_hardware_ID.Checked;
             Properties.Settings.Default.Search_hardware_date = Search_hardware_date.Checked;            
@@ -269,6 +301,7 @@ namespace WindowsFormsApplication
             Properties.Settings.Default.Search_hardware_WrittenOff = Search_hardware_WrittenOff.Checked;
             Properties.Settings.Default.Search_hardware_JiraTask = Search_hardware_JiraTask.Checked;
             Properties.Settings.Default.Search_hardware_Reason = Search_hardware_Reason.Checked;
+            Properties.Settings.Default.Search_hardware_note = Search_hardware_note.Checked;
 
             Properties.Settings.Default.Search_mainTB_ID = Search_mainTB_ID.Checked;
             Properties.Settings.Default.Search_mainTB_date = Search_mainTB_date.Checked;
@@ -284,6 +317,7 @@ namespace WindowsFormsApplication
             Properties.Settings.Default.Search_mainTB_WrittenOff = Search_mainTB_WrittenOff.Checked;
             Properties.Settings.Default.Search_mainTB_JiraTask = Search_mainTB_JiraTask.Checked;
             Properties.Settings.Default.Search_mainTB_Reason = Search_mainTB_Reason.Checked;
+            Properties.Settings.Default.Search_mainTB_note = Search_mainTB_note.Checked;
 
             Properties.Settings.Default.Search_stockroom_ID = Search_stockroom_ID.Checked;
             Properties.Settings.Default.Search_stockroom_date = Search_stockroom_date.Checked;
@@ -295,12 +329,34 @@ namespace WindowsFormsApplication
             Properties.Settings.Default.Search_stockroom_WrittenOff = Search_stockroom_WrittenOff.Checked;
             Properties.Settings.Default.Search_stockroom_JiraTask = Search_stockroom_JiraTask.Checked;
             Properties.Settings.Default.Search_stockroom_Reason = Search_stockroom_Reason.Checked;
+            Properties.Settings.Default.Search_stockroom_note = Search_stockroom_note.Checked;
+            
+            Properties.Settings.Default.ChangeFormTwo_stockroom_ID = ChangeFormTwo_stockroom_ID.Checked;
+            Properties.Settings.Default.ChangeFormTwo_stockroom_date = ChangeFormTwo_stockroom_date.Checked;
+            Properties.Settings.Default.ChangeFormTwo_stockroom_InvNum = ChangeFormTwo_stockroom_InvNum.Checked;
+            Properties.Settings.Default.ChangeFormTwo_stockroom_Quantity = ChangeFormTwo_stockroom_Quantity.Checked;
+            Properties.Settings.Default.ChangeFormTwo_stockroom_TypeDiv = ChangeFormTwo_stockroom_TypeDiv.Checked;
+            Properties.Settings.Default.ChangeFormTwo_stockroom_SN = ChangeFormTwo_stockroom_SN.Checked;
+            Properties.Settings.Default.ChangeFormTwo_stockroom_Model = ChangeFormTwo_stockroom_Model.Checked;
+            Properties.Settings.Default.ChangeFormTwo_stockroom_WrittenOff = ChangeFormTwo_stockroom_WrittenOff.Checked;
+            Properties.Settings.Default.ChangeFormTwo_stockroom_JiraTask = ChangeFormTwo_stockroom_JiraTask.Checked;
+            Properties.Settings.Default.ChangeFormTwo_stockroom_Reason = ChangeFormTwo_stockroom_Reason.Checked;
+            Properties.Settings.Default.ChangeFormTwo_stockroom_Note = ChangeFormTwo_stockroom_Note.Checked;
 
-
-
-
-
-
+            Properties.Settings.Default.ChangeFormTwo_hardware_ID = ChangeFormTwo_hardware_ID.Checked;
+            Properties.Settings.Default.ChangeFormTwo_hardware_date = ChangeFormTwo_hardware_date.Checked;
+            Properties.Settings.Default.ChangeFormTwo_hardware_InvNum = ChangeFormTwo_hardware_InvNum.Checked;
+            Properties.Settings.Default.ChangeFormTwo_hardware_LanName = ChangeFormTwo_hardware_LanName.Checked;
+            Properties.Settings.Default.ChangeFormTwo_hardware_ResName = ChangeFormTwo_hardware_ResName.Checked;
+            Properties.Settings.Default.ChangeFormTwo_hardware_Room = ChangeFormTwo_hardware_Room.Checked;
+            Properties.Settings.Default.ChangeFormTwo_hardware_Floor = ChangeFormTwo_hardware_Floor.Checked;
+            Properties.Settings.Default.ChangeFormTwo_hardware_TypeDiv = ChangeFormTwo_hardware_TypeDiv.Checked;
+            Properties.Settings.Default.ChangeFormTwo_hardware_SN = ChangeFormTwo_hardware_SN.Checked;
+            Properties.Settings.Default.ChangeFormTwo_hardware_Model = ChangeFormTwo_hardware_Model.Checked;
+            Properties.Settings.Default.ChangeFormTwo_hardware_WrittenOff = ChangeFormTwo_hardware_WrittenOff.Checked;
+            Properties.Settings.Default.ChangeFormTwo_hardware_JiraTask = ChangeFormTwo_hardware_JiraTask.Checked;
+            Properties.Settings.Default.ChangeFormTwo_hardware_Reason = ChangeFormTwo_hardware_Reason.Checked;
+            Properties.Settings.Default.ChangeFormTwo_hardware_Note = ChangeFormTwo_hardware_Note.Checked;
 
             this.Close();
         }

@@ -76,6 +76,18 @@ namespace WindowsFormsApplication
             ArrayChancge.Add(str);
         }
 
+        public void Add_Data_ArrayChancge(string ID, string date, string Invnum, string typeDev, string SN, string Model, string jira, string NameLan, string NameRes, string Floor, string Room)
+        {
+            string[] str = new string[] { ID, date, Invnum, typeDev, SN, Model, jira, NameLan, NameRes, Floor, Room };
+            ArrayChancge.Add(str);
+        }
+
+        public void Add_Data_ArrayChancge(string ID, string date, string Invnum, string typeDev, string SN, string Model, string jira, string quantity)
+        {
+            string[] str = new string[] { ID, date, Invnum, typeDev, SN, Model, jira, quantity };
+            ArrayChancge.Add(str);
+        }
+
         public void Compere(string ID, string INV, string NameLan, string NameRes, string Floor, string Room, string NameDevice,string Model, string SN)
         {
             string old = @"<span class='old'>";

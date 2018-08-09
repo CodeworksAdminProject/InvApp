@@ -1342,5 +1342,401 @@ namespace WindowsFormsApplication.Properties {
                 this["Search_stockroom_Reason"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool mainForms_mainTB_note {
+            get {
+                return ((bool)(this["mainForms_mainTB_note"]));
+            }
+            set {
+                this["mainForms_mainTB_note"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool mainForms_hardware_note {
+            get {
+                return ((bool)(this["mainForms_hardware_note"]));
+            }
+            set {
+                this["mainForms_hardware_note"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool mainForms_stockroom_note {
+            get {
+                return ((bool)(this["mainForms_stockroom_note"]));
+            }
+            set {
+                this["mainForms_stockroom_note"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool Search_mainTB_note {
+            get {
+                return ((bool)(this["Search_mainTB_note"]));
+            }
+            set {
+                this["Search_mainTB_note"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool Search_hardware_note {
+            get {
+                return ((bool)(this["Search_hardware_note"]));
+            }
+            set {
+                this["Search_hardware_note"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool Search_stockroom_note {
+            get {
+                return ((bool)(this["Search_stockroom_note"]));
+            }
+            set {
+                this["Search_stockroom_note"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool setDataBase_mainTB_note {
+            get {
+                return ((bool)(this["setDataBase_mainTB_note"]));
+            }
+            set {
+                this["setDataBase_mainTB_note"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool changeFormTwo_mainTB_note {
+            get {
+                return ((bool)(this["changeFormTwo_mainTB_note"]));
+            }
+            set {
+                this["changeFormTwo_mainTB_note"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ChangeFormTwo_hardware_ID {
+            get {
+                return ((bool)(this["ChangeFormTwo_hardware_ID"]));
+            }
+            set {
+                this["ChangeFormTwo_hardware_ID"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ChangeFormTwo_hardware_date {
+            get {
+                return ((bool)(this["ChangeFormTwo_hardware_date"]));
+            }
+            set {
+                this["ChangeFormTwo_hardware_date"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ChangeFormTwo_hardware_InvNum {
+            get {
+                return ((bool)(this["ChangeFormTwo_hardware_InvNum"]));
+            }
+            set {
+                this["ChangeFormTwo_hardware_InvNum"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ChangeFormTwo_hardware_LanName {
+            get {
+                return ((bool)(this["ChangeFormTwo_hardware_LanName"]));
+            }
+            set {
+                this["ChangeFormTwo_hardware_LanName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ChangeFormTwo_hardware_ResName {
+            get {
+                return ((bool)(this["ChangeFormTwo_hardware_ResName"]));
+            }
+            set {
+                this["ChangeFormTwo_hardware_ResName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ChangeFormTwo_hardware_Room {
+            get {
+                return ((bool)(this["ChangeFormTwo_hardware_Room"]));
+            }
+            set {
+                this["ChangeFormTwo_hardware_Room"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ChangeFormTwo_hardware_Floor {
+            get {
+                return ((bool)(this["ChangeFormTwo_hardware_Floor"]));
+            }
+            set {
+                this["ChangeFormTwo_hardware_Floor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ChangeFormTwo_hardware_TypeDiv {
+            get {
+                return ((bool)(this["ChangeFormTwo_hardware_TypeDiv"]));
+            }
+            set {
+                this["ChangeFormTwo_hardware_TypeDiv"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ChangeFormTwo_hardware_SN {
+            get {
+                return ((bool)(this["ChangeFormTwo_hardware_SN"]));
+            }
+            set {
+                this["ChangeFormTwo_hardware_SN"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ChangeFormTwo_hardware_Model {
+            get {
+                return ((bool)(this["ChangeFormTwo_hardware_Model"]));
+            }
+            set {
+                this["ChangeFormTwo_hardware_Model"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ChangeFormTwo_hardware_WrittenOff {
+            get {
+                return ((bool)(this["ChangeFormTwo_hardware_WrittenOff"]));
+            }
+            set {
+                this["ChangeFormTwo_hardware_WrittenOff"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ChangeFormTwo_hardware_JiraTask {
+            get {
+                return ((bool)(this["ChangeFormTwo_hardware_JiraTask"]));
+            }
+            set {
+                this["ChangeFormTwo_hardware_JiraTask"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ChangeFormTwo_hardware_Reason {
+            get {
+                return ((bool)(this["ChangeFormTwo_hardware_Reason"]));
+            }
+            set {
+                this["ChangeFormTwo_hardware_Reason"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ChangeFormTwo_hardware_Note {
+            get {
+                return ((bool)(this["ChangeFormTwo_hardware_Note"]));
+            }
+            set {
+                this["ChangeFormTwo_hardware_Note"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ChangeFormTwo_stockroom_ID {
+            get {
+                return ((bool)(this["ChangeFormTwo_stockroom_ID"]));
+            }
+            set {
+                this["ChangeFormTwo_stockroom_ID"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ChangeFormTwo_stockroom_date {
+            get {
+                return ((bool)(this["ChangeFormTwo_stockroom_date"]));
+            }
+            set {
+                this["ChangeFormTwo_stockroom_date"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ChangeFormTwo_stockroom_InvNum {
+            get {
+                return ((bool)(this["ChangeFormTwo_stockroom_InvNum"]));
+            }
+            set {
+                this["ChangeFormTwo_stockroom_InvNum"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ChangeFormTwo_stockroom_Quantity {
+            get {
+                return ((bool)(this["ChangeFormTwo_stockroom_Quantity"]));
+            }
+            set {
+                this["ChangeFormTwo_stockroom_Quantity"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ChangeFormTwo_stockroom_TypeDiv {
+            get {
+                return ((bool)(this["ChangeFormTwo_stockroom_TypeDiv"]));
+            }
+            set {
+                this["ChangeFormTwo_stockroom_TypeDiv"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ChangeFormTwo_stockroom_SN {
+            get {
+                return ((bool)(this["ChangeFormTwo_stockroom_SN"]));
+            }
+            set {
+                this["ChangeFormTwo_stockroom_SN"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ChangeFormTwo_stockroom_Model {
+            get {
+                return ((bool)(this["ChangeFormTwo_stockroom_Model"]));
+            }
+            set {
+                this["ChangeFormTwo_stockroom_Model"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ChangeFormTwo_stockroom_WrittenOff {
+            get {
+                return ((bool)(this["ChangeFormTwo_stockroom_WrittenOff"]));
+            }
+            set {
+                this["ChangeFormTwo_stockroom_WrittenOff"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ChangeFormTwo_stockroom_JiraTask {
+            get {
+                return ((bool)(this["ChangeFormTwo_stockroom_JiraTask"]));
+            }
+            set {
+                this["ChangeFormTwo_stockroom_JiraTask"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ChangeFormTwo_stockroom_Reason {
+            get {
+                return ((bool)(this["ChangeFormTwo_stockroom_Reason"]));
+            }
+            set {
+                this["ChangeFormTwo_stockroom_Reason"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ChangeFormTwo_stockroom_Note {
+            get {
+                return ((bool)(this["ChangeFormTwo_stockroom_Note"]));
+            }
+            set {
+                this["ChangeFormTwo_stockroom_Note"] = value;
+            }
+        }
     }
 }

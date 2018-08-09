@@ -105,8 +105,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Label info;
-        private System.Windows.Forms.TextBox reason;
+        public System.Windows.Forms.Label info;
+        public System.Windows.Forms.TextBox reason;
         public System.Windows.Forms.Button button_OK;
         private System.Windows.Forms.Button button_Cancel;
         private System.Windows.Forms.Panel panel1;

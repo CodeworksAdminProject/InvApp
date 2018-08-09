@@ -121,11 +121,8 @@ namespace WindowsFormsApplication
                     dataGridView.Columns["JiraTask"].Visible = Properties.Settings.Default.mainForms_mainTB_JiraTask;
                     dataGridView.Columns["JiraTask"].HeaderCell.Value = "Задача в JIRA";
 
-                    //dataGridView.Columns["WrittenOff"].Visible = Properties.Settings.Default.mainForms_mainTB_WrittenOff;
-                    //dataGridView.Columns["WrittenOff"].HeaderCell.Value = "Списано";
-
-                    //dataGridView.Columns["ReasonWriteOff"].Visible = Properties.Settings.Default.mainForms_mainTB_Reason;
-                    //dataGridView.Columns["ReasonWriteOff"].HeaderCell.Value = "Причина списания ";
+                    dataGridView.Columns["Note"].Visible = Properties.Settings.Default.mainForms_mainTB_note;
+                    dataGridView.Columns["Note"].HeaderCell.Value = "Примечание";
 
                     dataGridView.EnableHeadersVisualStyles = false;
                     dataGridView.ColumnHeadersDefaultCellStyle.Font = new Font(dataGridView.ColumnHeadersDefaultCellStyle.Font.FontFamily, 10f, FontStyle.Bold | FontStyle.Italic);
@@ -167,11 +164,9 @@ namespace WindowsFormsApplication
                     dataGridView.Columns["JiraTask"].Visible = Properties.Settings.Default.mainForms_hardware_JiraTask;
                     dataGridView.Columns["JiraTask"].HeaderCell.Value = "Задача в JIRA";
 
-                    dataGridView.Columns["WrittenOff"].Visible = Properties.Settings.Default.mainForms_hardware_WrittenOff;
-                    dataGridView.Columns["WrittenOff"].HeaderCell.Value = "Списано";
+                    dataGridView.Columns["Note"].Visible = Properties.Settings.Default.mainForms_hardware_note;
+                    dataGridView.Columns["Note"].HeaderCell.Value = "Примечание";
 
-                    dataGridView.Columns["ReasonWriteOff"].Visible = Properties.Settings.Default.mainForms_hardware_Reason;
-                    dataGridView.Columns["ReasonWriteOff"].HeaderCell.Value = "Причина списания ";
 
                     dataGridView.EnableHeadersVisualStyles = false;
                     dataGridView.ColumnHeadersDefaultCellStyle.Font = new Font(dataGridView.ColumnHeadersDefaultCellStyle.Font.FontFamily, 10f, FontStyle.Bold | FontStyle.Italic);
@@ -209,6 +204,9 @@ namespace WindowsFormsApplication
 
                     dataGridView.Columns["ReasonWriteOff"].Visible = Properties.Settings.Default.mainForms_stockroom_Reason;
                     dataGridView.Columns["ReasonWriteOff"].HeaderCell.Value = "Причина списания ";
+
+                    dataGridView.Columns["Note"].Visible = Properties.Settings.Default.mainForms_stockroom_note;
+                    dataGridView.Columns["Note"].HeaderCell.Value = "Примечание";
 
                     dataGridView.EnableHeadersVisualStyles = false;
                     dataGridView.ColumnHeadersDefaultCellStyle.Font = new Font(dataGridView.ColumnHeadersDefaultCellStyle.Font.FontFamily, 10f, FontStyle.Bold | FontStyle.Italic);
@@ -429,10 +427,20 @@ namespace WindowsFormsApplication
 
             }
 
-            else if (dataGridViewMT.Rows[e.RowIndex].Cells[e.ColumnIndex].ColumnIndex == 10  )
+            else if (dataGridViewMT.Columns[e.ColumnIndex].Name == "JiraTask"  )
             {
-                String URL = @"http://jira.mara.local/browse/" + dataGridViewMT.Rows[e.RowIndex].Cells[10].Value.ToString();
+                String URL = @"http://jira.mara.local/browse/" + dataGridViewMT.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
                 System.Diagnostics.Process.Start(URL);
+            }
+
+            else if (dataGridViewMT.Columns[e.ColumnIndex].Name == "Примичание")
+            {
+                MessageBox.Show("","",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            }
+
+            else if (dataGridViewMT.Columns[e.ColumnIndex].Name == "Примичание" && dataGridViewMT.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == null)
+            {
+                MessageBox.Show("", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -673,6 +681,7 @@ namespace WindowsFormsApplication
             button_Hardware_Stockroom.ForeColor = Color.Black;
             dataGridViewMT.DataSource = null;
             dataGridViewMT.DataSource = dal.Get_Hardware_StockRoom();
+            stilDataGrid(dataGridViewMT, flag_button);
         }
 
         private void button_hardwarePC_Click(object sender, EventArgs e)
@@ -684,15 +693,19 @@ namespace WindowsFormsApplication
             button_hardwarePC.ForeColor = Color.Black;
             dataGridViewMT.DataSource = null;
             dataGridViewMT.DataSource = dal.Get_Hardware_PS();
+            stilDataGrid(dataGridViewMT, flag_button);
         }
 
         private void button_change_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow row in dataGridViewMT.Rows)
             {
+
                 if (row.Selected == true)
                 {
-                    bll.Add_Data_ArrayChancge(row.Cells["ID"].Value.ToString(),
+                    if (flag_button == "MainTB")
+                    {
+                        bll.Add_Data_ArrayChancge(row.Cells["ID"].Value.ToString(),
                               row.Cells["dateCreated"].Value.ToString(),
                               row.Cells["TypeAC"].Value.ToString(),
                               row.Cells["NumberINV"].Value.ToString(),
@@ -704,9 +717,38 @@ namespace WindowsFormsApplication
                               row.Cells["NameRes"].Value.ToString(),
                               row.Cells["floorNambe"].Value.ToString(),
                               row.Cells["NameRoom"].Value.ToString());
+                    }
+
+                    else if  (flag_button == "HardWare")
+                    {
+                        bll.Add_Data_ArrayChancge(row.Cells["ID"].Value.ToString(),
+                              row.Cells["dateCreated"].Value.ToString(),
+                              row.Cells["NumberINV"].Value.ToString(),
+                              row.Cells["TypeHardWare"].Value.ToString(),
+                              row.Cells["SN"].Value.ToString(),
+                              row.Cells["Model"].Value.ToString(),
+                              row.Cells["JiraTask"].Value.ToString(),
+                              row.Cells["NameLAN"].Value.ToString(),
+                              row.Cells["NameRes"].Value.ToString(),
+                              row.Cells["floorNambe"].Value.ToString(),
+                              row.Cells["NameRoom"].Value.ToString());
+                    }
+                    else if (flag_button == "HardwareStockRoom")
+                    {
+                        bll.Add_Data_ArrayChancge(row.Cells["ID"].Value.ToString(),
+                              row.Cells["dateCreated"].Value.ToString(),
+                              row.Cells["NumberINV"].Value.ToString(),
+                              row.Cells["TypeHardWare"].Value.ToString(),
+                              row.Cells["SN"].Value.ToString(),
+                              row.Cells["Model"].Value.ToString(),
+                              row.Cells["JiraTask"].Value.ToString(),
+                              row.Cells["quantity"].Value.ToString());
+
+                    }
+
                 }
             }
-            bllButtoms.Change_unique_data();
+            bllButtoms.Change_unique_data(flag_button);
             Update_Grid();
         }
 
@@ -724,6 +766,34 @@ namespace WindowsFormsApplication
             stilDataGrid(dataGridViewMT, flag_button);
             indexControl = 1;
             label_sum.Text = dataGridViewMT.Rows.Count.ToString();
+        }
+
+        private void dataGridViewMT_CellContentDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (dataGridViewMT.Columns[e.ColumnIndex].Name == "Note")
+            {
+                bllButtoms.Note(dataGridViewMT.Rows[e.RowIndex].Cells["ID"].Value.ToString(), flag_button,
+                    dataGridViewMT.Rows[e.RowIndex].Cells["Note"].Value.ToString());
+            }
+            Update_Grid();
+        }
+
+        private void button_note_Click(object sender, EventArgs e)
+        {
+            string AddId = null;
+
+            foreach (DataGridViewRow row in dataGridViewMT.Rows)
+            {
+                if (row.Selected == true)
+                {                    
+                    if (AddId != null)
+                        AddId += "," + row.Cells["ID"].Value.ToString();
+                    else
+                        AddId += row.Cells["ID"].Value.ToString();
+                }
+            }
+            bllButtoms.Note(AddId, flag_button);
+            Update_Grid();
         }
     } 
 }

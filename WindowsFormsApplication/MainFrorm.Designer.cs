@@ -51,7 +51,6 @@
             this.button_Repair = new System.Windows.Forms.Button();
             this.button_deleteDataBase = new System.Windows.Forms.Button();
             this.button_WriteOffTable = new System.Windows.Forms.Button();
-            this.roomBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.button_ExcelOpenFullReport = new System.Windows.Forms.Button();
@@ -67,10 +66,10 @@
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.button_PartExcelReport = new System.Windows.Forms.Button();
             this.button_PartHtmlReport = new System.Windows.Forms.Button();
-            this.dataGridViewMT = new System.Windows.Forms.DataGridView();
             this.dataGridViewPC_Name = new System.Windows.Forms.DataGridView();
             this.button_Search = new System.Windows.Forms.Button();
             this.button_change = new System.Windows.Forms.Button();
+            this.dataGridViewMT = new System.Windows.Forms.DataGridView();
             this.groupBox_MegaFiltr = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -81,24 +80,25 @@
             this.label_sum = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
+            this.button_note = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.button_Hardware_Stockroom = new System.Windows.Forms.Button();
             this.button_hardwarePC = new System.Windows.Forms.Button();
             this.button_MainTB = new System.Windows.Forms.Button();
+            this.roomBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.grubBoxUnloading.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
             this.groupBox_Set_Data.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.roomBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPC_Name)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMT)).BeginInit();
             this.groupBox_MegaFiltr.SuspendLayout();
             this.flowLayoutPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -111,6 +111,7 @@
             this.groupBox4.SuspendLayout();
             this.flowLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.roomBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // grubBoxUnloading
@@ -377,10 +378,6 @@
             this.button_WriteOffTable.UseVisualStyleBackColor = true;
             this.button_WriteOffTable.Click += new System.EventHandler(this.button_WriteOffTable_Click);
             // 
-            // roomBindingSource
-            // 
-            this.roomBindingSource.DataMember = "Room";
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.flowLayoutPanel2);
@@ -545,22 +542,6 @@
             this.toolTip1.SetToolTip(this.button_PartHtmlReport, "Открыть в  формате  html, только то что выгружено\r\n(еще  в разработке )");
             this.button_PartHtmlReport.UseVisualStyleBackColor = true;
             // 
-            // dataGridViewMT
-            // 
-            this.dataGridViewMT.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewMT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewMT.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewMT.GridColor = System.Drawing.SystemColors.ControlText;
-            this.dataGridViewMT.Location = new System.Drawing.Point(0, 0);
-            this.dataGridViewMT.Name = "dataGridViewMT";
-            this.dataGridViewMT.RowTemplate.DividerHeight = 2;
-            this.dataGridViewMT.RowTemplate.Height = 25;
-            this.dataGridViewMT.Size = new System.Drawing.Size(1177, 463);
-            this.dataGridViewMT.TabIndex = 3;
-            this.toolTip1.SetToolTip(this.dataGridViewMT, "частичные отчеты ");
-            this.dataGridViewMT.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewMT_CellContentDoubleClick);
-            this.dataGridViewMT.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewMT_CellFormatting);
-            // 
             // dataGridViewPC_Name
             // 
             this.dataGridViewPC_Name.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -602,6 +583,22 @@
             this.toolTip1.SetToolTip(this.button_change, "Изменение уникальных значений");
             this.button_change.UseVisualStyleBackColor = true;
             this.button_change.Click += new System.EventHandler(this.button_change_Click);
+            // 
+            // dataGridViewMT
+            // 
+            this.dataGridViewMT.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewMT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewMT.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewMT.GridColor = System.Drawing.SystemColors.ControlText;
+            this.dataGridViewMT.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewMT.Name = "dataGridViewMT";
+            this.dataGridViewMT.RowTemplate.DividerHeight = 2;
+            this.dataGridViewMT.RowTemplate.Height = 25;
+            this.dataGridViewMT.Size = new System.Drawing.Size(1177, 463);
+            this.dataGridViewMT.TabIndex = 3;
+            this.dataGridViewMT.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewMT_CellContentDoubleClick);
+            this.dataGridViewMT.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewMT_CellFormatting);
+            this.dataGridViewMT.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewMT_CellContentDoubleClick);
             // 
             // groupBox_MegaFiltr
             // 
@@ -722,11 +719,25 @@
             // flowLayoutPanel6
             // 
             this.flowLayoutPanel6.Controls.Add(this.button_change);
+            this.flowLayoutPanel6.Controls.Add(this.button_note);
             this.flowLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel6.Location = new System.Drawing.Point(3, 19);
             this.flowLayoutPanel6.Name = "flowLayoutPanel6";
             this.flowLayoutPanel6.Size = new System.Drawing.Size(151, 71);
             this.flowLayoutPanel6.TabIndex = 2;
+            // 
+            // button_note
+            // 
+            this.button_note.BackgroundImage = global::WindowsFormsApplication.Properties.Resources.Pencil_64px;
+            this.button_note.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button_note.Cursor = System.Windows.Forms.Cursors.Default;
+            this.button_note.Location = new System.Drawing.Point(72, 3);
+            this.button_note.Name = "button_note";
+            this.button_note.Size = new System.Drawing.Size(63, 64);
+            this.button_note.TabIndex = 13;
+            this.toolTip1.SetToolTip(this.button_note, "Записать примечание ");
+            this.button_note.UseVisualStyleBackColor = true;
+            this.button_note.Click += new System.EventHandler(this.button_note_Click);
             // 
             // contextMenuStrip1
             // 
@@ -809,6 +820,10 @@
             this.button_MainTB.UseVisualStyleBackColor = false;
             this.button_MainTB.Click += new System.EventHandler(this.button_MainTB_Click);
             // 
+            // roomBindingSource
+            // 
+            this.roomBindingSource.DataMember = "Room";
+            // 
             // MainFrorm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -831,15 +846,14 @@
             this.flowLayoutPanel4.ResumeLayout(false);
             this.groupBox_Set_Data.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.roomBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.flowLayoutPanel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPC_Name)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMT)).EndInit();
             this.groupBox_MegaFiltr.ResumeLayout(false);
             this.flowLayoutPanel5.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -855,6 +869,7 @@
             this.flowLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.roomBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -918,6 +933,7 @@
         private System.Windows.Forms.Button button_Hardware_Stockroom;
         private System.Windows.Forms.Button button_hardwarePC;
         private System.Windows.Forms.Button button_MainTB;
+        private System.Windows.Forms.Button button_note;
     }
 }
 

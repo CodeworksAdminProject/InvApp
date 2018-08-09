@@ -210,13 +210,103 @@ namespace WindowsFormsApplication
         {
             ArrayList DataGrid = new ArrayList();
             SqlConnection connect = new SqlConnection(sConectDB);
-            SqlCommand command = new SqlCommand(@"select maintb.ID, maintb.dateCreated, maintb.NumberINV, NameLAN.NameLAN, NameRes.NameRes, " +
-                @"[Floor].floorNambe, Room.NameRoom, TypeDevice.NameDevice, maintb.SN, MainTB.Model, JiraTask, ReasonWriteOff from MainTB " +
+            SqlCommand command = new SqlCommand(@"select maintb.ID, maintb.dateCreated, TypeAC.TypeAC, maintb.NumberINV, NameLAN.NameLAN, NameRes.NameRes, " +
+                @"[Floor].floorNambe, Room.NameRoom, TypeDevice.NameDevice, maintb.SN, MainTB.Model, JiraTask, ReasonWriteOff, Note from MainTB " +
+                @"join TypeAC on maintb.TypeAC_ID = TypeAC.ID " +
                 @"join [Floor] on maintb.Floor_ID = [Floor].ID join room on maintb.Room_ID =  Room.ID " +
                 @"join TypeDevice on maintb.TypeDevice_ID = TypeDevice.ID join NameLAN on maintb.NameLAN_ID = NameLAN.ID " +
                 @"join NameRes on maintb.NameRes_ID =  NameRes.ID " +
                 @"Join JiraTask on maintb.JiraTask_ID = JiraTask.ID " +
                 @"where [WrittenOff] = 'True';", connect);
+
+            try
+            {
+
+                connect.Open();
+                SqlDataReader datareader = command.ExecuteReader();
+
+                if (datareader.HasRows)
+                    foreach (DbDataRecord result in datareader)
+                        DataGrid.Add(result);
+                else
+                    return null;
+            }
+
+            catch (SqlException exception)
+            {
+                MessageBox.Show(exception.ToString());
+            }
+
+            connect.Close();
+            return DataGrid;
+        }
+
+        internal ArrayList getWrateOffTable_HW()
+        {
+            ArrayList DataGrid = new ArrayList();
+            SqlConnection connect = new SqlConnection(sConectDB);
+            SqlCommand command = new SqlCommand(@"SELECT [HardWare].ID
+            ,dateCreated
+            ,NumberINV
+            ,NameLAN.NameLAN
+            ,NameRes.NameRes
+            ,[Floor].floorNambe
+            ,Room.NameRoom
+            ,TypeHardWare
+            ,[Model]
+            ,[SN]
+            ,JiraTask
+            ,ReasonWriteOff
+            ,[Note] 
+            FROM [dbo].[HardWare],NameLAN, TypeHardWare,[Room], NameRes, [Floor], JiraTask
+ 
+            Where NameLAN = (SELECT NameLAN  FROM [dbo].[MainTB] join NameLAN on NameLAN_ID = NameLAN.ID   Where [MainTB].ID = MainTB_ID ) AND
+            TypeHardWare_ID = TypeHardWare.ID  AND
+            NameRoom = (SELECT NameRoom  FROM [dbo].[MainTB] join [Room] on Room_ID = [Room].ID   Where [MainTB].ID = MainTB_ID ) AND
+            NameRes.NameRes = (SELECT NameRes FROM [dbo].[MainTB] join NameRes on NameRes_ID = NameRes.ID   Where [MainTB].ID = MainTB_ID ) AND
+            [Floor].floorNambe = (SELECT floorNambe FROM [dbo].[MainTB] join [Floor] on Floor_ID = [Floor].ID   Where [MainTB].ID = MainTB_ID ) AND
+            JiraTask_ID = JiraTask.ID AND [WrittenOff] = 'True' 
+            order by NameRes,NameLAN, TypeHardWare_ID;", connect);
+
+            try
+            {
+
+                connect.Open();
+                SqlDataReader datareader = command.ExecuteReader();
+
+                if (datareader.HasRows)
+                    foreach (DbDataRecord result in datareader)
+                        DataGrid.Add(result);
+                else
+                    return null;
+            }
+
+            catch (SqlException exception)
+            {
+                MessageBox.Show(exception.ToString());
+            }
+
+            connect.Close();
+            return DataGrid;
+        }
+
+        internal ArrayList getWrateOffTable_SR()
+        {
+            ArrayList DataGrid = new ArrayList();
+            SqlConnection connect = new SqlConnection(sConectDB);
+            SqlCommand command = new SqlCommand(@"SELECT [HardwareStockRoom].[ID]
+              ,[dateCreated]
+              ,[NumberINV]
+              ,[TypeHardWare]
+              ,[Model]
+              ,[SN]
+              ,[quantity]
+              ,[JiraTask]
+              ,[ReasonWriteOff]
+              ,[Note]
+                FROM [TestDB].[dbo].[HardwareStockRoom], TypeHardWare, JiraTask
+                Where TypeHardWare_ID = TypeHardWare.ID 
+                AND JiraTask_ID = JiraTask.ID  AND [WrittenOff] = 'True'  order by  TypeHardWare_ID;", connect);
 
             try
             {
@@ -329,7 +419,8 @@ namespace WindowsFormsApplication
                 MainTB.Model,
                 JiraTask, 
                 WrittenOff,
-                ReasonWriteOff
+                ReasonWriteOff,
+                Note
                 from MainTB
                 join TypeAC on maintb.TypeAC_ID = TypeAC.ID 
                 join [Floor] on maintb.Floor_ID = [Floor].ID 
@@ -338,9 +429,7 @@ namespace WindowsFormsApplication
                 join NameLAN on maintb.NameLAN_ID = NameLAN.ID 
                 join NameRes on maintb.NameRes_ID =  NameRes.ID 
                 Join JiraTask on maintb.JiraTask_ID = JiraTask.ID                 
-                where maintb.ID  IN ("+ID+
-                @") AND [WrittenOff] = 'False'order by NameRes,NameLAN, TypeDevice_ID; ";
-
+                where maintb.ID  IN ("+ID+ ");";
                    
                 SqlCommand command = new SqlCommand(sqlQuestion, connect);
 
@@ -383,6 +472,7 @@ namespace WindowsFormsApplication
                       ,[SN]
                       ,[quantity]
                       ,[JiraTask_ID]
+                      ,[Note]
                   FROM [dbo].[HardwareStockRoom]
                   Join [TypeHardWare] on TypeHardWare_ID = [TypeHardWare].[ID]" +
                 @" where [HardwareStockRoom].ID  IN (" + ID + ");";
@@ -428,6 +518,7 @@ namespace WindowsFormsApplication
               ,[Model]
               ,[SN]
               ,[WrittenOff]
+              ,[Note]
                FROM [dbo].[HardWare],NameLAN, TypeHardWare
                 Where NameLAN = (SELECT NameLAN  FROM [dbo].[MainTB] join NameLAN on NameLAN_ID = NameLAN.ID   Where [MainTB].ID = MainTB_ID) 
                 AND TypeHardWare_ID = TypeHardWare.ID" +
@@ -503,7 +594,10 @@ namespace WindowsFormsApplication
                       ,[Model]
                       ,[SN]
                       ,[quantity]
+                      ,[WrittenOff]
+                      ,ReasonWriteOff
                       ,[JiraTask]
+                      ,[Note]
                   FROM [dbo].[HardwareStockRoom]
                   Join [TypeHardWare] on TypeHardWare_ID = [TypeHardWare].[ID]
                   Join [JiraTask] on JiraTask_ID = JiraTask.ID ;", connect);
@@ -535,19 +629,27 @@ namespace WindowsFormsApplication
         {
             ArrayList DataGrid = new ArrayList();
             SqlConnection connect = new SqlConnection(sConectDB);
-            SqlCommand command = new SqlCommand(@"SELECT 
-	          NameLAN.NameLAN
-              ,HardWare.ID 
-              ,[TypeHardWare]
-              ,[NumberINV]
-              ,[Model]
-              ,[SN]
-              ,[WrittenOff]
-              ,[JiraTask]
-               FROM [dbo].[HardWare],NameLAN, TypeHardWare, JiraTask
-                Where NameLAN = (SELECT NameLAN  FROM [dbo].[MainTB] join NameLAN on NameLAN_ID = NameLAN.ID   Where [MainTB].ID = MainTB_ID)
-                AND JiraTask_ID = JiraTask.ID 
-                AND TypeHardWare_ID = TypeHardWare.ID;", connect);
+            SqlCommand command = new SqlCommand(@"SELECT [HardWare].ID
+            ,dateCreated
+            ,NumberINV
+            ,NameLAN.NameLAN
+            ,NameRes.NameRes
+            ,[Floor].floorNambe
+            ,Room.NameRoom
+            ,TypeHardWare
+            ,[Model]
+            ,[SN]
+            ,JiraTask
+            ,[Note] 
+            FROM [dbo].[HardWare],NameLAN, TypeHardWare,[Room], NameRes, [Floor], JiraTask
+ 
+            Where NameLAN = (SELECT NameLAN  FROM [dbo].[MainTB] join NameLAN on NameLAN_ID = NameLAN.ID   Where [MainTB].ID = MainTB_ID ) AND
+            TypeHardWare_ID = TypeHardWare.ID  AND
+            NameRoom = (SELECT NameRoom  FROM [dbo].[MainTB] join [Room] on Room_ID = [Room].ID   Where [MainTB].ID = MainTB_ID ) AND
+            NameRes.NameRes = (SELECT NameRes FROM [dbo].[MainTB] join NameRes on NameRes_ID = NameRes.ID   Where [MainTB].ID = MainTB_ID ) AND
+            [Floor].floorNambe = (SELECT floorNambe FROM [dbo].[MainTB] join [Floor] on Floor_ID = [Floor].ID   Where [MainTB].ID = MainTB_ID ) AND
+            JiraTask_ID = JiraTask.ID
+            order by NameRes,NameLAN, TypeHardWare_ID;", connect);
 
             try
             {
@@ -595,7 +697,8 @@ namespace WindowsFormsApplication
                 MainTB.Model,
                 JiraTask, 
                 WrittenOff,
-                ReasonWriteOff
+                ReasonWriteOff,
+                [Note]
                 from MainTB
                 join TypeAC on maintb.TypeAC_ID = TypeAC.ID 
                 join [Floor] on maintb.Floor_ID = [Floor].ID 
@@ -604,8 +707,7 @@ namespace WindowsFormsApplication
                 join NameLAN on maintb.NameLAN_ID = NameLAN.ID 
                 join NameRes on maintb.NameRes_ID =  NameRes.ID 
                 Join JiraTask on maintb.JiraTask_ID = JiraTask.ID                 
-                where maintb.ID  IN (" + IDs +
-                @") AND [WrittenOff] = 'False'; ", connect);
+                where maintb.ID  IN (" + IDs + ") ; ", connect);
 
                 try
                 {
@@ -628,7 +730,100 @@ namespace WindowsFormsApplication
             }
             return Data;
         }
-        
+
+        internal DataTable Table_Change_data_HW(string IDs)
+        {
+            DataTable Data = new DataTable();
+            using (SqlConnection connect = new SqlConnection(sConectDB))
+            {
+                SqlCommand command = new SqlCommand(@"SELECT [HardWare].ID
+            ,dateCreated
+            ,NumberINV
+            ,NameLAN.NameLAN
+            ,NameRes.NameRes
+            ,[Floor].floorNambe
+            ,Room.NameRoom
+            ,TypeHardWare
+            ,[Model]
+            ,[SN]
+            ,JiraTask
+            ,[WrittenOff]
+            ,ReasonWriteOff
+            ,[Note] 
+            FROM [dbo].[HardWare],NameLAN, TypeHardWare,[Room], NameRes, [Floor], JiraTask
+ 
+            Where NameLAN = (SELECT NameLAN  FROM [dbo].[MainTB] join NameLAN on NameLAN_ID = NameLAN.ID   Where [MainTB].ID = MainTB_ID ) AND
+            TypeHardWare_ID = TypeHardWare.ID  AND
+            NameRoom = (SELECT NameRoom  FROM [dbo].[MainTB] join [Room] on Room_ID = [Room].ID   Where [MainTB].ID = MainTB_ID ) AND
+            NameRes.NameRes = (SELECT NameRes FROM [dbo].[MainTB] join NameRes on NameRes_ID = NameRes.ID   Where [MainTB].ID = MainTB_ID ) AND
+            [Floor].floorNambe = (SELECT floorNambe FROM [dbo].[MainTB] join [Floor] on Floor_ID = [Floor].ID   Where [MainTB].ID = MainTB_ID ) AND
+            JiraTask_ID = JiraTask.ID  AND [HardWare].ID  IN (" + IDs + 
+            ") order by NameRes,NameLAN, TypeHardWare_ID ;", connect);
+
+                try
+                {
+
+                    connect.Open();
+
+                    SqlDataAdapter da = new SqlDataAdapter(command);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    Data = ds.Tables[0];
+
+                }
+
+                catch (SqlException exception)
+                {
+                    MessageBox.Show(exception.ToString());
+                }
+
+                connect.Close();
+            }
+            return Data;
+        }
+
+        internal DataTable Table_Change_data_SR(string IDs)
+        {
+            DataTable Data = new DataTable();
+            using (SqlConnection connect = new SqlConnection(sConectDB))
+            {
+                SqlCommand command = new SqlCommand(@"SELECT [HardwareStockRoom].[ID]
+              ,[dateCreated]
+              ,[NumberINV]
+              ,[TypeHardWare]
+              ,[Model]
+              ,[SN]
+              ,[quantity]
+              ,[WrittenOff]
+              ,[JiraTask]
+              ,[ReasonWriteOff]
+              ,[Note]
+                FROM [TestDB].[dbo].[HardwareStockRoom], TypeHardWare, JiraTask
+                Where TypeHardWare_ID = TypeHardWare.ID AND  [HardwareStockRoom].[ID]  IN (" + IDs +
+              ") AND JiraTask_ID = JiraTask.ID order by  TypeHardWare_ID;", connect);
+
+                try
+                {
+
+                    connect.Open();
+
+                    SqlDataAdapter da = new SqlDataAdapter(command);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    Data = ds.Tables[0];
+
+                }
+
+                catch (SqlException exception)
+                {
+                    MessageBox.Show(exception.ToString());
+                }
+
+                connect.Close();
+            }
+            return Data;
+        }
+
         // from BBL report 
         internal DataTable getWrateOffTable(string ID)
         {
@@ -798,7 +993,7 @@ namespace WindowsFormsApplication
             ArrayList DataGrid = new ArrayList();
             SqlConnection connect = new SqlConnection(sConectDB);
             SqlCommand command = new SqlCommand(@"select maintb.ID, maintb.dateCreated,TypeAC, maintb.NumberINV, NameLAN.NameLAN, NameRes.NameRes, 
-                [Floor].floorNambe, Room.NameRoom, TypeDevice.NameDevice, maintb.SN, MainTB.Model, JiraTask from MainTB 
+                [Floor].floorNambe, Room.NameRoom, TypeDevice.NameDevice, maintb.SN, MainTB.Model, JiraTask, [Note] from MainTB 
                 join TypeAC on maintb.TypeAC_ID = TypeAC.ID 
                 join [Floor] on maintb.Floor_ID = [Floor].ID join room on maintb.Room_ID =  Room.ID 
                 join TypeDevice on maintb.TypeDevice_ID = TypeDevice.ID join NameLAN on maintb.NameLAN_ID = NameLAN.ID 
@@ -833,7 +1028,7 @@ namespace WindowsFormsApplication
             ArrayList DataGrid = new ArrayList();
             SqlConnection connect = new SqlConnection(sConectDB);
             SqlCommand command = new SqlCommand(@"select maintb.ID, maintb.dateCreated, TypeAC, maintb.NumberINV, NameLAN.NameLAN, NameRes.NameRes, 
-                [Floor].floorNambe, Room.NameRoom, TypeDevice.NameDevice, maintb.SN, MainTB.Model, JiraTask from MainTB 
+                [Floor].floorNambe, Room.NameRoom, TypeDevice.NameDevice, maintb.SN, MainTB.Model, JiraTask, [Note] from MainTB 
                 join TypeAC on maintb.TypeAC_ID = TypeAC.ID
                 join [Floor] on maintb.Floor_ID = [Floor].ID join room on maintb.Room_ID =  Room.ID 
                 join TypeDevice on maintb.TypeDevice_ID = TypeDevice.ID join NameLAN on maintb.NameLAN_ID = NameLAN.ID 
@@ -881,7 +1076,8 @@ namespace WindowsFormsApplication
                 MainTB.Model,
                 JiraTask, 
                 WrittenOff,
-                ReasonWriteOff
+                ReasonWriteOff,
+                [Note]
                 from MainTB
                 join TypeAC on maintb.TypeAC_ID = TypeAC.ID 
                 join [Floor] on maintb.Floor_ID = [Floor].ID 
@@ -919,7 +1115,7 @@ namespace WindowsFormsApplication
             ArrayList DataGrid = new ArrayList();
             SqlConnection connect = new SqlConnection(sConectDB);
             SqlCommand command = new SqlCommand(@"select maintb.ID, maintb.dateCreated, TypeAC, maintb.NumberINV, NameLAN.NameLAN, NameRes.NameRes, " +
-                @"[Floor].floorNambe, Room.NameRoom, TypeDevice.NameDevice, maintb.SN, MainTB.Model, JiraTask from MainTB " +
+                @"[Floor].floorNambe, Room.NameRoom, TypeDevice.NameDevice, maintb.SN, MainTB.Model, JiraTask, [Note] from MainTB " +
                 @"join TypeAC on maintb.TypeAC_ID = TypeAC.ID "+
                 @"join [Floor] on maintb.Floor_ID = [Floor].ID join room on maintb.Room_ID =  Room.ID " +
                 @"join TypeDevice on maintb.TypeDevice_ID = TypeDevice.ID join NameLAN on maintb.NameLAN_ID = NameLAN.ID " +
@@ -955,7 +1151,7 @@ namespace WindowsFormsApplication
             ArrayList DataGrid = new ArrayList();
             SqlConnection connect = new SqlConnection(sConectDB);
             SqlCommand command = new SqlCommand(@"select maintb.ID, maintb.dateCreated, TypeAC, maintb.NumberINV, NameLAN.NameLAN, NameRes.NameRes, " +
-                @"[Floor].floorNambe, Room.NameRoom, TypeDevice.NameDevice, maintb.SN, MainTB.Model, JiraTask from MainTB " +
+                @"[Floor].floorNambe, Room.NameRoom, TypeDevice.NameDevice, maintb.SN, MainTB.Model, JiraTask, [Note] from MainTB " +
                 @"join TypeAC on maintb.TypeAC_ID = TypeAC.ID " +
                 @"join [Floor] on maintb.Floor_ID = [Floor].ID join room on maintb.Room_ID =  Room.ID " +
                 @"join TypeDevice on maintb.TypeDevice_ID = TypeDevice.ID join NameLAN on maintb.NameLAN_ID = NameLAN.ID " +
@@ -991,7 +1187,7 @@ namespace WindowsFormsApplication
             ArrayList DataGrid = new ArrayList();
             SqlConnection connect = new SqlConnection(sConectDB);
             SqlCommand command = new SqlCommand(@"select maintb.ID, maintb.dateCreated, TypeAC, maintb.NumberINV, NameLAN.NameLAN, NameRes.NameRes, " +
-                @"[Floor].floorNambe, Room.NameRoom, TypeDevice.NameDevice, maintb.SN, MainTB.Model, JiraTask from MainTB " +
+                @"[Floor].floorNambe, Room.NameRoom, TypeDevice.NameDevice, maintb.SN, MainTB.Model, JiraTask, [Note] from MainTB " +
                 @"join TypeAC on maintb.TypeAC_ID = TypeAC.ID " +
                 @"join [Floor] on maintb.Floor_ID = [Floor].ID join room on maintb.Room_ID =  Room.ID " +
                 @"join TypeDevice on maintb.TypeDevice_ID = TypeDevice.ID join NameLAN on maintb.NameLAN_ID = NameLAN.ID " +

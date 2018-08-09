@@ -127,7 +127,8 @@ namespace WindowsFormsApplication
                 MainTB.Model,
                 JiraTask, 
                 WrittenOff,
-                ReasonWriteOff
+                ReasonWriteOff,
+                Note
                 from MainTB
                 join TypeAC on maintb.TypeAC_ID = TypeAC.ID 
                 join [Floor] on maintb.Floor_ID = [Floor].ID 
@@ -178,6 +179,7 @@ namespace WindowsFormsApplication
             ,JiraTask
             ,[WrittenOff]
             ,ReasonWriteOff
+            ,[Note]
             FROM [dbo].[HardWare],NameLAN, TypeHardWare,[Room], NameRes, [Floor], JiraTask
  
             Where NameLAN = (SELECT NameLAN  FROM [dbo].[MainTB] join NameLAN on NameLAN_ID = NameLAN.ID   Where [MainTB].ID = MainTB_ID ) AND
@@ -225,6 +227,7 @@ namespace WindowsFormsApplication
               ,[WrittenOff]
               ,[JiraTask]
               ,[ReasonWriteOff]
+              ,[Note]
                FROM [dbo].[HardwareStockRoom], TypeHardWare, JiraTask
                Where TypeHardWare_ID = TypeHardWare.ID AND  JiraTask_ID = JiraTask.ID AND " + String_shearch() + " order BY TypeHardWare_ID;", connect);
 
@@ -347,6 +350,7 @@ namespace WindowsFormsApplication
                 JiraTask, 
                 WrittenOff,
                 ReasonWriteOff
+                ,[Note]
                 from MainTB
                 join TypeAC on maintb.TypeAC_ID = TypeAC.ID 
                 join [Floor] on maintb.Floor_ID = [Floor].ID 
@@ -398,6 +402,7 @@ namespace WindowsFormsApplication
             ,JiraTask
             ,[WrittenOff]
             ,ReasonWriteOff
+            ,[Note] 
             FROM [dbo].[HardWare],NameLAN, TypeHardWare,[Room], NameRes, [Floor], JiraTask
  
             Where NameLAN = (SELECT NameLAN  FROM [dbo].[MainTB] join NameLAN on NameLAN_ID = NameLAN.ID   Where [MainTB].ID = MainTB_ID ) AND
@@ -446,6 +451,7 @@ namespace WindowsFormsApplication
               ,[WrittenOff]
               ,[JiraTask]
               ,[ReasonWriteOff]
+              ,[Note]
                 FROM [TestDB].[dbo].[HardwareStockRoom], TypeHardWare, JiraTask
                 Where TypeHardWare_ID = TypeHardWare.ID 
                 AND JiraTask_ID = JiraTask.ID order by  TypeHardWare_ID;", connect);

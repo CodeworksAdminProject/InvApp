@@ -194,7 +194,8 @@ namespace WindowsFormsApplication
                     bll.Get_ID("TypeDevice", "NameDevice", row.Cells["NameDevice"].Value.ToString()).ToString(),
                     row.Cells["SN"].Value.ToString(),
                     row.Cells["Model"].Value.ToString(),
-                    bll.Get_ID("JiraTask", "JiraTask", row.Cells["JiraTask"].Value.ToString()).ToString());
+                    bll.Get_ID("JiraTask", "JiraTask", row.Cells["JiraTask"].Value.ToString()).ToString(),
+                    row.Cells["Note"].Value.ToString());
 
             }
 
@@ -344,6 +345,7 @@ namespace WindowsFormsApplication
                         row.Cells["NameDevice"].Value.ToString(), row.Cells["NameLAN"].Value.ToString(),
                         row.Cells["SN"].Value.ToString(), row.Cells["Model"].Value.ToString());
         }
+
     }
 
 }

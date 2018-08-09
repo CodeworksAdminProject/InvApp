@@ -41,6 +41,39 @@
             this.button_mail = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel_View = new System.Windows.Forms.Panel();
+            this.ChangeFormTwo_stockroom_Note = new System.Windows.Forms.CheckBox();
+            this.ChangeFormTwo_stockroom_Reason = new System.Windows.Forms.CheckBox();
+            this.ChangeFormTwo_stockroom_TypeDiv = new System.Windows.Forms.CheckBox();
+            this.ChangeFormTwo_stockroom_SN = new System.Windows.Forms.CheckBox();
+            this.ChangeFormTwo_stockroom_JiraTask = new System.Windows.Forms.CheckBox();
+            this.ChangeFormTwo_stockroom_WrittenOff = new System.Windows.Forms.CheckBox();
+            this.ChangeFormTwo_stockroom_InvNum = new System.Windows.Forms.CheckBox();
+            this.ChangeFormTwo_stockroom_Quantity = new System.Windows.Forms.CheckBox();
+            this.ChangeFormTwo_stockroom_Model = new System.Windows.Forms.CheckBox();
+            this.ChangeFormTwo_stockroom_ID = new System.Windows.Forms.CheckBox();
+            this.ChangeFormTwo_stockroom_date = new System.Windows.Forms.CheckBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.ChangeFormTwo_hardware_Note = new System.Windows.Forms.CheckBox();
+            this.ChangeFormTwo_hardware_Reason = new System.Windows.Forms.CheckBox();
+            this.ChangeFormTwo_hardware_TypeDiv = new System.Windows.Forms.CheckBox();
+            this.ChangeFormTwo_hardware_SN = new System.Windows.Forms.CheckBox();
+            this.ChangeFormTwo_hardware_JiraTask = new System.Windows.Forms.CheckBox();
+            this.ChangeFormTwo_hardware_LanName = new System.Windows.Forms.CheckBox();
+            this.ChangeFormTwo_hardware_Floor = new System.Windows.Forms.CheckBox();
+            this.ChangeFormTwo_hardware_WrittenOff = new System.Windows.Forms.CheckBox();
+            this.ChangeFormTwo_hardware_InvNum = new System.Windows.Forms.CheckBox();
+            this.ChangeFormTwo_hardware_Room = new System.Windows.Forms.CheckBox();
+            this.ChangeFormTwo_hardware_Model = new System.Windows.Forms.CheckBox();
+            this.ChangeFormTwo_hardware_ResName = new System.Windows.Forms.CheckBox();
+            this.ChangeFormTwo_hardware_ID = new System.Windows.Forms.CheckBox();
+            this.ChangeFormTwo_hardware_date = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.changeFormTwo_mainTB_note = new System.Windows.Forms.CheckBox();
+            this.setDataBase_mainTB_note = new System.Windows.Forms.CheckBox();
+            this.Search_stockroom_note = new System.Windows.Forms.CheckBox();
+            this.Search_hardware_note = new System.Windows.Forms.CheckBox();
+            this.Search_mainTB_note = new System.Windows.Forms.CheckBox();
+            this.mainForms_stockroom_note = new System.Windows.Forms.CheckBox();
             this.Search_stockroom_Reason = new System.Windows.Forms.CheckBox();
             this.Search_stockroom_TypeDiv = new System.Windows.Forms.CheckBox();
             this.Search_stockroom_SN = new System.Windows.Forms.CheckBox();
@@ -118,6 +151,7 @@
             this.label_setform = new System.Windows.Forms.Label();
             this.mainForms_stockroom_SN = new System.Windows.Forms.CheckBox();
             this.mainForms_stockroom_JiraTask = new System.Windows.Forms.CheckBox();
+            this.mainForms_stockroom_WrittenOff = new System.Windows.Forms.CheckBox();
             this.mainForms_stockroom_InvNum = new System.Windows.Forms.CheckBox();
             this.mainForms_stockroom_Quantity = new System.Windows.Forms.CheckBox();
             this.mainForms_stockroom_Model = new System.Windows.Forms.CheckBox();
@@ -125,6 +159,7 @@
             this.mainForms_stockroom_date = new System.Windows.Forms.CheckBox();
             this.label_mainTB_stockroom = new System.Windows.Forms.Label();
             this.mainForms_hardware_note = new System.Windows.Forms.CheckBox();
+            this.mainForms_mainTB_note = new System.Windows.Forms.CheckBox();
             this.mainForms_hardware_TypeDiv = new System.Windows.Forms.CheckBox();
             this.mainForms_mainTB_TypeDiv = new System.Windows.Forms.CheckBox();
             this.mainForms_hardware_SN = new System.Windows.Forms.CheckBox();
@@ -173,14 +208,6 @@
             this.pictureBox_Image = new System.Windows.Forms.PictureBox();
             this.label_Logotip = new System.Windows.Forms.Label();
             this.label_print_BarKod = new System.Windows.Forms.Label();
-            this.mainForms_mainTB_note = new System.Windows.Forms.CheckBox();
-            this.mainForms_stockroom_WrittenOff = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -213,7 +240,7 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 834);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 618);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(677, 38);
@@ -271,7 +298,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(226, 834);
+            this.panel1.Size = new System.Drawing.Size(226, 618);
             this.panel1.TabIndex = 40;
             // 
             // button_View
@@ -368,7 +395,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(227, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(450, 834);
+            this.panel2.Size = new System.Drawing.Size(450, 618);
             this.panel2.TabIndex = 41;
             // 
             // panel_View
@@ -376,12 +403,39 @@
             this.panel_View.AutoScroll = true;
             this.panel_View.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.panel_View.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel_View.Controls.Add(this.checkBox6);
-            this.panel_View.Controls.Add(this.checkBox5);
-            this.panel_View.Controls.Add(this.checkBox4);
-            this.panel_View.Controls.Add(this.checkBox3);
-            this.panel_View.Controls.Add(this.checkBox2);
-            this.panel_View.Controls.Add(this.checkBox1);
+            this.panel_View.Controls.Add(this.ChangeFormTwo_stockroom_Note);
+            this.panel_View.Controls.Add(this.ChangeFormTwo_stockroom_Reason);
+            this.panel_View.Controls.Add(this.ChangeFormTwo_stockroom_TypeDiv);
+            this.panel_View.Controls.Add(this.ChangeFormTwo_stockroom_SN);
+            this.panel_View.Controls.Add(this.ChangeFormTwo_stockroom_JiraTask);
+            this.panel_View.Controls.Add(this.ChangeFormTwo_stockroom_WrittenOff);
+            this.panel_View.Controls.Add(this.ChangeFormTwo_stockroom_InvNum);
+            this.panel_View.Controls.Add(this.ChangeFormTwo_stockroom_Quantity);
+            this.panel_View.Controls.Add(this.ChangeFormTwo_stockroom_Model);
+            this.panel_View.Controls.Add(this.ChangeFormTwo_stockroom_ID);
+            this.panel_View.Controls.Add(this.ChangeFormTwo_stockroom_date);
+            this.panel_View.Controls.Add(this.label3);
+            this.panel_View.Controls.Add(this.ChangeFormTwo_hardware_Note);
+            this.panel_View.Controls.Add(this.ChangeFormTwo_hardware_Reason);
+            this.panel_View.Controls.Add(this.ChangeFormTwo_hardware_TypeDiv);
+            this.panel_View.Controls.Add(this.ChangeFormTwo_hardware_SN);
+            this.panel_View.Controls.Add(this.ChangeFormTwo_hardware_JiraTask);
+            this.panel_View.Controls.Add(this.ChangeFormTwo_hardware_LanName);
+            this.panel_View.Controls.Add(this.ChangeFormTwo_hardware_Floor);
+            this.panel_View.Controls.Add(this.ChangeFormTwo_hardware_WrittenOff);
+            this.panel_View.Controls.Add(this.ChangeFormTwo_hardware_InvNum);
+            this.panel_View.Controls.Add(this.ChangeFormTwo_hardware_Room);
+            this.panel_View.Controls.Add(this.ChangeFormTwo_hardware_Model);
+            this.panel_View.Controls.Add(this.ChangeFormTwo_hardware_ResName);
+            this.panel_View.Controls.Add(this.ChangeFormTwo_hardware_ID);
+            this.panel_View.Controls.Add(this.ChangeFormTwo_hardware_date);
+            this.panel_View.Controls.Add(this.label2);
+            this.panel_View.Controls.Add(this.changeFormTwo_mainTB_note);
+            this.panel_View.Controls.Add(this.setDataBase_mainTB_note);
+            this.panel_View.Controls.Add(this.Search_stockroom_note);
+            this.panel_View.Controls.Add(this.Search_hardware_note);
+            this.panel_View.Controls.Add(this.Search_mainTB_note);
+            this.panel_View.Controls.Add(this.mainForms_stockroom_note);
             this.panel_View.Controls.Add(this.Search_stockroom_Reason);
             this.panel_View.Controls.Add(this.Search_stockroom_TypeDiv);
             this.panel_View.Controls.Add(this.Search_stockroom_SN);
@@ -499,9 +553,339 @@
             this.panel_View.Location = new System.Drawing.Point(0, 0);
             this.panel_View.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_View.Name = "panel_View";
-            this.panel_View.Size = new System.Drawing.Size(450, 834);
+            this.panel_View.Size = new System.Drawing.Size(450, 618);
             this.panel_View.TabIndex = 54;
             this.panel_View.Visible = false;
+            // 
+            // ChangeFormTwo_stockroom_Note
+            // 
+            this.ChangeFormTwo_stockroom_Note.AutoSize = true;
+            this.ChangeFormTwo_stockroom_Note.Location = new System.Drawing.Point(14, 3854);
+            this.ChangeFormTwo_stockroom_Note.Name = "ChangeFormTwo_stockroom_Note";
+            this.ChangeFormTwo_stockroom_Note.Size = new System.Drawing.Size(114, 21);
+            this.ChangeFormTwo_stockroom_Note.TabIndex = 171;
+            this.ChangeFormTwo_stockroom_Note.Text = "Примечание ";
+            this.ChangeFormTwo_stockroom_Note.UseVisualStyleBackColor = true;
+            // 
+            // ChangeFormTwo_stockroom_Reason
+            // 
+            this.ChangeFormTwo_stockroom_Reason.AutoSize = true;
+            this.ChangeFormTwo_stockroom_Reason.Location = new System.Drawing.Point(14, 3830);
+            this.ChangeFormTwo_stockroom_Reason.Name = "ChangeFormTwo_stockroom_Reason";
+            this.ChangeFormTwo_stockroom_Reason.Size = new System.Drawing.Size(151, 21);
+            this.ChangeFormTwo_stockroom_Reason.TabIndex = 161;
+            this.ChangeFormTwo_stockroom_Reason.Text = "Причина списания";
+            this.ChangeFormTwo_stockroom_Reason.UseVisualStyleBackColor = true;
+            // 
+            // ChangeFormTwo_stockroom_TypeDiv
+            // 
+            this.ChangeFormTwo_stockroom_TypeDiv.AutoSize = true;
+            this.ChangeFormTwo_stockroom_TypeDiv.Location = new System.Drawing.Point(14, 3704);
+            this.ChangeFormTwo_stockroom_TypeDiv.Name = "ChangeFormTwo_stockroom_TypeDiv";
+            this.ChangeFormTwo_stockroom_TypeDiv.Size = new System.Drawing.Size(130, 21);
+            this.ChangeFormTwo_stockroom_TypeDiv.TabIndex = 162;
+            this.ChangeFormTwo_stockroom_TypeDiv.Text = "Тип устройства";
+            this.ChangeFormTwo_stockroom_TypeDiv.UseVisualStyleBackColor = true;
+            // 
+            // ChangeFormTwo_stockroom_SN
+            // 
+            this.ChangeFormTwo_stockroom_SN.AutoSize = true;
+            this.ChangeFormTwo_stockroom_SN.Location = new System.Drawing.Point(14, 3729);
+            this.ChangeFormTwo_stockroom_SN.Name = "ChangeFormTwo_stockroom_SN";
+            this.ChangeFormTwo_stockroom_SN.Size = new System.Drawing.Size(139, 21);
+            this.ChangeFormTwo_stockroom_SN.TabIndex = 163;
+            this.ChangeFormTwo_stockroom_SN.Text = "Серийный номер";
+            this.ChangeFormTwo_stockroom_SN.UseVisualStyleBackColor = true;
+            // 
+            // ChangeFormTwo_stockroom_JiraTask
+            // 
+            this.ChangeFormTwo_stockroom_JiraTask.AutoSize = true;
+            this.ChangeFormTwo_stockroom_JiraTask.Location = new System.Drawing.Point(14, 3804);
+            this.ChangeFormTwo_stockroom_JiraTask.Name = "ChangeFormTwo_stockroom_JiraTask";
+            this.ChangeFormTwo_stockroom_JiraTask.Size = new System.Drawing.Size(120, 21);
+            this.ChangeFormTwo_stockroom_JiraTask.TabIndex = 164;
+            this.ChangeFormTwo_stockroom_JiraTask.Text = "Задача в JIRA";
+            this.ChangeFormTwo_stockroom_JiraTask.UseVisualStyleBackColor = true;
+            // 
+            // ChangeFormTwo_stockroom_WrittenOff
+            // 
+            this.ChangeFormTwo_stockroom_WrittenOff.AutoSize = true;
+            this.ChangeFormTwo_stockroom_WrittenOff.Location = new System.Drawing.Point(14, 3779);
+            this.ChangeFormTwo_stockroom_WrittenOff.Name = "ChangeFormTwo_stockroom_WrittenOff";
+            this.ChangeFormTwo_stockroom_WrittenOff.Size = new System.Drawing.Size(83, 21);
+            this.ChangeFormTwo_stockroom_WrittenOff.TabIndex = 165;
+            this.ChangeFormTwo_stockroom_WrittenOff.Text = "Списано";
+            this.ChangeFormTwo_stockroom_WrittenOff.UseVisualStyleBackColor = true;
+            // 
+            // ChangeFormTwo_stockroom_InvNum
+            // 
+            this.ChangeFormTwo_stockroom_InvNum.AutoSize = true;
+            this.ChangeFormTwo_stockroom_InvNum.Location = new System.Drawing.Point(14, 3654);
+            this.ChangeFormTwo_stockroom_InvNum.Name = "ChangeFormTwo_stockroom_InvNum";
+            this.ChangeFormTwo_stockroom_InvNum.Size = new System.Drawing.Size(162, 21);
+            this.ChangeFormTwo_stockroom_InvNum.TabIndex = 166;
+            this.ChangeFormTwo_stockroom_InvNum.Text = "Инвентарный номер";
+            this.ChangeFormTwo_stockroom_InvNum.UseVisualStyleBackColor = true;
+            // 
+            // ChangeFormTwo_stockroom_Quantity
+            // 
+            this.ChangeFormTwo_stockroom_Quantity.AutoSize = true;
+            this.ChangeFormTwo_stockroom_Quantity.Location = new System.Drawing.Point(14, 3679);
+            this.ChangeFormTwo_stockroom_Quantity.Name = "ChangeFormTwo_stockroom_Quantity";
+            this.ChangeFormTwo_stockroom_Quantity.Size = new System.Drawing.Size(105, 21);
+            this.ChangeFormTwo_stockroom_Quantity.TabIndex = 167;
+            this.ChangeFormTwo_stockroom_Quantity.Text = "Количество";
+            this.ChangeFormTwo_stockroom_Quantity.UseVisualStyleBackColor = true;
+            // 
+            // ChangeFormTwo_stockroom_Model
+            // 
+            this.ChangeFormTwo_stockroom_Model.AutoSize = true;
+            this.ChangeFormTwo_stockroom_Model.Location = new System.Drawing.Point(14, 3754);
+            this.ChangeFormTwo_stockroom_Model.Name = "ChangeFormTwo_stockroom_Model";
+            this.ChangeFormTwo_stockroom_Model.Size = new System.Drawing.Size(77, 21);
+            this.ChangeFormTwo_stockroom_Model.TabIndex = 168;
+            this.ChangeFormTwo_stockroom_Model.Text = "Модель";
+            this.ChangeFormTwo_stockroom_Model.UseVisualStyleBackColor = true;
+            // 
+            // ChangeFormTwo_stockroom_ID
+            // 
+            this.ChangeFormTwo_stockroom_ID.AutoSize = true;
+            this.ChangeFormTwo_stockroom_ID.Location = new System.Drawing.Point(14, 3604);
+            this.ChangeFormTwo_stockroom_ID.Name = "ChangeFormTwo_stockroom_ID";
+            this.ChangeFormTwo_stockroom_ID.Size = new System.Drawing.Size(40, 21);
+            this.ChangeFormTwo_stockroom_ID.TabIndex = 169;
+            this.ChangeFormTwo_stockroom_ID.Text = "ID";
+            this.ChangeFormTwo_stockroom_ID.UseVisualStyleBackColor = true;
+            // 
+            // ChangeFormTwo_stockroom_date
+            // 
+            this.ChangeFormTwo_stockroom_date.AutoSize = true;
+            this.ChangeFormTwo_stockroom_date.Location = new System.Drawing.Point(14, 3629);
+            this.ChangeFormTwo_stockroom_date.Name = "ChangeFormTwo_stockroom_date";
+            this.ChangeFormTwo_stockroom_date.Size = new System.Drawing.Size(65, 21);
+            this.ChangeFormTwo_stockroom_date.TabIndex = 170;
+            this.ChangeFormTwo_stockroom_date.Text = "Дата ";
+            this.ChangeFormTwo_stockroom_date.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(30, 3581);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(319, 20);
+            this.label3.TabIndex = 160;
+            this.label3.Text = "Таблица железа и расходники на складе";
+            // 
+            // ChangeFormTwo_hardware_Note
+            // 
+            this.ChangeFormTwo_hardware_Note.AutoSize = true;
+            this.ChangeFormTwo_hardware_Note.Location = new System.Drawing.Point(14, 3542);
+            this.ChangeFormTwo_hardware_Note.Name = "ChangeFormTwo_hardware_Note";
+            this.ChangeFormTwo_hardware_Note.Size = new System.Drawing.Size(114, 21);
+            this.ChangeFormTwo_hardware_Note.TabIndex = 159;
+            this.ChangeFormTwo_hardware_Note.Text = "Примечание ";
+            this.ChangeFormTwo_hardware_Note.UseVisualStyleBackColor = true;
+            // 
+            // ChangeFormTwo_hardware_Reason
+            // 
+            this.ChangeFormTwo_hardware_Reason.AutoSize = true;
+            this.ChangeFormTwo_hardware_Reason.Location = new System.Drawing.Point(14, 3517);
+            this.ChangeFormTwo_hardware_Reason.Name = "ChangeFormTwo_hardware_Reason";
+            this.ChangeFormTwo_hardware_Reason.Size = new System.Drawing.Size(151, 21);
+            this.ChangeFormTwo_hardware_Reason.TabIndex = 146;
+            this.ChangeFormTwo_hardware_Reason.Text = "Причина списания";
+            this.ChangeFormTwo_hardware_Reason.UseVisualStyleBackColor = true;
+            // 
+            // ChangeFormTwo_hardware_TypeDiv
+            // 
+            this.ChangeFormTwo_hardware_TypeDiv.AutoSize = true;
+            this.ChangeFormTwo_hardware_TypeDiv.Location = new System.Drawing.Point(14, 3392);
+            this.ChangeFormTwo_hardware_TypeDiv.Name = "ChangeFormTwo_hardware_TypeDiv";
+            this.ChangeFormTwo_hardware_TypeDiv.Size = new System.Drawing.Size(130, 21);
+            this.ChangeFormTwo_hardware_TypeDiv.TabIndex = 147;
+            this.ChangeFormTwo_hardware_TypeDiv.Text = "Тип устройства";
+            this.ChangeFormTwo_hardware_TypeDiv.UseVisualStyleBackColor = true;
+            // 
+            // ChangeFormTwo_hardware_SN
+            // 
+            this.ChangeFormTwo_hardware_SN.AutoSize = true;
+            this.ChangeFormTwo_hardware_SN.Location = new System.Drawing.Point(14, 3417);
+            this.ChangeFormTwo_hardware_SN.Name = "ChangeFormTwo_hardware_SN";
+            this.ChangeFormTwo_hardware_SN.Size = new System.Drawing.Size(139, 21);
+            this.ChangeFormTwo_hardware_SN.TabIndex = 148;
+            this.ChangeFormTwo_hardware_SN.Text = "Серийный номер";
+            this.ChangeFormTwo_hardware_SN.UseVisualStyleBackColor = true;
+            // 
+            // ChangeFormTwo_hardware_JiraTask
+            // 
+            this.ChangeFormTwo_hardware_JiraTask.AutoSize = true;
+            this.ChangeFormTwo_hardware_JiraTask.Location = new System.Drawing.Point(14, 3492);
+            this.ChangeFormTwo_hardware_JiraTask.Name = "ChangeFormTwo_hardware_JiraTask";
+            this.ChangeFormTwo_hardware_JiraTask.Size = new System.Drawing.Size(120, 21);
+            this.ChangeFormTwo_hardware_JiraTask.TabIndex = 149;
+            this.ChangeFormTwo_hardware_JiraTask.Text = "Задача в JIRA";
+            this.ChangeFormTwo_hardware_JiraTask.UseVisualStyleBackColor = true;
+            // 
+            // ChangeFormTwo_hardware_LanName
+            // 
+            this.ChangeFormTwo_hardware_LanName.AutoSize = true;
+            this.ChangeFormTwo_hardware_LanName.Location = new System.Drawing.Point(14, 3292);
+            this.ChangeFormTwo_hardware_LanName.Name = "ChangeFormTwo_hardware_LanName";
+            this.ChangeFormTwo_hardware_LanName.Size = new System.Drawing.Size(103, 21);
+            this.ChangeFormTwo_hardware_LanName.TabIndex = 150;
+            this.ChangeFormTwo_hardware_LanName.Text = "Имя в сети ";
+            this.ChangeFormTwo_hardware_LanName.UseVisualStyleBackColor = true;
+            // 
+            // ChangeFormTwo_hardware_Floor
+            // 
+            this.ChangeFormTwo_hardware_Floor.AutoSize = true;
+            this.ChangeFormTwo_hardware_Floor.Location = new System.Drawing.Point(14, 3367);
+            this.ChangeFormTwo_hardware_Floor.Name = "ChangeFormTwo_hardware_Floor";
+            this.ChangeFormTwo_hardware_Floor.Size = new System.Drawing.Size(60, 21);
+            this.ChangeFormTwo_hardware_Floor.TabIndex = 151;
+            this.ChangeFormTwo_hardware_Floor.Text = "Этаж";
+            this.ChangeFormTwo_hardware_Floor.UseVisualStyleBackColor = true;
+            // 
+            // ChangeFormTwo_hardware_WrittenOff
+            // 
+            this.ChangeFormTwo_hardware_WrittenOff.AutoSize = true;
+            this.ChangeFormTwo_hardware_WrittenOff.Location = new System.Drawing.Point(14, 3467);
+            this.ChangeFormTwo_hardware_WrittenOff.Name = "ChangeFormTwo_hardware_WrittenOff";
+            this.ChangeFormTwo_hardware_WrittenOff.Size = new System.Drawing.Size(83, 21);
+            this.ChangeFormTwo_hardware_WrittenOff.TabIndex = 152;
+            this.ChangeFormTwo_hardware_WrittenOff.Text = "Списано";
+            this.ChangeFormTwo_hardware_WrittenOff.UseVisualStyleBackColor = true;
+            // 
+            // ChangeFormTwo_hardware_InvNum
+            // 
+            this.ChangeFormTwo_hardware_InvNum.AutoSize = true;
+            this.ChangeFormTwo_hardware_InvNum.Location = new System.Drawing.Point(14, 3267);
+            this.ChangeFormTwo_hardware_InvNum.Name = "ChangeFormTwo_hardware_InvNum";
+            this.ChangeFormTwo_hardware_InvNum.Size = new System.Drawing.Size(162, 21);
+            this.ChangeFormTwo_hardware_InvNum.TabIndex = 153;
+            this.ChangeFormTwo_hardware_InvNum.Text = "Инвентарный номер";
+            this.ChangeFormTwo_hardware_InvNum.UseVisualStyleBackColor = true;
+            // 
+            // ChangeFormTwo_hardware_Room
+            // 
+            this.ChangeFormTwo_hardware_Room.AutoSize = true;
+            this.ChangeFormTwo_hardware_Room.Location = new System.Drawing.Point(14, 3342);
+            this.ChangeFormTwo_hardware_Room.Name = "ChangeFormTwo_hardware_Room";
+            this.ChangeFormTwo_hardware_Room.Size = new System.Drawing.Size(84, 21);
+            this.ChangeFormTwo_hardware_Room.TabIndex = 154;
+            this.ChangeFormTwo_hardware_Room.Text = "Комната";
+            this.ChangeFormTwo_hardware_Room.UseVisualStyleBackColor = true;
+            // 
+            // ChangeFormTwo_hardware_Model
+            // 
+            this.ChangeFormTwo_hardware_Model.AutoSize = true;
+            this.ChangeFormTwo_hardware_Model.Location = new System.Drawing.Point(14, 3442);
+            this.ChangeFormTwo_hardware_Model.Name = "ChangeFormTwo_hardware_Model";
+            this.ChangeFormTwo_hardware_Model.Size = new System.Drawing.Size(77, 21);
+            this.ChangeFormTwo_hardware_Model.TabIndex = 155;
+            this.ChangeFormTwo_hardware_Model.Text = "Модель";
+            this.ChangeFormTwo_hardware_Model.UseVisualStyleBackColor = true;
+            // 
+            // ChangeFormTwo_hardware_ResName
+            // 
+            this.ChangeFormTwo_hardware_ResName.AutoSize = true;
+            this.ChangeFormTwo_hardware_ResName.Location = new System.Drawing.Point(14, 3317);
+            this.ChangeFormTwo_hardware_ResName.Name = "ChangeFormTwo_hardware_ResName";
+            this.ChangeFormTwo_hardware_ResName.Size = new System.Drawing.Size(130, 21);
+            this.ChangeFormTwo_hardware_ResName.TabIndex = 156;
+            this.ChangeFormTwo_hardware_ResName.Text = "Ответственный";
+            this.ChangeFormTwo_hardware_ResName.UseVisualStyleBackColor = true;
+            // 
+            // ChangeFormTwo_hardware_ID
+            // 
+            this.ChangeFormTwo_hardware_ID.AutoSize = true;
+            this.ChangeFormTwo_hardware_ID.Location = new System.Drawing.Point(14, 3217);
+            this.ChangeFormTwo_hardware_ID.Name = "ChangeFormTwo_hardware_ID";
+            this.ChangeFormTwo_hardware_ID.Size = new System.Drawing.Size(40, 21);
+            this.ChangeFormTwo_hardware_ID.TabIndex = 157;
+            this.ChangeFormTwo_hardware_ID.Text = "ID";
+            this.ChangeFormTwo_hardware_ID.UseVisualStyleBackColor = true;
+            // 
+            // ChangeFormTwo_hardware_date
+            // 
+            this.ChangeFormTwo_hardware_date.AutoSize = true;
+            this.ChangeFormTwo_hardware_date.Location = new System.Drawing.Point(14, 3242);
+            this.ChangeFormTwo_hardware_date.Name = "ChangeFormTwo_hardware_date";
+            this.ChangeFormTwo_hardware_date.Size = new System.Drawing.Size(65, 21);
+            this.ChangeFormTwo_hardware_date.TabIndex = 158;
+            this.ChangeFormTwo_hardware_date.Text = "Дата ";
+            this.ChangeFormTwo_hardware_date.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(30, 3198);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(297, 20);
+            this.label2.TabIndex = 145;
+            this.label2.Text = "Таблица  аппаратные средства на ПК";
+            // 
+            // changeFormTwo_mainTB_note
+            // 
+            this.changeFormTwo_mainTB_note.AutoSize = true;
+            this.changeFormTwo_mainTB_note.Location = new System.Drawing.Point(10, 3151);
+            this.changeFormTwo_mainTB_note.Name = "changeFormTwo_mainTB_note";
+            this.changeFormTwo_mainTB_note.Size = new System.Drawing.Size(114, 21);
+            this.changeFormTwo_mainTB_note.TabIndex = 144;
+            this.changeFormTwo_mainTB_note.Text = "Примечание ";
+            this.changeFormTwo_mainTB_note.UseVisualStyleBackColor = true;
+            // 
+            // setDataBase_mainTB_note
+            // 
+            this.setDataBase_mainTB_note.AutoSize = true;
+            this.setDataBase_mainTB_note.Location = new System.Drawing.Point(10, 2673);
+            this.setDataBase_mainTB_note.Name = "setDataBase_mainTB_note";
+            this.setDataBase_mainTB_note.Size = new System.Drawing.Size(114, 21);
+            this.setDataBase_mainTB_note.TabIndex = 143;
+            this.setDataBase_mainTB_note.Text = "Примечание ";
+            this.setDataBase_mainTB_note.UseVisualStyleBackColor = true;
+            // 
+            // Search_stockroom_note
+            // 
+            this.Search_stockroom_note.AutoSize = true;
+            this.Search_stockroom_note.Location = new System.Drawing.Point(10, 2192);
+            this.Search_stockroom_note.Name = "Search_stockroom_note";
+            this.Search_stockroom_note.Size = new System.Drawing.Size(114, 21);
+            this.Search_stockroom_note.TabIndex = 142;
+            this.Search_stockroom_note.Text = "Примечание ";
+            this.Search_stockroom_note.UseVisualStyleBackColor = true;
+            // 
+            // Search_hardware_note
+            // 
+            this.Search_hardware_note.AutoSize = true;
+            this.Search_hardware_note.Location = new System.Drawing.Point(10, 1879);
+            this.Search_hardware_note.Name = "Search_hardware_note";
+            this.Search_hardware_note.Size = new System.Drawing.Size(114, 21);
+            this.Search_hardware_note.TabIndex = 141;
+            this.Search_hardware_note.Text = "Примечание ";
+            this.Search_hardware_note.UseVisualStyleBackColor = true;
+            // 
+            // Search_mainTB_note
+            // 
+            this.Search_mainTB_note.AutoSize = true;
+            this.Search_mainTB_note.Location = new System.Drawing.Point(10, 1495);
+            this.Search_mainTB_note.Name = "Search_mainTB_note";
+            this.Search_mainTB_note.Size = new System.Drawing.Size(114, 21);
+            this.Search_mainTB_note.TabIndex = 140;
+            this.Search_mainTB_note.Text = "Примечание ";
+            this.Search_mainTB_note.UseVisualStyleBackColor = true;
+            // 
+            // mainForms_stockroom_note
+            // 
+            this.mainForms_stockroom_note.AutoSize = true;
+            this.mainForms_stockroom_note.Location = new System.Drawing.Point(10, 1019);
+            this.mainForms_stockroom_note.Name = "mainForms_stockroom_note";
+            this.mainForms_stockroom_note.Size = new System.Drawing.Size(114, 21);
+            this.mainForms_stockroom_note.TabIndex = 139;
+            this.mainForms_stockroom_note.Text = "Примечание ";
+            this.mainForms_stockroom_note.UseVisualStyleBackColor = true;
             // 
             // Search_stockroom_Reason
             // 
@@ -1276,6 +1660,16 @@
             this.mainForms_stockroom_JiraTask.Text = "Задача в JIRA";
             this.mainForms_stockroom_JiraTask.UseVisualStyleBackColor = true;
             // 
+            // mainForms_stockroom_WrittenOff
+            // 
+            this.mainForms_stockroom_WrittenOff.AutoSize = true;
+            this.mainForms_stockroom_WrittenOff.Location = new System.Drawing.Point(10, 944);
+            this.mainForms_stockroom_WrittenOff.Name = "mainForms_stockroom_WrittenOff";
+            this.mainForms_stockroom_WrittenOff.Size = new System.Drawing.Size(83, 21);
+            this.mainForms_stockroom_WrittenOff.TabIndex = 59;
+            this.mainForms_stockroom_WrittenOff.Text = "Списано";
+            this.mainForms_stockroom_WrittenOff.UseVisualStyleBackColor = true;
+            // 
             // mainForms_stockroom_InvNum
             // 
             this.mainForms_stockroom_InvNum.AutoSize = true;
@@ -1345,6 +1739,16 @@
             this.mainForms_hardware_note.TabIndex = 51;
             this.mainForms_hardware_note.Text = "Примечание ";
             this.mainForms_hardware_note.UseVisualStyleBackColor = true;
+            // 
+            // mainForms_mainTB_note
+            // 
+            this.mainForms_mainTB_note.AutoSize = true;
+            this.mainForms_mainTB_note.Location = new System.Drawing.Point(12, 372);
+            this.mainForms_mainTB_note.Name = "mainForms_mainTB_note";
+            this.mainForms_mainTB_note.Size = new System.Drawing.Size(114, 21);
+            this.mainForms_mainTB_note.TabIndex = 51;
+            this.mainForms_mainTB_note.Text = "Примечание ";
+            this.mainForms_mainTB_note.UseVisualStyleBackColor = true;
             // 
             // mainForms_hardware_TypeDiv
             // 
@@ -1622,7 +2026,7 @@
             this.panel_data_base.Location = new System.Drawing.Point(0, 0);
             this.panel_data_base.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_data_base.Name = "panel_data_base";
-            this.panel_data_base.Size = new System.Drawing.Size(450, 834);
+            this.panel_data_base.Size = new System.Drawing.Size(450, 618);
             this.panel_data_base.TabIndex = 53;
             this.panel_data_base.Visible = false;
             // 
@@ -1687,7 +2091,7 @@
             this.panel_settengs_mail.Location = new System.Drawing.Point(0, 0);
             this.panel_settengs_mail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_settengs_mail.Name = "panel_settengs_mail";
-            this.panel_settengs_mail.Size = new System.Drawing.Size(450, 834);
+            this.panel_settengs_mail.Size = new System.Drawing.Size(450, 618);
             this.panel_settengs_mail.TabIndex = 54;
             this.panel_settengs_mail.Visible = false;
             // 
@@ -1718,7 +2122,7 @@
             this.panel_navigation.Location = new System.Drawing.Point(0, 0);
             this.panel_navigation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_navigation.Name = "panel_navigation";
-            this.panel_navigation.Size = new System.Drawing.Size(450, 834);
+            this.panel_navigation.Size = new System.Drawing.Size(450, 618);
             this.panel_navigation.TabIndex = 55;
             this.panel_navigation.Visible = false;
             // 
@@ -1760,7 +2164,7 @@
             this.panel_print.Location = new System.Drawing.Point(0, 0);
             this.panel_print.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_print.Name = "panel_print";
-            this.panel_print.Size = new System.Drawing.Size(450, 834);
+            this.panel_print.Size = new System.Drawing.Size(450, 618);
             this.panel_print.TabIndex = 56;
             this.panel_print.Visible = false;
             // 
@@ -1844,92 +2248,12 @@
             this.label_print_BarKod.TabIndex = 78;
             this.label_print_BarKod.Text = "Печать баркода: ";
             // 
-            // mainForms_mainTB_note
-            // 
-            this.mainForms_mainTB_note.AutoSize = true;
-            this.mainForms_mainTB_note.Location = new System.Drawing.Point(12, 372);
-            this.mainForms_mainTB_note.Name = "mainForms_mainTB_note";
-            this.mainForms_mainTB_note.Size = new System.Drawing.Size(114, 21);
-            this.mainForms_mainTB_note.TabIndex = 51;
-            this.mainForms_mainTB_note.Text = "Примечание ";
-            this.mainForms_mainTB_note.UseVisualStyleBackColor = true;
-            // 
-            // mainForms_stockroom_WrittenOff
-            // 
-            this.mainForms_stockroom_WrittenOff.AutoSize = true;
-            this.mainForms_stockroom_WrittenOff.Location = new System.Drawing.Point(10, 944);
-            this.mainForms_stockroom_WrittenOff.Name = "mainForms_stockroom_WrittenOff";
-            this.mainForms_stockroom_WrittenOff.Size = new System.Drawing.Size(83, 21);
-            this.mainForms_stockroom_WrittenOff.TabIndex = 59;
-            this.mainForms_stockroom_WrittenOff.Text = "Списано";
-            this.mainForms_stockroom_WrittenOff.UseVisualStyleBackColor = true;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(10, 1019);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(114, 21);
-            this.checkBox1.TabIndex = 139;
-            this.checkBox1.Text = "Примечание ";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(10, 1495);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(114, 21);
-            this.checkBox2.TabIndex = 140;
-            this.checkBox2.Text = "Примечание ";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(10, 1879);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(114, 21);
-            this.checkBox3.TabIndex = 141;
-            this.checkBox3.Text = "Примечание ";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            // 
-            // checkBox4
-            // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(10, 2192);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(114, 21);
-            this.checkBox4.TabIndex = 142;
-            this.checkBox4.Text = "Примечание ";
-            this.checkBox4.UseVisualStyleBackColor = true;
-            // 
-            // checkBox5
-            // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(10, 2673);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(114, 21);
-            this.checkBox5.TabIndex = 143;
-            this.checkBox5.Text = "Примечание ";
-            this.checkBox5.UseVisualStyleBackColor = true;
-            // 
-            // checkBox6
-            // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(10, 3151);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(114, 21);
-            this.checkBox6.TabIndex = 144;
-            this.checkBox6.Text = "Примечание ";
-            this.checkBox6.UseVisualStyleBackColor = true;
-            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.ClientSize = new System.Drawing.Size(677, 872);
+            this.ClientSize = new System.Drawing.Size(677, 656);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.flowLayoutPanel1);
@@ -2102,11 +2426,38 @@
         private System.Windows.Forms.Label label_mainTB;
         private System.Windows.Forms.CheckBox mainForms_stockroom_WrittenOff;
         private System.Windows.Forms.CheckBox mainForms_mainTB_note;
-        private System.Windows.Forms.CheckBox checkBox6;
-        private System.Windows.Forms.CheckBox checkBox5;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox changeFormTwo_mainTB_note;
+        private System.Windows.Forms.CheckBox setDataBase_mainTB_note;
+        private System.Windows.Forms.CheckBox Search_stockroom_note;
+        private System.Windows.Forms.CheckBox Search_hardware_note;
+        private System.Windows.Forms.CheckBox Search_mainTB_note;
+        private System.Windows.Forms.CheckBox mainForms_stockroom_note;
+        private System.Windows.Forms.CheckBox ChangeFormTwo_stockroom_Note;
+        private System.Windows.Forms.CheckBox ChangeFormTwo_stockroom_Reason;
+        private System.Windows.Forms.CheckBox ChangeFormTwo_stockroom_TypeDiv;
+        private System.Windows.Forms.CheckBox ChangeFormTwo_stockroom_SN;
+        private System.Windows.Forms.CheckBox ChangeFormTwo_stockroom_JiraTask;
+        private System.Windows.Forms.CheckBox ChangeFormTwo_stockroom_WrittenOff;
+        private System.Windows.Forms.CheckBox ChangeFormTwo_stockroom_InvNum;
+        private System.Windows.Forms.CheckBox ChangeFormTwo_stockroom_Quantity;
+        private System.Windows.Forms.CheckBox ChangeFormTwo_stockroom_Model;
+        private System.Windows.Forms.CheckBox ChangeFormTwo_stockroom_ID;
+        private System.Windows.Forms.CheckBox ChangeFormTwo_stockroom_date;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.CheckBox ChangeFormTwo_hardware_Note;
+        private System.Windows.Forms.CheckBox ChangeFormTwo_hardware_Reason;
+        private System.Windows.Forms.CheckBox ChangeFormTwo_hardware_TypeDiv;
+        private System.Windows.Forms.CheckBox ChangeFormTwo_hardware_SN;
+        private System.Windows.Forms.CheckBox ChangeFormTwo_hardware_JiraTask;
+        private System.Windows.Forms.CheckBox ChangeFormTwo_hardware_LanName;
+        private System.Windows.Forms.CheckBox ChangeFormTwo_hardware_Floor;
+        private System.Windows.Forms.CheckBox ChangeFormTwo_hardware_WrittenOff;
+        private System.Windows.Forms.CheckBox ChangeFormTwo_hardware_InvNum;
+        private System.Windows.Forms.CheckBox ChangeFormTwo_hardware_Room;
+        private System.Windows.Forms.CheckBox ChangeFormTwo_hardware_Model;
+        private System.Windows.Forms.CheckBox ChangeFormTwo_hardware_ResName;
+        private System.Windows.Forms.CheckBox ChangeFormTwo_hardware_ID;
+        private System.Windows.Forms.CheckBox ChangeFormTwo_hardware_date;
+        private System.Windows.Forms.Label label2;
     }
 }

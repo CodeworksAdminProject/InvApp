@@ -117,7 +117,7 @@ namespace WindowsFormsApplication
             }
         }
 
-        internal void change(string label_ID, string type_AC, string inv, string type_Device, string SN, string Model, string type_Jira)
+        internal void change(string label_ID, string type_AC, string inv, string type_Device, string SN, string Model, string type_Jira, string Note)
         {
             ArrayList DataGrid = new ArrayList();
             using (SqlConnection connect = new SqlConnection(sConectDB))
@@ -129,7 +129,71 @@ namespace WindowsFormsApplication
                     " , [SN] = '" + SN +"' "+
                     " , [Model] = '" +Model+"' "+
                     " , [JiraTask_ID] = " + type_Jira +
+                    " , [Note] = '" + Note + "' " +
                     " Where[MainTB].[ID] = " + label_ID + " ;", connect);
+                try
+                {
+
+                    connect.Open();
+
+                    command.ExecuteNonQuery();
+                }
+
+                catch (SqlException exception)
+                {
+                    MessageBox.Show(exception.ToString());
+                }
+
+                connect.Close();
+            }
+
+        }
+
+        internal void change(string label_ID, int quatity, string inv, string type_Device, string SN, string Model, string type_Jira, string Note )
+        {
+            ArrayList DataGrid = new ArrayList();
+            using (SqlConnection connect = new SqlConnection(sConectDB))
+            {
+                SqlCommand command = new SqlCommand("Update [HardwareStockRoom] SET " +
+                    "   [quantity] = " + quatity +
+                    " , [NumberINV] = '" + inv + "' " +
+                    " , [TypeHardWare_ID] = " + type_Device +
+                    " , [SN] = '" + SN + "' " +
+                    " , [Model] = '" + Model + "' " +
+                    " , [JiraTask_ID] = " + type_Jira +
+                    " , [Note] = '" + Note + "' " +
+                    " Where [HardwareStockRoom].[ID] = " + label_ID + " ;", connect);
+                try
+                {
+
+                    connect.Open();
+
+                    command.ExecuteNonQuery();
+                }
+
+                catch (SqlException exception)
+                {
+                    MessageBox.Show(exception.ToString());
+                }
+
+                connect.Close();
+            }
+
+        }
+
+        internal void change(string label_ID, string inv, string type_Device, string SN, string Model, string type_Jira, string Note)
+        {
+            ArrayList DataGrid = new ArrayList();
+            using (SqlConnection connect = new SqlConnection(sConectDB))
+            {
+                SqlCommand command = new SqlCommand("Update [dbo].[HardWare] SET " +
+                    "   [NumberINV] = '" + inv + "' " +
+                    " , [TypeHardWare_ID] = " + type_Device +
+                    " , [SN] = '" + SN + "' " +
+                    " , [Model] = '" + Model + "' " +
+                    " , [JiraTask_ID] = " + type_Jira +
+                    " , [Note] = '" + Note + "' " +
+                    " Where [dbo].[HardWare].[ID] = " + label_ID + " ;", connect);
                 try
                 {
 

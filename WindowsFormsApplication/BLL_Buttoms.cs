@@ -133,23 +133,34 @@ namespace WindowsFormsApplication
             TSCLIB_DLL.closeport();
         }
 
-        internal void Change_unique_data()
+        internal void Change_unique_data(string flag)
         {
-            if (BLL.ArrayChancge.Count == 1)
+            if (flag == "MainTB")
             {
-                changeFormOne change = new changeFormOne();
+                if (BLL.ArrayChancge.Count == 1)
+                {
+                    changeFormOne change = new changeFormOne();
+                    change.ShowDialog();
+                }
+                else if (BLL.ArrayChancge.Count > 1)
+                {
+                    changeFormTwo change = new changeFormTwo();
+                    change.ShowDialog();
+                }
+            }
+            else if (flag == "HardWare")
+            {
+               ChangeHardWare.flag = "HardWare";
+               ChangeHardWare change = new ChangeHardWare();                
+               change.ShowDialog();
+            }
+
+            else if (flag == "HardwareStockRoom")
+            {
+                ChangeHardWare.flag = "HardwareStockRoom";
+                ChangeHardWare change = new ChangeHardWare();
                 change.ShowDialog();
             }
-            else if (BLL.ArrayChancge.Count > 1)
-            {
-                changeFormTwo change = new changeFormTwo();
-                change.ShowDialog();
-            }
-            else
-            {
-
-            }
-
         }
 
         internal void Move_Hardware(string ID, string NumberINV, string TypeHardWare, string Model, string SN, string jira, string Old_NameLan,string flag)
@@ -185,6 +196,25 @@ namespace WindowsFormsApplication
                 moveHardwar.button_stockroom.Visible = false;
                 moveHardwar.ShowDialog();
             }
+        }
+
+        internal void Note(string  addId, string tableName, string Note)
+        {
+            WriteOff set = new WriteOff();
+            set.button_OK.Text = "Записать";
+            set.info.Text = "До 120 символов";
+            set.reason.Text = Note;
+            set.ShowDialog();
+            dalSetButtonns.Note(addId.ToString(), tableName, BLL.ReasonWriteOff);
+        }
+
+        internal void Note(string addId, string tableName)
+        {
+            WriteOff set = new WriteOff();
+            set.button_OK.Text = "Записать";
+            set.info.Text = "До 120 символов";
+            set.ShowDialog();
+            dalSetButtonns.Note(addId, tableName, BLL.ReasonWriteOff);
         }
     }
 }

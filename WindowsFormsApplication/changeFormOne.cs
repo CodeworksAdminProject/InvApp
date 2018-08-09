@@ -101,7 +101,8 @@ namespace WindowsFormsApplication
                 bll.Get_ID("TypeDevice", "NameDevice", Type_Device).ToString(),
                 textBox_SN.Text, 
                 textBox_model.Text, 
-                bll.Get_ID("JiraTask", "JiraTask", Type_Jira).ToString());
+                bll.Get_ID("JiraTask", "JiraTask", Type_Jira).ToString(),
+                null);
 
             BLL.ArrayChancge.Clear();
             this.Close();

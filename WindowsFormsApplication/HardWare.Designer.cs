@@ -32,11 +32,11 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView_HardWare = new System.Windows.Forms.DataGridView();
             this.button_New_data = new System.Windows.Forms.Button();
-            this.button_Update = new System.Windows.Forms.Button();
             this.button_deleteDataBase = new System.Windows.Forms.Button();
             this.button_Delete = new System.Windows.Forms.Button();
             this.button_Repair = new System.Windows.Forms.Button();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.button_Update = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_HardWare)).BeginInit();
             this.flowLayoutPanel2.SuspendLayout();
@@ -78,19 +78,6 @@
             this.button_New_data.TabIndex = 2;
             this.button_New_data.UseVisualStyleBackColor = true;
             this.button_New_data.Click += new System.EventHandler(this.button_New_data_Click);
-            // 
-            // button_Update
-            // 
-            this.button_Update.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_Update.BackgroundImage")));
-            this.button_Update.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button_Update.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_Update.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_Update.Location = new System.Drawing.Point(114, 3);
-            this.button_Update.Margin = new System.Windows.Forms.Padding(20, 3, 10, 3);
-            this.button_Update.Name = "button_Update";
-            this.button_Update.Size = new System.Drawing.Size(64, 64);
-            this.button_Update.TabIndex = 6;
-            this.button_Update.UseVisualStyleBackColor = true;
             // 
             // button_deleteDataBase
             // 
@@ -144,6 +131,20 @@
             this.flowLayoutPanel2.Size = new System.Drawing.Size(479, 69);
             this.flowLayoutPanel2.TabIndex = 8;
             // 
+            // button_Update
+            // 
+            this.button_Update.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_Update.BackgroundImage")));
+            this.button_Update.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button_Update.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_Update.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_Update.Location = new System.Drawing.Point(114, 3);
+            this.button_Update.Margin = new System.Windows.Forms.Padding(20, 3, 10, 3);
+            this.button_Update.Name = "button_Update";
+            this.button_Update.Size = new System.Drawing.Size(64, 64);
+            this.button_Update.TabIndex = 6;
+            this.button_Update.UseVisualStyleBackColor = true;
+            this.button_Update.Click += new System.EventHandler(this.button_Update_Click);
+            // 
             // HardWare
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -164,10 +165,10 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dataGridView_HardWare;
         private System.Windows.Forms.Button button_New_data;
-        private System.Windows.Forms.Button button_Update;
         private System.Windows.Forms.Button button_deleteDataBase;
         private System.Windows.Forms.Button button_Delete;
         private System.Windows.Forms.Button button_Repair;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.Button button_Update;
     }
 }

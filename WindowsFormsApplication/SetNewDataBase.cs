@@ -224,37 +224,79 @@ namespace WindowsFormsApplication
                 string typeAC;
                 if (textBox_TypeAccount.Enabled == true)
                     typeAC = textBox_TypeAccount.Text;
-                else { typeAC = comboBox_TypeAccount.SelectedValue.ToString(); }
+                else
+                {
+                    if (comboBox_TypeAccount.SelectedValue.ToString() != null)
+                        typeAC = comboBox_TypeAccount.SelectedValue.ToString();
+                    else
+                        typeAC = "";                   
+                }
 
                 string typedevise;
                 if (textBox_TypeDevice.Enabled == true)
                     typedevise = textBox_TypeDevice.Text;
-                else { typedevise = comboBox_TypeDevice.SelectedValue.ToString(); }
+                else
+                {
+                    if (comboBox_TypeDevice.SelectedValue.ToString() != null)
+                        typedevise = comboBox_TypeDevice.SelectedValue.ToString();
+                    else
+                        typedevise = "";                    
+                }
 
                 string Responsible;
                 if (textBox_Responsible.Enabled)
                     Responsible = textBox_Responsible.Text;
-                else { Responsible = comboBox_Responsible.SelectedValue.ToString(); }
+                else
+                {
+                    if (comboBox_Responsible.SelectedValue.ToString() != null)
+                        Responsible = comboBox_Responsible.SelectedValue.ToString();
+                    else
+                        Responsible = "";
+                }
 
                 string LanName;
                 if (textBox_LanName.Enabled == true)
                     LanName = textBox_LanName.Text;
-                else { LanName = comboBox_LanName.SelectedValue.ToString(); }
+                else
+                {
+                    if (comboBox_LanName.SelectedValue.ToString() != null)
+                        LanName = comboBox_LanName.SelectedValue.ToString();
+                    else
+                        LanName = "";
+                }
 
                 string Floor;
                 if (textBox_Floor.Enabled == true)
                     Floor = textBox_Floor.Text;
-                else { Floor = comboBox_Floor.SelectedValue.ToString(); }
+                else
+                {
+                    if (comboBox_Floor.SelectedValue.ToString() != null)
+                        Floor = comboBox_Floor.SelectedValue.ToString();
+                    else
+                        Floor = "";
+                }
 
                 string Room;
                 if (textBox_Room.Enabled == true)
                     Room = textBox_Room.Text;
-                else { Room = comboBox_Room.SelectedValue.ToString(); }
+                else
+                {
+                    if (comboBox_Room.SelectedValue.ToString() != null)
+                        Room = comboBox_Room.SelectedValue.ToString();
+                    else
+                        Room = "";
+                }
 
                 string Jira;
                 if (textBox_jira.Enabled == true)
                     Jira = textBox_jira.Text;
-                else { Jira = comboBox_Jira.SelectedValue.ToString(); }
+                else
+                {
+                    if (comboBox_Jira.SelectedValue.ToString() != null)
+                        Jira = comboBox_Jira.SelectedValue.ToString();
+                    else
+                        Jira = "";                    
+                }
 
                 dialogResult = MessageBox.Show(("Инвентарный номер:\t" + textBox_NumberInv.Text +
                                "\nНазвание в сети:\t\t" + LanName +
@@ -297,12 +339,24 @@ namespace WindowsFormsApplication
                 string typedevise;
                 if (textBox_Hardware_TypeDevice.Enabled == true)
                     typedevise = textBox_Hardware_TypeDevice.Text;
-                else { typedevise = comboBox_Hardware_TypeDevice.SelectedValue.ToString(); }
+                else
+                {
+                    if (comboBox_Hardware_TypeDevice.SelectedValue.ToString() != null)
+                        typedevise = comboBox_Hardware_TypeDevice.SelectedValue.ToString();
+                    else
+                        typedevise = "";                    
+                }
 
                 string Jira;
                 if (textBox_Hardware_jira.Enabled == true)
                     Jira = textBox_Hardware_jira.Text;
-                else { Jira = comboBox_Hardware_jira.SelectedValue.ToString();  }
+                else
+                {
+                    if (comboBox_Hardware_jira.SelectedValue.ToString() != null)
+                        Jira = comboBox_Hardware_jira.SelectedValue.ToString();
+                    else
+                        Jira = "";                    
+                }
 
                 if (checkBox_SetHardware.Checked == true & label_ID.Visible == false)
                 {

@@ -527,7 +527,7 @@ namespace WindowsFormsApplication
                 }
 
             }
-            bllButtoms.Change_unique_data();
+            bllButtoms.Change_unique_data(flag_button);
         }
 
 
