@@ -27,7 +27,7 @@
     <ProductName>Inventory</ProductName>
     <PublisherName>Zimburavi©</PublisherName>
     <SuiteName>Inventory</SuiteName>
-    <ApplicationRevision>13</ApplicationRevision>
+    <ApplicationRevision>16</ApplicationRevision>
     <ApplicationVersion>0.1.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -127,6 +127,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL_Buttoms.cs" />
+    <Compile Include="BLL_HTML_Report.cs" />
     <Compile Include="BLL_Search.cs" />
     <Compile Include="changeFormOne.cs">
       <SubType>Form</SubType>
@@ -159,6 +160,12 @@
     </Compile>
     <Compile Include="HardWare.Designer.cs">
       <DependentUpon>HardWare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Html_report_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Html_report_form.Designer.cs">
+      <DependentUpon>Html_report_form.cs</DependentUpon>
     </Compile>
     <Compile Include="Info.cs">
       <SubType>Form</SubType>
@@ -248,6 +255,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HardWare.resx">
       <DependentUpon>HardWare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Html_report_form.resx">
+      <DependentUpon>Html_report_form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Info.resx">
       <DependentUpon>Info.cs</DependentUpon>

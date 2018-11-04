@@ -104,6 +104,8 @@
             this.textBox_Hardware_SN = new System.Windows.Forms.TextBox();
             this.groupBox_Hardware_LanName = new System.Windows.Forms.GroupBox();
             this.comboBox_Hardware_LanName = new System.Windows.Forms.ComboBox();
+            this.groupBox_Note = new System.Windows.Forms.GroupBox();
+            this.textBox_Note = new System.Windows.Forms.TextBox();
             this.groupBox_TypeAccоunt.SuspendLayout();
             this.groupBox_TypeDevice.SuspendLayout();
             this.groupBox_Model.SuspendLayout();
@@ -124,6 +126,7 @@
             this.groupBox_Hardware_Model.SuspendLayout();
             this.groupBox_Hardware_SN.SuspendLayout();
             this.groupBox_Hardware_LanName.SuspendLayout();
+            this.groupBox_Note.SuspendLayout();
             this.SuspendLayout();
             // 
             // label_date
@@ -646,6 +649,7 @@
             // 
             // panel_Hardware
             // 
+            this.panel_Hardware.Controls.Add(this.groupBox_Note);
             this.panel_Hardware.Controls.Add(this.RES);
             this.panel_Hardware.Controls.Add(this.label_RES);
             this.panel_Hardware.Controls.Add(this.NAME);
@@ -789,7 +793,7 @@
             this.groupBox_Hardware_jira.Controls.Add(this.checkBox_Hardware_jira);
             this.groupBox_Hardware_jira.Controls.Add(this.comboBox_Hardware_jira);
             this.groupBox_Hardware_jira.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox_Hardware_jira.Location = new System.Drawing.Point(9, 381);
+            this.groupBox_Hardware_jira.Location = new System.Drawing.Point(9, 332);
             this.groupBox_Hardware_jira.Name = "groupBox_Hardware_jira";
             this.groupBox_Hardware_jira.Size = new System.Drawing.Size(441, 65);
             this.groupBox_Hardware_jira.TabIndex = 6;
@@ -831,7 +835,7 @@
             this.groupBox_Hardware_Sum.BackColor = System.Drawing.SystemColors.Control;
             this.groupBox_Hardware_Sum.Controls.Add(this.textBox_Hardware_Sum);
             this.groupBox_Hardware_Sum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox_Hardware_Sum.Location = new System.Drawing.Point(10, 325);
+            this.groupBox_Hardware_Sum.Location = new System.Drawing.Point(9, 276);
             this.groupBox_Hardware_Sum.Name = "groupBox_Hardware_Sum";
             this.groupBox_Hardware_Sum.Size = new System.Drawing.Size(440, 50);
             this.groupBox_Hardware_Sum.TabIndex = 5;
@@ -886,7 +890,7 @@
             this.groupBox_Hardware_TypeDevice.Controls.Add(this.checkBox_Hardware_TypeDevice);
             this.groupBox_Hardware_TypeDevice.Controls.Add(this.comboBox_Hardware_TypeDevice);
             this.groupBox_Hardware_TypeDevice.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox_Hardware_TypeDevice.Location = new System.Drawing.Point(9, 186);
+            this.groupBox_Hardware_TypeDevice.Location = new System.Drawing.Point(9, 149);
             this.groupBox_Hardware_TypeDevice.Name = "groupBox_Hardware_TypeDevice";
             this.groupBox_Hardware_TypeDevice.Size = new System.Drawing.Size(441, 65);
             this.groupBox_Hardware_TypeDevice.TabIndex = 3;
@@ -929,7 +933,7 @@
             this.groupBox_Hardware_Model.BackColor = System.Drawing.SystemColors.Control;
             this.groupBox_Hardware_Model.Controls.Add(this.textBox_Hardware_Model);
             this.groupBox_Hardware_Model.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox_Hardware_Model.Location = new System.Drawing.Point(9, 74);
+            this.groupBox_Hardware_Model.Location = new System.Drawing.Point(9, 37);
             this.groupBox_Hardware_Model.Name = "groupBox_Hardware_Model";
             this.groupBox_Hardware_Model.Size = new System.Drawing.Size(441, 50);
             this.groupBox_Hardware_Model.TabIndex = 3;
@@ -953,7 +957,7 @@
             this.groupBox_Hardware_SN.BackColor = System.Drawing.SystemColors.Control;
             this.groupBox_Hardware_SN.Controls.Add(this.textBox_Hardware_SN);
             this.groupBox_Hardware_SN.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox_Hardware_SN.Location = new System.Drawing.Point(9, 130);
+            this.groupBox_Hardware_SN.Location = new System.Drawing.Point(9, 93);
             this.groupBox_Hardware_SN.Name = "groupBox_Hardware_SN";
             this.groupBox_Hardware_SN.Size = new System.Drawing.Size(441, 50);
             this.groupBox_Hardware_SN.TabIndex = 3;
@@ -977,9 +981,9 @@
             this.groupBox_Hardware_LanName.BackColor = System.Drawing.SystemColors.Control;
             this.groupBox_Hardware_LanName.Controls.Add(this.comboBox_Hardware_LanName);
             this.groupBox_Hardware_LanName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox_Hardware_LanName.Location = new System.Drawing.Point(9, 257);
+            this.groupBox_Hardware_LanName.Location = new System.Drawing.Point(9, 220);
             this.groupBox_Hardware_LanName.Name = "groupBox_Hardware_LanName";
-            this.groupBox_Hardware_LanName.Size = new System.Drawing.Size(441, 65);
+            this.groupBox_Hardware_LanName.Size = new System.Drawing.Size(441, 50);
             this.groupBox_Hardware_LanName.TabIndex = 3;
             this.groupBox_Hardware_LanName.TabStop = false;
             this.groupBox_Hardware_LanName.Text = "Название в сети";
@@ -991,6 +995,30 @@
             this.comboBox_Hardware_LanName.Name = "comboBox_Hardware_LanName";
             this.comboBox_Hardware_LanName.Size = new System.Drawing.Size(274, 24);
             this.comboBox_Hardware_LanName.TabIndex = 3;
+            // 
+            // groupBox_Note
+            // 
+            this.groupBox_Note.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox_Note.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBox_Note.Controls.Add(this.textBox_Note);
+            this.groupBox_Note.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.groupBox_Note.Location = new System.Drawing.Point(9, 403);
+            this.groupBox_Note.Name = "groupBox_Note";
+            this.groupBox_Note.Size = new System.Drawing.Size(441, 50);
+            this.groupBox_Note.TabIndex = 12;
+            this.groupBox_Note.TabStop = false;
+            this.groupBox_Note.Text = "Примеание ";
+            // 
+            // textBox_Note
+            // 
+            this.textBox_Note.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_Note.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox_Note.Location = new System.Drawing.Point(7, 17);
+            this.textBox_Note.Name = "textBox_Note";
+            this.textBox_Note.Size = new System.Drawing.Size(428, 26);
+            this.textBox_Note.TabIndex = 2;
             // 
             // SetNewDataBase
             // 
@@ -1040,6 +1068,8 @@
             this.groupBox_Hardware_SN.ResumeLayout(false);
             this.groupBox_Hardware_SN.PerformLayout();
             this.groupBox_Hardware_LanName.ResumeLayout(false);
+            this.groupBox_Note.ResumeLayout(false);
+            this.groupBox_Note.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1121,5 +1151,7 @@
         public System.Windows.Forms.Label INV;
         public System.Windows.Forms.Label SN;
         public System.Windows.Forms.Label ID;
+        private System.Windows.Forms.GroupBox groupBox_Note;
+        private System.Windows.Forms.TextBox textBox_Note;
     }
 }

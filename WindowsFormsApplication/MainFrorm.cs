@@ -774,8 +774,9 @@ namespace WindowsFormsApplication
             {
                 bllButtoms.Note(dataGridViewMT.Rows[e.RowIndex].Cells["ID"].Value.ToString(), flag_button,
                     dataGridViewMT.Rows[e.RowIndex].Cells["Note"].Value.ToString());
+                Update_Grid();
             }
-            Update_Grid();
+           
         }
 
         private void button_note_Click(object sender, EventArgs e)

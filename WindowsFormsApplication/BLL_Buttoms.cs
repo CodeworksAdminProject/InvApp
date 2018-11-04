@@ -79,9 +79,9 @@ namespace WindowsFormsApplication
             int y = 24;
             string barcod;
 
-            if (Properties.Settings.Default.inr_barcod == 0)
+            if (Properties.Settings.Default.int_barcod == 0)
                 barcod = ID;
-            else  if (Properties.Settings.Default.inr_barcod == 1)
+            else  if (Properties.Settings.Default.int_barcod == 1)
                 barcod = invNumber;
             else
                 barcod = ID;
@@ -108,28 +108,102 @@ namespace WindowsFormsApplication
                 TSCLIB_DLL.downloadpcx(Properties.Settings.Default.ImgPath, "LOG2.BMP");
                 TSCLIB_DLL.sendcommand("PUTBMP 44,25,\"LOG2.BMP\"");
             }
-            if (tytpeDiv.ToUpper() == systemBlok.ToUpper())
+
+            if (Properties.Settings.Default.print_img == false)
             {
-                foreach (DataRow row in Data.Rows)
+                if (tytpeDiv.ToUpper() == systemBlok.ToUpper())
                 {
-                    if (row[0].ToString() == "1")
-                        TSCLIB_DLL.windowsfont(y, x, 28, 90, 0, 0, "ARIAL", "CPU: " + row[1].ToString());
-                    else if (row[0].ToString() == "2")
-                        TSCLIB_DLL.windowsfont(y, x, 28, 90, 0, 0, "ARIAL", "RAM: " + row[1].ToString() + " GB");
-                    else if (row[0].ToString() == "3")
-                        TSCLIB_DLL.windowsfont(y, x, 28, 90, 0, 0, "ARIAL", "HDD: " + row[1].ToString()); 
-                    else if (row[0].ToString() == "4")
-                        TSCLIB_DLL.windowsfont(y, x, 28, 90, 0, 0, "ARIAL", "VC:  " + row[1].ToString()); 
-                    else if (row[0].ToString() == "5")
-                        TSCLIB_DLL.windowsfont(y, x, 28, 90, 0, 0, "ARIAL", "SSD: " + row[1].ToString()); 
-                    else if (row[0].ToString() == "6")
-                        TSCLIB_DLL.windowsfont(y, x, 28, 90, 0, 0, "ARIAL", "MB:  " + row[1].ToString()); 
-                    y = y + 24;
-                }                
+                    foreach (DataRow row in Data.Rows)
+                    {
+                        if (row[0].ToString() == "1")
+                            TSCLIB_DLL.windowsfont(y, x, 28, 90, 0, 0, "ARIAL", "CPU: " + row[1].ToString());
+                        else if (row[0].ToString() == "2")
+                            TSCLIB_DLL.windowsfont(y, x, 28, 90, 0, 0, "ARIAL", "RAM: " + row[1].ToString() + " GB");
+                        else if (row[0].ToString() == "3")
+                            TSCLIB_DLL.windowsfont(y, x, 28, 90, 0, 0, "ARIAL", "HDD: " + row[1].ToString());
+                        else if (row[0].ToString() == "4")
+                            TSCLIB_DLL.windowsfont(y, x, 28, 90, 0, 0, "ARIAL", "VC:  " + row[1].ToString());
+                        else if (row[0].ToString() == "5")
+                            TSCLIB_DLL.windowsfont(y, x, 28, 90, 0, 0, "ARIAL", "SSD: " + row[1].ToString());
+                        else if (row[0].ToString() == "6")
+                            TSCLIB_DLL.windowsfont(y, x, 28, 90, 0, 0, "ARIAL", "MB:  " + row[1].ToString());
+                        y = y + 24;
+                    }
+                }
+            }
+
+            else
+            {
+                if (Properties.Settings.Default.ImgPath != "")
+                {
+
+                    TSCLIB_DLL.downloadpcx(Properties.Settings.Default.ImgPath, "LOG2.BMP");
+                    TSCLIB_DLL.sendcommand("PUTBMP 44,25,\"LOG2.BMP\"");
+                }
             }
 
             TSCLIB_DLL.printlabel("1", "1");
             TSCLIB_DLL.sendcommand("CUT");
+            
+
+            if (Properties.Settings.Default.prin_labe_HW_PC == true)
+            {
+                TSCLIB_DLL.clearbuffer();
+                y = 24;
+
+                if (tytpeDiv.ToUpper() == systemBlok.ToUpper())
+                {
+                   
+
+                    bool print = false;
+                    foreach (DataRow row in Data.Rows)
+                    {
+
+                        if (row[0].ToString() == "1")
+                        {
+                            TSCLIB_DLL.windowsfont(y, 525, 28, 90, 0, 0, "ARIAL", "CPU: " + row[2].ToString());
+                            print = true;
+                        }
+
+                        else if (row[0].ToString() == "2")
+                        {
+                            TSCLIB_DLL.windowsfont(y, 525, 28, 90, 0, 0, "ARIAL", "RAM: " + row[1].ToString() + " GB" + ", (" + row[2].ToString() + ")");
+                            print = true;
+                        }
+                        else if (row[0].ToString() == "3")
+                        {
+                            TSCLIB_DLL.windowsfont(y, 525, 28, 90, 0, 0, "ARIAL", "HDD: " + row[1].ToString() + ", (" + row[2].ToString() + ")");
+                            print = true;
+                        }
+                        else if (row[0].ToString() == "4")
+                        {
+                            TSCLIB_DLL.windowsfont(y, 525, 28, 90, 0, 0, "ARIAL", "VC:  " + row[1].ToString());
+                            print = true;
+                        }
+                        else if (row[0].ToString() == "5")
+                        {
+                            TSCLIB_DLL.windowsfont(y, 525, 28, 90, 0, 0, "ARIAL", "SSD: " + row[1].ToString() + ", ("+ row[2].ToString() + ")");
+                            print = true;
+                        }
+                        else if (row[0].ToString() == "6")
+                        {
+                            TSCLIB_DLL.windowsfont(y, 525, 28, 90, 0, 0, "ARIAL", "Mama:  " + row[2].ToString() );
+                            print = true;
+                        }
+
+                        y = y + 24;
+                    }
+
+                    if (print == true)
+                    {
+                        TSCLIB_DLL.printlabel("1", "1");
+                        TSCLIB_DLL.sendcommand("CUT");
+                        
+                    }
+                }
+                
+            }
+
             TSCLIB_DLL.closeport();
         }
 

@@ -118,7 +118,7 @@ namespace WindowsFormsApplication
                 DataTable Data = new DataTable();
                 using (SqlConnection connect = new SqlConnection(sConectDB))
                 {
-                    SqlCommand command = new SqlCommand(@"select TypeHardWare_ID, Model From HardWare Where MainTB_ID =  " + ID + " and WrittenOff = 'false';", connect);
+                    SqlCommand command = new SqlCommand(@"select TypeHardWare_ID, Model, Note From HardWare Where MainTB_ID =  " + ID + " and WrittenOff = 'false';", connect);
 
                     try
                     {

@@ -20,7 +20,7 @@
     <Setting Name="int_navigation" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="inr_barcod" Type="System.Int32" Scope="User">
+    <Setting Name="int_barcod" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="mainForms_mainTB_date" Type="System.Boolean" Scope="User">
@@ -429,6 +429,12 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="ChangeFormTwo_stockroom_Note" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="print_img" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="prin_labe_HW_PC" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>

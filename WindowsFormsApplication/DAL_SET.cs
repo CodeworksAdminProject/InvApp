@@ -59,21 +59,21 @@ namespace WindowsFormsApplication
         }
 
         // переработать  20-21
-        public void SetNewPosition(string TypeDevice, string Model, string SN, string LanName, string InvNumber, string jira)
+        public void SetNewPosition(string TypeDevice, string Model, string SN, string LanName, string InvNumber, string jira, string Note)
         {
             ArrayList DataGrid = new ArrayList();
             SqlConnection connect = new SqlConnection(sConectDB);
             // переработать  20-21
             SqlCommand command = new SqlCommand(@" INSERT INTO[dbo].[HardWare]
-                ([dateCreated], [MainTB_ID], [TypeHardWare_ID],[Model],[SN],[WrittenOff], [NumberINV], [JiraTask_ID])
+                ([dateCreated], [MainTB_ID], [TypeHardWare_ID],[Model],[SN],[WrittenOff], [NumberINV], [JiraTask_ID], [Note])
                 values(GETDATE(), (SELECT [MainTB].[ID]
-                FROM[TestDB].[dbo].[MainTB]
+                FROM [dbo].[MainTB]
                 join NameLAN on maintb.NameLAN_ID = NameLAN.ID
                 join TypeDevice on maintb.TypeDevice_ID = TypeDevice.ID
                 where dbo.NameLAN.NameLAN = '" + LanName + @"' AND TypeDevice.NameDevice like '%истемный блок'  AND WrittenOff = 'false' ), " +
                 TypeDevice+", '"+
                 Model+"', '" +
-                SN+"', 0, '"+InvNumber+"', "+jira+");" , connect);
+                SN+"', 0, '"+InvNumber+"', "+jira + ", '" + Note + "' );" , connect);
 
             try
             {
@@ -212,18 +212,48 @@ namespace WindowsFormsApplication
 
         }
 
+        public void SetNewPosition(string TypeDevice, string Model, string SN, string InvNumber, string jira, int MainTB_ID, string Note)
+        {
+            ArrayList DataGrid = new ArrayList();
+            SqlConnection connect = new SqlConnection(sConectDB);
+            // переработать  20-21
+            SqlCommand command = new SqlCommand(@" INSERT INTO[dbo].[HardWare]
+                ([dateCreated], [MainTB_ID], [TypeHardWare_ID],[Model],[SN],[WrittenOff], [NumberINV], [JiraTask_ID], [Note])
+                values(GETDATE()," + 
+                MainTB_ID.ToString() + ", " +
+                TypeDevice + ", '" +
+                Model + "', '" +
+                SN + "', 0, '" + InvNumber + "', " + jira + ", '"+ Note+ "' );", connect);
+
+            try
+            {
+
+                connect.Open();
+
+                command.ExecuteNonQuery();
+            }
+
+            catch (SqlException exception)
+            {
+                MessageBox.Show(exception.ToString());
+            }
+
+            connect.Close();
+
+        }
+
         public void SetNewPosition(string TypeDevice, string Model, string SN, string InvNumber, string jira, int MainTB_ID)
         {
             ArrayList DataGrid = new ArrayList();
             SqlConnection connect = new SqlConnection(sConectDB);
             // переработать  20-21
             SqlCommand command = new SqlCommand(@" INSERT INTO[dbo].[HardWare]
-                ([dateCreated], [MainTB_ID], [TypeHardWare_ID],[Model],[SN],[WrittenOff], [NumberINV], [JiraTask_ID])
-                values(GETDATE()," + 
+                ([dateCreated], [MainTB_ID], [TypeHardWare_ID],[Model],[SN],[WrittenOff], [NumberINV], [JiraTask_ID], [Note] )
+                values(GETDATE()," +
                 MainTB_ID.ToString() + ", " +
                 TypeDevice + ", '" +
                 Model + "', '" +
-                SN + "', 0, '" + InvNumber + "', " + jira + ");", connect);
+                SN + "', 0, '" + InvNumber + "', " + jira + " );", connect);
 
             try
             {

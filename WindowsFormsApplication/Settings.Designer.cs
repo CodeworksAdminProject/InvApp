@@ -40,6 +40,17 @@
             this.button_Navigation = new System.Windows.Forms.Button();
             this.button_mail = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel_print = new System.Windows.Forms.Panel();
+            this.checkBox_print_img = new System.Windows.Forms.CheckBox();
+            this.checkBox_prin_labe_HW_PC = new System.Windows.Forms.CheckBox();
+            this.comboBox_print_name_or_model = new System.Windows.Forms.ComboBox();
+            this.label_print_name_or_model = new System.Windows.Forms.Label();
+            this.textBox_LogatipPath = new System.Windows.Forms.TextBox();
+            this.button_NewImaje = new System.Windows.Forms.Button();
+            this.comboBox__print_BarKod = new System.Windows.Forms.ComboBox();
+            this.pictureBox_Image = new System.Windows.Forms.PictureBox();
+            this.label_Logotip = new System.Windows.Forms.Label();
+            this.label_print_BarKod = new System.Windows.Forms.Label();
             this.panel_View = new System.Windows.Forms.Panel();
             this.ChangeFormTwo_stockroom_Note = new System.Windows.Forms.CheckBox();
             this.ChangeFormTwo_stockroom_Reason = new System.Windows.Forms.CheckBox();
@@ -199,24 +210,15 @@
             this.panel_navigation = new System.Windows.Forms.Panel();
             this.comboBox_navigation = new System.Windows.Forms.ComboBox();
             this.label_navigation = new System.Windows.Forms.Label();
-            this.panel_print = new System.Windows.Forms.Panel();
-            this.comboBox_print_name_or_model = new System.Windows.Forms.ComboBox();
-            this.label_print_name_or_model = new System.Windows.Forms.Label();
-            this.textBox_LogatipPath = new System.Windows.Forms.TextBox();
-            this.button_NewImaje = new System.Windows.Forms.Button();
-            this.comboBox__print_BarKod = new System.Windows.Forms.ComboBox();
-            this.pictureBox_Image = new System.Windows.Forms.PictureBox();
-            this.label_Logotip = new System.Windows.Forms.Label();
-            this.label_print_BarKod = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel_print.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Image)).BeginInit();
             this.panel_View.SuspendLayout();
             this.panel_data_base.SuspendLayout();
             this.panel_settengs_mail.SuspendLayout();
             this.panel_navigation.SuspendLayout();
-            this.panel_print.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Image)).BeginInit();
             this.SuspendLayout();
             // 
             // button_Save
@@ -397,6 +399,128 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(450, 618);
             this.panel2.TabIndex = 41;
+            // 
+            // panel_print
+            // 
+            this.panel_print.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.panel_print.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel_print.Controls.Add(this.checkBox_print_img);
+            this.panel_print.Controls.Add(this.checkBox_prin_labe_HW_PC);
+            this.panel_print.Controls.Add(this.comboBox_print_name_or_model);
+            this.panel_print.Controls.Add(this.label_print_name_or_model);
+            this.panel_print.Controls.Add(this.textBox_LogatipPath);
+            this.panel_print.Controls.Add(this.button_NewImaje);
+            this.panel_print.Controls.Add(this.comboBox__print_BarKod);
+            this.panel_print.Controls.Add(this.pictureBox_Image);
+            this.panel_print.Controls.Add(this.label_Logotip);
+            this.panel_print.Controls.Add(this.label_print_BarKod);
+            this.panel_print.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_print.Location = new System.Drawing.Point(0, 0);
+            this.panel_print.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel_print.Name = "panel_print";
+            this.panel_print.Size = new System.Drawing.Size(450, 618);
+            this.panel_print.TabIndex = 56;
+            this.panel_print.Visible = false;
+            // 
+            // checkBox_print_img
+            // 
+            this.checkBox_print_img.AutoSize = true;
+            this.checkBox_print_img.Location = new System.Drawing.Point(12, 324);
+            this.checkBox_print_img.Name = "checkBox_print_img";
+            this.checkBox_print_img.Size = new System.Drawing.Size(351, 21);
+            this.checkBox_print_img.TabIndex = 82;
+            this.checkBox_print_img.Text = "Печать логотипа на наклейке системного блока ";
+            this.checkBox_print_img.UseVisualStyleBackColor = true;
+            // 
+            // checkBox_prin_labe_HW_PC
+            // 
+            this.checkBox_prin_labe_HW_PC.AutoSize = true;
+            this.checkBox_prin_labe_HW_PC.Location = new System.Drawing.Point(12, 300);
+            this.checkBox_prin_labe_HW_PC.Name = "checkBox_prin_labe_HW_PC";
+            this.checkBox_prin_labe_HW_PC.Size = new System.Drawing.Size(359, 21);
+            this.checkBox_prin_labe_HW_PC.TabIndex = 82;
+            this.checkBox_prin_labe_HW_PC.Text = "Печать наклейки «железа» для системного блока";
+            this.checkBox_prin_labe_HW_PC.UseVisualStyleBackColor = true;
+            // 
+            // comboBox_print_name_or_model
+            // 
+            this.comboBox_print_name_or_model.FormattingEnabled = true;
+            this.comboBox_print_name_or_model.Items.AddRange(new object[] {
+            "Имя  ПК ",
+            "Модель"});
+            this.comboBox_print_name_or_model.Location = new System.Drawing.Point(229, 272);
+            this.comboBox_print_name_or_model.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBox_print_name_or_model.Name = "comboBox_print_name_or_model";
+            this.comboBox_print_name_or_model.Size = new System.Drawing.Size(212, 24);
+            this.comboBox_print_name_or_model.TabIndex = 81;
+            // 
+            // label_print_name_or_model
+            // 
+            this.label_print_name_or_model.AutoSize = true;
+            this.label_print_name_or_model.Location = new System.Drawing.Point(9, 256);
+            this.label_print_name_or_model.Name = "label_print_name_or_model";
+            this.label_print_name_or_model.Size = new System.Drawing.Size(305, 34);
+            this.label_print_name_or_model.TabIndex = 80;
+            this.label_print_name_or_model.Text = "Печать имени ПК  или модели на наклейках \r\nдля периферийных устройств  :";
+            // 
+            // textBox_LogatipPath
+            // 
+            this.textBox_LogatipPath.Location = new System.Drawing.Point(148, 45);
+            this.textBox_LogatipPath.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox_LogatipPath.Name = "textBox_LogatipPath";
+            this.textBox_LogatipPath.Size = new System.Drawing.Size(209, 23);
+            this.textBox_LogatipPath.TabIndex = 74;
+            // 
+            // button_NewImaje
+            // 
+            this.button_NewImaje.ForeColor = System.Drawing.Color.Black;
+            this.button_NewImaje.Location = new System.Drawing.Point(363, 45);
+            this.button_NewImaje.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button_NewImaje.Name = "button_NewImaje";
+            this.button_NewImaje.Size = new System.Drawing.Size(78, 23);
+            this.button_NewImaje.TabIndex = 77;
+            this.button_NewImaje.Text = "Обзор...";
+            this.button_NewImaje.UseVisualStyleBackColor = true;
+            this.button_NewImaje.Click += new System.EventHandler(this.button_NewImaje_Click);
+            // 
+            // comboBox__print_BarKod
+            // 
+            this.comboBox__print_BarKod.FormattingEnabled = true;
+            this.comboBox__print_BarKod.Items.AddRange(new object[] {
+            "ID базы ",
+            "Инвентарный №"});
+            this.comboBox__print_BarKod.Location = new System.Drawing.Point(148, 10);
+            this.comboBox__print_BarKod.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBox__print_BarKod.Name = "comboBox__print_BarKod";
+            this.comboBox__print_BarKod.Size = new System.Drawing.Size(293, 24);
+            this.comboBox__print_BarKod.TabIndex = 79;
+            // 
+            // pictureBox_Image
+            // 
+            this.pictureBox_Image.Location = new System.Drawing.Point(15, 95);
+            this.pictureBox_Image.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox_Image.Name = "pictureBox_Image";
+            this.pictureBox_Image.Size = new System.Drawing.Size(271, 122);
+            this.pictureBox_Image.TabIndex = 76;
+            this.pictureBox_Image.TabStop = false;
+            // 
+            // label_Logotip
+            // 
+            this.label_Logotip.AutoSize = true;
+            this.label_Logotip.Location = new System.Drawing.Point(13, 45);
+            this.label_Logotip.Name = "label_Logotip";
+            this.label_Logotip.Size = new System.Drawing.Size(117, 17);
+            this.label_Logotip.TabIndex = 75;
+            this.label_Logotip.Text = "Путь к логотипу:";
+            // 
+            // label_print_BarKod
+            // 
+            this.label_print_BarKod.AutoSize = true;
+            this.label_print_BarKod.Location = new System.Drawing.Point(13, 13);
+            this.label_print_BarKod.Name = "label_print_BarKod";
+            this.label_print_BarKod.Size = new System.Drawing.Size(123, 17);
+            this.label_print_BarKod.TabIndex = 78;
+            this.label_print_BarKod.Text = "Печать баркода: ";
             // 
             // panel_View
             // 
@@ -2148,106 +2272,6 @@
             this.label_navigation.TabIndex = 70;
             this.label_navigation.Text = "Навигатор:";
             // 
-            // panel_print
-            // 
-            this.panel_print.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.panel_print.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel_print.Controls.Add(this.comboBox_print_name_or_model);
-            this.panel_print.Controls.Add(this.label_print_name_or_model);
-            this.panel_print.Controls.Add(this.textBox_LogatipPath);
-            this.panel_print.Controls.Add(this.button_NewImaje);
-            this.panel_print.Controls.Add(this.comboBox__print_BarKod);
-            this.panel_print.Controls.Add(this.pictureBox_Image);
-            this.panel_print.Controls.Add(this.label_Logotip);
-            this.panel_print.Controls.Add(this.label_print_BarKod);
-            this.panel_print.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_print.Location = new System.Drawing.Point(0, 0);
-            this.panel_print.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel_print.Name = "panel_print";
-            this.panel_print.Size = new System.Drawing.Size(450, 618);
-            this.panel_print.TabIndex = 56;
-            this.panel_print.Visible = false;
-            // 
-            // comboBox_print_name_or_model
-            // 
-            this.comboBox_print_name_or_model.FormattingEnabled = true;
-            this.comboBox_print_name_or_model.Items.AddRange(new object[] {
-            "Имя  ПК ",
-            "Модель"});
-            this.comboBox_print_name_or_model.Location = new System.Drawing.Point(229, 272);
-            this.comboBox_print_name_or_model.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox_print_name_or_model.Name = "comboBox_print_name_or_model";
-            this.comboBox_print_name_or_model.Size = new System.Drawing.Size(212, 24);
-            this.comboBox_print_name_or_model.TabIndex = 81;
-            // 
-            // label_print_name_or_model
-            // 
-            this.label_print_name_or_model.AutoSize = true;
-            this.label_print_name_or_model.Location = new System.Drawing.Point(9, 256);
-            this.label_print_name_or_model.Name = "label_print_name_or_model";
-            this.label_print_name_or_model.Size = new System.Drawing.Size(305, 34);
-            this.label_print_name_or_model.TabIndex = 80;
-            this.label_print_name_or_model.Text = "Печать имени ПК  или модели на наклейках \r\nдля периферийных устройств  :";
-            // 
-            // textBox_LogatipPath
-            // 
-            this.textBox_LogatipPath.Location = new System.Drawing.Point(148, 45);
-            this.textBox_LogatipPath.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox_LogatipPath.Name = "textBox_LogatipPath";
-            this.textBox_LogatipPath.Size = new System.Drawing.Size(209, 23);
-            this.textBox_LogatipPath.TabIndex = 74;
-            // 
-            // button_NewImaje
-            // 
-            this.button_NewImaje.ForeColor = System.Drawing.Color.Black;
-            this.button_NewImaje.Location = new System.Drawing.Point(363, 45);
-            this.button_NewImaje.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button_NewImaje.Name = "button_NewImaje";
-            this.button_NewImaje.Size = new System.Drawing.Size(78, 23);
-            this.button_NewImaje.TabIndex = 77;
-            this.button_NewImaje.Text = "Обзор...";
-            this.button_NewImaje.UseVisualStyleBackColor = true;
-            this.button_NewImaje.Click += new System.EventHandler(this.button_NewImaje_Click);
-            // 
-            // comboBox__print_BarKod
-            // 
-            this.comboBox__print_BarKod.FormattingEnabled = true;
-            this.comboBox__print_BarKod.Items.AddRange(new object[] {
-            "ID базы ",
-            "Инвентарный №"});
-            this.comboBox__print_BarKod.Location = new System.Drawing.Point(148, 10);
-            this.comboBox__print_BarKod.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox__print_BarKod.Name = "comboBox__print_BarKod";
-            this.comboBox__print_BarKod.Size = new System.Drawing.Size(293, 24);
-            this.comboBox__print_BarKod.TabIndex = 79;
-            // 
-            // pictureBox_Image
-            // 
-            this.pictureBox_Image.Location = new System.Drawing.Point(15, 95);
-            this.pictureBox_Image.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox_Image.Name = "pictureBox_Image";
-            this.pictureBox_Image.Size = new System.Drawing.Size(238, 122);
-            this.pictureBox_Image.TabIndex = 76;
-            this.pictureBox_Image.TabStop = false;
-            // 
-            // label_Logotip
-            // 
-            this.label_Logotip.AutoSize = true;
-            this.label_Logotip.Location = new System.Drawing.Point(13, 45);
-            this.label_Logotip.Name = "label_Logotip";
-            this.label_Logotip.Size = new System.Drawing.Size(117, 17);
-            this.label_Logotip.TabIndex = 75;
-            this.label_Logotip.Text = "Путь к логотипу:";
-            // 
-            // label_print_BarKod
-            // 
-            this.label_print_BarKod.AutoSize = true;
-            this.label_print_BarKod.Location = new System.Drawing.Point(13, 13);
-            this.label_print_BarKod.Name = "label_print_BarKod";
-            this.label_print_BarKod.Size = new System.Drawing.Size(123, 17);
-            this.label_print_BarKod.TabIndex = 78;
-            this.label_print_BarKod.Text = "Печать баркода: ";
-            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -2264,6 +2288,9 @@
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panel_print.ResumeLayout(false);
+            this.panel_print.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Image)).EndInit();
             this.panel_View.ResumeLayout(false);
             this.panel_View.PerformLayout();
             this.panel_data_base.ResumeLayout(false);
@@ -2272,9 +2299,6 @@
             this.panel_settengs_mail.PerformLayout();
             this.panel_navigation.ResumeLayout(false);
             this.panel_navigation.PerformLayout();
-            this.panel_print.ResumeLayout(false);
-            this.panel_print.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Image)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2459,5 +2483,7 @@
         private System.Windows.Forms.CheckBox ChangeFormTwo_hardware_ID;
         private System.Windows.Forms.CheckBox ChangeFormTwo_hardware_date;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox checkBox_print_img;
+        private System.Windows.Forms.CheckBox checkBox_prin_labe_HW_PC;
     }
 }

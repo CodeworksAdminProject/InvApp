@@ -19,13 +19,19 @@ namespace WindowsFormsApplication
         public Settings()
         {
             InitializeComponent();
+
+            checkBox_print_img.Checked =Properties.Settings.Default.print_img ;
+            checkBox_prin_labe_HW_PC.Checked = Properties.Settings.Default.prin_labe_HW_PC ;
+
+
             textBox_SqlServer.Text = Properties.Settings.Default.SqlServer;
             textBox_SqlPort.Text = Properties.Settings.Default.SqlPort;
             textBox_Mail.Text = Properties.Settings.Default.Email;
             textBox_LogatipPath.Text = Properties.Settings.Default.ImgPath;
             textBox_NameDB.Text = Properties.Settings.Default.SqlDataBase;
             comboBox_navigation.SelectedIndex = Properties.Settings.Default.int_navigation;
-            comboBox__print_BarKod.SelectedIndex = Properties.Settings.Default.inr_barcod;
+            comboBox__print_BarKod.SelectedIndex = Properties.Settings.Default.int_barcod;            
+
             comboBox_print_name_or_model.SelectedIndex = Properties.Settings.Default.print_name_or_model;
 
             //главное окно 
@@ -206,6 +212,10 @@ namespace WindowsFormsApplication
 
         private void button_Save_Click(object sender, EventArgs e)
         {
+
+            Properties.Settings.Default.print_img = checkBox_print_img.Checked;
+            Properties.Settings.Default.prin_labe_HW_PC = checkBox_prin_labe_HW_PC.Checked;
+
             Properties.Settings.Default.SqlServer = textBox_SqlServer.Text ;
             Properties.Settings.Default.SqlPort = textBox_SqlPort.Text;
             Properties.Settings.Default.Email =textBox_Mail.Text ;
@@ -213,7 +223,7 @@ namespace WindowsFormsApplication
             Properties.Settings.Default.SqlDataBase = textBox_NameDB.Text;
             Properties.Settings.Default.Save();            
             Properties.Settings.Default.int_navigation = comboBox_navigation.SelectedIndex;
-            Properties.Settings.Default.inr_barcod = comboBox__print_BarKod.SelectedIndex;
+            Properties.Settings.Default.int_barcod = comboBox__print_BarKod.SelectedIndex;
             Properties.Settings.Default.print_name_or_model = comboBox_print_name_or_model.SelectedIndex;
 
             Properties.Settings.Default.mainForms_stockroom_ID = mainForms_stockroom_ID.Checked;
@@ -357,6 +367,8 @@ namespace WindowsFormsApplication
             Properties.Settings.Default.ChangeFormTwo_hardware_JiraTask = ChangeFormTwo_hardware_JiraTask.Checked;
             Properties.Settings.Default.ChangeFormTwo_hardware_Reason = ChangeFormTwo_hardware_Reason.Checked;
             Properties.Settings.Default.ChangeFormTwo_hardware_Note = ChangeFormTwo_hardware_Note.Checked;
+
+            Properties.Settings.Default.Save();
 
             this.Close();
         }

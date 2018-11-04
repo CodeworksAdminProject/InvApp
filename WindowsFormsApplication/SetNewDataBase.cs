@@ -358,14 +358,16 @@ namespace WindowsFormsApplication
                         Jira = "";                    
                 }
 
+                // новое из формы новое 
                 if (checkBox_SetHardware.Checked == true & label_ID.Visible == false)
                 {
-                    messega = @"Инвентарный номер:\t" + textBox_NumberInv.Text +
+                    messega =  "Инвентарный номер:\t" + textBox_NumberInv.Text +
                                "\nНазвание в сети:\t\t" + comboBox_Hardware_LanName.SelectedValue.ToString() +
                                "\nТип устройства:\t\t" + typedevise +
                                "\nСерийный номер:\t\t" + textBox_Hardware_SN.Text +
                                "\nМодель:\t\t\t" + textBox_Hardware_Model.Text +
-                               "\nЗадача в JIRA:\t\t" + Jira;
+                               "\nЗадача в JIRA:\t\t" + Jira +
+                               "\nЗадача в Примечание:\t\t" + textBox_Note.Text;
 
                     dialogResult = MessageBox.Show(messega, "Подтверждение отправки", MessageBoxButtons.OKCancel);
 
@@ -377,7 +379,8 @@ namespace WindowsFormsApplication
                             textBox_Hardware_SN.Text,
                             comboBox_Hardware_LanName.SelectedValue.ToString(),
                             textBox_NumberInv.Text,
-                            bll.Get_ID("JiraTask", "JiraTask", Jira).ToString());
+                            bll.Get_ID("JiraTask", "JiraTask", Jira).ToString(),
+                            textBox_Note.Text);
 
                         bll.new_Hardware_Into_PC(textBox_NumberInv.Text, typedevise, textBox_Hardware_SN.Text,
                         textBox_Hardware_Model.Text, Jira, comboBox_Hardware_LanName.SelectedValue.ToString());
@@ -387,19 +390,20 @@ namespace WindowsFormsApplication
 
                         update();
                     }
-                    else if (dialogResult == DialogResult.No)
-                    { }
+                    else if (dialogResult == DialogResult.No)                    { }
                 }
 
+                // новое из формы HW  
                 else if (label_ID.Visible == true)
                 {
-                    messega = @"Инвентарный номер:\t\t" + textBox_NumberInv.Text +
+                    messega = "Инвентарный номер:\t\t" + textBox_NumberInv.Text +
                               "\nНазвание в сети:\t\t" + label_NAME.Text +
                               "\nID в базе:\t\t" + label_ID.Text +
                               "\nТип устройства:\t\t" + typedevise +
                               "\nСерийный номер:\t\t" + textBox_Hardware_SN.Text +
                               "\nМодель:\t\t\t" + textBox_Hardware_Model.Text +
-                              "\nЗадача в JIRA:\t\t" + Jira;
+                              "\nЗадача в JIRA:\t\t" + Jira+
+                              "\nЗадача в Примечание:\t\t" + textBox_Note.Text;
 
                     dialogResult = MessageBox.Show(messega, "Подтверждение отправки", MessageBoxButtons.OKCancel);
 
@@ -410,7 +414,8 @@ namespace WindowsFormsApplication
                             textBox_Hardware_Model.Text,
                             textBox_Hardware_SN.Text,                            
                             textBox_NumberInv.Text,
-                            bll.Get_ID("JiraTask", "JiraTask", Jira).ToString(), Convert.ToInt32(label_ID.Text));
+                            bll.Get_ID("JiraTask", "JiraTask", Jira).ToString(), Convert.ToInt32(label_ID.Text), 
+                            textBox_Note.Text);
 
                         bll.new_Hardware_Into_PC(textBox_NumberInv.Text, typedevise, textBox_Hardware_SN.Text,
                         textBox_Hardware_Model.Text, Jira, comboBox_Hardware_LanName.SelectedValue.ToString());
@@ -426,9 +431,10 @@ namespace WindowsFormsApplication
 
                 }
 
+                //  на скад 
                 else
                 {
-                    messega = @"Инвентарный номер:\t" + textBox_NumberInv.Text +
+                    messega =  "Инвентарный номер:\t" + textBox_NumberInv.Text +
                                 "\nТип устройства:\t\t" + typedevise +
                                 "\nСерийный номер:\t\t" + textBox_Hardware_SN.Text +
                                 "\nМодель:\t\t" + textBox_Hardware_Model.Text +

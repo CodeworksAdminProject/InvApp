@@ -98,12 +98,12 @@ namespace WindowsFormsApplication.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int inr_barcod {
+        public int int_barcod {
             get {
-                return ((int)(this["inr_barcod"]));
+                return ((int)(this["int_barcod"]));
             }
             set {
-                this["inr_barcod"] = value;
+                this["int_barcod"] = value;
             }
         }
         
@@ -1736,6 +1736,30 @@ namespace WindowsFormsApplication.Properties {
             }
             set {
                 this["ChangeFormTwo_stockroom_Note"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool print_img {
+            get {
+                return ((bool)(this["print_img"]));
+            }
+            set {
+                this["print_img"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool prin_labe_HW_PC {
+            get {
+                return ((bool)(this["prin_labe_HW_PC"]));
+            }
+            set {
+                this["prin_labe_HW_PC"] = value;
             }
         }
     }
