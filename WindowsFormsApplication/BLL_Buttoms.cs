@@ -30,11 +30,15 @@ namespace WindowsFormsApplication
             if (BLL.flag == true)
             {
 
-                dalSetButtonns.WrittenOff(addId, BLL.ReasonWriteOff, KindOfActivity, tableName);
+                dalSetButtonns.WrittenOff(addId, BLL.ReasonWriteOff, "1", tableName);
 
                 dalSetButtonns.AddJDB(Environment.UserName, KindOfActivity, BLL.ReasonWriteOff, addId, tableName);
 
-                BLL.sHtmlTableAddWriteOffForReport = BLL.sHtmlTableAddWriteOffForReport + bll.WrittenOff_And_Delete(addId, BLL.sHtmlTableAddWriteOffForReport, "Add");
+                if (tableName == "HardWare" || tableName == "HardwareStockRoom")
+                    BLL.sHtmlTableAddWriteOffForReportHW = BLL.sHtmlTableAddWriteOffForReportHW + bll.WrittenOff_And_Delete(addId, BLL.sHtmlTableAddWriteOffForReportHW, "Add", tableName);
+                else
+                    BLL.sHtmlTableAddWriteOffForReport = BLL.sHtmlTableAddWriteOffForReport + bll.WrittenOff_And_Delete(addId, BLL.sHtmlTableAddWriteOffForReport, "Add");
+
                 BLL.ReasonWriteOff = null;
                 BLL.flag = false;
             }
@@ -237,7 +241,7 @@ namespace WindowsFormsApplication
             }
         }
 
-        internal void Move_Hardware(string ID, string NumberINV, string TypeHardWare, string Model, string SN, string jira, string Old_NameLan,string flag)
+        internal void Move_Hardware(string ID, string NumberINV, string TypeHardWare, string Model, string SN, string jira, string Old_NameLan,string flag, string Note)
         {
             Move_Hardware moveHardwar = new Move_Hardware();
             if (flag == "HardWare")
@@ -249,6 +253,7 @@ namespace WindowsFormsApplication
                 moveHardwar.Model = Model;                
                 moveHardwar.SN = SN;
                 moveHardwar.jira = jira;
+                moveHardwar.Note = Note;
                 moveHardwar.Old_NameLan = Old_NameLan;
                 moveHardwar.Hardware.Text = TypeHardWare + " " + Model + " (SN: " + SN + "). " + "Установлено на " + Old_NameLan + " (Инв №: " +NumberINV+")" ;
                 moveHardwar.sum.Text = "1";
@@ -263,6 +268,7 @@ namespace WindowsFormsApplication
                 moveHardwar.Model = Model;
                 moveHardwar.SN = SN;
                 moveHardwar.jira = jira;
+                moveHardwar.Note = Note;
                 moveHardwar.Old_NameLan = Old_NameLan;
                 moveHardwar.Hardware.Text = TypeHardWare + " " + Model + " (SN: " + SN + "). На складе" + " (Инв №: " + NumberINV + ")";
                 moveHardwar.sum.Text = Old_NameLan;
@@ -289,6 +295,56 @@ namespace WindowsFormsApplication
             set.info.Text = "До 120 символов";
             set.ShowDialog();
             dalSetButtonns.Note(addId, tableName, BLL.ReasonWriteOff);
+        }
+
+        internal void Delete(string addId, string tableName)
+        {
+            string KindOfActivity = "3";
+            
+
+            WriteOff set = new WriteOff();
+            set.button_OK.Text = "Улалить";
+            set.ShowDialog();
+
+            if (BLL.flag == true)
+            {               
+
+                dalSetButtonns.AddJDB(Environment.UserName, KindOfActivity, BLL.ReasonWriteOff, addId, tableName);
+
+                if (tableName == "HardWare" || tableName == "HardwareStockRoom")
+                    BLL.sHtmlTableAddWriteOffForReportHW = BLL.sHtmlTableAddWriteOffForReportHW + bll.WrittenOff_And_Delete(addId, BLL.sHtmlTableAddWriteOffForReportHW, "Delete", tableName);
+                else
+                    BLL.sHtmlTableDeleteReport = BLL.sHtmlTableDeleteReport + bll.WrittenOff_And_Delete(addId, BLL.sHtmlTableDeleteReport, "Delete");
+
+                dalSetButtonns.Delete(tableName, addId);
+
+                BLL.ReasonWriteOff = null;
+                BLL.flag = false;
+            }
+        }
+
+        internal void TakeAway(string addId, string tableName)
+        {
+            string KindOfActivity = "2";
+
+            WriteOff set = new WriteOff();
+            set.button_OK.Text = "Снять отметку";
+            set.ShowDialog();
+
+            if (BLL.flag == true)
+            {
+                dalSetButtonns.AddJDB(Environment.UserName, KindOfActivity, BLL.ReasonWriteOff, addId, tableName);
+
+                if (tableName == "HardWare" || tableName == "HardwareStockRoom")
+                    BLL.sHtmlTableAddWriteOffForReportHW = BLL.sHtmlTableAddWriteOffForReportHW + bll.WrittenOff_And_Delete(addId, BLL.sHtmlTableAddWriteOffForReportHW, "TakeAway", tableName);
+                else
+                    BLL.sHtmlTableTakeAwayWriteOffForReport = BLL.sHtmlTableTakeAwayWriteOffForReport + bll.WrittenOff_And_Delete(addId, BLL.sHtmlTableTakeAwayWriteOffForReport, "TakeAway");
+
+                dalSetButtonns.WrittenOff(addId, null, "0", tableName);
+
+                BLL.ReasonWriteOff = null;
+                BLL.flag = false;
+            }
         }
     }
 }

@@ -24,18 +24,25 @@ namespace WindowsFormsApplication
 
         public HardWare()
         {
-            InitializeComponent();           
+            InitializeComponent();
+            UpdateData();
+        }
+
+        private void UpdateData()
+        {
             dataGridView_HardWare.DataSource = getDAL.GetHardWare(MainFrorm.index);
             dataGridView_HardWare.ColumnHeadersDefaultCellStyle.Font = new Font(dataGridView_HardWare.ColumnHeadersDefaultCellStyle.Font.FontFamily, 10f, FontStyle.Bold | FontStyle.Italic); //жирный курсив размера 16 FontStyle.Italic
             if (dataGridView_HardWare.DataSource != null)
             {
                 dataGridView_HardWare.Columns["ID"].Visible = false;
-                dataGridView_HardWare.Columns["SN"].Visible = false;
+                // dataGridView_HardWare.Columns["SN"].Visible = false;
+                dataGridView_HardWare.Columns["NameLAN"].Visible = false;
+                dataGridView_HardWare.Columns["NumberINV"].HeaderCell.Value = "Инвинтарный номер:";
                 dataGridView_HardWare.Columns["TypeHardWare"].HeaderCell.Value = "Наименование:";
                 dataGridView_HardWare.Columns["Model"].HeaderCell.Value = "Модель устройства:";
+                dataGridView_HardWare.Columns["SN"].HeaderCell.Value = "SN:";
+                dataGridView_HardWare.Columns["Note"].HeaderCell.Value = "Примечание:";
             }
-
-
         }
 
         private void button_Delete_Click(object sender, EventArgs e)
@@ -93,12 +100,56 @@ namespace WindowsFormsApplication
 
         private void button_deleteDataBase_Click(object sender, EventArgs e)
         {
+            string AddId = null;
 
+            foreach (DataGridViewRow row in dataGridView_HardWare.Rows)
+            {
+                if (row.Selected == true)
+                {
+
+                    if (AddId != null)
+                        AddId += "," + row.Cells["ID"].Value.ToString();
+                    else
+                        AddId += row.Cells["ID"].Value.ToString();
+                }
+            }
+
+            if (AddId != null)
+            {
+                bllButtoms.Delete(AddId, "HardWare");
+            }
+            UpdateData();
         }
 
         private void button_Update_Click(object sender, EventArgs e)
         {
+            if (dataGridView_HardWare.SelectedRows.Count == 1)
+            {
+                foreach (DataGridViewRow row in dataGridView_HardWare.Rows)
+                {
+                    string Lan = null;
+                    Lan = row.Cells["NameLAN"].Value.ToString();
 
+                    if (row.Selected == true)
+                    {
+
+                        bllButtoms.Move_Hardware(row.Cells["ID"].Value.ToString(),
+                            row.Cells["NumberINV"].Value.ToString(),
+                            row.Cells["TypeHardWare"].Value.ToString(),
+                            row.Cells["Model"].Value.ToString(),
+                            row.Cells["SN"].Value.ToString(),
+                            row.Cells["JiraTask"].Value.ToString(),
+                            Lan, "HardWare",
+                            row.Cells["Note"].Value.ToString());
+                    }
+                }
+            }
+
+            else
+                MessageBox.Show("Количество выбранных объектов превышает допустимое значение (одна позиции за раз)",
+               "Боливар не вынесет двоих", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+            UpdateData();
         }
     }
 }

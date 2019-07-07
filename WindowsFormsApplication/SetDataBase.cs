@@ -584,6 +584,50 @@ namespace WindowsFormsApplication
         private void button_writtenoff_Click(object sender, EventArgs e)
         {
 
+            string AddId = null;
+
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.Selected == true)
+                {
+
+                    if (AddId != null)
+                        AddId += "," + row.Cells["ID"].Value.ToString();
+                    else
+                        AddId += row.Cells["ID"].Value.ToString();
+                }
+            }
+
+            if (AddId != null)
+            {
+                bllButtoms.Writtenoff(AddId, flag_button);
+            }
+
+            Data_from_DataGrid(dataGridView1);
+        }
+
+        private void button_delete_Click(object sender, EventArgs e)
+        {
+            string AddId = null;
+
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.Selected == true)
+                {
+
+                    if (AddId != null)
+                        AddId += "," + row.Cells["ID"].Value.ToString();
+                    else
+                        AddId += row.Cells["ID"].Value.ToString();
+                }
+            }
+
+            if (AddId != null)
+            {
+                bllButtoms.Delete(AddId, flag_button);
+            }
+
+            Data_from_DataGrid(dataGridView1);
         }
     }
 }

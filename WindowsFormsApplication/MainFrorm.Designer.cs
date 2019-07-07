@@ -69,6 +69,7 @@
             this.dataGridViewPC_Name = new System.Windows.Forms.DataGridView();
             this.button_Search = new System.Windows.Forms.Button();
             this.button_change = new System.Windows.Forms.Button();
+            this.button_note = new System.Windows.Forms.Button();
             this.dataGridViewMT = new System.Windows.Forms.DataGridView();
             this.groupBox_MegaFiltr = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
@@ -80,7 +81,6 @@
             this.label_sum = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button_note = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.button_Hardware_Stockroom = new System.Windows.Forms.Button();
@@ -552,7 +552,7 @@
             this.dataGridViewPC_Name.Name = "dataGridViewPC_Name";
             this.dataGridViewPC_Name.RowTemplate.DividerHeight = 2;
             this.dataGridViewPC_Name.RowTemplate.Height = 25;
-            this.dataGridViewPC_Name.Size = new System.Drawing.Size(170, 463);
+            this.dataGridViewPC_Name.Size = new System.Drawing.Size(167, 463);
             this.dataGridViewPC_Name.TabIndex = 4;
             this.toolTip1.SetToolTip(this.dataGridViewPC_Name, "частичные отчеты ");
             this.dataGridViewPC_Name.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPC_Name_CellEnter);
@@ -584,6 +584,19 @@
             this.button_change.UseVisualStyleBackColor = true;
             this.button_change.Click += new System.EventHandler(this.button_change_Click);
             // 
+            // button_note
+            // 
+            this.button_note.BackgroundImage = global::WindowsFormsApplication.Properties.Resources.Pencil_64px;
+            this.button_note.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button_note.Cursor = System.Windows.Forms.Cursors.Default;
+            this.button_note.Location = new System.Drawing.Point(72, 3);
+            this.button_note.Name = "button_note";
+            this.button_note.Size = new System.Drawing.Size(63, 64);
+            this.button_note.TabIndex = 13;
+            this.toolTip1.SetToolTip(this.button_note, "Записать примечание ");
+            this.button_note.UseVisualStyleBackColor = true;
+            this.button_note.Click += new System.EventHandler(this.button_note_Click);
+            // 
             // dataGridViewMT
             // 
             this.dataGridViewMT.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -594,7 +607,7 @@
             this.dataGridViewMT.Name = "dataGridViewMT";
             this.dataGridViewMT.RowTemplate.DividerHeight = 2;
             this.dataGridViewMT.RowTemplate.Height = 25;
-            this.dataGridViewMT.Size = new System.Drawing.Size(1177, 463);
+            this.dataGridViewMT.Size = new System.Drawing.Size(1183, 463);
             this.dataGridViewMT.TabIndex = 3;
             this.dataGridViewMT.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewMT_CellContentDoubleClick);
             this.dataGridViewMT.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewMT_CellFormatting);
@@ -637,8 +650,8 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dataGridViewMT);
             this.splitContainer1.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.splitContainer1.Size = new System.Drawing.Size(1350, 463);
-            this.splitContainer1.SplitterDistance = 170;
+            this.splitContainer1.Size = new System.Drawing.Size(1353, 463);
+            this.splitContainer1.SplitterDistance = 167;
             this.splitContainer1.SplitterWidth = 3;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -649,9 +662,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox_DATA.Controls.Add(this.splitContainer1);
             this.groupBox_DATA.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox_DATA.Location = new System.Drawing.Point(9, 252);
+            this.groupBox_DATA.Location = new System.Drawing.Point(0, 252);
             this.groupBox_DATA.Name = "groupBox_DATA";
-            this.groupBox_DATA.Size = new System.Drawing.Size(1356, 488);
+            this.groupBox_DATA.Size = new System.Drawing.Size(1359, 488);
             this.groupBox_DATA.TabIndex = 1;
             this.groupBox_DATA.TabStop = false;
             this.groupBox_DATA.Text = "Данные  по вашему запросу";
@@ -725,19 +738,6 @@
             this.flowLayoutPanel6.Name = "flowLayoutPanel6";
             this.flowLayoutPanel6.Size = new System.Drawing.Size(151, 71);
             this.flowLayoutPanel6.TabIndex = 2;
-            // 
-            // button_note
-            // 
-            this.button_note.BackgroundImage = global::WindowsFormsApplication.Properties.Resources.Pencil_64px;
-            this.button_note.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button_note.Cursor = System.Windows.Forms.Cursors.Default;
-            this.button_note.Location = new System.Drawing.Point(72, 3);
-            this.button_note.Name = "button_note";
-            this.button_note.Size = new System.Drawing.Size(63, 64);
-            this.button_note.TabIndex = 13;
-            this.toolTip1.SetToolTip(this.button_note, "Записать примечание ");
-            this.button_note.UseVisualStyleBackColor = true;
-            this.button_note.Click += new System.EventHandler(this.button_note_Click);
             // 
             // contextMenuStrip1
             // 
@@ -835,7 +835,6 @@
             this.Controls.Add(this.menuStrip1);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainFrorm";
             this.Text = "Form1";

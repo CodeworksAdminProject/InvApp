@@ -24,6 +24,7 @@ namespace WindowsFormsApplication
         public string SN;
         public string jira;
         public string Old_NameLan;
+        public string Note;
 
 
 
@@ -100,7 +101,7 @@ namespace WindowsFormsApplication
                         {
                             dalSet.SetNewPosition(bll.Get_ID("[TypeHardWare]", "[TypeHardWare]", TypeHardWare).ToString(),
                             Model, SN, NumberINV, bll.Get_ID("JiraTask", "JiraTask", Type_Jira).ToString(),
-                            Convert.ToInt16(row.Cells["ID"].Value.ToString()));
+                            Convert.ToInt16(row.Cells["ID"].Value.ToString()), Note);
 
                             dalSet.remove_one_unit_stockroom(ID);
 

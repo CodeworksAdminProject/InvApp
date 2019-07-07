@@ -27,7 +27,7 @@
     <ProductName>Inventory</ProductName>
     <PublisherName>Zimburavi©</PublisherName>
     <SuiteName>Inventory</SuiteName>
-    <ApplicationRevision>16</ApplicationRevision>
+    <ApplicationRevision>17</ApplicationRevision>
     <ApplicationVersion>0.1.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -126,6 +126,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddItems.Designer.cs">
+      <DependentUpon>AddItems.cs</DependentUpon>
+    </Compile>
     <Compile Include="BLL_Buttoms.cs" />
     <Compile Include="BLL_HTML_Report.cs" />
     <Compile Include="BLL_Search.cs" />
@@ -189,11 +195,24 @@
     <Compile Include="Move_Hardware.Designer.cs">
       <DependentUpon>Move_Hardware.cs</DependentUpon>
     </Compile>
+    <Compile Include="NewItemsHW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewItemsHW.Designer.cs">
+      <DependentUpon>NewItemsHW.cs</DependentUpon>
+    </Compile>
+    <Compile Include="New_devices.cs" />
     <Compile Include="Search.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Search.Designer.cs">
       <DependentUpon>Search.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SelectMethodToAddNewitem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectMethodToAddNewitem.Designer.cs">
+      <DependentUpon>SelectMethodToAddNewitem.cs</DependentUpon>
     </Compile>
     <Compile Include="Send_mail.cs">
       <SubType>Form</SubType>
@@ -229,6 +248,12 @@
       <DependentUpon>SetNewDataBase.cs</DependentUpon>
     </Compile>
     <Compile Include="SMTP_CLIENT.cs" />
+    <Compile Include="SN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SN.Designer.cs">
+      <DependentUpon>SN.cs</DependentUpon>
+    </Compile>
     <Compile Include="WriteOff.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -241,6 +266,9 @@
     <Compile Include="WriteOffTable.Designer.cs">
       <DependentUpon>WriteOffTable.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddItems.resx">
+      <DependentUpon>AddItems.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="changeFormOne.resx">
       <DependentUpon>changeFormOne.cs</DependentUpon>
     </EmbeddedResource>
@@ -271,6 +299,9 @@
     <EmbeddedResource Include="Move_Hardware.resx">
       <DependentUpon>Move_Hardware.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NewItemsHW.resx">
+      <DependentUpon>NewItemsHW.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -284,6 +315,9 @@
     <EmbeddedResource Include="Search.resx">
       <DependentUpon>Search.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SelectMethodToAddNewitem.resx">
+      <DependentUpon>SelectMethodToAddNewitem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Send_mail.resx">
       <DependentUpon>Send_mail.cs</DependentUpon>
     </EmbeddedResource>
@@ -295,6 +329,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SN.resx">
+      <DependentUpon>SN.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WriteOff.resx">
       <DependentUpon>WriteOff.cs</DependentUpon>

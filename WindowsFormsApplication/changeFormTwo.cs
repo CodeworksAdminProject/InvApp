@@ -295,34 +295,26 @@ namespace WindowsFormsApplication
 
         private void button_delete_Click(object sender, EventArgs e)
         {
-            WriteOff set = new WriteOff();
-            set.Owner = this;
-            set.button_OK.Text = "Улалить";
-            set.ShowDialog();
+            string AddId = null;
 
-            if (BLL.flag == true)
+            foreach (DataGridViewRow row in dataGridView.Rows)
             {
-                string AddId = null;
-
-                foreach (DataGridViewRow row in dataGridView.Rows)
+                if (row.Selected == true)
                 {
-                    if (row.Selected == true)
-                    {
-                        BLL.sHtmlTableDeleteReport = BLL.sHtmlTableDeleteReport + bll.WrittenOff_And_Delete(row.Cells["ID"].Value.ToString(), BLL.sHtmlTableDeleteReport, "Delete");
 
-                        AddId += row.Cells[0].Value.ToString();
-                        dalSet.AddFDB(Environment.UserName, 3, BLL.ReasonWriteOff, row.Cells["NumberINV"].Value.ToString(),
-                            row.Cells["NameDevice"].Value.ToString(), row.Cells["SN"].Value.ToString(),
-                            row.Cells["Model"].Value.ToString(), row.Cells["ID"].Value.ToString());
-
-                        dalSet.Delete("MainTB", row.Cells["ID"].Value.ToString());
-                    }
+                    if (AddId != null)
+                        AddId += "," + row.Cells["ID"].Value.ToString();
+                    else
+                        AddId += row.Cells["ID"].Value.ToString();
                 }
-
-                BLL.ReasonWriteOff = null;
-                BLL.flag = false;
-                Data_from_DataGrid(dataGridView);
             }
+
+            if (AddId != null)
+            {
+                bllButtoms.Delete(AddId, "MainTB");
+            }
+
+            Data_from_DataGrid(dataGridView);
         }
 
         private void button_print_select_str_Click(object sender, EventArgs e)

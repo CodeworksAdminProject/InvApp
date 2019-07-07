@@ -27,7 +27,7 @@ namespace WindowsFormsApplication
             string nameColumnDivise;
             string nameColumnDiviseID;
 
-            if (tableName == nameDB1)
+            if (tableName == "MainTB")
             {
                 nameBDDivise = "TypeDevice";
                 nameColumnDivise = "NameDevice";
@@ -147,6 +147,29 @@ namespace WindowsFormsApplication
             {
                 SqlCommand command = new SqlCommand("Update  " + tableName + " Set  Note = '" +note +
                     "' WHERE dbo." + tableName + ".ID IN (" + ID + ");", connect);
+                try
+                {
+
+                    connect.Open();
+
+                    command.ExecuteNonQuery();
+                }
+
+                catch (SqlException exception)
+                {
+                    MessageBox.Show(exception.ToString());
+                }
+
+                connect.Close();
+            }
+        }
+
+        public void Delete(string table, string ID)
+        {
+            using (SqlConnection connect = new SqlConnection(sConectDB))
+            {
+                SqlCommand command = new SqlCommand("Delete  dbo." + table +
+                    " WHERE dbo." + table + ".ID IN (" + ID + ") ;", connect);
                 try
                 {
 

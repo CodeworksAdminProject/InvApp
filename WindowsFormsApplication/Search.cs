@@ -276,41 +276,30 @@ namespace WindowsFormsApplication
 
         private void button_deleteDataBase_Click(object sender, EventArgs e)
         {
-            if (flag_button == "MainTB")
+            string AddId = null;
+
+            foreach (DataGridViewRow row in dataGridView.Rows)
             {
-                WriteOff set = new WriteOff();
-                set.Owner = this;
-                set.button_OK.Text = "Улалить";
-                set.ShowDialog();
-
-                if (BLL.flag == true)
+                if (row.Selected == true)
                 {
-                    string AddId = null;
 
-                    foreach (DataGridViewRow row in dataGridView.Rows)
-                    {
-                        if (row.Selected == true)
-                        {
-                            BLL.sHtmlTableDeleteReport = BLL.sHtmlTableDeleteReport + bll.WrittenOff_And_Delete(row.Cells["ID"].Value.ToString(), BLL.sHtmlTableDeleteReport, "Delete");
-
-                            AddId += row.Cells[0].Value.ToString();
-                            dalSet.AddFDB(Environment.UserName, 3, BLL.ReasonWriteOff, row.Cells["NumberINV"].Value.ToString(),
-                                row.Cells["NameDevice"].Value.ToString(), row.Cells["SN"].Value.ToString(),
-                                row.Cells["Model"].Value.ToString(), row.Cells["ID"].Value.ToString());
-
-                            dalSet.Delete("MainTB", row.Cells[0].Value.ToString());
-                        }
-                    }
-
-                    BLL.ReasonWriteOff = null;
-                    BLL.flag = false;                    
+                    if (AddId != null)
+                        AddId += "," + row.Cells["ID"].Value.ToString();
+                    else
+                        AddId += row.Cells["ID"].Value.ToString();
                 }
-
-                dataGridView.DataSource = null;
-                dataGridView.DataSource = dalSearch.dataMainTB();
-                bllSearch.Update_Grid(dataGridView, flag_button);
-                label_sum.Text = dataGridView.Rows.Count.ToString();
             }
+
+            if (AddId != null)
+            {
+                bllButtoms.Delete(AddId, flag_button);
+            }
+
+            dataGridView.DataSource = null;
+            dataGridView.DataSource = dalSearch.dataMainTB();
+            bllSearch.Update_Grid(dataGridView, flag_button);
+            label_sum.Text = dataGridView.Rows.Count.ToString();
+            
         }
 
         private void button_Update_Click(object sender, EventArgs e)
@@ -337,6 +326,41 @@ namespace WindowsFormsApplication
                 {
                     bllButtoms.Change_data(AddId, flag_button);
                 }
+            }
+
+            else if (flag_button == "HardwareStockRoom" || flag_button == "HardWare")
+            {
+                if (dataGridView.SelectedRows.Count == 1)
+                {
+                    foreach (DataGridViewRow row in dataGridView.Rows)
+                    {
+                        string Lan = null;
+                        if (flag_button == "HardwareStockRoom")
+                            Lan = row.Cells["quantity"].Value.ToString();
+                        else
+                            Lan = row.Cells["NameLAN"].Value.ToString();
+
+                        if (row.Selected == true)
+                        {
+
+                            bllButtoms.Move_Hardware(row.Cells["ID"].Value.ToString(),
+                                row.Cells["NumberINV"].Value.ToString(),
+                                row.Cells["TypeHardWare"].Value.ToString(),
+                                row.Cells["Model"].Value.ToString(),
+                                row.Cells["SN"].Value.ToString(),
+                                row.Cells["JiraTask"].Value.ToString(),
+                                Lan,
+                                flag_button,
+                                row.Cells["Note"].Value.ToString());
+
+
+                        }
+                    }
+                }
+
+                else
+                    MessageBox.Show("Количество выбранных объектов превышает допустимое значение (одна позиции за раз)",
+                   "Боливар не вынесет двоих", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
     }

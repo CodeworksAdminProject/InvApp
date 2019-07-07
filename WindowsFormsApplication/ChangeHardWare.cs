@@ -334,8 +334,34 @@ namespace WindowsFormsApplication
 
             if (AddId != null)
             {
-                bllButtoms.Writtenoff(AddId, "HardWare");
+                bllButtoms.Writtenoff(AddId, flag);
             }
+
+            Data_from_DataGrid(dataGridView);
+        }
+
+        private void button_delete_Click(object sender, EventArgs e)
+        {
+            string AddId = null;
+
+            foreach (DataGridViewRow row in dataGridView.Rows)
+            {
+                if (row.Selected == true)
+                {
+
+                    if (AddId != null)
+                        AddId += "," + row.Cells["ID"].Value.ToString();
+                    else
+                        AddId += row.Cells["ID"].Value.ToString();
+                }
+            }
+
+            if (AddId != null)
+            {
+                bllButtoms.Delete(AddId, flag);
+            }
+
+            Data_from_DataGrid(dataGridView);
         }
     }
 }

@@ -248,7 +248,7 @@ namespace WindowsFormsApplication
             SqlConnection connect = new SqlConnection(sConectDB);
             // переработать  20-21
             SqlCommand command = new SqlCommand(@" INSERT INTO[dbo].[HardWare]
-                ([dateCreated], [MainTB_ID], [TypeHardWare_ID],[Model],[SN],[WrittenOff], [NumberINV], [JiraTask_ID], [Note] )
+                ([dateCreated], [MainTB_ID], [TypeHardWare_ID],[Model],[SN],[WrittenOff], [NumberINV], [JiraTask_ID])
                 values(GETDATE()," +
                 MainTB_ID.ToString() + ", " +
                 TypeDevice + ", '" +
@@ -418,7 +418,7 @@ namespace WindowsFormsApplication
 
                 connect.Close();
             }
-        }
+        }        
 
         internal void remove_one_unit_stockroom(string ID)
         {            

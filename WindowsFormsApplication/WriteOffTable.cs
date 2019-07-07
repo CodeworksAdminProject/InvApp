@@ -15,6 +15,7 @@ namespace WindowsFormsApplication
         DAL_GET dal_get = new DAL_GET();
         DAL_SET dal_set = new DAL_SET();
         BLL bll = new BLL();
+        BLL_Buttoms bllButtoms = new BLL_Buttoms();
 
         string flag_button;
 
@@ -27,110 +28,80 @@ namespace WindowsFormsApplication
 
         private void button_New_data_Click(object sender, EventArgs e)
         {
-            if (flag_button == "MainTB")
-            {
 
-                WriteOff set = new WriteOff();
-                set.Owner = this;
-                set.button_OK.Text = "Снять отметку";
-                set.ShowDialog();
-
-                if (BLL.flag == true)
-                {
-                    string AddId = null;
-
-                    foreach (DataGridViewRow row in dataGridView_WriteOffTable.Rows)
-                    {
-                        if (row.Selected == true)
-                        {
-                            dal_set.WrittenOff(row.Cells[0].Value.ToString(), "", "0");
-                            if (AddId != null)
-                                AddId += "," + row.Cells[0].Value.ToString();
-                            else
-                                AddId += row.Cells[0].Value.ToString();
-                            dal_set.AddFDB(Environment.UserName, 2, BLL.ReasonWriteOff, row.Cells["NumberINV"].Value.ToString(),
-                                row.Cells["NameDevice"].Value.ToString(), row.Cells["SN"].Value.ToString(),
-                                row.Cells["Model"].Value.ToString(), row.Cells["ID"].Value.ToString());
-                        }
-                    }
-
-                    BLL.sHtmlTableTakeAwayWriteOffForReport = BLL.sHtmlTableTakeAwayWriteOffForReport + bll.WrittenOff_And_Delete(AddId, BLL.sHtmlTableTakeAwayWriteOffForReport, "TakeAway");
-                    BLL.ReasonWriteOff = null;
-                    BLL.flag = false;
-                    dataGridView_WriteOffTable.DataSource = dal_get.getWrateOffTable();
-                }
-            }
-
-            else if (flag_button == "HardWare")
-            {
-
-                WriteOff set = new WriteOff();
-                set.Owner = this;
-                set.button_OK.Text = "Снять отметку";
-                set.ShowDialog();
-
-                if (BLL.flag == true)
-                {
-                    string AddId = null;
-
-                    foreach (DataGridViewRow row in dataGridView_WriteOffTable.Rows)
-                    {
-                        if (row.Selected == true)
-                        {
-                            dal_set.WrittenOff(row.Cells[0].Value.ToString(), "", "0");
-                            if (AddId != null)
-                                AddId += "," + row.Cells[0].Value.ToString();
-                            else
-                                AddId += row.Cells[0].Value.ToString();
-                            dal_set.AddFDB(Environment.UserName, 2, BLL.ReasonWriteOff, row.Cells["NumberINV"].Value.ToString(),
-                                row.Cells["NameDevice"].Value.ToString(), row.Cells["SN"].Value.ToString(),
-                                row.Cells["Model"].Value.ToString(), row.Cells["ID"].Value.ToString());
-                        }
-                    }
-
-                    BLL.sHtmlTableTakeAwayWriteOffForReport = BLL.sHtmlTableTakeAwayWriteOffForReport + bll.WrittenOff_And_Delete(AddId, BLL.sHtmlTableTakeAwayWriteOffForReport, "TakeAway");
-                    BLL.ReasonWriteOff = null;
-                    BLL.flag = false;
-                    dataGridView_WriteOffTable.DataSource = dal_get.getWrateOffTable_HW();
-                }
-            }
-
-            else if (flag_button == "HardwareStockRoom")
-            {
-
-            }
-        }
-
-        private void button_deleteDataBase_Click(object sender, EventArgs e)
-        {
-            WriteOff set = new WriteOff();
-            set.Owner = this;
-            set.button_OK.Text = "Улалить";
-            set.ShowDialog();
-
-            if (BLL.flag == true)
-            {
                 string AddId = null;
 
                 foreach (DataGridViewRow row in dataGridView_WriteOffTable.Rows)
                 {
                     if (row.Selected == true)
                     {
-                        BLL.sHtmlTableDeleteReport = BLL.sHtmlTableDeleteReport + bll.WrittenOff_And_Delete(row.Cells["ID"].Value.ToString(), BLL.sHtmlTableDeleteReport, "Delete");
 
-                        AddId += row.Cells[0].Value.ToString();
-                        dal_set.AddFDB(Environment.UserName, 3, BLL.ReasonWriteOff, row.Cells["NumberINV"].Value.ToString(),
-                            row.Cells["NameDevice"].Value.ToString(), row.Cells["SN"].Value.ToString(),
-                            row.Cells["Model"].Value.ToString(), row.Cells["ID"].Value.ToString());
-
-                        dal_set.Delete("MainTB", row.Cells[0].Value.ToString());
+                        if (AddId != null)
+                            AddId += "," + row.Cells["ID"].Value.ToString();
+                        else
+                            AddId += row.Cells["ID"].Value.ToString();
                     }
                 }
-                BLL.ReasonWriteOff = null;
-                BLL.flag = false;
 
+                if (AddId != null)
+                {
+                    bllButtoms.TakeAway(AddId, flag_button);
+                }
+
+
+            if (flag_button == "MainTB")
+            {
+                dataGridView_WriteOffTable.DataSource = dal_get.getWrateOffTable();
+                Update_Grid(dataGridView_WriteOffTable, flag_button);
             }
-            dataGridView_WriteOffTable.DataSource = dal_get.getWrateOffTable();
+            else if (flag_button == "HardWare")
+            {
+                dataGridView_WriteOffTable.DataSource = dal_get.getWrateOffTable_HW();
+                Update_Grid(dataGridView_WriteOffTable, flag_button);
+            }
+            else if (flag_button == "HardwareStockRoom")
+            {
+                dataGridView_WriteOffTable.DataSource = dal_get.getWrateOffTable_SR();
+                Update_Grid(dataGridView_WriteOffTable, flag_button);
+            }
+        }
+
+        private void button_deleteDataBase_Click(object sender, EventArgs e)
+        {
+            string AddId = null;
+
+            foreach (DataGridViewRow row in dataGridView_WriteOffTable.Rows)
+            {
+                if (row.Selected == true)
+                {
+
+                    if (AddId != null)
+                        AddId += "," + row.Cells["ID"].Value.ToString();
+                    else
+                        AddId += row.Cells["ID"].Value.ToString();
+                }
+            }
+
+            if (AddId != null)
+            {
+                bllButtoms.Delete(AddId, flag_button);
+            }
+
+            if (flag_button == "MainTB")
+            {
+                dataGridView_WriteOffTable.DataSource = dal_get.getWrateOffTable();
+                Update_Grid(dataGridView_WriteOffTable, flag_button);
+            }
+            else if (flag_button == "HardWare")
+            {
+                dataGridView_WriteOffTable.DataSource = dal_get.getWrateOffTable_HW();
+                Update_Grid(dataGridView_WriteOffTable, flag_button);
+            }
+            else if (flag_button == "HardwareStockRoom")
+            {
+                dataGridView_WriteOffTable.DataSource = dal_get.getWrateOffTable_SR();
+                Update_Grid(dataGridView_WriteOffTable, flag_button);
+            }
         }
 
         private void button_MainTB_Click(object sender, EventArgs e)

@@ -17,6 +17,7 @@ namespace WindowsFormsApplication
         DAL_GET dal_get = new DAL_GET();
         DAL_SET dalSet = new DAL_SET();
         BLL bll = new BLL();
+        New_devices new_devices = new New_devices();
 
 
 
@@ -226,7 +227,7 @@ namespace WindowsFormsApplication
                     typeAC = textBox_TypeAccount.Text;
                 else
                 {
-                    if (comboBox_TypeAccount.SelectedValue.ToString() != null)
+                    if (comboBox_TypeAccount.SelectedValue != null)
                         typeAC = comboBox_TypeAccount.SelectedValue.ToString();
                     else
                         typeAC = "";                   
@@ -237,7 +238,7 @@ namespace WindowsFormsApplication
                     typedevise = textBox_TypeDevice.Text;
                 else
                 {
-                    if (comboBox_TypeDevice.SelectedValue.ToString() != null)
+                    if (comboBox_TypeDevice.SelectedValue != null)
                         typedevise = comboBox_TypeDevice.SelectedValue.ToString();
                     else
                         typedevise = "";                    
@@ -248,7 +249,7 @@ namespace WindowsFormsApplication
                     Responsible = textBox_Responsible.Text;
                 else
                 {
-                    if (comboBox_Responsible.SelectedValue.ToString() != null)
+                    if (comboBox_Responsible.SelectedValue != null)
                         Responsible = comboBox_Responsible.SelectedValue.ToString();
                     else
                         Responsible = "";
@@ -259,7 +260,7 @@ namespace WindowsFormsApplication
                     LanName = textBox_LanName.Text;
                 else
                 {
-                    if (comboBox_LanName.SelectedValue.ToString() != null)
+                    if (comboBox_LanName.SelectedValue != null)
                         LanName = comboBox_LanName.SelectedValue.ToString();
                     else
                         LanName = "";
@@ -270,7 +271,7 @@ namespace WindowsFormsApplication
                     Floor = textBox_Floor.Text;
                 else
                 {
-                    if (comboBox_Floor.SelectedValue.ToString() != null)
+                    if (comboBox_Floor.SelectedValue != null)
                         Floor = comboBox_Floor.SelectedValue.ToString();
                     else
                         Floor = "";
@@ -281,7 +282,7 @@ namespace WindowsFormsApplication
                     Room = textBox_Room.Text;
                 else
                 {
-                    if (comboBox_Room.SelectedValue.ToString() != null)
+                    if (comboBox_Room.SelectedValue != null)
                         Room = comboBox_Room.SelectedValue.ToString();
                     else
                         Room = "";
@@ -292,7 +293,7 @@ namespace WindowsFormsApplication
                     Jira = textBox_jira.Text;
                 else
                 {
-                    if (comboBox_Jira.SelectedValue.ToString() != null)
+                    if (comboBox_Jira.SelectedValue != null)
                         Jira = comboBox_Jira.SelectedValue.ToString();
                     else
                         Jira = "";                    
@@ -341,7 +342,7 @@ namespace WindowsFormsApplication
                     typedevise = textBox_Hardware_TypeDevice.Text;
                 else
                 {
-                    if (comboBox_Hardware_TypeDevice.SelectedValue.ToString() != null)
+                    if (comboBox_Hardware_TypeDevice.SelectedValue != null)
                         typedevise = comboBox_Hardware_TypeDevice.SelectedValue.ToString();
                     else
                         typedevise = "";                    
@@ -352,7 +353,7 @@ namespace WindowsFormsApplication
                     Jira = textBox_Hardware_jira.Text;
                 else
                 {
-                    if (comboBox_Hardware_jira.SelectedValue.ToString() != null)
+                    if (comboBox_Hardware_jira.SelectedValue != null)
                         Jira = comboBox_Hardware_jira.SelectedValue.ToString();
                     else
                         Jira = "";                    

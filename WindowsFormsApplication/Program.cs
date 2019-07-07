@@ -59,6 +59,10 @@ namespace WindowsFormsApplication
             if (BLL.sHtmlTable_Move_Hardware  != null)
                 table8 = "</table>";
 
+            string table9 = null;
+            if (BLL.sHtmlTableAddWriteOffForReportHW != null)
+                table8 = "</table>";
+
             if ((BLL.sMailBody != null) || (BLL.sMailBodyNew != null) || (BLL.sMailBodyDelete != null) || 
                 (BLL.sHtmlTableAddWriteOffForReport != null) || (BLL.sHtmlTableTakeAwayWriteOffForReport != null) || (BLL.sMailBodyDelete != null) ||
                 (BLL.sHtmlTableHardware_PS != null) || (BLL.sHtmlTableHardware_Stockroom != null) || (BLL.sHtmlTable_Change_data != null) ||
@@ -67,7 +71,7 @@ namespace WindowsFormsApplication
                 sentmail.SentMail(BLL.heds + BLL.sMailBody +table + BLL.sMailBodyNew + table1+ BLL.sHtmlTableAddWriteOffForReport + 
                     table2 + BLL.sHtmlTableTakeAwayWriteOffForReport + table3 + BLL.sHtmlTableDeleteReport + table4 +
                     BLL.sHtmlTableHardware_Stockroom + table6 + BLL.sHtmlTableHardware_PS+table5 + BLL.sHtmlTable_Change_data + table7 +
-                    BLL.sHtmlTable_Move_Hardware + table8, Properties.Settings.Default.Email);
+                    BLL.sHtmlTable_Move_Hardware + table8 + BLL.sHtmlTableAddWriteOffForReportHW +table9, Properties.Settings.Default.Email);
 
           //  System.IO.File.WriteAllText(@"D:\error\sMailBody.txt", BLL.sMailBody + table);
           //  System.IO.File.WriteAllText(@"D:\error\heds.txt", BLL.heds);

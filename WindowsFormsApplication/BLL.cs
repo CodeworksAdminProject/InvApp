@@ -30,12 +30,15 @@ namespace WindowsFormsApplication
         public static string sMailBodyNew ;
         public static string sMailBodyDelete;
         public static string sHtmlTableAddWriteOffForReport = null;
+        public static string sHtmlTableAddWriteOffForReportHW = null;
         public static string sHtmlTableTakeAwayWriteOffForReport = null;
         public static string sHtmlTableDeleteReport = null;
         public static string sHtmlTableHardware_PS = null;
         public static string sHtmlTableHardware_Stockroom = null;
         public static string sHtmlTable_Change_data = null;
-        public static string sHtmlTable_Move_Hardware = null; 
+        public static string sHtmlTable_Move_Hardware = null;
+        public static string SerNum =null;
+
 
         public static string ReasonWriteOff = null;
         public static bool flag = false;
@@ -719,15 +722,119 @@ namespace WindowsFormsApplication
 
         }
 
-        internal string WrittenOff_And_Delete(string addId, string sHtmlTable, string flag )
+        internal string WrittenOff_And_Delete(string addId, string sHtmlTable, string flag, string tableName)
         {
             string Times = System.DateTime.Now.ToLongTimeString();
+            DataTable table;
+
             string strreturn;
             if (BLL.heds == null)
                 BLL.heds = "<h1><p> В  пользователем:  <font  color = 'red' >" + System.Environment.UserName + "</font> были внесены  следующие  изменения: </p></h1>";
 
-            DataTable table = dalGet.getWrateOffTable(addId);
+             table = dalGet.getWrateOffTable(addId, tableName);
+
             StringBuilder string_HTML_Table = new StringBuilder();
+
+            string TypeActivity;
+            string TypeClass;
+
+            if (flag == "Add")
+            {
+                TypeActivity = "Списание";
+                TypeClass = "UPS";
+                
+            }
+            else if (flag == "TakeAway")
+            {
+                TypeActivity = "Возращено в учет";
+                TypeClass = "Monitor";
+            }
+            else
+            {
+                TypeActivity = "Удалено из базы";
+                TypeClass = "PC";
+            }
+
+                if (sHtmlTable == null)
+            {
+
+                string_HTML_Table.Append("<table border='1'>");
+                string_HTML_Table.Append("<h2> Движение железа и расходников.  </h2><table border='1'><caption><font size='5'>Таблица движение железа и расходников.</font></caption>");
+                string_HTML_Table.Append("<tr>");
+                string_HTML_Table.Append("<th>Номер операции </th>");
+                string_HTML_Table.Append("<th>Дата и время</th>");
+                string_HTML_Table.Append("<th>ID в базе</th>");
+                string_HTML_Table.Append("<th>Инвин №</th>");
+                string_HTML_Table.Append("<th>Этаж</th>");
+                string_HTML_Table.Append("<th>Комната</th>");
+                string_HTML_Table.Append("<th>Тип устройства</th>");
+                string_HTML_Table.Append("<th>Модель</th>");
+                string_HTML_Table.Append("<th>SN</th>");
+                string_HTML_Table.Append("<th>Количество</th>");
+                string_HTML_Table.Append("<th>Вид операции </th>");
+                string_HTML_Table.Append("</tr>");                
+
+            }
+
+            if (tableName == "HardWare")
+            {
+                foreach (DataRow row in table.Rows)
+                {
+                    string_HTML_Table.Append("<tr class='" + TypeClass + "'>");
+                    string_HTML_Table.Append("<td class='" + TypeClass + "'>" + Number + "</td>");
+                    string_HTML_Table.Append("<td class='" + TypeClass + "'>" + Times + "</td>");
+                    string_HTML_Table.Append("<td class='" + TypeClass + "'>" + row[0].ToString() + "</td>");
+                    string_HTML_Table.Append("<td class='" + TypeClass + "'>" + row[2].ToString() + "</td>");
+                    string_HTML_Table.Append("<td class='" + TypeClass + "'>" + row[5].ToString() + "</td>");
+                    string_HTML_Table.Append("<td class='" + TypeClass + "'>" + row[6].ToString() + "</td>");
+                    string_HTML_Table.Append("<td class='" + TypeClass + "'>" + row[7].ToString() + "</td>");
+                    string_HTML_Table.Append("<td class='" + TypeClass + "'>" + row[8].ToString() + "</td>");
+                    string_HTML_Table.Append("<td class='" + TypeClass + "'>" + row[9].ToString() + "</td>");
+                    string_HTML_Table.Append("<td class='" + TypeClass + "'>1 Шт.</td>");
+                    string_HTML_Table.Append("<td class='" + TypeClass + "'>" + TypeActivity + "</td>");
+                    string_HTML_Table.Append("</tr>");
+                    Number++;
+                }
+            }
+
+            if (tableName == "HardwareStockRoom")
+            {
+                foreach (DataRow row in table.Rows)
+                {
+                    string_HTML_Table.Append("<tr class='" + TypeClass + "'>");
+                    string_HTML_Table.Append("<td class='" + TypeClass + "'>" + Number + "</td>");
+                    string_HTML_Table.Append("<td class='" + TypeClass + "'>" + Times + "</td>");
+                    string_HTML_Table.Append("<td class='" + TypeClass + "'>" + row[0].ToString() + "</td>");
+                    string_HTML_Table.Append("<td class='" + TypeClass + "'>" + row[2].ToString() + " </td>");
+                    string_HTML_Table.Append("<td class='" + TypeClass + "'>Cклад </td>");
+                    string_HTML_Table.Append("<td class='" + TypeClass + "'>Склад </td>");
+                    string_HTML_Table.Append("<td class='" + TypeClass + "'>" + row[3].ToString() + " </td>");
+                    string_HTML_Table.Append("<td class='" + TypeClass + "'>" + row[4].ToString() + "</td>");
+                    string_HTML_Table.Append("<td class='" + TypeClass + "'>" + row[5].ToString() + "</td>");
+                    string_HTML_Table.Append("<td class='" + TypeClass + "'>" + row[6].ToString() + "</td>");
+                    string_HTML_Table.Append("<td class='" + TypeClass + "'>" + TypeActivity + "</td>");
+                    string_HTML_Table.Append("</tr>");
+                    Number++;
+                }
+            }
+
+
+            strreturn = string_HTML_Table.ToString();
+            return strreturn;
+
+        }
+
+        internal string WrittenOff_And_Delete(string addId, string sHtmlTable, string flag)
+        {
+            string Times = System.DateTime.Now.ToLongTimeString();
+            DataTable table;
+
+            string strreturn;
+            if (BLL.heds == null)
+                BLL.heds = "<h1><p> В  пользователем:  <font  color = 'red' >" + System.Environment.UserName + "</font> были внесены  следующие  изменения: </p></h1>";
+
+                table = dalGet.getWrateOffTable(addId);
+          StringBuilder string_HTML_Table = new StringBuilder();
 
             if (sHtmlTable == null)
             {
@@ -737,7 +844,7 @@ namespace WindowsFormsApplication
                     string_HTML_Table.Append("<h2> Представленное на списание </h2><table border='1'><caption><font size='5'>Таблица представленное на списание</font></caption>");
                 else if (flag == "TakeAway")
                     string_HTML_Table.Append("<h2>Оборудование возвращённое  в основной  учет </h2><table border='1'><caption><font size='5'>Оборудование возвращённое  в основной  учет</font></caption>");
-                else if (flag == "Delete" )
+                else if (flag == "Delete")
                     string_HTML_Table.Append("<h2> Удаление из базы </h2><table border='1'><caption><font size='5'>Удаление из базы </font></caption>");
                 string_HTML_Table.Append("<tr>");
                 string_HTML_Table.Append("<th>Номер операции </th>");
@@ -749,32 +856,12 @@ namespace WindowsFormsApplication
                 string_HTML_Table.Append("<th>Тип устройства</th>");
                 string_HTML_Table.Append("<th>Модель</th>");
                 string_HTML_Table.Append("<th>SN</th>");
-                string_HTML_Table.Append("</tr>");                
+                string_HTML_Table.Append("</tr>");
 
             }
-                        
+
             foreach (DataRow row in table.Rows)
             {
-                if (flag == "Add")
-                    string_HTML_Table.Append("<tr class='PC'>");
-                else if (flag == "TakeAway")
-                    string_HTML_Table.Append("<tr class='UPS'>");
-                else if (flag == "Delete")
-                    string_HTML_Table.Append("<tr class='miniPC'>");
-
-                if (row[3].ToString().ToUpper() == "системный блок")
-                    string_HTML_Table.Append("<tr class='PC'>" );
-                else if (row[3].ToString().ToUpper() == "ИБП")
-                    string_HTML_Table.Append("<tr class='UPS'>" );
-                else if (row[3].ToString().ToUpper() == "монитор")
-                    string_HTML_Table.Append("<tr class='Monitor'>");
-                else if (row[3].ToString().ToUpper() == "IP телефон")
-                    string_HTML_Table.Append("<tr class='IpPhone'>" );
-                else if (row[3].ToString().ToUpper() == "Мини ПК  ")
-                    string_HTML_Table.Append("<tr class='miniPC'>" );
-                else
-                    string_HTML_Table.Append("<tr>" );
-
 
                 string_HTML_Table.Append("<tr>");
                 string_HTML_Table.Append("<td>" + Number + "</td>");

@@ -242,10 +242,14 @@ namespace WindowsFormsApplication
 
         private void button_New_data_Click(object sender, EventArgs e)
         {
-            SetNewDataBase setNewData = new SetNewDataBase();
-            setNewData.checkBox_MainAcount.Checked = true;
-            setNewData.checkBox_Stockroom.Checked = true;
-            setNewData.ShowDialog();
+            SelectMethodToAddNewitem selectMethodToAddNewitem = new SelectMethodToAddNewitem();
+            selectMethodToAddNewitem.Show();
+           // SetNewDataBase setNewData = new SetNewDataBase();
+           // setNewData.checkBox_MainAcount.Checked = true;
+           // setNewData.checkBox_Stockroom.Checked = true;
+           // setNewData.ShowDialog();
+
+
             Update_Grid();
 
         }
@@ -297,7 +301,8 @@ namespace WindowsFormsApplication
                                 row.Cells["SN"].Value.ToString(),
                                 row.Cells["JiraTask"].Value.ToString(),
                                 Lan,
-                                flag_button);
+                                flag_button,
+                                row.Cells["Note"].Value.ToString());
 
                             
                         }
@@ -309,7 +314,7 @@ namespace WindowsFormsApplication
                    "Боливар не вынесет двоих", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
-                Update_Grid();
+            Update_Grid();
         }
 
         private void MainFrorm_FormClosed(object sender, FormClosedEventArgs e)
@@ -642,34 +647,25 @@ namespace WindowsFormsApplication
 
         private void button_deleteDataBase_Click(object sender, EventArgs e)
         {
-            WriteOff set = new WriteOff();
-            set.Owner = this;
-            set.button_OK.Text = "Улалить";
-            set.ShowDialog();
+            string AddId = null;
 
-            if (BLL.flag == true)
+            foreach (DataGridViewRow row in dataGridViewMT.Rows)
             {
-                string AddId = null;
-
-                foreach (DataGridViewRow row in dataGridViewMT.Rows)
+                if (row.Selected == true)
                 {
-                    if (row.Selected == true)
-                    {
-                        BLL.sHtmlTableDeleteReport = BLL.sHtmlTableDeleteReport + bll.WrittenOff_And_Delete(row.Cells["ID"].Value.ToString(), BLL.sHtmlTableDeleteReport, "Delete");
 
-                        AddId += row.Cells[0].Value.ToString();
-                        dal_set.AddFDB(Environment.UserName, 3, BLL.ReasonWriteOff, row.Cells["NumberINV"].Value.ToString(),
-                            row.Cells["NameDevice"].Value.ToString(), row.Cells["SN"].Value.ToString(),
-                            row.Cells["Model"].Value.ToString(), row.Cells["ID"].Value.ToString());
-
-                        dal_set.Delete("MainTB", row.Cells[0].Value.ToString());
-                    }
+                    if (AddId != null)
+                        AddId += "," + row.Cells["ID"].Value.ToString();
+                    else
+                        AddId += row.Cells["ID"].Value.ToString();
                 }
-
-                BLL.ReasonWriteOff = null;
-                BLL.flag = false;
-                Update_Grid();
             }
+
+            if (AddId != null)
+            {
+                bllButtoms.Delete(AddId, flag_button);
+            }
+            Update_Grid();
         }
 
         private void button2_Click(object sender, EventArgs e)

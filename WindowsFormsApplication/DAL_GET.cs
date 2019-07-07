@@ -556,9 +556,12 @@ namespace WindowsFormsApplication
         {
             ArrayList DataGrid = new ArrayList();
             SqlConnection connect = new SqlConnection(sConectDB);
-            SqlCommand command = new SqlCommand(@"SELECT [dbo].[HardWare].[ID], TypeHardWare.TypeHardWare, HardWare.Model, HardWare.SN " +
-                @"from HardWare  join TypeHardWare on HardWare.TypeHardWare_ID = TypeHardWare.ID " +
-                @"Where HardWare.MainTB_ID = " + ID + @" AND HardWare.WrittenOff = 'False';", connect);
+            SqlCommand command = new SqlCommand(@"SELECT [dbo].[HardWare].[ID],[NumberINV], TypeHardWare.TypeHardWare, HardWare.Model, HardWare.SN,[Note], NameLAN, JiraTask    
+            from HardWare, NameLAN, TypeHardWare, JiraTask
+            Where HardWare.MainTB_ID = " + ID + @" AND HardWare.WrittenOff = 'False' AND
+            TypeHardWare_ID = TypeHardWare.ID  AND
+            JiraTask_ID = JiraTask.ID AND
+            NameLAN = (SELECT NameLAN  FROM [dbo].[MainTB] join NameLAN on NameLAN_ID = NameLAN.ID   Where [MainTB].ID = MainTB_ID );", connect);
 
             try
             {
@@ -853,7 +856,77 @@ namespace WindowsFormsApplication
             connect.Close();
             return Data;
         }
-       
+
+        // from BBL report 
+        internal DataTable getWrateOffTable(string ID, string table)
+        {
+            DataTable Data = new DataTable();
+
+            using (SqlConnection connect = new SqlConnection(sConectDB))
+            {
+                string sqlQuery;
+                if (table == "HardWare")
+                    sqlQuery = @"SELECT [HardWare].ID
+                    ,dateCreated
+                    ,NumberINV
+                    ,NameLAN.NameLAN
+                    ,NameRes.NameRes
+                    ,[Floor].floorNambe
+                    ,Room.NameRoom
+                    ,TypeHardWare
+                    ,[Model]
+                    ,[SN]
+                    ,JiraTask
+                    ,[WrittenOff]
+                    ,ReasonWriteOff
+                    ,[Note] 
+                    FROM [dbo].[HardWare],NameLAN, TypeHardWare,[Room], NameRes, [Floor], JiraTask
+ 
+                    Where NameLAN = (SELECT NameLAN  FROM [dbo].[MainTB] join NameLAN on NameLAN_ID = NameLAN.ID   Where [MainTB].ID = MainTB_ID ) AND
+                    TypeHardWare_ID = TypeHardWare.ID  AND
+                    NameRoom = (SELECT NameRoom  FROM [dbo].[MainTB] join [Room] on Room_ID = [Room].ID   Where [MainTB].ID = MainTB_ID ) AND
+                    NameRes.NameRes = (SELECT NameRes FROM [dbo].[MainTB] join NameRes on NameRes_ID = NameRes.ID   Where [MainTB].ID = MainTB_ID ) AND
+                    [Floor].floorNambe = (SELECT floorNambe FROM [dbo].[MainTB] join [Floor] on Floor_ID = [Floor].ID   Where [MainTB].ID = MainTB_ID ) AND
+                    JiraTask_ID = JiraTask.ID  AND [HardWare].ID  IN (" + ID + ") order by NameRes,NameLAN, TypeHardWare_ID ;";
+                else
+                    sqlQuery = @"SELECT [HardwareStockRoom].[ID]
+                  ,[dateCreated]
+                  ,[NumberINV]
+                  ,[TypeHardWare]
+                  ,[Model]
+                  ,[SN]
+                  ,[quantity]
+                  ,[WrittenOff]
+                  ,[JiraTask]
+                  ,[ReasonWriteOff]
+                  ,[Note]
+                    FROM [TestDB].[dbo].[HardwareStockRoom], TypeHardWare, JiraTask
+                    Where TypeHardWare_ID = TypeHardWare.ID AND  [HardwareStockRoom].[ID]  IN (" + ID +
+                  ") AND JiraTask_ID = JiraTask.ID order by  TypeHardWare_ID;";
+
+
+                SqlCommand command = new SqlCommand(sqlQuery, connect);
+
+                try
+                {
+
+                    connect.Open();
+                    SqlDataAdapter da = new SqlDataAdapter(command);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    Data = ds.Tables[0];
+                }
+
+                catch (SqlException exception)
+                {
+                    MessageBox.Show(exception.ToString());
+                }
+
+                connect.Close();
+            }
+            return Data;
+        }
+
         // EXCEL BBL 
         public DataTable GetFloorTable()
         {
@@ -1300,25 +1373,27 @@ namespace WindowsFormsApplication
 
            int Resulty;
             int[] itemDB = new int[1];
-            SqlConnection con = new SqlConnection(sConectDB);
-            SqlCommand com = new SqlCommand("select dbo." + Table + ".ID from dbo." + Table + " where dbo." + Table + "." + Column + " = '" + Name + "';", con);
-            con.Open();
-            //com.ExecuteReader();
-            SqlDataReader dr = com.ExecuteReader();
-
-            if (dr.HasRows)
+            using (SqlConnection con = new SqlConnection(sConectDB))
             {
-                while (dr.Read())
+                SqlCommand com = new SqlCommand("select dbo." + Table + ".ID from dbo." + Table + " where dbo." + Table + "." + Column + " = '" + Name + "';", con);
+                con.Open();
+                //com.ExecuteReader();
+                SqlDataReader dr = com.ExecuteReader();
+
+                if (dr.HasRows)
                 {
-                    itemDB[0] = dr.GetInt32(0);
+                    while (dr.Read())
+                    {
+                        itemDB[0] = dr.GetInt32(0);
+                    }
+                    Resulty = itemDB[0];
+                    return Resulty;
                 }
-                Resulty = itemDB[0];
-                return Resulty;
+
+                else { }
+
+                con.Close();
             }
-
-            else {}
-
-            con.Close();
 
             return 0;
         }

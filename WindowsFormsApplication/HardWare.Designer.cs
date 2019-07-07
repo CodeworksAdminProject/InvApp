@@ -51,7 +51,7 @@
             this.panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.panel2.Location = new System.Drawing.Point(0, 73);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(479, 421);
+            this.panel2.Size = new System.Drawing.Size(845, 421);
             this.panel2.TabIndex = 1;
             // 
             // dataGridView_HardWare
@@ -61,7 +61,7 @@
             this.dataGridView_HardWare.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView_HardWare.Location = new System.Drawing.Point(0, 0);
             this.dataGridView_HardWare.Name = "dataGridView_HardWare";
-            this.dataGridView_HardWare.Size = new System.Drawing.Size(479, 421);
+            this.dataGridView_HardWare.Size = new System.Drawing.Size(845, 421);
             this.dataGridView_HardWare.TabIndex = 0;
             // 
             // button_New_data
@@ -128,7 +128,7 @@
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(479, 69);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(845, 69);
             this.flowLayoutPanel2.TabIndex = 8;
             // 
             // button_Update
@@ -149,7 +149,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(479, 499);
+            this.ClientSize = new System.Drawing.Size(845, 499);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.panel2);
             this.Name = "HardWare";

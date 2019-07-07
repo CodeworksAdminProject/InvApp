@@ -76,6 +76,8 @@
             this.comboBox_Jira = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel_Hardware = new System.Windows.Forms.Panel();
+            this.groupBox_Note = new System.Windows.Forms.GroupBox();
+            this.textBox_Note = new System.Windows.Forms.TextBox();
             this.RES = new System.Windows.Forms.Label();
             this.label_RES = new System.Windows.Forms.Label();
             this.NAME = new System.Windows.Forms.Label();
@@ -104,8 +106,6 @@
             this.textBox_Hardware_SN = new System.Windows.Forms.TextBox();
             this.groupBox_Hardware_LanName = new System.Windows.Forms.GroupBox();
             this.comboBox_Hardware_LanName = new System.Windows.Forms.ComboBox();
-            this.groupBox_Note = new System.Windows.Forms.GroupBox();
-            this.textBox_Note = new System.Windows.Forms.TextBox();
             this.groupBox_TypeAccоunt.SuspendLayout();
             this.groupBox_TypeDevice.SuspendLayout();
             this.groupBox_Model.SuspendLayout();
@@ -120,13 +120,13 @@
             this.groupBox_Jira.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel_Hardware.SuspendLayout();
+            this.groupBox_Note.SuspendLayout();
             this.groupBox_Hardware_jira.SuspendLayout();
             this.groupBox_Hardware_Sum.SuspendLayout();
             this.groupBox_Hardware_TypeDevice.SuspendLayout();
             this.groupBox_Hardware_Model.SuspendLayout();
             this.groupBox_Hardware_SN.SuspendLayout();
             this.groupBox_Hardware_LanName.SuspendLayout();
-            this.groupBox_Note.SuspendLayout();
             this.SuspendLayout();
             // 
             // label_date
@@ -579,9 +579,9 @@
             this.panel_MainAcount.Controls.Add(this.groupBox_TypeDevice);
             this.panel_MainAcount.Controls.Add(this.groupBox_Model);
             this.panel_MainAcount.Controls.Add(this.groupBox_NuberSN);
-            this.panel_MainAcount.Controls.Add(this.Location);
             this.panel_MainAcount.Controls.Add(this.groupBox_LanName);
             this.panel_MainAcount.Controls.Add(this.groupBox_Responsible);
+            this.panel_MainAcount.Controls.Add(this.Location);
             this.panel_MainAcount.Location = new System.Drawing.Point(3, 90);
             this.panel_MainAcount.Name = "panel_MainAcount";
             this.panel_MainAcount.Size = new System.Drawing.Size(460, 625);
@@ -673,6 +673,30 @@
             this.panel_Hardware.Size = new System.Drawing.Size(460, 625);
             this.panel_Hardware.TabIndex = 10;
             this.panel_Hardware.Visible = false;
+            // 
+            // groupBox_Note
+            // 
+            this.groupBox_Note.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox_Note.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBox_Note.Controls.Add(this.textBox_Note);
+            this.groupBox_Note.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.groupBox_Note.Location = new System.Drawing.Point(9, 403);
+            this.groupBox_Note.Name = "groupBox_Note";
+            this.groupBox_Note.Size = new System.Drawing.Size(441, 50);
+            this.groupBox_Note.TabIndex = 12;
+            this.groupBox_Note.TabStop = false;
+            this.groupBox_Note.Text = "Примеание ";
+            // 
+            // textBox_Note
+            // 
+            this.textBox_Note.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_Note.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox_Note.Location = new System.Drawing.Point(7, 17);
+            this.textBox_Note.Name = "textBox_Note";
+            this.textBox_Note.Size = new System.Drawing.Size(428, 26);
+            this.textBox_Note.TabIndex = 2;
             // 
             // RES
             // 
@@ -996,30 +1020,6 @@
             this.comboBox_Hardware_LanName.Size = new System.Drawing.Size(274, 24);
             this.comboBox_Hardware_LanName.TabIndex = 3;
             // 
-            // groupBox_Note
-            // 
-            this.groupBox_Note.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox_Note.BackColor = System.Drawing.SystemColors.Control;
-            this.groupBox_Note.Controls.Add(this.textBox_Note);
-            this.groupBox_Note.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox_Note.Location = new System.Drawing.Point(9, 403);
-            this.groupBox_Note.Name = "groupBox_Note";
-            this.groupBox_Note.Size = new System.Drawing.Size(441, 50);
-            this.groupBox_Note.TabIndex = 12;
-            this.groupBox_Note.TabStop = false;
-            this.groupBox_Note.Text = "Примеание ";
-            // 
-            // textBox_Note
-            // 
-            this.textBox_Note.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox_Note.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox_Note.Location = new System.Drawing.Point(7, 17);
-            this.textBox_Note.Name = "textBox_Note";
-            this.textBox_Note.Size = new System.Drawing.Size(428, 26);
-            this.textBox_Note.TabIndex = 2;
-            // 
             // SetNewDataBase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1028,8 +1028,8 @@
             this.ClientSize = new System.Drawing.Size(467, 783);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.tableLayoutPanel_head);
-            this.Controls.Add(this.panel_Hardware);
             this.Controls.Add(this.panel_MainAcount);
+            this.Controls.Add(this.panel_Hardware);
             this.Name = "SetNewDataBase";
             this.Text = "SetNewDate";
             this.groupBox_TypeAccоunt.ResumeLayout(false);
@@ -1057,6 +1057,8 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel_Hardware.ResumeLayout(false);
             this.panel_Hardware.PerformLayout();
+            this.groupBox_Note.ResumeLayout(false);
+            this.groupBox_Note.PerformLayout();
             this.groupBox_Hardware_jira.ResumeLayout(false);
             this.groupBox_Hardware_jira.PerformLayout();
             this.groupBox_Hardware_Sum.ResumeLayout(false);
@@ -1068,8 +1070,6 @@
             this.groupBox_Hardware_SN.ResumeLayout(false);
             this.groupBox_Hardware_SN.PerformLayout();
             this.groupBox_Hardware_LanName.ResumeLayout(false);
-            this.groupBox_Note.ResumeLayout(false);
-            this.groupBox_Note.PerformLayout();
             this.ResumeLayout(false);
 
         }
