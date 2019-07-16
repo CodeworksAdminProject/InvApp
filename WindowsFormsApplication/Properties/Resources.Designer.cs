@@ -179,5 +179,15 @@ namespace WindowsFormsApplication.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap X_Coordinate_64px {
+            get {
+                object obj = ResourceManager.GetObject("X Coordinate_64px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

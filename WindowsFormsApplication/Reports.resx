@@ -117,44 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Horizontal Line_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Horizontal Line_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="TSCLIB" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\x86\Debug\TSCLIB.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Print_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Print_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="TSCLIB1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\x86\Debug\TSCLIB.lib;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Pencil_64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Pencil_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Truck_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Truck_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Trash Can_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Trash Can_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="LOG2_old" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LOG2.old.BMP;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Card Exchange_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Card Exchange_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Card Exchange_48px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Card Exchange_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="LOG2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LOG2.BMP;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Typewriter With Screen_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Typewriter With Screen_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="X Coordinate_64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\X Coordinate_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
+  <metadata name="backgroundWorker1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>

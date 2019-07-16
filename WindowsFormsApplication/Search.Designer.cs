@@ -75,7 +75,6 @@
             this.button_Delete = new System.Windows.Forms.Button();
             this.button_New_data = new System.Windows.Forms.Button();
             this.groupBox_reports = new System.Windows.Forms.GroupBox();
-            this.button_HTMLOpenFullReport = new System.Windows.Forms.Button();
             this.button_ExcelOpenFullReport = new System.Windows.Forms.Button();
             this.groupBox_print = new System.Windows.Forms.GroupBox();
             this.PRINT_LABEL_ALL = new System.Windows.Forms.Button();
@@ -679,7 +678,6 @@
             // 
             // groupBox_reports
             // 
-            this.groupBox_reports.Controls.Add(this.button_HTMLOpenFullReport);
             this.groupBox_reports.Controls.Add(this.button_ExcelOpenFullReport);
             this.groupBox_reports.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox_reports.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -689,17 +687,6 @@
             this.groupBox_reports.TabIndex = 8;
             this.groupBox_reports.TabStop = false;
             this.groupBox_reports.Text = "Отчеты";
-            // 
-            // button_HTMLOpenFullReport
-            // 
-            this.button_HTMLOpenFullReport.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_HTMLOpenFullReport.BackgroundImage")));
-            this.button_HTMLOpenFullReport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button_HTMLOpenFullReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_HTMLOpenFullReport.Location = new System.Drawing.Point(76, 22);
-            this.button_HTMLOpenFullReport.Name = "button_HTMLOpenFullReport";
-            this.button_HTMLOpenFullReport.Size = new System.Drawing.Size(64, 64);
-            this.button_HTMLOpenFullReport.TabIndex = 3;
-            this.button_HTMLOpenFullReport.UseVisualStyleBackColor = true;
             // 
             // button_ExcelOpenFullReport
             // 
@@ -711,6 +698,7 @@
             this.button_ExcelOpenFullReport.Size = new System.Drawing.Size(64, 64);
             this.button_ExcelOpenFullReport.TabIndex = 4;
             this.button_ExcelOpenFullReport.UseVisualStyleBackColor = true;
+            this.button_ExcelOpenFullReport.Click += new System.EventHandler(this.button_ExcelOpenFullReport_Click);
             // 
             // groupBox_print
             // 
@@ -825,7 +813,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.GroupBox groupBox_reports;
-        private System.Windows.Forms.Button button_HTMLOpenFullReport;
         private System.Windows.Forms.Button button_ExcelOpenFullReport;
         private System.Windows.Forms.GroupBox groupBox_print;
         private System.Windows.Forms.Button PRINT_LABEL_ALL;

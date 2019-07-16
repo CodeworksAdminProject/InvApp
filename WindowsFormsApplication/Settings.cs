@@ -23,6 +23,8 @@ namespace WindowsFormsApplication
             checkBox_print_img.Checked =Properties.Settings.Default.print_img ;
             checkBox_prin_labe_HW_PC.Checked = Properties.Settings.Default.prin_labe_HW_PC ;
 
+            textBox_namefile.Text = Properties.Settings.Default.namefile;
+            textBox_rooms.Text = Properties.Settings.Default.room;
 
             textBox_SqlServer.Text = Properties.Settings.Default.SqlServer;
             textBox_SqlPort.Text = Properties.Settings.Default.SqlPort;
@@ -212,6 +214,8 @@ namespace WindowsFormsApplication
 
         private void button_Save_Click(object sender, EventArgs e)
         {
+            Properties.Settings.Default.room = textBox_rooms.Text;
+            Properties.Settings.Default.namefile = textBox_namefile.Text;
 
             Properties.Settings.Default.print_img = checkBox_print_img.Checked;
             Properties.Settings.Default.prin_labe_HW_PC = checkBox_prin_labe_HW_PC.Checked;

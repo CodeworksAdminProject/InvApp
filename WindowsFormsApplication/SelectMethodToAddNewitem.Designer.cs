@@ -40,7 +40,7 @@
             this.button_one.Name = "button_one";
             this.button_one.Size = new System.Drawing.Size(366, 90);
             this.button_one.TabIndex = 1;
-            this.button_one.Text = "Добавить оду или несколько различных \r\nпозиций в любой учет.";
+            this.button_one.Text = "Добавить одну или несколько различных \r\nпозиций в любой учет.";
             this.button_one.UseVisualStyleBackColor = true;
             this.button_one.Click += new System.EventHandler(this.button_one_Click);
             // 

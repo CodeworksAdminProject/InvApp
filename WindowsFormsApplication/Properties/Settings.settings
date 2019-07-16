@@ -437,5 +437,11 @@
     <Setting Name="prin_labe_HW_PC" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="room" Type="System.String" Scope="User">
+      <Value Profile="(Default)">404 серверная,522 Серверная,519 TV Серверная</Value>
+    </Setting>
+    <Setting Name="namefile" Type="System.String" Scope="User">
+      <Value Profile="(Default)">codeworks_inv</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

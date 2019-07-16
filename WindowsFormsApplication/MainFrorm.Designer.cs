@@ -48,7 +48,6 @@
             this.button_New_data = new System.Windows.Forms.Button();
             this.button_Delete = new System.Windows.Forms.Button();
             this.button_Update = new System.Windows.Forms.Button();
-            this.button_Repair = new System.Windows.Forms.Button();
             this.button_deleteDataBase = new System.Windows.Forms.Button();
             this.button_WriteOffTable = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -64,8 +63,6 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button_PartExcelReport = new System.Windows.Forms.Button();
-            this.button_PartHtmlReport = new System.Windows.Forms.Button();
             this.dataGridViewPC_Name = new System.Windows.Forms.DataGridView();
             this.button_Search = new System.Windows.Forms.Button();
             this.button_change = new System.Windows.Forms.Button();
@@ -284,7 +281,6 @@
             this.flowLayoutPanel1.Controls.Add(this.button_New_data);
             this.flowLayoutPanel1.Controls.Add(this.button_Delete);
             this.flowLayoutPanel1.Controls.Add(this.button_Update);
-            this.flowLayoutPanel1.Controls.Add(this.button_Repair);
             this.flowLayoutPanel1.Controls.Add(this.button_deleteDataBase);
             this.flowLayoutPanel1.Controls.Add(this.button_WriteOffTable);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -336,20 +332,6 @@
             this.button_Update.UseVisualStyleBackColor = true;
             this.button_Update.Click += new System.EventHandler(this.button_Update_Click);
             // 
-            // button_Repair
-            // 
-            this.button_Repair.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_Repair.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_Repair.BackgroundImage")));
-            this.button_Repair.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_Repair.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_Repair.Location = new System.Drawing.Point(210, 3);
-            this.button_Repair.Name = "button_Repair";
-            this.button_Repair.Size = new System.Drawing.Size(63, 64);
-            this.button_Repair.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.button_Repair, "Отправить в ремонт  ");
-            this.button_Repair.UseVisualStyleBackColor = true;
-            this.button_Repair.Click += new System.EventHandler(this.button_Repair_Click);
-            // 
             // button_deleteDataBase
             // 
             this.button_deleteDataBase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -357,7 +339,7 @@
             this.button_deleteDataBase.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.button_deleteDataBase.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button_deleteDataBase.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_deleteDataBase.Location = new System.Drawing.Point(279, 3);
+            this.button_deleteDataBase.Location = new System.Drawing.Point(210, 3);
             this.button_deleteDataBase.Name = "button_deleteDataBase";
             this.button_deleteDataBase.Size = new System.Drawing.Size(63, 64);
             this.button_deleteDataBase.TabIndex = 1;
@@ -370,7 +352,7 @@
             this.button_WriteOffTable.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_WriteOffTable.BackgroundImage")));
             this.button_WriteOffTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button_WriteOffTable.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_WriteOffTable.Location = new System.Drawing.Point(348, 3);
+            this.button_WriteOffTable.Location = new System.Drawing.Point(279, 3);
             this.button_WriteOffTable.Name = "button_WriteOffTable";
             this.button_WriteOffTable.Size = new System.Drawing.Size(63, 64);
             this.button_WriteOffTable.TabIndex = 1;
@@ -393,7 +375,6 @@
             // 
             // flowLayoutPanel2
             // 
-            this.flowLayoutPanel2.Controls.Add(this.button_ExcelOpenFullReport);
             this.flowLayoutPanel2.Controls.Add(this.button_HTMLOpenFullReport);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 19);
@@ -416,15 +397,16 @@
             // 
             // button_HTMLOpenFullReport
             // 
-            this.button_HTMLOpenFullReport.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_HTMLOpenFullReport.BackgroundImage")));
+            this.button_HTMLOpenFullReport.BackgroundImage = global::WindowsFormsApplication.Properties.Resources.X_Coordinate_64px;
             this.button_HTMLOpenFullReport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.button_HTMLOpenFullReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_HTMLOpenFullReport.Location = new System.Drawing.Point(72, 3);
+            this.button_HTMLOpenFullReport.Location = new System.Drawing.Point(3, 3);
             this.button_HTMLOpenFullReport.Name = "button_HTMLOpenFullReport";
             this.button_HTMLOpenFullReport.Size = new System.Drawing.Size(63, 64);
             this.button_HTMLOpenFullReport.TabIndex = 0;
             this.toolTip1.SetToolTip(this.button_HTMLOpenFullReport, "открыть в браузере (полный  отчет )\r\nвсе  еще в разработке ");
             this.button_HTMLOpenFullReport.UseVisualStyleBackColor = true;
+            this.button_HTMLOpenFullReport.Click += new System.EventHandler(this.button_HTMLOpenFullReport_Click);
             // 
             // menuStrip1
             // 
@@ -510,37 +492,12 @@
             // 
             // flowLayoutPanel3
             // 
-            this.flowLayoutPanel3.Controls.Add(this.button_PartExcelReport);
-            this.flowLayoutPanel3.Controls.Add(this.button_PartHtmlReport);
+            this.flowLayoutPanel3.Controls.Add(this.button_ExcelOpenFullReport);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 19);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(151, 71);
             this.flowLayoutPanel3.TabIndex = 1;
-            // 
-            // button_PartExcelReport
-            // 
-            this.button_PartExcelReport.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_PartExcelReport.BackgroundImage")));
-            this.button_PartExcelReport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button_PartExcelReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_PartExcelReport.Location = new System.Drawing.Point(3, 3);
-            this.button_PartExcelReport.Name = "button_PartExcelReport";
-            this.button_PartExcelReport.Size = new System.Drawing.Size(63, 64);
-            this.button_PartExcelReport.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.button_PartExcelReport, "Открыть в excel,  только то что выгружено \r\n(еще  в разработке )\r\n");
-            this.button_PartExcelReport.UseVisualStyleBackColor = true;
-            // 
-            // button_PartHtmlReport
-            // 
-            this.button_PartHtmlReport.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_PartHtmlReport.BackgroundImage")));
-            this.button_PartHtmlReport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button_PartHtmlReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_PartHtmlReport.Location = new System.Drawing.Point(72, 3);
-            this.button_PartHtmlReport.Name = "button_PartHtmlReport";
-            this.button_PartHtmlReport.Size = new System.Drawing.Size(63, 64);
-            this.button_PartHtmlReport.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.button_PartHtmlReport, "Открыть в  формате  html, только то что выгружено\r\n(еще  в разработке )");
-            this.button_PartHtmlReport.UseVisualStyleBackColor = true;
             // 
             // dataGridViewPC_Name
             // 
@@ -552,7 +509,7 @@
             this.dataGridViewPC_Name.Name = "dataGridViewPC_Name";
             this.dataGridViewPC_Name.RowTemplate.DividerHeight = 2;
             this.dataGridViewPC_Name.RowTemplate.Height = 25;
-            this.dataGridViewPC_Name.Size = new System.Drawing.Size(167, 463);
+            this.dataGridViewPC_Name.Size = new System.Drawing.Size(166, 463);
             this.dataGridViewPC_Name.TabIndex = 4;
             this.toolTip1.SetToolTip(this.dataGridViewPC_Name, "частичные отчеты ");
             this.dataGridViewPC_Name.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPC_Name_CellEnter);
@@ -607,7 +564,7 @@
             this.dataGridViewMT.Name = "dataGridViewMT";
             this.dataGridViewMT.RowTemplate.DividerHeight = 2;
             this.dataGridViewMT.RowTemplate.Height = 25;
-            this.dataGridViewMT.Size = new System.Drawing.Size(1183, 463);
+            this.dataGridViewMT.Size = new System.Drawing.Size(1184, 463);
             this.dataGridViewMT.TabIndex = 3;
             this.dataGridViewMT.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewMT_CellContentDoubleClick);
             this.dataGridViewMT.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewMT_CellFormatting);
@@ -651,7 +608,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.dataGridViewMT);
             this.splitContainer1.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.splitContainer1.Size = new System.Drawing.Size(1353, 463);
-            this.splitContainer1.SplitterDistance = 167;
+            this.splitContainer1.SplitterDistance = 166;
             this.splitContainer1.SplitterWidth = 3;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -891,7 +848,6 @@
         private System.Windows.Forms.TextBox textBox_Number;
         private System.Windows.Forms.GroupBox groupBox_Set_Data;
         private System.Windows.Forms.Button button_Update;
-        private System.Windows.Forms.Button button_Repair;
         private System.Windows.Forms.Button button_Delete;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.MenuStrip menuStrip1;
@@ -900,8 +856,6 @@
         private System.Windows.Forms.ToolStripMenuItem Info_ToolStripMenuItem;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button_PartExcelReport;
-        private System.Windows.Forms.Button button_PartHtmlReport;
         private System.Windows.Forms.GroupBox groupBox_MegaFiltr;
         private System.Windows.Forms.Button button_Search;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_sentDef;

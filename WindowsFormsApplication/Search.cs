@@ -26,7 +26,7 @@ namespace WindowsFormsApplication
         public Search()
         {
             InitializeComponent();
-            dateTimePicker1.Value = DateTime.Today.AddDays(-365);
+            dateTimePicker1.Value = DateTime.Today.AddDays(-3650);
             button_MainTB_Click(null, null);
             ValumeComboBox();
         }
@@ -352,8 +352,6 @@ namespace WindowsFormsApplication
                                 Lan,
                                 flag_button,
                                 row.Cells["Note"].Value.ToString());
-
-
                         }
                     }
                 }
@@ -362,6 +360,11 @@ namespace WindowsFormsApplication
                     MessageBox.Show("Количество выбранных объектов превышает допустимое значение (одна позиции за раз)",
                    "Боливар не вынесет двоих", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+        }
+
+        private void button_ExcelOpenFullReport_Click(object sender, EventArgs e)
+        {
+            bll.excel(dataGridView);
         }
     }
 }

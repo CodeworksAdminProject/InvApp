@@ -359,25 +359,15 @@ namespace WindowsFormsApplication
             
         }
 
-        public void excel()
+        public void excel(DataGridView datagrid)
         {
-            
-            
-            string data;
             try
             {
-                DataTable floorArray = dalGet.GetFloorTable();
-                int floorCount = 0 ;
-
-                foreach (DataRow row in floorArray.Rows)
-                {
-                    floorCount++;
-                }
-
-                    Microsoft.Office.Interop.Excel.Application excApp = new Excel.Application();
+               
+                Microsoft.Office.Interop.Excel.Application excApp = new Excel.Application();
                 // книга 
                 excApp.Visible = true;
-                excApp.SheetsInNewWorkbook = floorCount++;
+                excApp.SheetsInNewWorkbook = 1;
                 excApp.Workbooks.Add(Type.Missing);
                
                
@@ -385,215 +375,60 @@ namespace WindowsFormsApplication
                 excApp.ReferenceStyle = Excel.XlReferenceStyle.xlA1;
                 // временно  неактивный  докуметн
                 excApp.Interactive = false;
-                excApp.EnableEvents = false;
-                Microsoft.Office.Interop.Excel.XlBordersIndex BorderIndex;
+                excApp.EnableEvents = false;                
                 Excel.Worksheet excSheet;
-                double height = 2;
+                excSheet = (Excel.Worksheet)excApp.Worksheets.get_Item(1);
+                excSheet.Name = "DATA OF GRID";
 
-                //мутим  файл 
-                
+                Excel.Range excSheetRange = excSheet.get_Range("A1", "O1");
+                excSheetRange = excSheet.get_Range("A1", "O1");
+                excSheetRange.WrapText = true;
+                excSheetRange.Font.Italic = true;
+                excSheetRange.Font.Size = 14;
+                excSheetRange.Interior.ColorIndex = 40;
+                excSheetRange.HorizontalAlignment = Excel.Constants.xlCenter;
+                excSheetRange.VerticalAlignment = Excel.Constants.xlCenter;
+                Excel.Borders border = excSheetRange.Borders;
+                border.LineStyle = Excel.XlLineStyle.xlContinuous;
 
-               // for (int i = 0; i < floorArray.Rows.Count-1; i++)
-                //  excSheet = (Excel.Worksheet)excApp.Worksheets.Add();
 
-                for (int i = 0; i < floorArray.Rows.Count; i++)
+                for (int i = 0; i < datagrid.Columns.Count; i++)
                 {
-                    int coll = 1;
-                    int row = 1;
-                    // excSheet = (Excel.Worksheet)excApp.Worksheets.Add();
-                    excSheet = (Excel.Worksheet)excApp.Worksheets.get_Item(1+i);
-                   
+                    excSheet.Cells[1, i + 1] = datagrid.Columns[i].HeaderText;
+                }
 
-                    excSheet.Name = floorArray.Rows[i].ItemArray[0].ToString() + " этаж";
-
-                    DataTable roomArray = dalGet.GetRoomTabel(floorArray.Rows[i].ItemArray[0].ToString());
-                    
-
-
-
-                    for (int t = 0; t < roomArray.Rows.Count; t++)
+                int n=1;
+                for (int i = 0; i < datagrid.Rows.Count; i++)
+                {
+                    excSheetRange = excSheet.get_Range("A" + (i+2), "O" + (i + 2));
+                    excSheetRange.NumberFormat = "@";
+                    for (int j = 0; j < datagrid.Columns.Count; j++)
                     {
-                        int frameRoomColl = coll;
-                        int framRoomRow = row;
-                        excSheet.Activate();
-                        Excel.Range excSheetRange = excSheet.get_Range("A" + row, "I" + row);
-                        excSheetRange.Font.Size = 5;
-                        excSheetRange.RowHeight = height;
-                        excSheetRange.Rows.ColumnWidth = 
-                        excSheetRange.Interior.ColorIndex = 1;
-                        row++;
-
-                        excSheetRange.Columns[1].ColumnWidth = 5;
-                        excSheetRange.Columns[2].ColumnWidth = 5;
-                        excSheetRange.Columns[3].ColumnWidth = 19;
-                        excSheetRange.Columns[4].ColumnWidth = 15;
-                        excSheetRange.Columns[5].ColumnWidth = 10;
-                        excSheetRange.Columns[6].ColumnWidth = 18;
-                        excSheetRange.Columns[7].ColumnWidth = 25;
-                        excSheetRange.Columns[8].ColumnWidth = 25;
-                        excSheetRange.Columns[9].ColumnWidth = 37;
-
-                        excSheetRange = excSheet.get_Range("A" + row, "I" + row);
-                        excSheetRange.Merge(Type.Missing);
-                        excSheetRange.WrapText = true;
-                        excSheetRange.Font.Bold = true;
-                        excSheetRange.Font.Size = 18;
-                        excSheetRange.Interior.ColorIndex = 37;
-                        excSheetRange.HorizontalAlignment = Excel.Constants.xlCenter;
-                        excSheetRange.VerticalAlignment = Excel.Constants.xlCenter;
-                        excSheetRange.Value2 = "Комната: " + roomArray.Rows[t].ItemArray[0].ToString() +
-                            ", этаж: " + floorArray.Rows[i].ItemArray[0].ToString();
-                        row++;
-
-                        excSheetRange = excSheet.get_Range("B" + row, "I" + row);
-                        excSheetRange.WrapText = true;
-                        excSheetRange.Font.Italic = true;
-                        excSheetRange.Font.Size = 11;
-                        excSheetRange.Interior.ColorIndex = 40;
-                        excSheetRange.HorizontalAlignment = Excel.Constants.xlCenter;
-                        excSheetRange.VerticalAlignment = Excel.Constants.xlCenter;
-                        Excel.Borders border = excSheetRange.Borders;
-                        border.LineStyle = Excel.XlLineStyle.xlContinuous;
-                        excSheet.Cells[row, 3] = "дата записи в  БД";
-                        excSheet.Cells[row, 4] = "Инвентарный номер";
-                        excSheet.Cells[row, 5] = "Тип учёта";
-                        excSheet.Cells[row, 6] = "Ответственный";
-                        excSheet.Cells[row, 7] = "Тип устройства";
-                        excSheet.Cells[row, 8] = "Серийный номер";
-                        excSheet.Cells[row, 9] = "Модель";
-                        row++;
-
-                        DataTable LanNameArray = dalGet.GetLanNameTabel(roomArray.Rows[t].ItemArray[0].ToString());
-
-                        for (int w = 0; w < LanNameArray.Rows.Count; w++)
-                        {
-                            excSheetRange = excSheet.get_Range("B" + row, "I" + row);
-                            excSheetRange.Merge(Type.Missing);
-                            excSheetRange.Interior.ColorIndex = 1;
-                            excSheetRange.Font.Size = 2;
-                            excSheetRange.RowHeight = height;
-                            row++;
-
-                            excSheetRange = excSheet.get_Range("B" + row, "I" + row);
-                            excSheetRange.Merge(Type.Missing);
-                            excSheetRange.WrapText = true;
-                            excSheetRange.Font.Bold = true;
-                            excSheetRange.Font.Size = 14;
-                            excSheetRange.Interior.ColorIndex = 39;
-                            excSheetRange.HorizontalAlignment = Excel.Constants.xlCenter;
-                            excSheetRange.VerticalAlignment = Excel.Constants.xlCenter;
-                            excSheetRange.Value2 = LanNameArray.Rows[w].ItemArray[0].ToString() + ":";
-                            row++;
-
-                            DataTable MainArray = dalGet.GetMainTabel(LanNameArray.Rows[w].ItemArray[0].ToString(),
-                                roomArray.Rows[t].ItemArray[0].ToString());
-
-                            for (int x = 0; x < MainArray.Rows.Count; x++)
-                            {
-
-                               // excSheetRange.Font.Size = 12;
-                                //border = excSheetRange.Borders;
-                                //border.LineStyle = Excel.XlLineStyle.xlContinuous;
-
-                                excSheetRange = excSheet.get_Range("d" + row, "I" + row);
-                                excSheetRange.NumberFormat = "@"; 
-                                for (int z = 0; z < MainArray.Columns.Count; z++)
-                                {
-                                    data = MainArray.Rows[x].ItemArray[z].ToString();
-                                    excSheet.Cells[row, z + 3] = data;
-                                }
-
-                                excSheetRange = excSheet.get_Range("C" + row);
-                                excSheetRange.NumberFormat = "dd.mmmm.yyyy";
-
-                                excSheetRange = excSheet.get_Range("C" + row, "I" + row);
-                                excSheetRange.Font.Size = 12;
-                                border = excSheetRange.Borders;
-                                border.LineStyle = Excel.XlLineStyle.xlContinuous;
-                                row++;
-                                //excSheetRange.Columns.AutoFit();
-                                excSheetRange.Rows.AutoFit();
-                            }
-
-                            excSheetRange = excSheet.get_Range("B" + (framRoomRow + 3), "I" + (row - 1));
-                            
-
-                            BorderIndex = Microsoft.Office.Interop.Excel.XlBordersIndex.xlEdgeLeft;
-                            excSheetRange.Borders[BorderIndex].Weight = Microsoft.Office.Interop.Excel.XlBorderWeight.xlThin;
-                            excSheetRange.Borders[BorderIndex].LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
-                            excSheetRange.Borders[BorderIndex].ColorIndex = 0;
-
-
-                            BorderIndex = Microsoft.Office.Interop.Excel.XlBordersIndex.xlEdgeTop;
-                            excSheetRange.Borders[BorderIndex].Weight = Microsoft.Office.Interop.Excel.XlBorderWeight.xlThin;
-                            excSheetRange.Borders[BorderIndex].LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
-                            excSheetRange.Borders[BorderIndex].ColorIndex = 0;
-
-
-                            BorderIndex = Microsoft.Office.Interop.Excel.XlBordersIndex.xlEdgeBottom;
-                            excSheetRange.Borders[BorderIndex].Weight = Microsoft.Office.Interop.Excel.XlBorderWeight.xlThin;
-                            excSheetRange.Borders[BorderIndex].LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
-                            excSheetRange.Borders[BorderIndex].ColorIndex = 0;
-
-                            BorderIndex = Microsoft.Office.Interop.Excel.XlBordersIndex.xlEdgeRight;
-                            excSheetRange.Borders[BorderIndex].Weight = Microsoft.Office.Interop.Excel.XlBorderWeight.xlThin;
-                            excSheetRange.Borders[BorderIndex].LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
-                            excSheetRange.Borders[BorderIndex].ColorIndex = 0;
-
-                        }
-
-                        excSheetRange = excSheet.get_Range("A" + framRoomRow, "I" + (row-1));
-                        BorderIndex = Microsoft.Office.Interop.Excel.XlBordersIndex.xlEdgeLeft;
-                        excSheetRange.Borders[BorderIndex].Weight = Microsoft.Office.Interop.Excel.XlBorderWeight.xlThin;
-                        excSheetRange.Borders[BorderIndex].LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
-                        excSheetRange.Borders[BorderIndex].ColorIndex = 0;
-
-
-                        BorderIndex = Microsoft.Office.Interop.Excel.XlBordersIndex.xlEdgeTop;
-                        excSheetRange.Borders[BorderIndex].Weight = Microsoft.Office.Interop.Excel.XlBorderWeight.xlThin;
-                        excSheetRange.Borders[BorderIndex].LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
-                        excSheetRange.Borders[BorderIndex].ColorIndex = 0;
-
-
-                        BorderIndex = Microsoft.Office.Interop.Excel.XlBordersIndex.xlEdgeBottom;
-                        excSheetRange.Borders[BorderIndex].Weight = Microsoft.Office.Interop.Excel.XlBorderWeight.xlThin;
-                        excSheetRange.Borders[BorderIndex].LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
-                        excSheetRange.Borders[BorderIndex].ColorIndex = 0;
-
-                        BorderIndex = Microsoft.Office.Interop.Excel.XlBordersIndex.xlEdgeRight;
-                        excSheetRange.Borders[BorderIndex].Weight = Microsoft.Office.Interop.Excel.XlBorderWeight.xlThin;
-                        excSheetRange.Borders[BorderIndex].LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
-                        excSheetRange.Borders[BorderIndex].ColorIndex = 0;
-
-                        //excSheetRange = excSheet.UsedRange;
-                        
-                        releaseObject(excSheetRange);
-
+                        excSheet.Cells[i+2, j + 1] = datagrid.Rows[i].Cells[j].Value.ToString();
                     }
 
-
-
-                 releaseObject(excSheet);   
+                    excSheetRange = excSheet.get_Range("A" + (i + 2), "O" + (i + 2));
+                    excSheetRange.Font.Size = 12;
+                    border = excSheetRange.Borders;
+                    border.LineStyle = Excel.XlLineStyle.xlContinuous;
+                    n++;
                 }
-               
 
-           // excApp.Visible = true;
-            excApp.Interactive = true;
-            excApp.ScreenUpdating = true;
-            excApp.UserControl = true;
-            releaseObject(excApp);
+                 excSheetRange = excSheet.get_Range("A1", "O" + n);
+                 excSheetRange.Columns.AutoFit();
+                 excSheetRange.Rows.AutoFit();              
 
-
-
-            }
-           
+                 // excApp.Visible = true;
+                 excApp.Interactive = true;
+                 excApp.ScreenUpdating = true;
+                 excApp.UserControl = true;
+                 releaseObject(excApp);
+            }          
 
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
-            }
-
-            
+            }         
             
         }
 

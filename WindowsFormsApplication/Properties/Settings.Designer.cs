@@ -1762,5 +1762,29 @@ namespace WindowsFormsApplication.Properties {
                 this["prin_labe_HW_PC"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("404 серверная,522 Серверная,519 TV Серверная")]
+        public string room {
+            get {
+                return ((string)(this["room"]));
+            }
+            set {
+                this["room"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("codeworks_inv")]
+        public string namefile {
+            get {
+                return ((string)(this["namefile"]));
+            }
+            set {
+                this["namefile"] = value;
+            }
+        }
     }
 }

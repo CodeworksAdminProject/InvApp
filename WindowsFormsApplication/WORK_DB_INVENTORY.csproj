@@ -27,7 +27,7 @@
     <ProductName>Inventory</ProductName>
     <PublisherName>Zimburavi©</PublisherName>
     <SuiteName>Inventory</SuiteName>
-    <ApplicationRevision>17</ApplicationRevision>
+    <ApplicationRevision>18</ApplicationRevision>
     <ApplicationVersion>0.1.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -134,6 +134,7 @@
     </Compile>
     <Compile Include="BLL_Buttoms.cs" />
     <Compile Include="BLL_HTML_Report.cs" />
+    <Compile Include="BLL_REPORTS.cs" />
     <Compile Include="BLL_Search.cs" />
     <Compile Include="changeFormOne.cs">
       <SubType>Form</SubType>
@@ -153,6 +154,7 @@
     <Compile Include="ChangeHardWare.Designer.cs">
       <DependentUpon>ChangeHardWare.cs</DependentUpon>
     </Compile>
+    <Compile Include="DAL_GET_REPORT.cs" />
     <Compile Include="DAL_SEARCH.cs" />
     <Compile Include="DAL_SET_Buttons.cs" />
     <Compile Include="Delete.cs">
@@ -202,6 +204,12 @@
       <DependentUpon>NewItemsHW.cs</DependentUpon>
     </Compile>
     <Compile Include="New_devices.cs" />
+    <Compile Include="Reports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports.Designer.cs">
+      <DependentUpon>Reports.cs</DependentUpon>
+    </Compile>
     <Compile Include="Search.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -247,6 +255,7 @@
     <Compile Include="SetNewDataBase.Designer.cs">
       <DependentUpon>SetNewDataBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="SMTP_CLIENT_REPORT.cs" />
     <Compile Include="SMTP_CLIENT.cs" />
     <Compile Include="SN.cs">
       <SubType>Form</SubType>
@@ -312,6 +321,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reports.resx">
+      <DependentUpon>Reports.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Search.resx">
       <DependentUpon>Search.cs</DependentUpon>
     </EmbeddedResource>
@@ -416,6 +428,7 @@
     <None Include="Resources\LOG2.old.BMP" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\X Coordinate_64px.png" />
     <None Include="Resources\Pencil_64px.png" />
     <None Include="Resources\Horizontal Line_48px.png" />
     <None Include="Resources\Card Exchange_48px.png" />

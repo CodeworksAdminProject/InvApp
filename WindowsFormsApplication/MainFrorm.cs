@@ -346,7 +346,7 @@ namespace WindowsFormsApplication
 
         private void button_ExcelOpen_Click(object sender, EventArgs e)
         {
-            bll.excel();
+            bll.excel(dataGridViewMT);
         }
 
         private void Settings_ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -791,6 +791,17 @@ namespace WindowsFormsApplication
             }
             bllButtoms.Note(AddId, flag_button);
             Update_Grid();
+        }
+
+        private void button_HTMLOpenFullReport_Click(object sender, EventArgs e)
+        {
+            Reports report = new Reports();
+            report.Show();
+        }
+
+        private void button_PartHtmlReport_Click(object sender, EventArgs e)
+        {
+
         }
     } 
 }
